@@ -58,7 +58,7 @@ function HomePage() {
           </h1>
           <p className="mt-4 text-sm text-ink-soft leading-relaxed">
             I keep this to remember what I made, what I was thinking, and how different threads keep
-            crossing. It is open to anyone curious enough to wander.
+            crossing. It is open to anyone who wants to wander.
           </p>
         </section>
 

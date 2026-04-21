@@ -1,6 +1,6 @@
 # Story 2.1: Refine Home Portal Messaging
 
-Status: review
+Status: done
 
 ## Story
 
@@ -38,6 +38,10 @@ so that I understand what this place is without feeling pitched to.
   - [x] Mark this story `review` after checks pass.
   - [x] Update sprint status to `review`.
   - [x] Record command results and warnings in Dev Agent Record.
+
+### Review Findings
+
+- [x] [Review][Patch] "curious enough to wander" can imply a threshold for visitors. Replaced with "anyone who wants to wander" to keep the Home / Portal warmer and more open. [src/routes/index.tsx]
 
 ## Dev Notes
 
@@ -102,6 +106,7 @@ GPT-5.4
 - Refined the Home / Portal premise from "archive" wording into a warmer "personal logbook" framing.
 - Rewrote the Home / Portal paragraph to explain that the site records what was made, what was being thought through, and where threads cross.
 - Updated route card descriptions to be more useful and less terse while preserving route labels, order, and layout.
+- Addressed review copy nit by replacing "curious enough to wander" with "anyone who wants to wander."
 - Preserved the notebook/log visual rhythm and made no route or layout changes.
 
 ### File List
@@ -115,3 +120,4 @@ Expected files touched:
 ### Change Log
 
 - 2026-04-22: Refined Home / Portal premise and route descriptions, verified shell/lint/build, and moved story to review.
+- 2026-04-22: Addressed review tone nit in Home / Portal copy; story moved to done.
