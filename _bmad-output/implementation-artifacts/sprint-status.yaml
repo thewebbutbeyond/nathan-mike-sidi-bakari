@@ -1,5 +1,5 @@
 # generated: 2026-04-21T21:48:59Z
-# last_updated: 2026-04-22T05:20:00Z
+# last_updated: 2026-04-22T05:30:00Z
 # project: nathansidib
 # project_key: NOKEY
 # tracking_system: file-system
@@ -24,7 +24,7 @@
 #   - done: Retrospective has been completed
 
 generated: 2026-04-21T21:48:59Z
-last_updated: 2026-04-22T05:20:00Z
+last_updated: 2026-04-22T05:30:00Z
 project: nathansidib
 project_key: NOKEY
 tracking_system: file-system
@@ -72,9 +72,9 @@ development_status:
   # Epic 4 Retrospective
   epic-4-retrospective: done
   # Notes and RSS Reading Experience
-  epic-5: backlog
+  epic-5: in-progress
   # Harden Notes Index
-  5-1-harden-notes-index: backlog
+  5-1-harden-notes-index: ready-for-dev
   # Productionize Note Detail
   5-2-productionize-note-detail: backlog
   # Validate RSS Feed
