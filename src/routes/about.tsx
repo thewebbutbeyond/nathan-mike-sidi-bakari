@@ -21,7 +21,7 @@ export const Route = createFileRoute("/about")({
   component: AboutPage,
 });
 
-const ABOUT_TEXT = `I am Nathan. I write code, run small companies, underwrite a few investments a year, and draw most evenings. This site is a working logbook - kept for myself first, shared openly with anyone curious.
+const ABOUT_TEXT = `I am Nathan. I write code, run small companies, underwrite a few investments a year, and draw most evenings. This site is a working logbook, kept for myself first and shared openly with anyone curious.
 
 I started keeping an archive in 2024 because I wanted a place where the work could be the work: a half-finished thing or an old letter sitting next to a current project, with honesty as the criterion for inclusion rather than impressiveness.
 

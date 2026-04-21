@@ -28,7 +28,7 @@ function CollectionsPage() {
         <PageHeader
           eyebrow="lenses"
           title="The same archive, seen through different lenses."
-          description="Most entries belong to more than one lens - a company is also engineering, a drawing is sometimes an investment memo. The lines are useful, not strict."
+          description="Most entries belong to more than one lens. A company is also engineering, a drawing is sometimes an investment memo. The lines are useful, not strict."
         />
 
         <ul className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-rule border border-rule">

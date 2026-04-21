@@ -35,7 +35,7 @@ function TimelinePage() {
         <PageHeader
           eyebrow="timeline"
           title="Everything, by date."
-          description="Most recent at the top. Marked entries - the chefs-d’œuvre - are flagged in line. Each one opens to its own page."
+          description="Most recent at the top. Marked entries (the chefs-d’œuvre) are flagged in line. Each one opens to its own page."
         />
 
         <div className="space-y-12">
