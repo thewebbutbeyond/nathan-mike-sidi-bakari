@@ -11,7 +11,6 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TimelineRouteImport } from './routes/timeline'
 import { Route as TermsRouteImport } from './routes/terms'
-import { Route as SelectedRouteImport } from './routes/selected'
 import { Route as RssDotxmlRouteImport } from './routes/rss[.]xml'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as NotesRouteImport } from './routes/notes'
@@ -35,11 +34,6 @@ const TimelineRoute = TimelineRouteImport.update({
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
   path: '/terms',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SelectedRoute = SelectedRouteImport.update({
-  id: '/selected',
-  path: '/selected',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RssDotxmlRoute = RssDotxmlRouteImport.update({
@@ -123,7 +117,6 @@ export interface FileRoutesByFullPath {
   '/notes': typeof NotesRouteWithChildren
   '/privacy': typeof PrivacyRoute
   '/rss.xml': typeof RssDotxmlRoute
-  '/selected': typeof SelectedRoute
   '/terms': typeof TermsRoute
   '/timeline': typeof TimelineRoute
   '/entries/$slug': typeof EntriesSlugRoute
@@ -140,7 +133,6 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/privacy': typeof PrivacyRoute
   '/rss.xml': typeof RssDotxmlRoute
-  '/selected': typeof SelectedRoute
   '/terms': typeof TermsRoute
   '/timeline': typeof TimelineRoute
   '/entries/$slug': typeof EntriesSlugRoute
@@ -160,7 +152,6 @@ export interface FileRoutesById {
   '/notes': typeof NotesRouteWithChildren
   '/privacy': typeof PrivacyRoute
   '/rss.xml': typeof RssDotxmlRoute
-  '/selected': typeof SelectedRoute
   '/terms': typeof TermsRoute
   '/timeline': typeof TimelineRoute
   '/entries/$slug': typeof EntriesSlugRoute
@@ -181,7 +172,6 @@ export interface FileRouteTypes {
     | '/notes'
     | '/privacy'
     | '/rss.xml'
-    | '/selected'
     | '/terms'
     | '/timeline'
     | '/entries/$slug'
@@ -198,7 +188,6 @@ export interface FileRouteTypes {
     | '/contact'
     | '/privacy'
     | '/rss.xml'
-    | '/selected'
     | '/terms'
     | '/timeline'
     | '/entries/$slug'
@@ -217,7 +206,6 @@ export interface FileRouteTypes {
     | '/notes'
     | '/privacy'
     | '/rss.xml'
-    | '/selected'
     | '/terms'
     | '/timeline'
     | '/entries/$slug'
@@ -237,7 +225,6 @@ export interface RootRouteChildren {
   NotesRoute: typeof NotesRouteWithChildren
   PrivacyRoute: typeof PrivacyRoute
   RssDotxmlRoute: typeof RssDotxmlRoute
-  SelectedRoute: typeof SelectedRoute
   TermsRoute: typeof TermsRoute
   TimelineRoute: typeof TimelineRoute
   EntriesSlugRoute: typeof EntriesSlugRoute
@@ -257,13 +244,6 @@ declare module '@tanstack/react-router' {
       path: '/terms'
       fullPath: '/terms'
       preLoaderRoute: typeof TermsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/selected': {
-      id: '/selected'
-      path: '/selected'
-      fullPath: '/selected'
-      preLoaderRoute: typeof SelectedRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/rss.xml': {
@@ -402,7 +382,6 @@ const rootRouteChildren: RootRouteChildren = {
   NotesRoute: NotesRouteWithChildren,
   PrivacyRoute: PrivacyRoute,
   RssDotxmlRoute: RssDotxmlRoute,
-  SelectedRoute: SelectedRoute,
   TermsRoute: TermsRoute,
   TimelineRoute: TimelineRoute,
   EntriesSlugRoute: EntriesSlugRoute,
