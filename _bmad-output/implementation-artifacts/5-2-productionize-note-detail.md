@@ -1,6 +1,6 @@
 # Story 5.2: Productionize Note Detail
 
-Status: review
+Status: done
 
 ## Story
 
@@ -99,3 +99,4 @@ GPT-5.4
 ### Change Log
 
 - 2026-04-22: Extended notes validation to cover Note Detail, verified notes/search/lenses/timeline/entry/shell/lint/build, and moved story to review.
+- 2026-04-22: Code review completed with no blocking findings; story moved to done.
