@@ -33,7 +33,7 @@ function SelectedPage() {
         <PageHeader
           eyebrow="chefs-d’œuvre"
           title="A few marked entries."
-          description="A small set of pieces I’d hand someone if they only had ten minutes, pulled from the timeline rather than curated for show. The French label is half-serious; treat it as a friendly nod, not a claim."
+          description="A small set of pieces I’d hand someone if they only had ten minutes."
         />
         <ArtifactList artifacts={selected} />
       </Container>
