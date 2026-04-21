@@ -2,6 +2,8 @@ import { Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 import { Github, Linkedin, Rss } from "lucide-react";
 
+import { SearchTrigger } from "@/components/search-palette";
+
 const NAV = [
   { to: "/chefs-doeuvre", label: "Chefs-d’œuvre" },
   { to: "/timeline", label: "Timeline" },
@@ -54,6 +56,8 @@ function SiteHeader() {
           >
             contact
           </Link>
+          <span className="text-ink-faint">·</span>
+          <SearchTrigger />
         </nav>
       </div>
     </header>
