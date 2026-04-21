@@ -1,7 +1,24 @@
 import "@tanstack/router-core";
 
 declare module "@tanstack/router-core" {
-  interface FilebaseRouteOptionsInterface {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  interface FilebaseRouteOptionsInterface<
+    TRegister = unknown,
+    TParentRoute = unknown,
+    TId = unknown,
+    TPath = unknown,
+    TSearchValidator = unknown,
+    TParams = unknown,
+    TLoaderDeps = unknown,
+    TLoaderFn = unknown,
+    TRouterContext = unknown,
+    TRouteContextFn = unknown,
+    TBeforeLoadFn = unknown,
+    TRemountDepsFn = unknown,
+    TSSR = unknown,
+    TServerMiddlewares = unknown,
+    THandlers = unknown,
+  > {
     server?: {
       handlers?: {
         GET?: (ctx: { request: Request }) => Response | Promise<Response>;
