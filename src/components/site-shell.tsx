@@ -73,10 +73,38 @@ function SiteFooter() {
             Friedrich Nietzsche
           </footer>
         </blockquote>
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pt-4 border-t border-rule">
-          <div>
-            <span className="text-ink-faint">©</span> {year} · nathan mike sidi bakari
-          </div>
+
+        {/* Row 1: sitemap (left) + legal (right) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4 border-t border-rule">
+          <nav aria-label="Sitemap" className="flex flex-wrap gap-x-5 gap-y-2">
+            {NAV.map((item) => (
+              <Link
+                key={item.to}
+                to={item.to}
+                className="text-ink-soft hover:text-ink"
+              >
+                {item.label.toLocaleLowerCase("fr")}
+              </Link>
+            ))}
+          </nav>
+          <nav
+            aria-label="Legal"
+            className="flex flex-wrap gap-x-5 gap-y-2 sm:justify-end"
+          >
+            <Link to="/privacy" className="text-ink-soft hover:text-ink">
+              privacy
+            </Link>
+            <Link to="/terms" className="text-ink-soft hover:text-ink">
+              terms
+            </Link>
+            <Link to="/colophon" className="text-ink-soft hover:text-ink">
+              colophon
+            </Link>
+          </nav>
+        </div>
+
+        {/* Row 2: socials (left) + copyright (right) */}
+        <div className="flex flex-col-reverse sm:flex-row sm:items-center sm:justify-between gap-3">
           <div className="flex items-center gap-4">
             <a
               href="https://www.linkedin.com/in/nathan-sidi-bakari-686007199"
@@ -103,6 +131,9 @@ function SiteFooter() {
             >
               <Rss size={14} strokeWidth={1.5} />
             </a>
+          </div>
+          <div className="sm:text-right">
+            <span className="text-ink-faint">©</span> {year} · nathan mike sidi bakari
           </div>
         </div>
       </div>

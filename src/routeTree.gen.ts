@@ -10,11 +10,14 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TimelineRouteImport } from './routes/timeline'
+import { Route as TermsRouteImport } from './routes/terms'
 import { Route as SelectedRouteImport } from './routes/selected'
 import { Route as RssDotxmlRouteImport } from './routes/rss[.]xml'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as NotesRouteImport } from './routes/notes'
 import { Route as LensesRouteImport } from './routes/lenses'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as ColophonRouteImport } from './routes/colophon'
 import { Route as ChefsDoeuvreRouteImport } from './routes/chefs-doeuvre'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
@@ -29,6 +32,11 @@ const TimelineRoute = TimelineRouteImport.update({
   path: '/timeline',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SelectedRoute = SelectedRouteImport.update({
   id: '/selected',
   path: '/selected',
@@ -37,6 +45,11 @@ const SelectedRoute = SelectedRouteImport.update({
 const RssDotxmlRoute = RssDotxmlRouteImport.update({
   id: '/rss.xml',
   path: '/rss.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NotesRoute = NotesRouteImport.update({
@@ -52,6 +65,11 @@ const LensesRoute = LensesRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ColophonRoute = ColophonRouteImport.update({
+  id: '/colophon',
+  path: '/colophon',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ChefsDoeuvreRoute = ChefsDoeuvreRouteImport.update({
@@ -99,11 +117,14 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/chefs-doeuvre': typeof ChefsDoeuvreRoute
+  '/colophon': typeof ColophonRoute
   '/contact': typeof ContactRoute
   '/lenses': typeof LensesRouteWithChildren
   '/notes': typeof NotesRouteWithChildren
+  '/privacy': typeof PrivacyRoute
   '/rss.xml': typeof RssDotxmlRoute
   '/selected': typeof SelectedRoute
+  '/terms': typeof TermsRoute
   '/timeline': typeof TimelineRoute
   '/entries/$slug': typeof EntriesSlugRoute
   '/lenses/$slug': typeof LensesSlugRoute
@@ -115,9 +136,12 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/chefs-doeuvre': typeof ChefsDoeuvreRoute
+  '/colophon': typeof ColophonRoute
   '/contact': typeof ContactRoute
+  '/privacy': typeof PrivacyRoute
   '/rss.xml': typeof RssDotxmlRoute
   '/selected': typeof SelectedRoute
+  '/terms': typeof TermsRoute
   '/timeline': typeof TimelineRoute
   '/entries/$slug': typeof EntriesSlugRoute
   '/lenses/$slug': typeof LensesSlugRoute
@@ -130,11 +154,14 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/chefs-doeuvre': typeof ChefsDoeuvreRoute
+  '/colophon': typeof ColophonRoute
   '/contact': typeof ContactRoute
   '/lenses': typeof LensesRouteWithChildren
   '/notes': typeof NotesRouteWithChildren
+  '/privacy': typeof PrivacyRoute
   '/rss.xml': typeof RssDotxmlRoute
   '/selected': typeof SelectedRoute
+  '/terms': typeof TermsRoute
   '/timeline': typeof TimelineRoute
   '/entries/$slug': typeof EntriesSlugRoute
   '/lenses/$slug': typeof LensesSlugRoute
@@ -148,11 +175,14 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/chefs-doeuvre'
+    | '/colophon'
     | '/contact'
     | '/lenses'
     | '/notes'
+    | '/privacy'
     | '/rss.xml'
     | '/selected'
+    | '/terms'
     | '/timeline'
     | '/entries/$slug'
     | '/lenses/$slug'
@@ -164,9 +194,12 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/chefs-doeuvre'
+    | '/colophon'
     | '/contact'
+    | '/privacy'
     | '/rss.xml'
     | '/selected'
+    | '/terms'
     | '/timeline'
     | '/entries/$slug'
     | '/lenses/$slug'
@@ -178,11 +211,14 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/chefs-doeuvre'
+    | '/colophon'
     | '/contact'
     | '/lenses'
     | '/notes'
+    | '/privacy'
     | '/rss.xml'
     | '/selected'
+    | '/terms'
     | '/timeline'
     | '/entries/$slug'
     | '/lenses/$slug'
@@ -195,11 +231,14 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ChefsDoeuvreRoute: typeof ChefsDoeuvreRoute
+  ColophonRoute: typeof ColophonRoute
   ContactRoute: typeof ContactRoute
   LensesRoute: typeof LensesRouteWithChildren
   NotesRoute: typeof NotesRouteWithChildren
+  PrivacyRoute: typeof PrivacyRoute
   RssDotxmlRoute: typeof RssDotxmlRoute
   SelectedRoute: typeof SelectedRoute
+  TermsRoute: typeof TermsRoute
   TimelineRoute: typeof TimelineRoute
   EntriesSlugRoute: typeof EntriesSlugRoute
 }
@@ -211,6 +250,13 @@ declare module '@tanstack/react-router' {
       path: '/timeline'
       fullPath: '/timeline'
       preLoaderRoute: typeof TimelineRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/selected': {
@@ -225,6 +271,13 @@ declare module '@tanstack/react-router' {
       path: '/rss.xml'
       fullPath: '/rss.xml'
       preLoaderRoute: typeof RssDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/notes': {
@@ -246,6 +299,13 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/colophon': {
+      id: '/colophon'
+      path: '/colophon'
+      fullPath: '/colophon'
+      preLoaderRoute: typeof ColophonRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/chefs-doeuvre': {
@@ -336,11 +396,14 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ChefsDoeuvreRoute: ChefsDoeuvreRoute,
+  ColophonRoute: ColophonRoute,
   ContactRoute: ContactRoute,
   LensesRoute: LensesRouteWithChildren,
   NotesRoute: NotesRouteWithChildren,
+  PrivacyRoute: PrivacyRoute,
   RssDotxmlRoute: RssDotxmlRoute,
   SelectedRoute: SelectedRoute,
+  TermsRoute: TermsRoute,
   TimelineRoute: TimelineRoute,
   EntriesSlugRoute: EntriesSlugRoute,
 }
