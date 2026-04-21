@@ -89,6 +89,15 @@ function SiteFooter() {
               <Linkedin size={14} strokeWidth={1.5} />
             </a>
             <a
+              href="https://github.com/nathansidibakari"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+              className="text-ink-soft hover:text-ink"
+            >
+              <Github size={14} strokeWidth={1.5} />
+            </a>
+            <a
               href="/rss.xml"
               aria-label="RSS feed"
               className="text-ink-soft hover:text-ink"
