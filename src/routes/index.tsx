@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { Rss } from "lucide-react";
 import { Container, SiteShell, Tag } from "@/components/site-shell";
 import {
   ARTIFACTS,
@@ -149,9 +150,10 @@ function HomePage() {
               <div className="flex items-center gap-3">
                 <a
                   href="/rss.xml"
-                  className="text-xs text-ink-faint hover:text-ink underline underline-offset-4"
+                  aria-label="RSS feed"
+                  className="text-ink-faint hover:text-ink"
                 >
-                  rss
+                  <Rss size={13} strokeWidth={1.5} />
                 </a>
                 <Link
                   to="/notes"

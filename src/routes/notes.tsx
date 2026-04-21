@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { Rss } from "lucide-react";
 import { Container, PageHeader, SiteShell, Tag } from "@/components/site-shell";
 import { formatDate, sortedNotes } from "@/content/data";
 
@@ -39,9 +40,10 @@ function NotesIndex() {
           />
           <a
             href="/rss.xml"
-            className="text-xs text-ink-soft hover:text-ink underline underline-offset-4 mt-2"
+            aria-label="RSS feed"
+            className="text-ink-soft hover:text-ink mt-2"
           >
-            rss feed →
+            <Rss size={14} strokeWidth={1.5} />
           </a>
         </div>
 
