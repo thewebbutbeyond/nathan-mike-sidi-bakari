@@ -19,6 +19,7 @@ import { Route as ChefsDoeuvreRouteImport } from './routes/chefs-doeuvre'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as NotesIndexRouteImport } from './routes/notes.index'
+import { Route as LensesIndexRouteImport } from './routes/lenses.index'
 import { Route as NotesSlugRouteImport } from './routes/notes.$slug'
 import { Route as LensesSlugRouteImport } from './routes/lenses.$slug'
 import { Route as ArtifactsSlugRouteImport } from './routes/artifacts.$slug'
@@ -73,6 +74,11 @@ const NotesIndexRoute = NotesIndexRouteImport.update({
   path: '/',
   getParentRoute: () => NotesRoute,
 } as any)
+const LensesIndexRoute = LensesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => LensesRoute,
+} as any)
 const NotesSlugRoute = NotesSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -102,6 +108,7 @@ export interface FileRoutesByFullPath {
   '/artifacts/$slug': typeof ArtifactsSlugRoute
   '/lenses/$slug': typeof LensesSlugRoute
   '/notes/$slug': typeof NotesSlugRoute
+  '/lenses/': typeof LensesIndexRoute
   '/notes/': typeof NotesIndexRoute
 }
 export interface FileRoutesByTo {
@@ -109,13 +116,13 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/chefs-doeuvre': typeof ChefsDoeuvreRoute
   '/contact': typeof ContactRoute
-  '/lenses': typeof LensesRouteWithChildren
   '/rss.xml': typeof RssDotxmlRoute
   '/selected': typeof SelectedRoute
   '/timeline': typeof TimelineRoute
   '/artifacts/$slug': typeof ArtifactsSlugRoute
   '/lenses/$slug': typeof LensesSlugRoute
   '/notes/$slug': typeof NotesSlugRoute
+  '/lenses': typeof LensesIndexRoute
   '/notes': typeof NotesIndexRoute
 }
 export interface FileRoutesById {
@@ -132,6 +139,7 @@ export interface FileRoutesById {
   '/artifacts/$slug': typeof ArtifactsSlugRoute
   '/lenses/$slug': typeof LensesSlugRoute
   '/notes/$slug': typeof NotesSlugRoute
+  '/lenses/': typeof LensesIndexRoute
   '/notes/': typeof NotesIndexRoute
 }
 export interface FileRouteTypes {
@@ -149,6 +157,7 @@ export interface FileRouteTypes {
     | '/artifacts/$slug'
     | '/lenses/$slug'
     | '/notes/$slug'
+    | '/lenses/'
     | '/notes/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -156,13 +165,13 @@ export interface FileRouteTypes {
     | '/about'
     | '/chefs-doeuvre'
     | '/contact'
-    | '/lenses'
     | '/rss.xml'
     | '/selected'
     | '/timeline'
     | '/artifacts/$slug'
     | '/lenses/$slug'
     | '/notes/$slug'
+    | '/lenses'
     | '/notes'
   id:
     | '__root__'
@@ -178,6 +187,7 @@ export interface FileRouteTypes {
     | '/artifacts/$slug'
     | '/lenses/$slug'
     | '/notes/$slug'
+    | '/lenses/'
     | '/notes/'
   fileRoutesById: FileRoutesById
 }
@@ -266,6 +276,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NotesIndexRouteImport
       parentRoute: typeof NotesRoute
     }
+    '/lenses/': {
+      id: '/lenses/'
+      path: '/'
+      fullPath: '/lenses/'
+      preLoaderRoute: typeof LensesIndexRouteImport
+      parentRoute: typeof LensesRoute
+    }
     '/notes/$slug': {
       id: '/notes/$slug'
       path: '/$slug'
@@ -292,10 +309,12 @@ declare module '@tanstack/react-router' {
 
 interface LensesRouteChildren {
   LensesSlugRoute: typeof LensesSlugRoute
+  LensesIndexRoute: typeof LensesIndexRoute
 }
 
 const LensesRouteChildren: LensesRouteChildren = {
   LensesSlugRoute: LensesSlugRoute,
+  LensesIndexRoute: LensesIndexRoute,
 }
 
 const LensesRouteWithChildren =
