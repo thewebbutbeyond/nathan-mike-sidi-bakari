@@ -11,12 +11,12 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TimelineRouteImport } from './routes/timeline'
 import { Route as SelectedRouteImport } from './routes/selected'
+import { Route as RssDotxmlRouteImport } from './routes/rss[.]xml'
 import { Route as NotesRouteImport } from './routes/notes'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CollectionsRouteImport } from './routes/collections'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as RssXmlRouteImport } from './routes/rss.xml'
 import { Route as NotesSlugRouteImport } from './routes/notes.$slug'
 import { Route as CollectionsSlugRouteImport } from './routes/collections.$slug'
 import { Route as ArtifactsSlugRouteImport } from './routes/artifacts.$slug'
@@ -29,6 +29,11 @@ const TimelineRoute = TimelineRouteImport.update({
 const SelectedRoute = SelectedRouteImport.update({
   id: '/selected',
   path: '/selected',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RssDotxmlRoute = RssDotxmlRouteImport.update({
+  id: '/rss.xml',
+  path: '/rss.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NotesRoute = NotesRouteImport.update({
@@ -56,11 +61,6 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const RssXmlRoute = RssXmlRouteImport.update({
-  id: '/rss/xml',
-  path: '/rss/xml',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const NotesSlugRoute = NotesSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -83,12 +83,12 @@ export interface FileRoutesByFullPath {
   '/collections': typeof CollectionsRouteWithChildren
   '/contact': typeof ContactRoute
   '/notes': typeof NotesRouteWithChildren
+  '/rss.xml': typeof RssDotxmlRoute
   '/selected': typeof SelectedRoute
   '/timeline': typeof TimelineRoute
   '/artifacts/$slug': typeof ArtifactsSlugRoute
   '/collections/$slug': typeof CollectionsSlugRoute
   '/notes/$slug': typeof NotesSlugRoute
-  '/rss/xml': typeof RssXmlRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -96,12 +96,12 @@ export interface FileRoutesByTo {
   '/collections': typeof CollectionsRouteWithChildren
   '/contact': typeof ContactRoute
   '/notes': typeof NotesRouteWithChildren
+  '/rss.xml': typeof RssDotxmlRoute
   '/selected': typeof SelectedRoute
   '/timeline': typeof TimelineRoute
   '/artifacts/$slug': typeof ArtifactsSlugRoute
   '/collections/$slug': typeof CollectionsSlugRoute
   '/notes/$slug': typeof NotesSlugRoute
-  '/rss/xml': typeof RssXmlRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -110,12 +110,12 @@ export interface FileRoutesById {
   '/collections': typeof CollectionsRouteWithChildren
   '/contact': typeof ContactRoute
   '/notes': typeof NotesRouteWithChildren
+  '/rss.xml': typeof RssDotxmlRoute
   '/selected': typeof SelectedRoute
   '/timeline': typeof TimelineRoute
   '/artifacts/$slug': typeof ArtifactsSlugRoute
   '/collections/$slug': typeof CollectionsSlugRoute
   '/notes/$slug': typeof NotesSlugRoute
-  '/rss/xml': typeof RssXmlRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -125,12 +125,12 @@ export interface FileRouteTypes {
     | '/collections'
     | '/contact'
     | '/notes'
+    | '/rss.xml'
     | '/selected'
     | '/timeline'
     | '/artifacts/$slug'
     | '/collections/$slug'
     | '/notes/$slug'
-    | '/rss/xml'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -138,12 +138,12 @@ export interface FileRouteTypes {
     | '/collections'
     | '/contact'
     | '/notes'
+    | '/rss.xml'
     | '/selected'
     | '/timeline'
     | '/artifacts/$slug'
     | '/collections/$slug'
     | '/notes/$slug'
-    | '/rss/xml'
   id:
     | '__root__'
     | '/'
@@ -151,12 +151,12 @@ export interface FileRouteTypes {
     | '/collections'
     | '/contact'
     | '/notes'
+    | '/rss.xml'
     | '/selected'
     | '/timeline'
     | '/artifacts/$slug'
     | '/collections/$slug'
     | '/notes/$slug'
-    | '/rss/xml'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -165,10 +165,10 @@ export interface RootRouteChildren {
   CollectionsRoute: typeof CollectionsRouteWithChildren
   ContactRoute: typeof ContactRoute
   NotesRoute: typeof NotesRouteWithChildren
+  RssDotxmlRoute: typeof RssDotxmlRoute
   SelectedRoute: typeof SelectedRoute
   TimelineRoute: typeof TimelineRoute
   ArtifactsSlugRoute: typeof ArtifactsSlugRoute
-  RssXmlRoute: typeof RssXmlRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -185,6 +185,13 @@ declare module '@tanstack/react-router' {
       path: '/selected'
       fullPath: '/selected'
       preLoaderRoute: typeof SelectedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/rss.xml': {
+      id: '/rss.xml'
+      path: '/rss.xml'
+      fullPath: '/rss.xml'
+      preLoaderRoute: typeof RssDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/notes': {
@@ -220,13 +227,6 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/rss/xml': {
-      id: '/rss/xml'
-      path: '/rss/xml'
-      fullPath: '/rss/xml'
-      preLoaderRoute: typeof RssXmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/notes/$slug': {
@@ -281,10 +281,10 @@ const rootRouteChildren: RootRouteChildren = {
   CollectionsRoute: CollectionsRouteWithChildren,
   ContactRoute: ContactRoute,
   NotesRoute: NotesRouteWithChildren,
+  RssDotxmlRoute: RssDotxmlRoute,
   SelectedRoute: SelectedRoute,
   TimelineRoute: TimelineRoute,
   ArtifactsSlugRoute: ArtifactsSlugRoute,
-  RssXmlRoute: RssXmlRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
