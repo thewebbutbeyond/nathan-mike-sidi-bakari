@@ -16,7 +16,7 @@ export const Route = createFileRoute("/")({
 
 const ROUTES = [
   {
-    to: "/selected" as const,
+    to: "/chefs-doeuvre" as const,
     label: "chefs-d’œuvre",
     description: "A handful of marked entries. The shortest way in.",
   },
@@ -26,7 +26,7 @@ const ROUTES = [
     description: "Everything, by date. Newest at the top.",
   },
   {
-    to: "/collections" as const,
+    to: "/lenses" as const,
     label: "lenses",
     description: "The same archive, seen through different lenses.",
   },

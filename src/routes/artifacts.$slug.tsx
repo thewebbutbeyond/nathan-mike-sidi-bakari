@@ -86,7 +86,7 @@ function ArtifactDetail() {
               {a.collections.map((c: Collection) => (
                 <Link
                   key={c}
-                  to="/collections/$slug"
+                  to="/lenses/$slug"
                   params={{ slug: c }}
                   className="hover:underline underline-offset-4"
                 >

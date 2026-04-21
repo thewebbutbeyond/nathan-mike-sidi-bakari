@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Container, PageHeader, SiteShell } from "@/components/site-shell";
 import { COLLECTIONS, artifactsByCollection } from "@/content/data";
 
-export const Route = createFileRoute("/collections")({
+export const Route = createFileRoute("/lenses")({
   head: () => ({
     meta: [
       { title: "Lenses · Nathan Mike Sidi Bakari" },
@@ -38,7 +38,7 @@ function CollectionsPage() {
             return (
               <li key={c.slug} className="bg-background">
                 <Link
-                  to="/collections/$slug"
+                  to="/lenses/$slug"
                   params={{ slug: c.slug }}
                   className="block p-5 sm:p-6 hover:bg-secondary/50 transition-colors h-full"
                 >

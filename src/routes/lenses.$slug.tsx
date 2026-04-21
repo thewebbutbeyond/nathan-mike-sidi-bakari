@@ -7,7 +7,7 @@ import {
   artifactsByCollection,
 } from "@/content/data";
 
-export const Route = createFileRoute("/collections/$slug")({
+export const Route = createFileRoute("/lenses/$slug")({
   loader: ({ params }) => {
     const slug = params.slug as Collection;
     const meta = COLLECTIONS.find((c) => c.slug === slug);
@@ -29,9 +29,9 @@ export const Route = createFileRoute("/collections/$slug")({
   notFoundComponent: () => (
     <SiteShell>
       <Container>
-        <PageHeader title="Collection not found." />
-        <Link to="/collections" className="text-sm underline underline-offset-4">
-          ← all collections
+        <PageHeader title="Lens not found." />
+        <Link to="/lenses" className="text-sm underline underline-offset-4">
+          ← all lenses
         </Link>
       </Container>
     </SiteShell>
@@ -46,14 +46,14 @@ function CollectionDetail() {
       <Container>
         <div className="mb-6 text-xs">
           <Link
-            to="/collections"
+            to="/lenses"
             className="text-ink-soft hover:text-ink underline underline-offset-4"
           >
-            ← collections
+            ← lenses
           </Link>
         </div>
         <PageHeader
-          eyebrow={`collection · ${items.length} entries`}
+          eyebrow={`lens · ${items.length} entries`}
           title={meta.label.toLowerCase() + "."}
           description={meta.description}
         />
