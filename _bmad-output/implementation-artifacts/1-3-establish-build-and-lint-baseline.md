@@ -1,6 +1,6 @@
 # Story 1.3: Establish Build and Lint Baseline
 
-Status: review
+Status: done
 
 ## Story
 
@@ -126,3 +126,4 @@ GPT-5.4
 ### Change Log
 
 - 2026-04-21: Ran and documented baseline verification command set; route tree remained stable; story moved to review.
+- 2026-04-21: Code review completed with no blocking findings; build sandbox retry documented externally; story moved to done.
