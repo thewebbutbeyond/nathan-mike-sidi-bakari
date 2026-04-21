@@ -45,7 +45,7 @@ export function EntryList({
                   <span>·</span>
                   <span>{a.status}</span>
                   <span>·</span>
-                  <span>{lensLabels(a.collections).join(" / ")}</span>
+                  <span>{lensLabels(a.collections).join(" / ").toLowerCase()}</span>
                 </div>
                 <p className="mt-1.5 text-xs text-ink-soft leading-relaxed max-w-2xl">
                   {a.summary}
