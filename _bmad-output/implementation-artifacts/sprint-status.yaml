@@ -1,0 +1,95 @@
+# generated: 2026-04-21T21:48:59Z
+# last_updated: 2026-04-21T21:48:59Z
+# project: nathansidib
+# project_key: NOKEY
+# tracking_system: file-system
+# story_location: _bmad-output/implementation-artifacts
+
+# STATUS DEFINITIONS:
+# ==================
+# Epic Status:
+#   - backlog: Epic not yet started
+#   - in-progress: Epic actively being worked on
+#   - done: All stories in epic completed
+#
+# Story Status:
+#   - backlog: Story only exists in epic file
+#   - ready-for-dev: Story file created in stories folder
+#   - in-progress: Developer actively working on implementation
+#   - review: Ready for code review
+#   - done: Story completed
+#
+# Retrospective Status:
+#   - optional: Can be completed but not required
+#   - done: Retrospective has been completed
+
+generated: 2026-04-21T21:48:59Z
+last_updated: 2026-04-21T21:48:59Z
+project: nathansidib
+project_key: NOKEY
+tracking_system: file-system
+story_location: _bmad-output/implementation-artifacts
+
+development_status:
+  # Stabilize the Chosen Prototype Baseline
+  epic-1: backlog
+  # Capture Prototype Baseline
+  1-1-capture-prototype-baseline: backlog
+  # Verify App Shell and Primary Navigation
+  1-2-verify-app-shell-and-primary-navigation: backlog
+  # Establish Build and Lint Baseline
+  1-3-establish-build-and-lint-baseline: backlog
+  # Epic 1 Retrospective
+  epic-1-retrospective: optional
+  # Home and Marked Entry Discovery
+  epic-2: backlog
+  # Refine Home Portal Messaging
+  2-1-refine-home-portal-messaging: backlog
+  # Productionize Home Stats Block
+  2-2-productionize-home-stats-block: backlog
+  # Harden Chefs-d'oeuvre Entry Path
+  2-3-harden-chefs-d-oeuvre-entry-path: backlog
+  # Epic 2 Retrospective
+  epic-2-retrospective: optional
+  # Entry Model and Entry Detail
+  epic-3: backlog
+  # Validate Entry Content Model
+  3-1-validate-entry-content-model: backlog
+  # Productionize Entry Detail Page
+  3-2-productionize-entry-detail-page: backlog
+  # Handle Missing and Sparse Entries
+  3-3-handle-missing-and-sparse-entries: backlog
+  # Epic 3 Retrospective
+  epic-3-retrospective: optional
+  # Timeline, Lenses, and Search Discovery
+  epic-4: backlog
+  # Harden Timeline Browsing
+  4-1-harden-timeline-browsing: backlog
+  # Harden Lens Browsing
+  4-2-harden-lens-browsing: backlog
+  # Stabilize Search Palette
+  4-3-stabilize-search-palette: backlog
+  # Epic 4 Retrospective
+  epic-4-retrospective: optional
+  # Notes and RSS Reading Experience
+  epic-5: backlog
+  # Harden Notes Index
+  5-1-harden-notes-index: backlog
+  # Productionize Note Detail
+  5-2-productionize-note-detail: backlog
+  # Validate RSS Feed
+  5-3-validate-rss-feed: backlog
+  # Epic 5 Retrospective
+  epic-5-retrospective: optional
+  # Production Readiness, Copy Tone, SEO, and Deployment
+  epic-6: backlog
+  # Copy Tone Review
+  6-1-copy-tone-review: backlog
+  # SEO and Social Metadata Pass
+  6-2-seo-and-social-metadata-pass: backlog
+  # Accessibility and Responsive QA
+  6-3-accessibility-and-responsive-qa: backlog
+  # GitHub Pages Deployment
+  6-4-github-pages-deployment: backlog
+  # Epic 6 Retrospective
+  epic-6-retrospective: optional
