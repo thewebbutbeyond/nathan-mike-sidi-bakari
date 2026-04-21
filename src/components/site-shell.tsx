@@ -80,7 +80,7 @@ function SiteFooter() {
           </div>
           <div className="flex items-center gap-4">
             <a
-              href="https://www.linkedin.com/in/nathansidibakari"
+              href="https://www.linkedin.com/in/nathan-sidi-bakari-686007199"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
@@ -89,7 +89,7 @@ function SiteFooter() {
               <Linkedin size={14} strokeWidth={1.5} />
             </a>
             <a
-              href="https://github.com/nathansidibakari"
+              href="https://github.com/Nabakator"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
