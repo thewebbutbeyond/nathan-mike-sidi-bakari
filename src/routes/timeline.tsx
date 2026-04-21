@@ -66,7 +66,7 @@ function TimelinePage() {
                         <div className="flex items-baseline gap-2 flex-wrap">
                           <span className="text-sm text-ink">{a.title}</span>
                           {a.selected && (
-                            <span className="text-[10px] uppercase tracking-wider text-accent">
+                            <span className="text-[10px] tracking-wide text-accent">
                               ◆ chef-d’œuvre
                             </span>
                           )}

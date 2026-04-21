@@ -28,7 +28,7 @@ export function ArtifactList({ artifacts }: { artifacts: Artifact[] }) {
                 <div className="flex items-baseline gap-2 flex-wrap">
                   <h3 className="text-sm text-ink font-medium">{a.title}</h3>
                   {a.selected && (
-                    <span className="text-[10px] uppercase tracking-wider text-accent">
+                    <span className="text-[10px] tracking-wide text-accent">
                       ◆ chef-d’œuvre
                     </span>
                   )}
