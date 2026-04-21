@@ -15,9 +15,8 @@ Use `main` as the stable planning and release coordination branch. Use short-liv
 | Branch | Purpose |
 |--------|---------|
 | `main` | Stable WDS docs, Lovable plan, delivery notes, and deploy workflow placeholder. |
-| `prototype/quiet-terminal` | Lovable prototype for the quiet terminal direction. |
 | `prototype/printed-paper-journal` | Lovable prototype for a printed paper journal feeling. |
-| `prototype/notebook-log` | Lovable prototype for notebook/log feeling. |
+| `prototype/notebook-log` | Lovable prototype for a notebook/log feeling, including the quiet terminal direction. |
 | `prototype/private-reading-room` | Lovable prototype for a private reading room feeling. |
 | `prototype/museum-archive-index` | Lovable prototype for a museum/archive index feeling. |
 | `develop` | Chosen implementation direction after prototype comparison. |
