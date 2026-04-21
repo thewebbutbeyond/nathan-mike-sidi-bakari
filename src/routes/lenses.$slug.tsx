@@ -2,17 +2,17 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Container, PageHeader, SiteShell } from "@/components/site-shell";
 import { EntryList } from "@/components/entry-list";
 import {
-  COLLECTIONS,
-  type Collection,
-  entriesByCollection,
+  LENSES,
+  type Lens,
+  entriesByLens,
 } from "@/content/data";
 
 export const Route = createFileRoute("/lenses/$slug")({
   loader: ({ params }) => {
-    const slug = params.slug as Collection;
-    const meta = COLLECTIONS.find((c) => c.slug === slug);
+    const slug = params.slug as Lens;
+    const meta = LENSES.find((c) => c.slug === slug);
     if (!meta) throw notFound();
-    return { slug, meta, items: entriesByCollection(slug) };
+    return { slug, meta, items: entriesByLens(slug) };
   },
   head: ({ loaderData }) => {
     if (!loaderData) return { meta: [{ title: "Lens · Nathan Mike Sidi Bakari" }] };

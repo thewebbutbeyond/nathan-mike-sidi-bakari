@@ -66,7 +66,7 @@ function TimelinePage() {
                       <div>
                         <div className="flex items-baseline gap-2 flex-wrap">
                           <span className="text-sm text-ink">{a.title}</span>
-                          {a.selected && (
+                          {a.chefDoeuvre && (
                             <span className="text-[10px] tracking-wide text-accent">
                               ◆ chef-d’œuvre
                             </span>
@@ -75,7 +75,7 @@ function TimelinePage() {
                         <div className="mt-0.5 text-[11px] text-ink-faint flex items-center gap-2 flex-wrap">
                           <span>{a.type}</span>
                           <span>·</span>
-                          <span>{lensLabels(a.collections).join(" / ").toLowerCase()}</span>
+                          <span>{lensLabels(a.lenses).join(" / ").toLowerCase()}</span>
                           {a.tags.slice(0, 3).map((t) => (
                             <span key={t}>
                               · <Tag>{t}</Tag>

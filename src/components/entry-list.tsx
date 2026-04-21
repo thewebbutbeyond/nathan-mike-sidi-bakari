@@ -34,7 +34,7 @@ export function EntryList({
               <div className="min-w-0 flex-1">
                 <div className="flex items-baseline gap-2 flex-wrap">
                   <h3 className="text-sm text-ink font-medium">{a.title}</h3>
-                  {a.selected && (
+                  {a.chefDoeuvre && (
                     <span className="text-[10px] tracking-wide text-accent">
                       ◆ chef-d’œuvre
                     </span>
@@ -45,7 +45,7 @@ export function EntryList({
                   <span>·</span>
                   <span>{a.status}</span>
                   <span>·</span>
-                  <span>{lensLabels(a.collections).join(" / ").toLowerCase()}</span>
+                  <span>{lensLabels(a.lenses).join(" / ").toLowerCase()}</span>
                 </div>
                 <p className="mt-1.5 text-xs text-ink-soft leading-relaxed max-w-2xl">
                   {a.summary}

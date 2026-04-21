@@ -10,10 +10,10 @@ import {
   Tag,
 } from "@/components/site-shell";
 import {
-  COLLECTIONS,
+  LENSES,
   ENTRIES,
   type Entry,
-  type Collection,
+  type Lens,
   formatDate,
   getEntry,
   lensLabel,
@@ -72,14 +72,14 @@ type BackLink =
   | { kind: "timeline" }
   | { kind: "chefs" }
   | { kind: "lenses" }
-  | { kind: "lens"; slug: Collection; label: string };
+  | { kind: "lens"; slug: Lens; label: string };
 
 function resolveBack(from: string): BackLink {
   if (from === "chefs-doeuvre") return { kind: "chefs" };
   if (from === "lenses") return { kind: "lenses" };
   if (from.startsWith("lenses/")) {
-    const slug = from.slice("lenses/".length) as Collection;
-    const meta = COLLECTIONS.find((c) => c.slug === slug);
+    const slug = from.slice("lenses/".length) as Lens;
+    const meta = LENSES.find((c) => c.slug === slug);
     if (meta) return { kind: "lens", slug, label: meta.label };
   }
   return { kind: "timeline" };
@@ -130,7 +130,7 @@ function EntryDetail() {
         <header className="mb-8">
           <div className="text-xs text-ink-faint mb-3 tabular-nums">
             {formatDate(a.date, { long: true })}
-            {a.selected && (
+            {a.chefDoeuvre && (
               <span className="ml-3 text-accent tracking-wide text-[10px]">
                 ◆ chef-d’œuvre
               </span>
@@ -148,7 +148,7 @@ function EntryDetail() {
           <MetaRow label="date">{formatDate(a.date)}</MetaRow>
           <MetaRow label="lenses">
             <span className="flex flex-wrap gap-x-3">
-              {a.collections.map((c: Collection) => (
+              {a.lenses.map((c: Lens) => (
                 <Link
                   key={c}
                   to="/lenses/$slug"

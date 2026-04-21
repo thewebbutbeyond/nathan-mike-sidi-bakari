@@ -1,4 +1,4 @@
-export type Collection = "engineer" | "entrepreneur" | "investor" | "artist";
+export type Lens = "engineer" | "entrepreneur" | "investor" | "artist";
 
 export interface Entry {
   slug: string;
@@ -8,11 +8,11 @@ export interface Entry {
   status: "active" | "archived" | "in-progress" | "historical" | "draft";
   summary: string;
   body: string; // markdown-ish (we render as paragraphs)
-  collections: Collection[];
+  lenses: Lens[];
   tags: string[];
   role?: string;
   outcome?: string;
-  selected?: boolean;
+  chefDoeuvre?: boolean;
   links?: { label: string; href: string }[];
   related?: string[];
 }
@@ -29,7 +29,7 @@ export interface Note {
   coverAlt?: string;
 }
 
-export const COLLECTIONS: { slug: Collection; label: string; description: string }[] = [
+export const LENSES: { slug: Lens; label: string; description: string }[] = [
   {
     slug: "engineer",
     label: "Engineering",
@@ -66,11 +66,11 @@ export const ENTRIES: Entry[] = [
 The win is not performance, though that improved. The win is that auditing becomes trivial: every state at every point in time is a pure function of the log up to that moment. Corrections are new events, never edits. The system became something I trust enough to leave alone.
 
 Built in Rust, with a Postgres LISTEN/NOTIFY layer for downstream consumers. About 14k lines, ~91% line coverage. Ran in shadow mode for six weeks before cutover.`,
-    collections: ["engineer", "entrepreneur"],
+    lenses: ["engineer", "entrepreneur"],
     tags: ["rust", "postgres", "accounting", "event-sourcing"],
     role: "Designed the reducer model, wrote the core, supervised migration.",
     outcome: "Cut month-end close from 4 days to 6 hours. Zero rollbacks since launch.",
-    selected: true,
+    chefDoeuvre: true,
     links: [{ label: "Internal RFC", href: "#" }],
     related: ["close-the-books", "operator-letter-q3-2024"],
   },
@@ -87,7 +87,7 @@ Built in Rust, with a Postgres LISTEN/NOTIFY layer for downstream consumers. Abo
 Second, the consumer tier. It served its purpose as a discovery channel and we learned what we needed to learn. It will not earn its keep against the focus it costs. We sunset it in stages over Q4 and reissue refunds where appropriate.
 
 Third, hiring. We are still pacing slower than the market expects of a company at our stage. That is a choice. Every hire makes the team easier or harder to coordinate, and I will take a slower year over a louder one.`,
-    collections: ["entrepreneur"],
+    lenses: ["entrepreneur"],
     tags: ["operations", "writing", "letters"],
     role: "Author.",
   },
@@ -104,9 +104,9 @@ Third, hiring. We are still pacing slower than the market expects of a company a
 Three patterns I am underwriting: (a) workflow-shaped products that look like internal tools at launch and graduate into platforms; (b) inference-cost arbitrage as a temporary moat that the team must convert into proprietary data within 18 months; (c) regulated verticals where the integration debt is the moat, not the model.
 
 I am not underwriting: foundation model wrappers without a data flywheel, and "AI for X" decks that read identically to a 2014 SaaS deck with the noun changed.`,
-    collections: ["investor"],
+    lenses: ["investor"],
     tags: ["llm", "thesis", "saas", "vertical"],
-    selected: true,
+    chefDoeuvre: true,
   },
   {
     slug: "close-the-books",
@@ -121,9 +121,9 @@ I am not underwriting: foundation model wrappers without a data flywheel, and "A
 Closing is its own skill. It looks like writing the README that makes the thing inheritable, deleting the three branches you will never merge, paying off the small debts you privately know about, and saying out loud (to yourself, in writing) what the thing did and did not do. It is the single most underrated act in a working life.
 
 I now schedule closing the same way I schedule starting. A finished thing, even a small one, compounds. An almost-finished thing decays.`,
-    collections: ["engineer", "entrepreneur"],
+    lenses: ["engineer", "entrepreneur"],
     tags: ["practice", "writing", "process"],
-    selected: true,
+    chefDoeuvre: true,
   },
   {
     slug: "graphite-studies",
@@ -136,9 +136,9 @@ I now schedule closing the same way I schedule starting. A finished thing, even 
     body: `A private practice that became a series almost by accident. I started drawing hands in the evening because I wanted a daily activity that did not produce a deliverable. After a year I had forty.
 
 They are not technically ambitious. The point was the rhythm. I scanned them at the end of 2024 and a small selection is here.`,
-    collections: ["artist"],
+    lenses: ["artist"],
     tags: ["drawing", "graphite", "practice", "hands"],
-    selected: true,
+    chefDoeuvre: true,
   },
   {
     slug: "first-company-postmortem",
@@ -151,9 +151,9 @@ They are not technically ambitious. The point was the rhythm. I scanned them at 
     body: `We sold in 2020 for less than the last round and more than the founders had any reason to expect. Both can be true. Three years later, this is what I think happened.
 
 Right: hiring slowly in year one, choosing a hard market, refusing to raise a Series A on growth I did not believe was durable. Wrong: assuming the product would carry the founder, building too much before charging, and confusing customer love with willingness to pay. No longer believe: that founder grit is a meaningful predictor of outcomes. Distribution is.`,
-    collections: ["entrepreneur"],
+    lenses: ["entrepreneur"],
     tags: ["postmortem", "first-company", "lessons"],
-    selected: true,
+    chefDoeuvre: true,
   },
   {
     slug: "memo-fintech-infra-2023",
@@ -166,7 +166,7 @@ Right: hiring slowly in year one, choosing a hard market, refusing to raise a Se
     body: `The pitch I kept hearing in 2023 was that orchestration is a feature, not a category. The pitch was wrong, and the bias underneath it (that infra companies should be "thin") kept good investors out of a wave they should have caught.
 
 I wrote a small check into one team in this space in November 2023. The thesis was simple: every additional payment method a merchant adopts converts a one-time integration into a recurring operations cost, and someone is going to absorb that cost professionally.`,
-    collections: ["investor"],
+    lenses: ["investor"],
     tags: ["fintech", "payments", "memo"],
   },
   {
@@ -180,7 +180,7 @@ I wrote a small check into one team in this space in November 2023. The thesis w
     body: `Started as a weekend project, ended as a study in scope creep. The first version worked in two days. The next sixteen weekends were spent on enclosure, low-power firmware, and a small batch of ten that I sent to friends.
 
 I do not recommend designing your own PCB to save money. I do recommend doing it once.`,
-    collections: ["engineer", "artist"],
+    lenses: ["engineer", "artist"],
     tags: ["hardware", "pcb", "side-project"],
   },
   {
@@ -194,9 +194,9 @@ I do not recommend designing your own PCB to save money. I do recommend doing it
     body: `The program is twenty pages of Rust and produces deterministic outputs from a seed. I generated about three hundred candidates, selected twelve, and printed them on a borrowed RISO in two colors.
 
 The interesting part was the selection: sitting with the outputs over two weekends and noticing which ones I came back to. Generative work makes the curatorial step legible in a way that drawing does not.`,
-    collections: ["artist", "engineer"],
+    lenses: ["artist", "engineer"],
     tags: ["generative", "riso", "rust", "print"],
-    selected: true,
+    chefDoeuvre: true,
   },
   {
     slug: "infra-bill-audit-2024",
@@ -209,7 +209,7 @@ The interesting part was the selection: sitting with the outputs over two weeken
     body: `Most of the saving came from three places: idle non-prod environments, an over-provisioned managed Postgres tier we sized for a peak that never returned, and egress to a vendor we had since migrated away from.
 
 Worth doing yearly. Cheaper than any rearchitecture and educational about how the system actually behaves.`,
-    collections: ["engineer", "entrepreneur"],
+    lenses: ["engineer", "entrepreneur"],
     tags: ["operations", "cloud", "cost"],
   },
   {
@@ -222,7 +222,7 @@ Worth doing yearly. Cheaper than any rearchitecture and educational about how th
     body: `The seven: *Seeing Like a State* (Scott), *The Idea of the Brain* (Cobb), *A Pattern Language* (Alexander et al.), *The Power Broker* (Caro, finally), *Working in Public* (Eghbal), *The Goal* (Goldratt), *Piranesi* (Clarke).
 
 Skipped or abandoned: many. Time spent abandoning a book is time spent honoring time.`,
-    collections: ["artist", "investor"],
+    lenses: ["artist", "investor"],
     tags: ["reading", "list", "annual"],
   },
   {
@@ -236,7 +236,7 @@ Skipped or abandoned: many. Time spent abandoning a book is time spent honoring 
     body: `Most "first ten" advice is written for founders. This is for the people they hire: what to ask in the offer conversation, how to read equity terms without spending money on a lawyer, how to know when to leave.
 
 Currently about 9,000 words. I add to it every few months when something I see makes me wish someone had written it down.`,
-    collections: ["entrepreneur"],
+    lenses: ["entrepreneur"],
     tags: ["hiring", "writing", "handbook"],
   },
 ];
@@ -346,8 +346,8 @@ export function getNote(slug: string) {
   return NOTES.find((n) => n.slug === slug);
 }
 
-export function entriesByCollection(slug: Collection) {
-  return ENTRIES.filter((a) => a.collections.includes(slug)).sort((a, b) =>
+export function entriesByLens(slug: Lens) {
+  return ENTRIES.filter((a) => a.lenses.includes(slug)).sort((a, b) =>
     b.date.localeCompare(a.date),
   );
 }
@@ -360,11 +360,11 @@ export function sortedNotes() {
   return [...NOTES].sort((a, b) => b.date.localeCompare(a.date));
 }
 
-export function lensLabel(slug: Collection): string {
-  return COLLECTIONS.find((c) => c.slug === slug)?.label ?? slug;
+export function lensLabel(slug: Lens): string {
+  return LENSES.find((c) => c.slug === slug)?.label ?? slug;
 }
 
-export function lensLabels(slugs: Collection[]): string[] {
+export function lensLabels(slugs: Lens[]): string[] {
   return slugs.map(lensLabel);
 }
 
