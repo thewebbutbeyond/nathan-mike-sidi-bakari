@@ -70,7 +70,7 @@ function SiteFooter() {
             “He who has a why to live can bear almost any how.”
           </p>
           <footer className="mt-1.5 text-ink-faint not-italic">
-            , Friedrich Nietzsche
+            Friedrich Nietzsche
           </footer>
         </blockquote>
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pt-4 border-t border-rule">
