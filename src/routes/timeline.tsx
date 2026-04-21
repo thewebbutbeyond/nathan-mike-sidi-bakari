@@ -5,12 +5,12 @@ import { formatDate, formatYear, sortedArtifacts } from "@/content/data";
 export const Route = createFileRoute("/timeline")({
   head: () => ({
     meta: [
-      { title: "Timeline — Nathan Mike Sidi Bakari" },
+      { title: "Timeline · Nathan Mike Sidi Bakari" },
       {
         name: "description",
         content: "All artifacts in chronological order.",
       },
-      { property: "og:title", content: "Timeline — Nathan Mike Sidi Bakari" },
+      { property: "og:title", content: "Timeline · Nathan Mike Sidi Bakari" },
       {
         property: "og:description",
         content: "All artifacts in chronological order.",
@@ -35,7 +35,7 @@ function TimelinePage() {
         <PageHeader
           eyebrow="timeline"
           title="Everything, by date."
-          description="Most recent at the top. Marked entries — the chefs-d’œuvre — are flagged in line. Each one opens to its own page."
+          description="Most recent at the top. Marked entries , the chefs-d’œuvre , are flagged in line. Each one opens to its own page."
         />
 
         <div className="space-y-12">

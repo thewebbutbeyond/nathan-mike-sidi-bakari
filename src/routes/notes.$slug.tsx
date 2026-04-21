@@ -20,9 +20,9 @@ export const Route = createFileRoute("/notes/$slug")({
     };
   },
   head: ({ loaderData }) => {
-    if (!loaderData) return { meta: [{ title: "Note — Nathan Mike Sidi Bakari" }] };
+    if (!loaderData) return { meta: [{ title: "Note · Nathan Mike Sidi Bakari" }] };
     const n = loaderData.note;
-    const title = `${n.title} — Notes — Nathan Mike Sidi Bakari`;
+    const title = `${n.title} , Notes · Nathan Mike Sidi Bakari`;
     return {
       meta: [
         { title },

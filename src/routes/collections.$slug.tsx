@@ -15,8 +15,8 @@ export const Route = createFileRoute("/collections/$slug")({
     return { slug, meta, items: artifactsByCollection(slug) };
   },
   head: ({ loaderData }) => {
-    if (!loaderData) return { meta: [{ title: "Collection — Nathan Mike Sidi Bakari" }] };
-    const title = `${loaderData.meta.label} — Nathan Mike Sidi Bakari`;
+    if (!loaderData) return { meta: [{ title: "Collection · Nathan Mike Sidi Bakari" }] };
+    const title = `${loaderData.meta.label} · Nathan Mike Sidi Bakari`;
     return {
       meta: [
         { title },

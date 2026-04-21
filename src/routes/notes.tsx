@@ -5,13 +5,13 @@ import { formatDate, sortedNotes } from "@/content/data";
 export const Route = createFileRoute("/notes")({
   head: () => ({
     meta: [
-      { title: "Notes — Nathan Mike Sidi Bakari" },
+      { title: "Notes · Nathan Mike Sidi Bakari" },
       {
         name: "description",
         content:
           "Curated long-form writing on practice, engineering, investing, and the work of finishing.",
       },
-      { property: "og:title", content: "Notes — Nathan Mike Sidi Bakari" },
+      { property: "og:title", content: "Notes · Nathan Mike Sidi Bakari" },
       {
         property: "og:description",
         content:
