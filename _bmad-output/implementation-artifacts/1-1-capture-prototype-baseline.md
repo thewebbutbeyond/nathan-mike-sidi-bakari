@@ -1,6 +1,6 @@
 # Story 1.1: Capture Prototype Baseline
 
-Status: review
+Status: done
 
 ## Story
 
@@ -41,6 +41,10 @@ so that future production work can improve it without losing the design directio
 - [x] Update sprint tracking. (AC: 1)
   - [x] Set this story to `in-progress` when development begins.
   - [x] Set this story to `review` after baseline marker and verification complete.
+
+### Review Findings
+
+- [x] [Review][Patch] Completion note says baseline marker was only planned, but the tag exists locally and remotely. Updated the note to say `prototype-baseline-notebook-log` was created and pushed. [_bmad-output/implementation-artifacts/1-1-capture-prototype-baseline.md:148]
 
 ## Dev Notes
 
@@ -145,7 +149,7 @@ GPT-5.4
 - Fixed baseline dependency compatibility by downgrading `zod` to the adapter-compatible 3.x line.
 - Applied Prettier formatting to app source and config files so lint has no blocking errors.
 - Verified baseline with `npm run lint` and `npm run build`.
-- Baseline marker planned as `prototype-baseline-notebook-log` on the completed story commit.
+- Baseline marker `prototype-baseline-notebook-log` was created and pushed for the completed story commit.
 
 ### File List
 
@@ -174,3 +178,4 @@ GPT-5.4
 ### Change Log
 
 - 2026-04-21: Captured notebook/log prototype baseline, fixed dependency compatibility, formatted app source, verified lint/build, and moved story to review.
+- 2026-04-21: Addressed code review finding by correcting the baseline marker completion note; story moved to done.
