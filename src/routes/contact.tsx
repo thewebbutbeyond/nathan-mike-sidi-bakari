@@ -29,10 +29,7 @@ function ContactPage() {
           If something here overlaps with something you care about.
         </h1>
         <p className="text-sm text-ink-soft leading-relaxed max-w-prose mb-10">
-          Messages are more than welcome. A short paragraph about what you’re working
-          on or thinking about, and where it touches the archive, is the easiest way
-          to start a real conversation. I read everything and reply when I have something
-          useful to say.
+          Messages are more than welcome.
         </p>
 
         <dl className="space-y-2 border-y border-rule py-5">
