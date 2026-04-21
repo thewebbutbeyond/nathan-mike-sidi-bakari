@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import type {} from "@tanstack/start-client-core";
 import { ARTIFACTS, NOTES, SITE } from "@/content/data";
 
 function escape(s: string) {
