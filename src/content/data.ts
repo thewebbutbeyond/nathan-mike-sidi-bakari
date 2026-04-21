@@ -12,7 +12,6 @@ export interface Artifact {
   tags: string[];
   role?: string;
   outcome?: string;
-  milestone?: boolean;
   selected?: boolean;
   links?: { label: string; href: string }[];
   related?: string[];
@@ -69,7 +68,6 @@ Built in Rust, with a Postgres LISTEN/NOTIFY layer for downstream consumers. Abo
     tags: ["rust", "postgres", "accounting", "event-sourcing"],
     role: "Designed the reducer model, wrote the core, supervised migration.",
     outcome: "Cut month-end close from 4 days to 6 hours. Zero rollbacks since launch.",
-    milestone: true,
     selected: true,
     links: [{ label: "Internal RFC", href: "#" }],
     related: ["close-the-books", "operator-letter-q3-2024"],
@@ -107,7 +105,6 @@ I am not underwriting: foundation model wrappers without a data flywheel, and "A
     collections: ["investor"],
     tags: ["llm", "thesis", "saas", "vertical"],
     selected: true,
-    milestone: true,
   },
   {
     slug: "close-the-books",
@@ -154,7 +151,7 @@ They are not technically ambitious. The point was the rhythm. I scanned them at 
 Right: hiring slowly in year one, choosing a hard market, refusing to raise a Series A on growth I did not believe was durable. Wrong: assuming the product would carry the founder, building too much before charging, and confusing customer love with willingness to pay. No longer believe: that founder grit is a meaningful predictor of outcomes. Distribution is.`,
     collections: ["entrepreneur"],
     tags: ["postmortem", "first-company", "lessons"],
-    milestone: true,
+    selected: true,
   },
   {
     slug: "memo-fintech-infra-2023",
