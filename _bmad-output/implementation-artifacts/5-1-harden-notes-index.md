@@ -1,6 +1,6 @@
 # Story 5.1: Harden Notes Index
 
-Status: review
+Status: done
 
 ## Story
 
@@ -100,3 +100,4 @@ GPT-5.4
 ### Change Log
 
 - 2026-04-22: Added Notes Index empty state and validation, verified notes/search/lenses/timeline/entry/shell/lint/build, and moved story to review.
+- 2026-04-22: Code review completed with no blocking findings; story moved to done.
