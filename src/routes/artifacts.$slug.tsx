@@ -5,11 +5,14 @@ import {
   formatDate,
   getArtifactBySlug,
   getRelatedArtifacts,
+  type Artifact,
 } from "@/content/data";
 import { typeLabels } from "@/components/artifact-list";
 
+type LoaderData = { artifact: Artifact; related: Artifact[] };
+
 export const Route = createFileRoute("/artifacts/$slug")({
-  loader: ({ params }) => {
+  loader: ({ params }): LoaderData => {
     const a = getArtifactBySlug(params.slug);
     if (!a) throw notFound();
     return { artifact: a, related: getRelatedArtifacts(params.slug) };
@@ -42,7 +45,7 @@ export const Route = createFileRoute("/artifacts/$slug")({
 });
 
 function ArtifactDetail() {
-  const { artifact, related } = Route.useLoaderData();
+  const { artifact, related } = Route.useLoaderData() as LoaderData;
 
   return (
     <SiteShell>

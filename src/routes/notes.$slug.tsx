@@ -1,9 +1,11 @@
 import { Link, createFileRoute, notFound } from "@tanstack/react-router";
 import { SiteShell, Prose } from "@/components/site-shell";
-import { getNoteBySlug, formatDate, notes } from "@/content/data";
+import { getNoteBySlug, formatDate, notes, type Note } from "@/content/data";
+
+type LoaderData = { note: Note; prev: Note | null; next: Note | null };
 
 export const Route = createFileRoute("/notes/$slug")({
-  loader: ({ params }) => {
+  loader: ({ params }): LoaderData => {
     const note = getNoteBySlug(params.slug);
     if (!note) throw notFound();
     const sorted = [...notes].sort((a, b) => b.date.localeCompare(a.date));
@@ -42,7 +44,7 @@ export const Route = createFileRoute("/notes/$slug")({
 });
 
 function NotePage() {
-  const { note, prev, next } = Route.useLoaderData();
+  const { note, prev, next } = Route.useLoaderData() as LoaderData;
 
   return (
     <SiteShell>
