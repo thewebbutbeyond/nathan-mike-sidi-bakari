@@ -155,7 +155,7 @@ function EntryDetail() {
                   params={{ slug: c }}
                   className="hover:underline underline-offset-4"
                 >
-                  {lensLabel(c)}
+                  {lensLabel(c).toLowerCase()}
                 </Link>
               ))}
             </span>
