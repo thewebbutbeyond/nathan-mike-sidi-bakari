@@ -43,7 +43,7 @@ export const COLLECTIONS: { slug: Collection; label: string; description: string
   {
     slug: "investor",
     label: "Investing",
-    description: "Theses, memos, positions held, and what they taught.",
+    description: "Gains, losses and what they taught me.",
   },
   {
     slug: "artist",
