@@ -48,7 +48,6 @@ function HomePage() {
   const stats = [
     { label: "entries", value: ARTIFACTS.length },
     { label: "notes", value: NOTES.length },
-    { label: "lenses", value: COLLECTIONS.length },
     { label: "years", value: years.size, sub: `since ${earliest}` },
   ];
 
