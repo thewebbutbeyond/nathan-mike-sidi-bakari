@@ -241,6 +241,124 @@ Currently about 9,000 words. I add to it every few months when something I see m
   },
 ];
 
+const ENTRY_STATUSES = new Set<Entry["status"]>([
+  "active",
+  "archived",
+  "in-progress",
+  "historical",
+  "draft",
+]);
+
+function isNonEmptyString(value: unknown) {
+  return typeof value === "string" && value.trim().length > 0;
+}
+
+function validateEntryContent(entries: Entry[], lenses: typeof LENSES) {
+  const errors: string[] = [];
+  const entrySlugs = new Set<string>();
+  const lensSlugs = new Set(lenses.map((lens) => lens.slug));
+
+  for (const entry of entries) {
+    const label = entry.slug || "(missing slug)";
+
+    for (const field of ["slug", "title", "date", "type", "status", "summary", "body"] as const) {
+      if (!isNonEmptyString(entry[field])) {
+        errors.push(`${label}: required field "${field}" must be a non-empty string`);
+      }
+    }
+
+    if (entrySlugs.has(entry.slug)) {
+      errors.push(`${label}: duplicate entry slug`);
+    }
+    entrySlugs.add(entry.slug);
+
+    if (
+      !/^\d{4}-\d{2}-\d{2}$/.test(entry.date) ||
+      Number.isNaN(new Date(`${entry.date}T00:00:00Z`).getTime()) ||
+      new Date(`${entry.date}T00:00:00Z`).toISOString().slice(0, 10) !== entry.date
+    ) {
+      errors.push(`${label}: date must be a valid YYYY-MM-DD value`);
+    }
+
+    if (!ENTRY_STATUSES.has(entry.status)) {
+      errors.push(`${label}: status "${entry.status}" is not supported`);
+    }
+
+    if (!Array.isArray(entry.lenses) || entry.lenses.length === 0) {
+      errors.push(`${label}: lenses must include at least one lens`);
+    } else {
+      const seenLenses = new Set<Lens>();
+      for (const lens of entry.lenses) {
+        if (!lensSlugs.has(lens)) {
+          errors.push(`${label}: unknown lens "${lens}"`);
+        }
+        if (seenLenses.has(lens)) {
+          errors.push(`${label}: duplicate lens "${lens}"`);
+        }
+        seenLenses.add(lens);
+      }
+    }
+
+    if (!Array.isArray(entry.tags)) {
+      errors.push(`${label}: tags must be an array`);
+    } else {
+      for (const tag of entry.tags) {
+        if (!isNonEmptyString(tag)) {
+          errors.push(`${label}: tags must contain only non-empty strings`);
+        }
+      }
+    }
+
+    if (entry.role !== undefined && !isNonEmptyString(entry.role)) {
+      errors.push(`${label}: role must be a non-empty string when provided`);
+    }
+
+    if (entry.outcome !== undefined && !isNonEmptyString(entry.outcome)) {
+      errors.push(`${label}: outcome must be a non-empty string when provided`);
+    }
+
+    if (entry.chefDoeuvre !== undefined && typeof entry.chefDoeuvre !== "boolean") {
+      errors.push(`${label}: chefDoeuvre must be boolean when provided`);
+    }
+
+    if (entry.links !== undefined) {
+      if (!Array.isArray(entry.links)) {
+        errors.push(`${label}: links must be an array when provided`);
+      } else {
+        for (const link of entry.links) {
+          if (!isNonEmptyString(link.label) || !isNonEmptyString(link.href)) {
+            errors.push(`${label}: links must include non-empty label and href`);
+          }
+        }
+      }
+    }
+  }
+
+  for (const entry of entries) {
+    if (!entry.related) continue;
+
+    if (!Array.isArray(entry.related)) {
+      errors.push(`${entry.slug}: related must be an array when provided`);
+      continue;
+    }
+
+    for (const relatedSlug of entry.related) {
+      if (!entrySlugs.has(relatedSlug)) {
+        errors.push(`${entry.slug}: related entry "${relatedSlug}" does not exist`);
+      }
+      if (relatedSlug === entry.slug) {
+        errors.push(`${entry.slug}: related entries cannot self-reference`);
+      }
+    }
+  }
+
+  if (errors.length > 0) {
+    throw new Error(`Invalid entry content:\n- ${errors.join("\n- ")}`);
+  }
+}
+
+validateEntryContent(ENTRIES, LENSES);
+
 import noteCoverArchives from "@/assets/notes/on-archives-not-portfolios.jpg";
 import noteCoverContext from "@/assets/notes/the-cost-of-context.jpg";
 import noteCoverInvesting from "@/assets/notes/what-investing-taught-me-about-product.jpg";

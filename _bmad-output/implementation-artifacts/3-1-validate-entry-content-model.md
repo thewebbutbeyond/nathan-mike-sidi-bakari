@@ -1,6 +1,6 @@
 # Story 3.1: Validate Entry Content Model
 
-Status: ready-for-dev
+Status: review
 
 ## Story
 
@@ -18,27 +18,27 @@ so that timeline, lenses, search, and details all derive from the same data.
 
 ## Tasks / Subtasks
 
-- [ ] Inspect current Entry model and data usage. (AC: 1-5)
-  - [ ] Review `Entry` and `Lens` types in `src/content/data.ts`.
-  - [ ] Review current `ENTRIES` data for required and optional fields.
-  - [ ] Identify validation gaps that TypeScript alone does not catch.
-- [ ] Add runtime/build-time entry validation. (AC: 1-5)
-  - [ ] Validate required string fields are present and non-empty.
-  - [ ] Validate dates use ISO `YYYY-MM-DD` shape and parse as valid dates.
-  - [ ] Validate status values are in the allowed status set.
-  - [ ] Validate `lenses` is non-empty and all values match known lens slugs.
-  - [ ] Validate duplicate entry slugs are rejected.
-  - [ ] Validate related entry slugs exist and do not self-reference.
-  - [ ] Preserve support for multiple lenses per entry.
-- [ ] Verify existing content passes. (AC: 1-5)
-  - [ ] Run `npm run validate:shell`.
-  - [ ] Run `npm run lint`.
-  - [ ] Run `npm run build`.
-  - [ ] Confirm no generated route file changes are left uncommitted.
-- [ ] Update story and sprint tracking. (AC: 1-5)
-  - [ ] Mark this story `review` after checks pass.
-  - [ ] Update sprint status to `review`.
-  - [ ] Record command results and warnings in Dev Agent Record.
+- [x] Inspect current Entry model and data usage. (AC: 1-5)
+  - [x] Review `Entry` and `Lens` types in `src/content/data.ts`.
+  - [x] Review current `ENTRIES` data for required and optional fields.
+  - [x] Identify validation gaps that TypeScript alone does not catch.
+- [x] Add runtime/build-time entry validation. (AC: 1-5)
+  - [x] Validate required string fields are present and non-empty.
+  - [x] Validate dates use ISO `YYYY-MM-DD` shape and parse as valid dates.
+  - [x] Validate status values are in the allowed status set.
+  - [x] Validate `lenses` is non-empty and all values match known lens slugs.
+  - [x] Validate duplicate entry slugs are rejected.
+  - [x] Validate related entry slugs exist and do not self-reference.
+  - [x] Preserve support for multiple lenses per entry.
+- [x] Verify existing content passes. (AC: 1-5)
+  - [x] Run `npm run validate:shell`.
+  - [x] Run `npm run lint`.
+  - [x] Run `npm run build`.
+  - [x] Confirm no generated route file changes are left uncommitted.
+- [x] Update story and sprint tracking. (AC: 1-5)
+  - [x] Mark this story `review` after checks pass.
+  - [x] Update sprint status to `review`.
+  - [x] Record command results and warnings in Dev Agent Record.
 
 ## Dev Notes
 
@@ -80,20 +80,27 @@ Known non-blocking warnings:
 
 ### Agent Model Used
 
-TBD by implementing agent.
+GPT-5.4
 
 ### Debug Log References
 
-TBD.
+- `npm run validate:shell` passed.
+- `npm run lint` passed with 7 non-blocking `react-refresh/only-export-components` warnings.
+- `npm run build` passed with the existing Vite large chunk warning.
 
 ### Completion Notes List
 
-TBD.
+- Added build-time/runtime entry content validation in `src/content/data.ts`.
+- Validation checks required string fields, ISO date shape/validity, supported statuses, lens presence/validity, duplicate lenses, duplicate entry slugs, tag array shape, optional field shape, links, and related entry references.
+- Multi-lens entries remain valid and supported.
+- Existing content passes validation.
 
 ### File List
-
-Expected files touched:
 
 - `src/content/data.ts`
 - `_bmad-output/implementation-artifacts/3-1-validate-entry-content-model.md`
 - `_bmad-output/implementation-artifacts/sprint-status.yaml`
+
+### Change Log
+
+- 2026-04-22: Added entry content validation, verified current content with shell/lint/build, and moved story to review.
