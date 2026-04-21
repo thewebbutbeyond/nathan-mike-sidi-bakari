@@ -1,6 +1,6 @@
 # Story 1.3: Establish Build and Lint Baseline
 
-Status: ready-for-dev
+Status: review
 
 ## Story
 
@@ -18,30 +18,30 @@ so that future stories can be verified consistently.
 
 ## Tasks / Subtasks
 
-- [ ] Confirm standard verification commands. (AC: 1, 2, 5)
-  - [ ] Confirm `package.json` includes scripts for `lint`, `build`, and `validate:shell`.
-  - [ ] Confirm `validate:shell` points to `scripts/validate-shell-routes.mjs`.
-  - [ ] Confirm the commands run from a clean `develop` checkout.
-- [ ] Verify dependency install baseline. (AC: 1)
-  - [ ] Run `npm ci`.
-  - [ ] Record any Node engine warnings or install warnings.
-  - [ ] Confirm install exits successfully.
-- [ ] Run verification command set. (AC: 1, 2, 5)
-  - [ ] Run `npm run validate:shell`.
-  - [ ] Run `npm run lint`.
-  - [ ] Run `npm run build`.
-- [ ] Document non-blocking warnings. (AC: 3)
-  - [ ] Record the known `react-refresh/only-export-components` warnings if still present.
-  - [ ] Record any build warnings such as large chunks if still present.
-  - [ ] Confirm no warning is being treated as a hidden failure for this story.
-- [ ] Verify generated route file determinism. (AC: 4)
-  - [ ] Check whether `src/routeTree.gen.ts` changes after build.
-  - [ ] If it changes, inspect and commit the generated change.
-  - [ ] If it does not change, record that the route tree is stable.
-- [ ] Update story and sprint tracking. (AC: 1-5)
-  - [ ] Mark this story `review` after all checks pass.
-  - [ ] Update sprint status to `review`.
-  - [ ] Record command results in Dev Agent Record.
+- [x] Confirm standard verification commands. (AC: 1, 2, 5)
+  - [x] Confirm `package.json` includes scripts for `lint`, `build`, and `validate:shell`.
+  - [x] Confirm `validate:shell` points to `scripts/validate-shell-routes.mjs`.
+  - [x] Confirm the commands run from a clean `develop` checkout.
+- [x] Verify dependency install baseline. (AC: 1)
+  - [x] Run `npm ci`.
+  - [x] Record any Node engine warnings or install warnings.
+  - [x] Confirm install exits successfully.
+- [x] Run verification command set. (AC: 1, 2, 5)
+  - [x] Run `npm run validate:shell`.
+  - [x] Run `npm run lint`.
+  - [x] Run `npm run build`.
+- [x] Document non-blocking warnings. (AC: 3)
+  - [x] Record the known `react-refresh/only-export-components` warnings if still present.
+  - [x] Record any build warnings such as large chunks if still present.
+  - [x] Confirm no warning is being treated as a hidden failure for this story.
+- [x] Verify generated route file determinism. (AC: 4)
+  - [x] Check whether `src/routeTree.gen.ts` changes after build.
+  - [x] If it changes, inspect and commit the generated change.
+  - [x] If it does not change, record that the route tree is stable.
+- [x] Update story and sprint tracking. (AC: 1-5)
+  - [x] Mark this story `review` after all checks pass.
+  - [x] Update sprint status to `review`.
+  - [x] Record command results in Dev Agent Record.
 
 ## Dev Notes
 
@@ -99,24 +99,30 @@ npm run build
 
 ### Agent Model Used
 
-TBD by implementing agent.
+GPT-5.4
 
 ### Debug Log References
 
-TBD.
+- `npm ci` passes with Node engine warnings because TanStack Start packages require Node `>=22.12.0`; current local Node is `v20.20.1`.
+- `npm run validate:shell` passes.
+- `npm run lint` passes with 7 non-blocking `react-refresh/only-export-components` warnings from shadcn/Lovable-style exports.
+- `npm run build` passes. Vite reports an existing large chunk warning for generated bundles.
+- `src/routeTree.gen.ts` did not change after the verification command set.
 
 ### Completion Notes List
 
-TBD.
+- Confirmed `package.json` includes `validate:shell`, `lint`, and `build`.
+- Confirmed `validate:shell` points to `scripts/validate-shell-routes.mjs`.
+- Confirmed a clean `develop` checkout before command execution.
+- Established the repeatable baseline command set: `npm ci`, `npm run validate:shell`, `npm run lint`, `npm run build`.
+- Documented non-blocking warnings and confirmed none are hidden failures for this story.
+- Confirmed route tree generation is deterministic for the current route set.
 
 ### File List
 
-Expected files touched:
-
 - `_bmad-output/implementation-artifacts/sprint-status.yaml`
-- This story file
+- `_bmad-output/implementation-artifacts/1-3-establish-build-and-lint-baseline.md`
 
-Possible files if generated output changes:
+### Change Log
 
-- `src/routeTree.gen.ts`
-- package/config docs if baseline command documentation is added
+- 2026-04-21: Ran and documented baseline verification command set; route tree remained stable; story moved to review.
