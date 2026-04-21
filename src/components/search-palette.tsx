@@ -2,13 +2,11 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "@tanstack/react-router";
 import { Search, SlidersHorizontal, X } from "lucide-react";
 
-import { Dialog, DialogContent } from "@/components/ui/dialog";
 import {
   Popover,
   PopoverAnchor,
   PopoverContent,
 } from "@/components/ui/popover";
-import { useIsMobile } from "@/hooks/use-mobile";
 import {
   ENTRIES,
   NOTES,
@@ -18,7 +16,6 @@ import {
 
 export function SearchTrigger() {
   const [open, setOpen] = useState(false);
-  const isMobile = useIsMobile();
   const triggerRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
