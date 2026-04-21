@@ -2,6 +2,8 @@ import { readFileSync } from "node:fs";
 
 const indexSource = readFileSync("src/routes/notes.index.tsx", "utf8");
 const detailSource = readFileSync("src/routes/notes.$slug.tsx", "utf8");
+const rssSource = readFileSync("src/routes/rss[.]xml.ts", "utf8");
+const rootSource = readFileSync("src/routes/__root.tsx", "utf8");
 
 const checks = [
   {
@@ -79,6 +81,50 @@ const checks = [
   {
     name: "note detail exposes rss link",
     pass: detailSource.includes('href="/rss.xml"') && detailSource.includes("subscribe via rss"),
+  },
+  {
+    name: "rss route exists and serves rss xml",
+    pass:
+      rssSource.includes('createFileRoute("/rss.xml")') &&
+      rssSource.includes('<rss version="2.0">') &&
+      rssSource.includes('"content-type": "application/rss+xml; charset=utf-8"'),
+  },
+  {
+    name: "rss items include required fields",
+    pass:
+      rssSource.includes("<item>") &&
+      rssSource.includes("<title>${escape(n.title)}</title>") &&
+      rssSource.includes("<link>${link}</link>") &&
+      rssSource.includes('<guid isPermaLink="true">${link}</guid>') &&
+      rssSource.includes("<pubDate>${pubDate}</pubDate>") &&
+      rssSource.includes("<description>${escape(n.summary)}</description>"),
+  },
+  {
+    name: "rss item links point to note routes",
+    pass: rssSource.includes("`${origin}/notes/${n.slug}`"),
+  },
+  {
+    name: "rss escapes core xml characters",
+    pass:
+      rssSource.includes('.replace(/&/g, "&amp;")') &&
+      rssSource.includes('.replace(/</g, "&lt;")') &&
+      rssSource.includes('.replace(/>/g, "&gt;")') &&
+      rssSource.includes('.replace(/"/g, "&quot;")'),
+  },
+  {
+    name: "root metadata exposes rss alternate link",
+    pass:
+      rootSource.includes('rel: "alternate"') &&
+      rootSource.includes('type: "application/rss+xml"') &&
+      rootSource.includes('href: "/rss.xml"'),
+  },
+  {
+    name: "notes surfaces expose rss links",
+    pass:
+      indexSource.includes('href="/rss.xml"') &&
+      detailSource.includes('href="/rss.xml"') &&
+      indexSource.includes("subscribe via rss") &&
+      detailSource.includes("subscribe via rss"),
   },
 ];
 

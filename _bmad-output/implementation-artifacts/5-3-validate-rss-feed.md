@@ -1,6 +1,6 @@
 # Story 5.3: Validate RSS Feed
 
-Status: ready-for-dev
+Status: review
 
 ## Story
 
@@ -17,25 +17,25 @@ so that I can follow updates without a platform feed.
 
 ## Tasks / Subtasks
 
-- [ ] Inspect current RSS route and feed discovery links. (AC: 1-4)
-  - [ ] Confirm `/rss.xml` route exists.
-  - [ ] Confirm RSS item title, link, guid, pubDate, and description are generated.
-  - [ ] Confirm XML escaping is present.
-  - [ ] Confirm root metadata and Notes pages link to RSS.
-- [ ] Extend RSS validation. (AC: 1-4)
-  - [ ] Validate RSS route structure and response headers.
-  - [ ] Validate note item link pattern points to `/notes/${slug}`.
-  - [ ] Validate XML escaping handles core special characters.
-  - [ ] Validate root and notes surfaces expose RSS links.
-- [ ] Run baseline checks. (AC: 1-4)
-  - [ ] Run `npm run validate:notes`.
-  - [ ] Run existing validators.
-  - [ ] Run `npm run lint`.
-  - [ ] Run `npm run build`.
-- [ ] Update story and sprint tracking. (AC: 1-4)
-  - [ ] Mark this story `review` after checks pass.
-  - [ ] Update sprint status to `review`.
-  - [ ] Record command results and warnings in Dev Agent Record.
+- [x] Inspect current RSS route and feed discovery links. (AC: 1-4)
+  - [x] Confirm `/rss.xml` route exists.
+  - [x] Confirm RSS item title, link, guid, pubDate, and description are generated.
+  - [x] Confirm XML escaping is present.
+  - [x] Confirm root metadata and Notes pages link to RSS.
+- [x] Extend RSS validation. (AC: 1-4)
+  - [x] Validate RSS route structure and response headers.
+  - [x] Validate note item link pattern points to `/notes/${slug}`.
+  - [x] Validate XML escaping handles core special characters.
+  - [x] Validate root and notes surfaces expose RSS links.
+- [x] Run baseline checks. (AC: 1-4)
+  - [x] Run `npm run validate:notes`.
+  - [x] Run existing validators.
+  - [x] Run `npm run lint`.
+  - [x] Run `npm run build`.
+- [x] Update story and sprint tracking. (AC: 1-4)
+  - [x] Mark this story `review` after checks pass.
+  - [x] Update sprint status to `review`.
+  - [x] Record command results and warnings in Dev Agent Record.
 
 ## Dev Notes
 
@@ -76,20 +76,30 @@ Known non-blocking warnings:
 
 ### Agent Model Used
 
-TBD by implementing agent.
+GPT-5.4
 
 ### Debug Log References
 
-TBD.
+- Extended `scripts/validate-notes.mjs` to cover RSS route structure and feed discovery links.
+- `npm run validate:notes` passed: validated 21 notes index/detail/RSS safeguards.
+- Existing validators passed.
+- `npm run lint` passed with 7 non-blocking `react-refresh/only-export-components` warnings.
+- `npm run build` passed with the existing Vite large chunk warning.
 
 ### Completion Notes List
 
-TBD.
+- Confirmed `/rss.xml` route exists.
+- Confirmed RSS route generates title, link, guid, pubDate, and description for note items.
+- Confirmed RSS item links point to `/notes/${slug}`.
+- Confirmed RSS escaping covers `&`, `<`, `>`, and `"` characters.
+- Confirmed RSS alternate link exists in root metadata and visible RSS links exist on Notes surfaces.
 
 ### File List
-
-Expected files touched:
 
 - `scripts/validate-notes.mjs`
 - `_bmad-output/implementation-artifacts/5-3-validate-rss-feed.md`
 - `_bmad-output/implementation-artifacts/sprint-status.yaml`
+
+### Change Log
+
+- 2026-04-22: Extended notes validation to cover RSS structure, escaping, item links, response headers, and feed discovery; verified full validation/lint/build; moved story to review.
