@@ -1,5 +1,5 @@
 # generated: 2026-04-21T21:48:59Z
-# last_updated: 2026-04-22T00:50:00Z
+# last_updated: 2026-04-22T00:58:00Z
 # project: nathansidib
 # project_key: NOKEY
 # tracking_system: file-system
@@ -24,7 +24,7 @@
 #   - done: Retrospective has been completed
 
 generated: 2026-04-21T21:48:59Z
-last_updated: 2026-04-22T00:50:00Z
+last_updated: 2026-04-22T00:58:00Z
 project: nathansidib
 project_key: NOKEY
 tracking_system: file-system
@@ -46,7 +46,7 @@ development_status:
   # Refine Home Portal Messaging
   2-1-refine-home-portal-messaging: done
   # Productionize Home Stats Block
-  2-2-productionize-home-stats-block: review
+  2-2-productionize-home-stats-block: done
   # Harden Chefs-d'oeuvre Entry Path
   2-3-harden-chefs-d-oeuvre-entry-path: backlog
   # Epic 2 Retrospective

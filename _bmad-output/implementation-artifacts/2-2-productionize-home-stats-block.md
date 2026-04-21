@@ -1,6 +1,6 @@
 # Story 2.2: Productionize Home Stats Block
 
-Status: review
+Status: done
 
 ## Story
 
@@ -105,3 +105,4 @@ Expected files touched:
 ### Change Log
 
 - 2026-04-22: Hardened Home / Portal stats derivation, removed fake fallback year, verified shell/lint/build, and moved story to review.
+- 2026-04-22: Code review completed with no blocking findings; story moved to done.
