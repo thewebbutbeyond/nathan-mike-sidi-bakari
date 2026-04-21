@@ -38,10 +38,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
 
             <nav className="hidden items-center gap-7 md:flex">
               {navItems.map((item) => {
-                const active =
-                  item.to === "/"
-                    ? path === "/"
-                    : path === item.to || path.startsWith(item.to + "/");
+                const active = path === item.to || path.startsWith(item.to + "/");
                 return (
                   <Link
                     key={item.to}
