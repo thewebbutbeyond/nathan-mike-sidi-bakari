@@ -165,7 +165,7 @@ function SearchPanel({ onClose }: { onClose: () => void }) {
           autoFocus
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="search by title…"
+          placeholder="search…"
           className="flex h-11 w-full bg-transparent py-3 text-sm outline-none placeholder:text-ink-faint"
         />
       </div>
