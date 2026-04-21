@@ -32,7 +32,7 @@ function SelectedPage() {
       <Container>
         <PageHeader
           eyebrow="chefs-d’œuvre"
-          title="A few marked entries."
+          title="A handful of marked entries."
           description="A small set of pieces I’d hand someone if they only had ten minutes."
         />
         <ArtifactList artifacts={selected} />
