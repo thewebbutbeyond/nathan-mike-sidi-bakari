@@ -119,41 +119,6 @@ function ArtifactDetail() {
               </span>
             </MetaRow>
           )}
-                <Link
-                  key={c}
-                  to="/collections/$slug"
-                  params={{ slug: c }}
-                  className="hover:underline underline-offset-4"
-                >
-                  {c}
-                </Link>
-              ))}
-            </span>
-          </MetaRow>
-          {a.role && <MetaRow label="role">{a.role}</MetaRow>}
-          {a.outcome && <MetaRow label="outcome">{a.outcome}</MetaRow>}
-          <MetaRow label="tags">
-            <span className="flex flex-wrap gap-x-3 gap-y-1">
-              {a.tags.map((t) => (
-                <Tag key={t}>{t}</Tag>
-              ))}
-            </span>
-          </MetaRow>
-          {a.links && a.links.length > 0 && (
-            <MetaRow label="links">
-              <span className="flex flex-wrap gap-x-3">
-                {a.links.map((l) => (
-                  <a
-                    key={l.label}
-                    href={l.href}
-                    className="underline underline-offset-4 hover:text-ink"
-                  >
-                    {l.label} ↗
-                  </a>
-                ))}
-              </span>
-            </MetaRow>
-          )}
         </dl>
 
         <Prose text={a.body} />
