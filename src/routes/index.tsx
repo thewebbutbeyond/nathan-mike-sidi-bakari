@@ -28,7 +28,7 @@ const ROUTES = [
   {
     to: "/collections" as const,
     label: "lenses",
-    description: "The same archive, seen through different parts of my life.",
+    description: "The same archive, seen through different lenses.",
   },
   {
     to: "/notes" as const,

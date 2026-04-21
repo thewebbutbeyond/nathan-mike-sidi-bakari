@@ -14,7 +14,7 @@ export const Route = createFileRoute("/collections")({
       { property: "og:title", content: "Lenses · Nathan Mike Sidi Bakari" },
       {
         property: "og:description",
-        content: "The same archive, seen through different parts of my life.",
+        content: "The same archive, seen through different lenses.",
       },
     ],
   }),
@@ -27,7 +27,7 @@ function CollectionsPage() {
       <Container>
         <PageHeader
           eyebrow="lenses"
-          title="The same archive, seen through different parts of my life."
+          title="The same archive, seen through different lenses."
           description="Most entries belong to more than one lens - a company is also engineering, a drawing is sometimes an investment memo. The lines are useful, not strict."
         />
 
