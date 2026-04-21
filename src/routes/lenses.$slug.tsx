@@ -30,7 +30,7 @@ export const Route = createFileRoute("/lenses/$slug")({
     <SiteShell>
       <Container>
         <PageHeader title="Collection not found." />
-        <Link to="/collections" className="text-sm underline underline-offset-4">
+        <Link to="/lenses" className="text-sm underline underline-offset-4">
           ← all collections
         </Link>
       </Container>
@@ -46,7 +46,7 @@ function CollectionDetail() {
       <Container>
         <div className="mb-6 text-xs">
           <Link
-            to="/collections"
+            to="/lenses"
             className="text-ink-soft hover:text-ink underline underline-offset-4"
           >
             ← collections

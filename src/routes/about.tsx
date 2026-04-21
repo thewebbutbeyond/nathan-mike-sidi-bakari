@@ -43,7 +43,7 @@ function AboutPage() {
         <Prose text={ABOUT_TEXT} />
 
         <div className="mt-12 pt-6 border-t border-rule text-xs text-ink-soft flex flex-wrap gap-x-5 gap-y-2">
-          <Link to="/selected" className="hover:text-ink underline underline-offset-4">
+          <Link to="/chefs-doeuvre" className="hover:text-ink underline underline-offset-4">
             chefs-d’œuvre →
           </Link>
           <Link to="/notes" className="hover:text-ink underline underline-offset-4">

@@ -38,7 +38,7 @@ function CollectionsPage() {
             return (
               <li key={c.slug} className="bg-background">
                 <Link
-                  to="/collections/$slug"
+                  to="/lenses/$slug"
                   params={{ slug: c.slug }}
                   className="block p-5 sm:p-6 hover:bg-secondary/50 transition-colors h-full"
                 >
