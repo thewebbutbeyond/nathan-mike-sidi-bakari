@@ -44,7 +44,7 @@ function ContactPage() {
         </dl>
 
         <div className="mt-10 text-xs text-ink-faint leading-relaxed max-w-prose">
-          There is no bad reasons to write!
+          There is no bad reason to write!
         </div>
       </NarrowContainer>
     </SiteShell>
