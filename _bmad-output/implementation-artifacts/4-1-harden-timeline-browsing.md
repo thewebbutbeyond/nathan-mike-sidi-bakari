@@ -1,6 +1,6 @@
 # Story 4.1: Harden Timeline Browsing
 
-Status: ready-for-dev
+Status: review
 
 ## Story
 
@@ -17,24 +17,24 @@ so that trajectory and memory are visible.
 
 ## Tasks / Subtasks
 
-- [ ] Inspect current Timeline behavior. (AC: 1-4)
-  - [ ] Confirm Timeline uses `sortedEntries()`.
-  - [ ] Confirm entries are grouped by year.
-  - [ ] Confirm entry links use `/entries/$slug` with `from: "timeline"`.
-  - [ ] Identify whether Timeline has a route-specific empty state.
-- [ ] Harden Timeline empty state and validation. (AC: 1-4)
-  - [ ] Add a quiet empty state if no entries exist.
-  - [ ] Add or run deterministic validation for timeline grouping/link assumptions.
-  - [ ] Preserve existing visual rhythm and chef-d'oeuvre emphasis.
-- [ ] Run baseline checks. (AC: 1-4)
-  - [ ] Run `npm run validate:shell`.
-  - [ ] Run any Timeline validator introduced by this story.
-  - [ ] Run `npm run lint`.
-  - [ ] Run `npm run build`.
-- [ ] Update story and sprint tracking. (AC: 1-4)
-  - [ ] Mark this story `review` after checks pass.
-  - [ ] Update sprint status to `review`.
-  - [ ] Record command results and warnings in Dev Agent Record.
+- [x] Inspect current Timeline behavior. (AC: 1-4)
+  - [x] Confirm Timeline uses `sortedEntries()`.
+  - [x] Confirm entries are grouped by year.
+  - [x] Confirm entry links use `/entries/$slug` with `from: "timeline"`.
+  - [x] Identify whether Timeline has a route-specific empty state.
+- [x] Harden Timeline empty state and validation. (AC: 1-4)
+  - [x] Add a quiet empty state if no entries exist.
+  - [x] Add or run deterministic validation for timeline grouping/link assumptions.
+  - [x] Preserve existing visual rhythm and chef-d'oeuvre emphasis.
+- [x] Run baseline checks. (AC: 1-4)
+  - [x] Run `npm run validate:shell`.
+  - [x] Run any Timeline validator introduced by this story.
+  - [x] Run `npm run lint`.
+  - [x] Run `npm run build`.
+- [x] Update story and sprint tracking. (AC: 1-4)
+  - [x] Mark this story `review` after checks pass.
+  - [x] Update sprint status to `review`.
+  - [x] Record command results and warnings in Dev Agent Record.
 
 ## Dev Notes
 
@@ -76,25 +76,31 @@ Known non-blocking warnings:
 
 ### Agent Model Used
 
-TBD by implementing agent.
+GPT-5.4
 
 ### Debug Log References
 
-TBD.
+- Added `scripts/validate-timeline.mjs` and `npm run validate:timeline`.
+- `npm run validate:timeline` passed: validated 6 timeline browsing safeguards.
+- `npm run validate:entry-detail` passed.
+- `npm run validate:shell` passed.
+- `npm run lint` passed with 7 non-blocking `react-refresh/only-export-components` warnings.
+- `npm run build` passed with the existing Vite large chunk warning.
 
 ### Completion Notes List
 
-TBD.
+- Added quiet Timeline empty state: "No timeline entries yet. The logbook is still open."
+- Added deterministic validation for sorted entry usage, year grouping, entry detail links, timeline context, chef-d'oeuvre emphasis, and empty state.
+- Preserved the existing Timeline list layout and chef-d'oeuvre visual emphasis.
 
 ### File List
-
-Expected files touched:
 
 - `src/routes/timeline.tsx`
 - `_bmad-output/implementation-artifacts/4-1-harden-timeline-browsing.md`
 - `_bmad-output/implementation-artifacts/sprint-status.yaml`
-
-Likely files if validation is added:
-
 - `scripts/validate-timeline.mjs`
 - `package.json`
+
+### Change Log
+
+- 2026-04-22: Added Timeline empty state and validation, verified timeline/entry/shell/lint/build, and moved story to review.

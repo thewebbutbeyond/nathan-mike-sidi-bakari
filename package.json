@@ -11,6 +11,7 @@
     "lint": "eslint .",
     "validate:entry-detail": "node scripts/validate-entry-detail.mjs",
     "validate:shell": "node scripts/validate-shell-routes.mjs",
+    "validate:timeline": "node scripts/validate-timeline.mjs",
     "format": "prettier --write ."
   },
   "dependencies": {
