@@ -36,13 +36,13 @@ export const Route = createFileRoute("/notes/$slug")({
   },
   notFoundComponent: () => (
     <SiteShell>
-      <NarrowContainer>
+      <Container>
         <div className="text-xs text-ink-faint mb-3">404 · note not found</div>
         <h1 className="text-xl font-medium">No note at this slug.</h1>
         <Link to="/notes" className="mt-6 inline-block text-sm underline">
           ← all notes
         </Link>
-      </NarrowContainer>
+      </Container>
     </SiteShell>
   ),
   component: NoteDetail,
