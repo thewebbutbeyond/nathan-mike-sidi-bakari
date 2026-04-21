@@ -65,9 +65,9 @@ function ArtifactDetail() {
         <header className="mb-8">
           <div className="text-xs text-ink-faint mb-3 tabular-nums">
             {formatDate(a.date, { long: true })}
-            {a.milestone && (
+            {a.selected && (
               <span className="ml-3 text-accent uppercase tracking-wider text-[10px]">
-                ◆ milestone
+                ◆ chef-d’œuvre
               </span>
             )}
           </div>

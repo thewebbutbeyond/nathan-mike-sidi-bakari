@@ -27,9 +27,9 @@ export function ArtifactList({ artifacts }: { artifacts: Artifact[] }) {
               <div className="min-w-0 flex-1">
                 <div className="flex items-baseline gap-2 flex-wrap">
                   <h3 className="text-sm text-ink font-medium">{a.title}</h3>
-                  {a.milestone && (
+                  {a.selected && (
                     <span className="text-[10px] uppercase tracking-wider text-accent">
-                      milestone
+                      ◆ chef-d’œuvre
                     </span>
                   )}
                 </div>

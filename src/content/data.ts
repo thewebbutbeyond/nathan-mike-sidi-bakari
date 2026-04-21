@@ -12,7 +12,6 @@ export interface Artifact {
   tags: string[];
   role?: string;
   outcome?: string;
-  milestone?: boolean;
   selected?: boolean;
   links?: { label: string; href: string }[];
   related?: string[];
