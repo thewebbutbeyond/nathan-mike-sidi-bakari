@@ -1,6 +1,6 @@
 # Story 4.2: Harden Lens Browsing
 
-Status: review
+Status: done
 
 ## Story
 
@@ -105,3 +105,4 @@ GPT-5.4
 ### Change Log
 
 - 2026-04-22: Added lens detail empty state and lens browsing validation, verified lenses/timeline/entry/shell/lint/build, and moved story to review.
+- 2026-04-22: Code review completed with no blocking findings; story moved to done.
