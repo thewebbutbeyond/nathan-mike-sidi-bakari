@@ -96,7 +96,7 @@ function HomePage() {
 
         {/* primary routes */}
         <section className="mb-16">
-          <SectionHeading label="ways in" />
+          <SectionHeading label="perspectives" />
           <ul className="grid grid-cols-1 sm:grid-cols-2 border-t border-rule">
             {ROUTES.map((r, i) => (
               <li
