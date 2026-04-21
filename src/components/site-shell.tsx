@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
-import { Linkedin, Rss } from "lucide-react";
+import { Github, Linkedin, Rss } from "lucide-react";
 
 const NAV = [
   { to: "/chefs-doeuvre", label: "Chefs-d’œuvre" },
