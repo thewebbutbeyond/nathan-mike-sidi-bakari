@@ -3,7 +3,7 @@ import { Rss } from "lucide-react";
 import { Container, PageHeader, SiteShell, Tag } from "@/components/site-shell";
 import { formatDate, sortedNotes } from "@/content/data";
 
-export const Route = createFileRoute("/notes")({
+export const Route = createFileRoute("/notes/")({
   head: () => ({
     meta: [
       { title: "Notes · Nathan Mike Sidi Bakari" },
