@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TimelineRouteImport } from './routes/timeline'
+import { Route as SelectedRouteImport } from './routes/selected'
 import { Route as RssDotxmlRouteImport } from './routes/rss[.]xml'
 import { Route as NotesRouteImport } from './routes/notes'
 import { Route as LensesRouteImport } from './routes/lenses'
@@ -24,6 +25,11 @@ import { Route as ArtifactsSlugRouteImport } from './routes/artifacts.$slug'
 const TimelineRoute = TimelineRouteImport.update({
   id: '/timeline',
   path: '/timeline',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SelectedRoute = SelectedRouteImport.update({
+  id: '/selected',
+  path: '/selected',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RssDotxmlRoute = RssDotxmlRouteImport.update({
@@ -85,6 +91,7 @@ export interface FileRoutesByFullPath {
   '/lenses': typeof LensesRouteWithChildren
   '/notes': typeof NotesRouteWithChildren
   '/rss.xml': typeof RssDotxmlRoute
+  '/selected': typeof SelectedRoute
   '/timeline': typeof TimelineRoute
   '/artifacts/$slug': typeof ArtifactsSlugRoute
   '/lenses/$slug': typeof LensesSlugRoute
@@ -98,6 +105,7 @@ export interface FileRoutesByTo {
   '/lenses': typeof LensesRouteWithChildren
   '/notes': typeof NotesRouteWithChildren
   '/rss.xml': typeof RssDotxmlRoute
+  '/selected': typeof SelectedRoute
   '/timeline': typeof TimelineRoute
   '/artifacts/$slug': typeof ArtifactsSlugRoute
   '/lenses/$slug': typeof LensesSlugRoute
@@ -112,6 +120,7 @@ export interface FileRoutesById {
   '/lenses': typeof LensesRouteWithChildren
   '/notes': typeof NotesRouteWithChildren
   '/rss.xml': typeof RssDotxmlRoute
+  '/selected': typeof SelectedRoute
   '/timeline': typeof TimelineRoute
   '/artifacts/$slug': typeof ArtifactsSlugRoute
   '/lenses/$slug': typeof LensesSlugRoute
@@ -127,6 +136,7 @@ export interface FileRouteTypes {
     | '/lenses'
     | '/notes'
     | '/rss.xml'
+    | '/selected'
     | '/timeline'
     | '/artifacts/$slug'
     | '/lenses/$slug'
@@ -140,6 +150,7 @@ export interface FileRouteTypes {
     | '/lenses'
     | '/notes'
     | '/rss.xml'
+    | '/selected'
     | '/timeline'
     | '/artifacts/$slug'
     | '/lenses/$slug'
@@ -153,6 +164,7 @@ export interface FileRouteTypes {
     | '/lenses'
     | '/notes'
     | '/rss.xml'
+    | '/selected'
     | '/timeline'
     | '/artifacts/$slug'
     | '/lenses/$slug'
@@ -167,6 +179,7 @@ export interface RootRouteChildren {
   LensesRoute: typeof LensesRouteWithChildren
   NotesRoute: typeof NotesRouteWithChildren
   RssDotxmlRoute: typeof RssDotxmlRoute
+  SelectedRoute: typeof SelectedRoute
   TimelineRoute: typeof TimelineRoute
   ArtifactsSlugRoute: typeof ArtifactsSlugRoute
 }
@@ -178,6 +191,13 @@ declare module '@tanstack/react-router' {
       path: '/timeline'
       fullPath: '/timeline'
       preLoaderRoute: typeof TimelineRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/selected': {
+      id: '/selected'
+      path: '/selected'
+      fullPath: '/selected'
+      preLoaderRoute: typeof SelectedRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/rss.xml': {
@@ -282,9 +302,19 @@ const rootRouteChildren: RootRouteChildren = {
   LensesRoute: LensesRouteWithChildren,
   NotesRoute: NotesRouteWithChildren,
   RssDotxmlRoute: RssDotxmlRoute,
+  SelectedRoute: SelectedRoute,
   TimelineRoute: TimelineRoute,
   ArtifactsSlugRoute: ArtifactsSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { createStart } from '@tanstack/react-start'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+  }
+}
