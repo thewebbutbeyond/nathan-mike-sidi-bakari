@@ -1,6 +1,7 @@
 import { readFileSync } from "node:fs";
 
 const indexSource = readFileSync("src/routes/notes.index.tsx", "utf8");
+const detailSource = readFileSync("src/routes/notes.$slug.tsx", "utf8");
 
 const checks = [
   {
@@ -32,6 +33,52 @@ const checks = [
   {
     name: "empty state is quiet",
     pass: indexSource.includes("notes.length === 0") && indexSource.includes("No notes yet."),
+  },
+  {
+    name: "note detail looks up notes by slug",
+    pass:
+      detailSource.includes("getNote(params.slug)") &&
+      detailSource.includes("if (!note) throw notFound();"),
+  },
+  {
+    name: "note detail has quiet not-found return path",
+    pass: detailSource.includes("No note at this slug.") && detailSource.includes('to="/notes"'),
+  },
+  {
+    name: "note detail derives SEO from note data",
+    pass:
+      detailSource.includes("const title = `${n.title} · Notes · Nathan Mike Sidi Bakari`;") &&
+      detailSource.includes('{ name: "description", content: n.summary }') &&
+      detailSource.includes('{ property: "og:description", content: n.summary }'),
+  },
+  {
+    name: "note detail renders title date reading time and summary",
+    pass:
+      detailSource.includes("{n.title}") &&
+      detailSource.includes("formatDate(n.date, { long: true })") &&
+      detailSource.includes("{n.readingMinutes} min read") &&
+      detailSource.includes("{n.summary}"),
+  },
+  {
+    name: "note detail renders body and tags",
+    pass: detailSource.includes("n.body.split") && detailSource.includes("n.tags.map"),
+  },
+  {
+    name: "note detail supports optional cover image",
+    pass:
+      detailSource.includes("n.cover &&") && detailSource.includes("alt={n.coverAlt ?? n.title}"),
+  },
+  {
+    name: "note detail has previous and next links",
+    pass:
+      detailSource.includes("prev:") &&
+      detailSource.includes("next:") &&
+      detailSource.includes("← previous") &&
+      detailSource.includes("next →"),
+  },
+  {
+    name: "note detail exposes rss link",
+    pass: detailSource.includes('href="/rss.xml"') && detailSource.includes("subscribe via rss"),
   },
 ];
 

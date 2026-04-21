@@ -1,6 +1,6 @@
 # Story 5.2: Productionize Note Detail
 
-Status: ready-for-dev
+Status: review
 
 ## Story
 
@@ -17,23 +17,23 @@ so that I can read without distraction.
 
 ## Tasks / Subtasks
 
-- [ ] Inspect current Note Detail. (AC: 1-4)
-  - [ ] Confirm title, date, reading time, summary, body, tags, optional cover image, previous/next links, and RSS link render.
-  - [ ] Confirm SEO metadata derives from note title and summary.
-  - [ ] Confirm unknown note slugs throw `notFound()` and render a return path.
-- [ ] Harden Note Detail validation. (AC: 1-4)
-  - [ ] Extend notes validation to cover Note Detail assumptions.
-  - [ ] Preserve current long-form reading layout.
-  - [ ] Preserve optional cover behavior.
-- [ ] Run baseline checks. (AC: 1-4)
-  - [ ] Run `npm run validate:notes`.
-  - [ ] Run existing validators.
-  - [ ] Run `npm run lint`.
-  - [ ] Run `npm run build`.
-- [ ] Update story and sprint tracking. (AC: 1-4)
-  - [ ] Mark this story `review` after checks pass.
-  - [ ] Update sprint status to `review`.
-  - [ ] Record command results and warnings in Dev Agent Record.
+- [x] Inspect current Note Detail. (AC: 1-4)
+  - [x] Confirm title, date, reading time, summary, body, tags, optional cover image, previous/next links, and RSS link render.
+  - [x] Confirm SEO metadata derives from note title and summary.
+  - [x] Confirm unknown note slugs throw `notFound()` and render a return path.
+- [x] Harden Note Detail validation. (AC: 1-4)
+  - [x] Extend notes validation to cover Note Detail assumptions.
+  - [x] Preserve current long-form reading layout.
+  - [x] Preserve optional cover behavior.
+- [x] Run baseline checks. (AC: 1-4)
+  - [x] Run `npm run validate:notes`.
+  - [x] Run existing validators.
+  - [x] Run `npm run lint`.
+  - [x] Run `npm run build`.
+- [x] Update story and sprint tracking. (AC: 1-4)
+  - [x] Mark this story `review` after checks pass.
+  - [x] Update sprint status to `review`.
+  - [x] Record command results and warnings in Dev Agent Record.
 
 ## Dev Notes
 
@@ -73,20 +73,29 @@ Known non-blocking warnings:
 
 ### Agent Model Used
 
-TBD by implementing agent.
+GPT-5.4
 
 ### Debug Log References
 
-TBD.
+- Extended `scripts/validate-notes.mjs` to cover Note Detail.
+- `npm run validate:notes` passed: validated 15 notes index/detail safeguards.
+- Existing validators passed.
+- `npm run lint` passed with 7 non-blocking `react-refresh/only-export-components` warnings.
+- `npm run build` passed with the existing Vite large chunk warning.
 
 ### Completion Notes List
 
-TBD.
+- Confirmed Note Detail renders title, date, reading time, summary, body, tags, optional cover image, previous/next note links, and RSS link.
+- Confirmed SEO metadata is derived from note title and summary.
+- Confirmed unknown note slugs throw `notFound()` and render a quiet return path to Notes.
+- Preserved current long-form reading layout and optional cover behavior.
 
 ### File List
-
-Expected files touched:
 
 - `scripts/validate-notes.mjs`
 - `_bmad-output/implementation-artifacts/5-2-productionize-note-detail.md`
 - `_bmad-output/implementation-artifacts/sprint-status.yaml`
+
+### Change Log
+
+- 2026-04-22: Extended notes validation to cover Note Detail, verified notes/search/lenses/timeline/entry/shell/lint/build, and moved story to review.
