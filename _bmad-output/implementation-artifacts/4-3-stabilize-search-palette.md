@@ -1,6 +1,6 @@
 # Story 4.3: Stabilize Search Palette
 
-Status: review
+Status: done
 
 ## Story
 
@@ -116,3 +116,4 @@ GPT-5.4
 ### Change Log
 
 - 2026-04-22: Expanded search matching, added keyboard result navigation, added search validation, verified full validation/lint/build, and moved story to review.
+- 2026-04-22: Code review completed with no blocking findings; story moved to done.
