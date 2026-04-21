@@ -30,7 +30,7 @@ function SiteHeader() {
             nathan mike sidi bakari
           </span>
         </Link>
-        <nav className="flex items-center gap-x-5 gap-y-1 flex-wrap text-xs">
+        <nav className="flex items-center justify-end gap-x-5 gap-y-1 flex-wrap text-xs">
           {NAV.map((item) => (
             <Link
               key={item.to}
@@ -52,7 +52,7 @@ function SiteHeader() {
           <Link
             to="/contact"
             activeProps={{ className: "text-ink underline underline-offset-4" }}
-            inactiveProps={{ className: "text-ink-faint hover:text-ink" }}
+            inactiveProps={{ className: "text-ink-soft hover:text-ink" }}
           >
             contact
           </Link>

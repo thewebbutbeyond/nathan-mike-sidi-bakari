@@ -51,7 +51,7 @@ export function SearchTrigger() {
       onClick={() => setOpen((v) => !v)}
       aria-label={open ? "Close search" : "Search"}
       title="Search (⌘K)"
-      className="text-ink-faint hover:text-ink inline-flex items-center"
+      className="text-ink-soft hover:text-ink inline-flex items-center"
     >
       {open ? (
         <X size={14} strokeWidth={1.5} />
@@ -67,7 +67,7 @@ export function SearchTrigger() {
       <>
         {trigger}
         <Dialog open={open} onOpenChange={setOpen}>
-          <DialogContent className="overflow-hidden p-0 max-w-xl gap-0">
+          <DialogContent className="overflow-hidden p-0 max-w-xl gap-0 top-4 translate-y-0 data-[state=closed]:slide-out-to-top-4 data-[state=open]:slide-in-from-top-4">
             <SearchPanel onClose={() => setOpen(false)} />
           </DialogContent>
         </Dialog>
