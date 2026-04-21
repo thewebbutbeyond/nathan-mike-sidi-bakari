@@ -56,7 +56,7 @@ export function SearchTrigger() {
         title="Search (⌘K)"
         className="text-ink-faint hover:text-ink inline-flex items-center"
       >
-        <Search size={14} strokeWidth={1.5} />
+        <Search size={14} strokeWidth={1.5} className="-scale-x-100" />
       </button>
       <SearchPalette open={open} onOpenChange={setOpen} />
     </>
