@@ -12,22 +12,22 @@ const ROUTES = [
   {
     to: "/chefs-doeuvre" as const,
     label: "chefs-d’œuvre",
-    description: "A handful of marked entries.",
+    description: "Marked entries I would hand someone as a first way in.",
   },
   {
     to: "/timeline" as const,
     label: "timeline",
-    description: "Everything, by date.",
+    description: "Everything in order, so the thread stays visible.",
   },
   {
     to: "/lenses" as const,
     label: "lenses",
-    description: "The same archive, seen through different lenses.",
+    description: "Different ways of looking through the same archive.",
   },
   {
     to: "/notes" as const,
     label: "notes",
-    description: "(Not so) random thoughts.",
+    description: "Slower pieces, loose reflections, and things worth returning to.",
   },
 ];
 
@@ -54,11 +54,11 @@ function HomePage() {
             personal logbook · kept since {earliest}
           </div>
           <h1 className="text-xl sm:text-2xl font-medium tracking-tight leading-relaxed text-ink">
-            A personal archive of work, notes, and traces.
+            A personal logbook of work, notes, and traces.
           </h1>
           <p className="mt-4 text-sm text-ink-soft leading-relaxed">
-            Kept for myself first, opened to anyone curious. You’ll find records across engineering,
-            entrepreneurship, investing, art, and reflection.
+            I keep this to remember what I made, what I was thinking, and how different threads keep
+            crossing. It is open to anyone curious enough to wander.
           </p>
         </section>
 

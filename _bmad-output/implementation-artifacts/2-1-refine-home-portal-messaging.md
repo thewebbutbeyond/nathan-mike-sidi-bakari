@@ -1,6 +1,6 @@
 # Story 2.1: Refine Home Portal Messaging
 
-Status: ready-for-dev
+Status: review
 
 ## Story
 
@@ -18,26 +18,26 @@ so that I understand what this place is without feeling pitched to.
 
 ## Tasks / Subtasks
 
-- [ ] Review current Home / Portal copy against source-of-truth tone guidance. (AC: 1-3)
-  - [ ] Inspect `src/routes/index.tsx` premise, route card descriptions, and section headings.
-  - [ ] Compare against `.lovable/plan.md`, content-language guidance, and Trigger Map key insights.
-  - [ ] Identify any copy that sounds too defensive, self-important, cold, or portfolio-like.
-- [ ] Refine Home / Portal premise copy. (AC: 1-4)
-  - [ ] Preserve the current notebook/log layout and visual structure.
-  - [ ] Keep the opening concise and plain.
-  - [ ] Make the copy warmer and more inviting without adding a sales CTA.
-- [ ] Refine primary route card descriptions. (AC: 3, 5)
-  - [ ] Keep route labels unchanged unless a clear inconsistency exists.
-  - [ ] Make descriptions more useful for first-time visitors.
-  - [ ] Preserve the current route order and visual rhythm.
-- [ ] Verify no route or layout regressions. (AC: 4)
-  - [ ] Run `npm run validate:shell`.
-  - [ ] Run `npm run lint`.
-  - [ ] Run `npm run build`.
-- [ ] Update story and sprint tracking. (AC: 1-5)
-  - [ ] Mark this story `review` after checks pass.
-  - [ ] Update sprint status to `review`.
-  - [ ] Record command results and warnings in Dev Agent Record.
+- [x] Review current Home / Portal copy against source-of-truth tone guidance. (AC: 1-3)
+  - [x] Inspect `src/routes/index.tsx` premise, route card descriptions, and section headings.
+  - [x] Compare against `.lovable/plan.md`, content-language guidance, and Trigger Map key insights.
+  - [x] Identify any copy that sounds too defensive, self-important, cold, or portfolio-like.
+- [x] Refine Home / Portal premise copy. (AC: 1-4)
+  - [x] Preserve the current notebook/log layout and visual structure.
+  - [x] Keep the opening concise and plain.
+  - [x] Make the copy warmer and more inviting without adding a sales CTA.
+- [x] Refine primary route card descriptions. (AC: 3, 5)
+  - [x] Keep route labels unchanged unless a clear inconsistency exists.
+  - [x] Make descriptions more useful for first-time visitors.
+  - [x] Preserve the current route order and visual rhythm.
+- [x] Verify no route or layout regressions. (AC: 4)
+  - [x] Run `npm run validate:shell`.
+  - [x] Run `npm run lint`.
+  - [x] Run `npm run build`.
+- [x] Update story and sprint tracking. (AC: 1-5)
+  - [x] Mark this story `review` after checks pass.
+  - [x] Update sprint status to `review`.
+  - [x] Record command results and warnings in Dev Agent Record.
 
 ## Dev Notes
 
@@ -89,15 +89,20 @@ Known non-blocking warnings:
 
 ### Agent Model Used
 
-TBD by implementing agent.
+GPT-5.4
 
 ### Debug Log References
 
-TBD.
+- `npm run validate:shell` passed.
+- `npm run lint` passed with 7 non-blocking `react-refresh/only-export-components` warnings.
+- `npm run build` passed with the existing Vite large chunk warning.
 
 ### Completion Notes List
 
-TBD.
+- Refined the Home / Portal premise from "archive" wording into a warmer "personal logbook" framing.
+- Rewrote the Home / Portal paragraph to explain that the site records what was made, what was being thought through, and where threads cross.
+- Updated route card descriptions to be more useful and less terse while preserving route labels, order, and layout.
+- Preserved the notebook/log visual rhythm and made no route or layout changes.
 
 ### File List
 
@@ -106,3 +111,7 @@ Expected files touched:
 - `src/routes/index.tsx`
 - `_bmad-output/implementation-artifacts/2-1-refine-home-portal-messaging.md`
 - `_bmad-output/implementation-artifacts/sprint-status.yaml`
+
+### Change Log
+
+- 2026-04-22: Refined Home / Portal premise and route descriptions, verified shell/lint/build, and moved story to review.
