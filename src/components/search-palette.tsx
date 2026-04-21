@@ -1,9 +1,9 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { type KeyboardEvent, useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "@tanstack/react-router";
 import { Search, SlidersHorizontal, X } from "lucide-react";
 
 import { Popover, PopoverAnchor, PopoverContent } from "@/components/ui/popover";
-import { ENTRIES, NOTES, ALL_TAGS, formatDate } from "@/content/data";
+import { ENTRIES, NOTES, ALL_TAGS, formatDate, lensLabels } from "@/content/data";
 
 export function SearchTrigger() {
   const [open, setOpen] = useState(false);
@@ -76,6 +76,10 @@ export function SearchTrigger() {
 const ALL_TYPES = Array.from(new Set(ENTRIES.map((e) => e.type))).sort();
 const ALL_STATUSES = Array.from(new Set(ENTRIES.map((e) => e.status))).sort();
 
+function matchesQuery(values: string[], query: string) {
+  return values.some((value) => value.toLowerCase().includes(query));
+}
+
 function SearchPanel({ onClose }: { onClose: () => void }) {
   const navigate = useNavigate();
   const [query, setQuery] = useState("");
@@ -83,13 +87,19 @@ function SearchPanel({ onClose }: { onClose: () => void }) {
   const [status, setStatus] = useState<string | null>(null);
   const [tag, setTag] = useState<string | null>(null);
   const [filtersOpen, setFiltersOpen] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const q = query.trim().toLowerCase();
   const hasFilter = !!(type || status || tag);
 
   const entries = useMemo(() => {
     return ENTRIES.filter((e) => {
-      if (q && !e.title.toLowerCase().includes(q)) return false;
+      if (
+        q &&
+        !matchesQuery([e.title, e.summary, e.type, e.status, ...e.tags, ...lensLabels(e.lenses)], q)
+      ) {
+        return false;
+      }
       if (type && e.type !== type) return false;
       if (status && e.status !== status) return false;
       if (tag && !e.tags.includes(tag)) return false;
@@ -100,19 +110,82 @@ function SearchPanel({ onClose }: { onClose: () => void }) {
   const notes = useMemo(() => {
     if (type || status) return [];
     return NOTES.filter((n) => {
-      if (q && !n.title.toLowerCase().includes(q)) return false;
+      if (q && !matchesQuery([n.title, n.summary, ...n.tags], q)) return false;
       if (tag && !n.tags.includes(tag)) return false;
       return true;
     });
   }, [q, type, status, tag]);
+
+  const resultCount = entries.length + notes.length;
+
+  useEffect(() => {
+    setActiveIndex(0);
+  }, [query, type, status, tag]);
 
   function go(fn: () => void) {
     onClose();
     setTimeout(fn, 0);
   }
 
+  function selectResult(index: number) {
+    if (index < 0 || index >= resultCount) return;
+
+    if (index < entries.length) {
+      const entry = entries[index];
+      go(() =>
+        navigate({
+          to: "/entries/$slug",
+          params: { slug: entry.slug },
+          search: { from: "" },
+        }),
+      );
+      return;
+    }
+
+    const note = notes[index - entries.length];
+    go(() =>
+      navigate({
+        to: "/notes/$slug",
+        params: { slug: note.slug },
+      }),
+    );
+  }
+
+  function onPanelKeyDown(event: KeyboardEvent<HTMLDivElement>) {
+    if (event.key === "Escape") {
+      event.preventDefault();
+      onClose();
+      return;
+    }
+
+    if (resultCount === 0) return;
+
+    if (event.key === "ArrowDown") {
+      event.preventDefault();
+      setActiveIndex((index) => (index + 1) % resultCount);
+      return;
+    }
+
+    if (event.key === "ArrowUp") {
+      event.preventDefault();
+      setActiveIndex((index) => (index - 1 + resultCount) % resultCount);
+      return;
+    }
+
+    if (event.key === "Enter") {
+      const target = event.target as HTMLElement | null;
+      const canSelectResult =
+        target?.tagName === "INPUT" || Boolean(target?.closest("[data-search-result]"));
+
+      if (!canSelectResult) return;
+
+      event.preventDefault();
+      selectResult(activeIndex);
+    }
+  }
+
   return (
-    <div className="bg-popover text-popover-foreground">
+    <div className="bg-popover text-popover-foreground" onKeyDown={onPanelKeyDown}>
       {/* search input + filter toggle */}
       <div className="flex items-center border-b border-rule px-3">
         <button
@@ -178,43 +251,35 @@ function SearchPanel({ onClose }: { onClose: () => void }) {
           <div className="py-2">
             {entries.length > 0 && (
               <ResultGroup heading={`entries (${entries.length})`}>
-                {entries.map((e) => (
+                {entries.map((e, index) => (
                   <ResultRow
                     key={`e-${e.slug}`}
                     title={e.title}
                     meta={`${e.type} · ${e.status}`}
                     date={formatDate(e.date)}
-                    onClick={() =>
-                      go(() =>
-                        navigate({
-                          to: "/entries/$slug",
-                          params: { slug: e.slug },
-                          search: { from: "" },
-                        }),
-                      )
-                    }
+                    active={activeIndex === index}
+                    onMouseEnter={() => setActiveIndex(index)}
+                    onClick={() => selectResult(index)}
                   />
                 ))}
               </ResultGroup>
             )}
             {notes.length > 0 && (
               <ResultGroup heading={`notes (${notes.length})`}>
-                {notes.map((n) => (
-                  <ResultRow
-                    key={`n-${n.slug}`}
-                    title={n.title}
-                    meta="note"
-                    date={formatDate(n.date)}
-                    onClick={() =>
-                      go(() =>
-                        navigate({
-                          to: "/notes/$slug",
-                          params: { slug: n.slug },
-                        }),
-                      )
-                    }
-                  />
-                ))}
+                {notes.map((n, index) => {
+                  const resultIndex = entries.length + index;
+                  return (
+                    <ResultRow
+                      key={`n-${n.slug}`}
+                      title={n.title}
+                      meta="note"
+                      date={formatDate(n.date)}
+                      active={activeIndex === resultIndex}
+                      onMouseEnter={() => setActiveIndex(resultIndex)}
+                      onClick={() => selectResult(resultIndex)}
+                    />
+                  );
+                })}
               </ResultGroup>
             )}
           </div>
@@ -281,19 +346,29 @@ function ResultRow({
   title,
   meta,
   date,
+  active,
+  onMouseEnter,
   onClick,
 }: {
   title: string;
   meta: string;
   date: string;
+  active: boolean;
+  onMouseEnter: () => void;
   onClick: () => void;
 }) {
   return (
     <li>
       <button
         type="button"
+        data-search-result="true"
         onClick={onClick}
-        className="w-full text-left px-2 py-2 rounded-sm hover:bg-secondary/60 transition-colors"
+        onMouseEnter={onMouseEnter}
+        aria-selected={active}
+        className={
+          "w-full text-left px-2 py-2 rounded-sm transition-colors " +
+          (active ? "bg-secondary/70" : "hover:bg-secondary/60")
+        }
       >
         <div className="flex items-baseline justify-between gap-3">
           <span className="text-sm text-ink truncate">{title}</span>
