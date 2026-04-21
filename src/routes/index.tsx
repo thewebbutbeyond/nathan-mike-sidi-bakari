@@ -71,7 +71,7 @@ function HomePage() {
 
         {/* stats / catalog block */}
         <section className="mb-16">
-          <dl className="grid grid-cols-2 sm:grid-cols-4 border-y border-rule">
+          <dl className="grid grid-cols-3 border-y border-rule">
             {stats.map((s, i) => (
               <div
                 key={s.label}
