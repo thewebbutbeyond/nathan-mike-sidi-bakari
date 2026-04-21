@@ -23,7 +23,7 @@ export const Route = createFileRoute("/chefs-doeuvre")({
 });
 
 function SelectedPage() {
-  const selected = ENTRIES.filter((a) => a.selected).sort((a, b) =>
+  const selected = ENTRIES.filter((a) => a.chefDoeuvre).sort((a, b) =>
     b.date.localeCompare(a.date),
   );
 
