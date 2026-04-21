@@ -44,8 +44,7 @@ function ContactPage() {
         </dl>
 
         <div className="mt-10 text-xs text-ink-faint leading-relaxed max-w-prose">
-          A short note about overlapping work, a question, or a quiet hello are all good
-          reasons to write.
+          There is no bad reasons to write!
         </div>
       </NarrowContainer>
     </SiteShell>
