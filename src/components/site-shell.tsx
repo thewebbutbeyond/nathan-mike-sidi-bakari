@@ -64,20 +64,30 @@ function SiteFooter() {
   const year = new Date().getFullYear();
   return (
     <footer className="border-t border-rule mt-16">
-      <div className="mx-auto max-w-5xl px-5 sm:px-8 py-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-xs text-ink-soft">
-        <div>
-          <span className="text-ink-faint">©</span> {year} · nathan mike sidi bakari
-        </div>
-        <div className="flex items-center gap-4">
-          <Link to="/about" className="hover:text-ink">
-            about
-          </Link>
-          <Link to="/contact" className="hover:text-ink">
-            contact
-          </Link>
-          <a href="/rss.xml" className="hover:text-ink">
-            rss
-          </a>
+      <div className="mx-auto max-w-5xl px-5 sm:px-8 py-8 flex flex-col gap-6 text-xs text-ink-soft">
+        <blockquote className="max-w-xl">
+          <p className="text-ink-soft italic leading-relaxed">
+            “He who has a why to live can bear almost any how.”
+          </p>
+          <footer className="mt-1.5 text-ink-faint not-italic">
+            , Friedrich Nietzsche
+          </footer>
+        </blockquote>
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pt-4 border-t border-rule">
+          <div>
+            <span className="text-ink-faint">©</span> {year} · nathan mike sidi bakari
+          </div>
+          <div className="flex items-center gap-4">
+            <Link to="/about" className="hover:text-ink">
+              about
+            </Link>
+            <Link to="/contact" className="hover:text-ink">
+              contact
+            </Link>
+            <a href="/rss.xml" className="hover:text-ink">
+              rss
+            </a>
+          </div>
         </div>
       </div>
     </footer>
