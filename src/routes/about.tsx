@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { NarrowContainer, Prose, SiteShell } from "@/components/site-shell";
 
 export const Route = createFileRoute("/about")({
@@ -39,18 +39,6 @@ function AboutPage() {
         </h1>
 
         <Prose text={ABOUT_TEXT} />
-
-        <div className="mt-12 pt-6 border-t border-rule text-xs text-ink-soft flex flex-wrap gap-x-5 gap-y-2">
-          <Link to="/chefs-doeuvre" className="hover:text-ink underline underline-offset-4">
-            chefs-d’œuvre →
-          </Link>
-          <Link to="/notes" className="hover:text-ink underline underline-offset-4">
-            notes →
-          </Link>
-          <Link to="/contact" className="hover:text-ink underline underline-offset-4">
-            contact →
-          </Link>
-        </div>
       </NarrowContainer>
     </SiteShell>
   );
