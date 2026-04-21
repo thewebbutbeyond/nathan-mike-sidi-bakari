@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import "@tanstack/react-start";
 import { sortedNotes } from "@/content/data";
 
 function escape(s: string) {
