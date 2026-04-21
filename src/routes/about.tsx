@@ -21,7 +21,7 @@ export const Route = createFileRoute("/about")({
   component: AboutPage,
 });
 
-const ABOUT_TEXT = `I am Nathan. Also known as Mike. This site is a logbook/archive originally kept for myself, but later shared openly with anyone curious.
+const ABOUT_TEXT = `I'm Nathan. Also known as Mike. This site is a logbook/archive originally kept for myself, that I decided to share openly with anyone curious.
 
 I started keeping an archive because I wanted a place where the work could simply exist: a half-finished song, an old drawing, or a current engineering project, all sitting side by side, with honesty and creativity as the only criteria for inclusion.
 
