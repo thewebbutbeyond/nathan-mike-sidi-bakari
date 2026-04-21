@@ -1,7 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Rss } from "lucide-react";
 import type { ReactNode } from "react";
-import { Container, NarrowContainer, SiteShell, Tag } from "@/components/site-shell";
+import { Container, SiteShell, Tag } from "@/components/site-shell";
 import { formatDate, getNote, sortedNotes } from "@/content/data";
 
 export const Route = createFileRoute("/notes/$slug")({
@@ -170,6 +170,3 @@ function renderInline(text: string): ReactNode[] {
   if (last < text.length) parts.push(text.slice(last));
   return parts;
 }
-
-// reference NarrowContainer to keep the import (unused in current layout but kept for future)
-void NarrowContainer;
