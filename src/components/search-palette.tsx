@@ -2,13 +2,11 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "@tanstack/react-router";
 import { Search, SlidersHorizontal, X } from "lucide-react";
 
-import { Dialog, DialogContent } from "@/components/ui/dialog";
 import {
   Popover,
   PopoverAnchor,
   PopoverContent,
 } from "@/components/ui/popover";
-import { useIsMobile } from "@/hooks/use-mobile";
 import {
   ENTRIES,
   NOTES,
@@ -18,7 +16,6 @@ import {
 
 export function SearchTrigger() {
   const [open, setOpen] = useState(false);
-  const isMobile = useIsMobile();
   const triggerRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
@@ -61,28 +58,16 @@ export function SearchTrigger() {
     </button>
   );
 
-  // Mobile / tablet: centered modal
-  if (isMobile) {
-    return (
-      <>
-        {trigger}
-        <Dialog open={open} onOpenChange={setOpen}>
-          <DialogContent className="overflow-hidden p-0 max-w-xl gap-0 top-4 translate-y-0 data-[state=closed]:slide-out-to-top-4 data-[state=open]:slide-in-from-top-4">
-            <SearchPanel onClose={() => setOpen(false)} />
-          </DialogContent>
-        </Dialog>
-      </>
-    );
-  }
-
-  // Desktop: popover anchored to the icon
+  // Single popover anchored to the trigger on every viewport so the close
+  // ✕ replaces the magnifying glass in place.
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverAnchor asChild>{trigger}</PopoverAnchor>
       <PopoverContent
         align="end"
         sideOffset={8}
-        className="w-[28rem] p-0 overflow-hidden"
+        collisionPadding={12}
+        className="w-[calc(100vw-2rem)] sm:w-[28rem] p-0 overflow-hidden"
         onOpenAutoFocus={(e) => e.preventDefault()}
         onInteractOutside={(e) => {
           // If the click is on the trigger button, let the button's onClick

@@ -23,14 +23,14 @@ export function SiteShell({ children }: { children: ReactNode }) {
 
 function SiteHeader() {
   return (
-    <header className="border-b border-rule">
+    <header className="border-b border-rule relative">
       <div className="mx-auto max-w-5xl px-5 sm:px-8 py-5 flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-3">
-        <Link to="/" className="group inline-flex items-baseline">
+        <Link to="/" className="group inline-flex items-baseline pr-8 sm:pr-0">
           <span className="text-sm font-medium tracking-tight group-hover:underline underline-offset-4">
             nathan mike sidi bakari
           </span>
         </Link>
-        <nav className="flex items-center justify-end gap-x-5 gap-y-1 flex-wrap text-xs">
+        <nav className="flex items-center justify-end gap-x-5 gap-y-1 flex-wrap text-xs pr-8 sm:pr-8">
           {NAV.map((item) => (
             <Link
               key={item.to}
@@ -56,9 +56,12 @@ function SiteHeader() {
           >
             contact
           </Link>
-          <span className="text-ink-faint">·</span>
-          <SearchTrigger />
         </nav>
+        {/* Search lives outside the nav, anchored top-right so the close ✕
+            appears exactly where the magnifying glass was. */}
+        <div className="absolute right-5 sm:right-8 top-5">
+          <SearchTrigger />
+        </div>
       </div>
     </header>
   );
