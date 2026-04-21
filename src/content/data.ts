@@ -70,7 +70,7 @@ Built in Rust, with a Postgres LISTEN/NOTIFY layer for downstream consumers. Abo
     tags: ["rust", "postgres", "accounting", "event-sourcing"],
     role: "Designed the reducer model, wrote the core, supervised migration.",
     outcome: "Cut month-end close from 4 days to 6 hours. Zero rollbacks since launch.",
-    chefDoeuvre?: true,
+    chefDoeuvre: true,
     links: [{ label: "Internal RFC", href: "#" }],
     related: ["close-the-books", "operator-letter-q3-2024"],
   },
@@ -106,7 +106,7 @@ Three patterns I am underwriting: (a) workflow-shaped products that look like in
 I am not underwriting: foundation model wrappers without a data flywheel, and "AI for X" decks that read identically to a 2014 SaaS deck with the noun changed.`,
     lenses: ["investor"],
     tags: ["llm", "thesis", "saas", "vertical"],
-    chefDoeuvre?: true,
+    chefDoeuvre: true,
   },
   {
     slug: "close-the-books",
@@ -123,7 +123,7 @@ Closing is its own skill. It looks like writing the README that makes the thing 
 I now schedule closing the same way I schedule starting. A finished thing, even a small one, compounds. An almost-finished thing decays.`,
     lenses: ["engineer", "entrepreneur"],
     tags: ["practice", "writing", "process"],
-    chefDoeuvre?: true,
+    chefDoeuvre: true,
   },
   {
     slug: "graphite-studies",
@@ -138,7 +138,7 @@ I now schedule closing the same way I schedule starting. A finished thing, even 
 They are not technically ambitious. The point was the rhythm. I scanned them at the end of 2024 and a small selection is here.`,
     lenses: ["artist"],
     tags: ["drawing", "graphite", "practice", "hands"],
-    chefDoeuvre?: true,
+    chefDoeuvre: true,
   },
   {
     slug: "first-company-postmortem",
@@ -153,7 +153,7 @@ They are not technically ambitious. The point was the rhythm. I scanned them at 
 Right: hiring slowly in year one, choosing a hard market, refusing to raise a Series A on growth I did not believe was durable. Wrong: assuming the product would carry the founder, building too much before charging, and confusing customer love with willingness to pay. No longer believe: that founder grit is a meaningful predictor of outcomes. Distribution is.`,
     lenses: ["entrepreneur"],
     tags: ["postmortem", "first-company", "lessons"],
-    chefDoeuvre?: true,
+    chefDoeuvre: true,
   },
   {
     slug: "memo-fintech-infra-2023",
@@ -196,7 +196,7 @@ I do not recommend designing your own PCB to save money. I do recommend doing it
 The interesting part was the selection: sitting with the outputs over two weekends and noticing which ones I came back to. Generative work makes the curatorial step legible in a way that drawing does not.`,
     lenses: ["artist", "engineer"],
     tags: ["generative", "riso", "rust", "print"],
-    chefDoeuvre?: true,
+    chefDoeuvre: true,
   },
   {
     slug: "infra-bill-audit-2024",
