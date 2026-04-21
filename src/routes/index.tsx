@@ -18,7 +18,7 @@ const ROUTES = [
   {
     to: "/selected" as const,
     label: "chefs-d’œuvre",
-    description: "A handful of marked entries , the shortest way in.",
+    description: "A handful of marked entries - the shortest way in.",
   },
   {
     to: "/timeline" as const,
@@ -33,7 +33,7 @@ const ROUTES = [
   {
     to: "/notes" as const,
     label: "notes",
-    description: "Slower pieces , things I wanted to make clear enough to return to.",
+    description: "Slower pieces - things I wanted to make clear enough to return to.",
   },
 ];
 
@@ -65,7 +65,7 @@ function HomePage() {
           </h1>
           <p className="mt-4 text-sm text-ink-soft leading-relaxed">
             Kept for myself first, opened to anyone curious. You’ll find code, companies,
-            investment memos, drawings, and the occasional long note , sitting next to
+            investment memos, drawings, and the occasional long note - sitting next to
             each other without much fuss.
           </p>
         </section>
