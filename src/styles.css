@@ -5,27 +5,20 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Design system definition.
+ * Private Reading Room — design system
  *
- * The @theme inline block maps CSS custom properties to Tailwind utility
- * classes (e.g. --color-primary -> bg-primary, text-primary).
- *
- * The :root and .dark blocks define the actual color values using oklch.
- * All colors MUST use oklch format.
- *
- * To add a new semantic color:
- * 1. Add the variable to :root (light value) and .dark (dark value)
- * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ * Restrained warm-dark palette evoking a quiet library.
+ * Premium serif (Cormorant Garamond) for display, transitional serif
+ * (Source Serif 4) for body, and a quiet mono for metadata.
  */
 
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;1,8..60,400&family=JetBrains+Mono:wght@300;400&display=swap");
+
 @theme inline {
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --radius-2xl: calc(var(--radius) + 8px);
-  --radius-3xl: calc(var(--radius) + 12px);
-  --radius-4xl: calc(var(--radius) + 16px);
+  --radius-sm: 2px;
+  --radius-md: 3px;
+  --radius-lg: 4px;
+  --radius-xl: 6px;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -45,91 +38,61 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-ring-offset-background: var(--background);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
+  --color-rule: var(--rule);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-faint: var(--ink-faint);
+  --color-paper: var(--paper);
+  --color-paper-deep: var(--paper-deep);
+  --color-lamp: var(--lamp);
+
+  --font-display: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
+  --font-serif: "Source Serif 4", "Iowan Old Style", Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.984 0.003 247.858);
-  --sidebar-foreground: oklch(0.129 0.042 264.695);
-  --sidebar-primary: oklch(0.208 0.042 265.755);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.968 0.007 247.896);
-  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
-  --sidebar-border: oklch(0.929 0.013 255.508);
-  --sidebar-ring: oklch(0.704 0.04 256.788);
+  --radius: 3px;
+
+  /* Reading room palette — deep warm walnut, lamp-lit cream */
+  --paper: oklch(0.18 0.012 60);          /* deep walnut background */
+  --paper-deep: oklch(0.14 0.012 55);     /* shadowed corners */
+  --ink: oklch(0.92 0.018 80);            /* warm cream, primary text */
+  --ink-soft: oklch(0.78 0.022 75);       /* secondary text */
+  --ink-faint: oklch(0.55 0.018 70);      /* metadata, captions */
+  --rule: oklch(0.32 0.012 65);           /* hairline dividers */
+  --lamp: oklch(0.78 0.10 75);            /* warm lamp accent */
+
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --card: var(--paper);
+  --card-foreground: var(--ink);
+  --popover: var(--paper-deep);
+  --popover-foreground: var(--ink);
+  --primary: var(--ink);
+  --primary-foreground: var(--paper);
+  --secondary: oklch(0.24 0.012 60);
+  --secondary-foreground: var(--ink);
+  --muted: oklch(0.22 0.012 60);
+  --muted-foreground: var(--ink-faint);
+  --accent: var(--lamp);
+  --accent-foreground: var(--paper);
+  --destructive: oklch(0.55 0.18 25);
+  --destructive-foreground: var(--ink);
+  --border: var(--rule);
+  --input: var(--rule);
+  --ring: var(--lamp);
 }
 
 .dark {
-  --background: oklch(0.129 0.042 264.695);
-  --foreground: oklch(0.984 0.003 247.858);
-  --card: oklch(0.208 0.042 265.755);
-  --card-foreground: oklch(0.984 0.003 247.858);
-  --popover: oklch(0.208 0.042 265.755);
-  --popover-foreground: oklch(0.984 0.003 247.858);
-  --primary: oklch(0.929 0.013 255.508);
-  --primary-foreground: oklch(0.208 0.042 265.755);
-  --secondary: oklch(0.279 0.041 260.031);
-  --secondary-foreground: oklch(0.984 0.003 247.858);
-  --muted: oklch(0.279 0.041 260.031);
-  --muted-foreground: oklch(0.704 0.04 256.788);
-  --accent: oklch(0.279 0.041 260.031);
-  --accent-foreground: oklch(0.984 0.003 247.858);
-  --destructive: oklch(0.704 0.191 22.216);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.551 0.027 264.364);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.208 0.042 265.755);
-  --sidebar-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.279 0.041 260.031);
-  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.551 0.027 264.364);
+  /* same palette — the room is always dim */
+  --paper: oklch(0.18 0.012 60);
+  --paper-deep: oklch(0.14 0.012 55);
+  --ink: oklch(0.92 0.018 80);
+  --ink-soft: oklch(0.78 0.022 75);
+  --ink-faint: oklch(0.55 0.018 70);
+  --rule: oklch(0.32 0.012 65);
+  --lamp: oklch(0.78 0.10 75);
 }
 
 @layer base {
@@ -137,8 +100,150 @@
     border-color: var(--color-border);
   }
 
+  html {
+    font-family: var(--font-serif);
+    font-feature-settings: "kern", "liga", "onum";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: var(--font-serif);
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 0.005em;
+  }
+
+  ::selection {
+    background-color: oklch(0.78 0.10 75 / 0.25);
+    color: var(--ink);
+  }
+
+  /* subtle paper grain — barely perceptible */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    background-image: radial-gradient(
+      circle at 50% 0%,
+      oklch(0.78 0.10 75 / 0.05) 0%,
+      transparent 60%
+    );
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+
+  .font-serif {
+    font-family: var(--font-serif);
+  }
+
+  .font-mono {
+    font-family: var(--font-mono);
+    font-feature-settings: "tnum";
+  }
+
+  .hairline {
+    border-color: var(--rule);
+  }
+
+  .text-ink { color: var(--ink); }
+  .text-ink-soft { color: var(--ink-soft); }
+  .text-ink-faint { color: var(--ink-faint); }
+  .text-lamp { color: var(--lamp); }
+  .bg-paper { background-color: var(--paper); }
+  .bg-paper-deep { background-color: var(--paper-deep); }
+
+  /* Long-form reading prose */
+  .prose-room {
+    color: var(--ink);
+    font-family: var(--font-serif);
+    font-size: 1.075rem;
+    line-height: 1.78;
+    max-width: 64ch;
+  }
+  .prose-room > * + * {
+    margin-top: 1.4em;
+  }
+  .prose-room h2 {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    margin-top: 2.4em;
+    color: var(--ink);
+  }
+  .prose-room h3 {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-style: italic;
+    font-weight: 400;
+    margin-top: 2em;
+    color: var(--ink);
+  }
+  .prose-room p {
+    color: var(--ink);
+  }
+  .prose-room blockquote {
+    border-left: 1px solid var(--lamp);
+    padding-left: 1.4em;
+    margin-left: 0;
+    font-style: italic;
+    color: var(--ink-soft);
+  }
+  .prose-room a {
+    color: var(--ink);
+    text-decoration: underline;
+    text-decoration-color: var(--lamp);
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px;
+    transition: text-decoration-color 200ms;
+  }
+  .prose-room a:hover {
+    text-decoration-color: var(--ink);
+  }
+  .prose-room hr {
+    border: none;
+    border-top: 1px solid var(--rule);
+    margin: 3em auto;
+    width: 4rem;
+  }
+  .prose-room code {
+    font-family: var(--font-mono);
+    font-size: 0.88em;
+    color: var(--ink-soft);
+    background: oklch(0.22 0.012 60);
+    padding: 0.1em 0.35em;
+    border-radius: 2px;
+  }
+  .prose-room ul, .prose-room ol {
+    padding-left: 1.5em;
+  }
+  .prose-room ul li { list-style: none; position: relative; }
+  .prose-room ul li::before {
+    content: "·";
+    position: absolute;
+    left: -1em;
+    color: var(--lamp);
+    font-weight: 700;
+  }
+  .prose-room .dropcap::first-letter {
+    font-family: var(--font-display);
+    font-size: 4.4em;
+    float: left;
+    line-height: 0.85;
+    margin: 0.08em 0.08em 0 0;
+    color: var(--ink);
   }
 }
