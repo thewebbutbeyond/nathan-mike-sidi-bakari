@@ -24,7 +24,7 @@ const TEXT = `This site is a static personal archive. It does not collect, store
 
 The site does not set cookies of its own. If your browser stores anything, it is limited to standard technical state needed to load pages (cache, etc.) and is not read or processed by anyone.
 
-The only situations in which any personal information reaches me are: (1) you choose to email me directly through the contact page; or (2) you submit a form (none currently exist on this site). In those cases, I receive only the information you choose to send and use it solely to reply.
+The only situation in which any personal information reaches me is if you choose to email me directly through the contact page. In this case, I receive only the information you choose to send and use it solely to reply.
 
 External links open third-party websites (for example, GitHub, LinkedIn, or referenced articles). Those sites have their own privacy practices, which are outside my control.
 
