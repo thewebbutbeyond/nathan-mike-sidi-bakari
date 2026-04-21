@@ -67,7 +67,7 @@ export function SearchTrigger() {
       <>
         {trigger}
         <Dialog open={open} onOpenChange={setOpen}>
-          <DialogContent className="overflow-hidden p-0 max-w-xl gap-0">
+          <DialogContent className="overflow-hidden p-0 max-w-xl gap-0 top-4 translate-y-0 data-[state=closed]:slide-out-to-top-4 data-[state=open]:slide-in-from-top-4">
             <SearchPanel onClose={() => setOpen(false)} />
           </DialogContent>
         </Dialog>
