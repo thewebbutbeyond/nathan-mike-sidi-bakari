@@ -3,7 +3,7 @@ import { Container, PageHeader, SiteShell } from "@/components/site-shell";
 import { ArtifactList } from "@/components/artifact-list";
 import { ARTIFACTS } from "@/content/data";
 
-export const Route = createFileRoute("/selected")({
+export const Route = createFileRoute("/chefs-doeuvre")({
   head: () => ({
     meta: [
       { title: "Chefs-d’œuvre · Nathan Mike Sidi Bakari" },

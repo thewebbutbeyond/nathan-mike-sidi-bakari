@@ -7,7 +7,7 @@ import {
   artifactsByCollection,
 } from "@/content/data";
 
-export const Route = createFileRoute("/collections/$slug")({
+export const Route = createFileRoute("/lenses/$slug")({
   loader: ({ params }) => {
     const slug = params.slug as Collection;
     const meta = COLLECTIONS.find((c) => c.slug === slug);
