@@ -1,4 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { zodValidator, fallback } from "@tanstack/zod-adapter";
+import { z } from "zod";
 import {
   Container,
   MetaRow,
@@ -7,21 +9,33 @@ import {
   SiteShell,
   Tag,
 } from "@/components/site-shell";
-import { ENTRIES, type Entry, type Collection, formatDate, getEntry, sortedEntries } from "@/content/data";
+import {
+  COLLECTIONS,
+  ENTRIES,
+  type Entry,
+  type Collection,
+  formatDate,
+  getEntry,
+  sortedEntries,
+} from "@/content/data";
 import { EntryMosaic } from "@/components/entry-mosaic";
 
+const entrySearchSchema = z.object({
+  from: fallback(z.string(), "").default(""),
+});
+
 export const Route = createFileRoute("/entries/$slug")({
+  validateSearch: zodValidator(entrySearchSchema),
   loader: ({ params }) => {
     const a = getEntry(params.slug);
     if (!a) throw notFound();
     const related = (a.related ?? [])
       .map((s) => ENTRIES.find((x) => x.slug === s))
       .filter((x): x is NonNullable<typeof x> => Boolean(x));
-    // sortedEntries is newest-first, so the "next" entry chronologically is the one before it in the list
     const all = sortedEntries();
     const idx = all.findIndex((e) => e.slug === a.slug);
-    const prev = idx < all.length - 1 ? all[idx + 1] : null; // older
-    const next = idx > 0 ? all[idx - 1] : null; // newer
+    const prev = idx < all.length - 1 ? all[idx + 1] : null;
+    const next = idx > 0 ? all[idx - 1] : null;
     return { entry: a, related, prev, next };
   },
   head: ({ loaderData }) => {
@@ -53,19 +67,63 @@ export const Route = createFileRoute("/entries/$slug")({
   component: EntryDetail,
 });
 
+type BackLink =
+  | { kind: "timeline" }
+  | { kind: "chefs" }
+  | { kind: "lenses" }
+  | { kind: "lens"; slug: Collection; label: string };
+
+function resolveBack(from: string): BackLink {
+  if (from === "chefs-doeuvre") return { kind: "chefs" };
+  if (from === "lenses") return { kind: "lenses" };
+  if (from.startsWith("lenses/")) {
+    const slug = from.slice("lenses/".length) as Collection;
+    const meta = COLLECTIONS.find((c) => c.slug === slug);
+    if (meta) return { kind: "lens", slug, label: meta.label };
+  }
+  return { kind: "timeline" };
+}
+
+function BackLinkRender({ from }: { from: string }) {
+  const back = resolveBack(from);
+  const cls = "text-ink-soft hover:text-ink underline underline-offset-4";
+  if (back.kind === "chefs") {
+    return (
+      <Link to="/chefs-doeuvre" className={cls}>
+        ← chefs-d’œuvre
+      </Link>
+    );
+  }
+  if (back.kind === "lenses") {
+    return (
+      <Link to="/lenses" className={cls}>
+        ← lenses
+      </Link>
+    );
+  }
+  if (back.kind === "lens") {
+    return (
+      <Link to="/lenses/$slug" params={{ slug: back.slug }} className={cls}>
+        ← {back.label.toLowerCase()}
+      </Link>
+    );
+  }
+  return (
+    <Link to="/timeline" className={cls}>
+      ← timeline
+    </Link>
+  );
+}
+
 function EntryDetail() {
   const { entry: a, related, prev, next } = Route.useLoaderData();
+  const { from } = Route.useSearch();
 
   return (
     <SiteShell>
       <NarrowContainer>
         <div className="mb-6 text-xs">
-          <Link
-            to="/timeline"
-            className="text-ink-soft hover:text-ink underline underline-offset-4"
-          >
-            ← timeline
-          </Link>
+          <BackLinkRender from={from} />
         </div>
 
         <header className="mb-8">
@@ -142,6 +200,7 @@ function EntryDetail() {
                   <Link
                     to="/entries/$slug"
                     params={{ slug: r.slug }}
+                    search={{ from }}
                     className="hover:underline underline-offset-4"
                   >
                     <span className="text-ink-faint tabular-nums mr-3 text-xs">
@@ -161,6 +220,7 @@ function EntryDetail() {
               <Link
                 to="/entries/$slug"
                 params={{ slug: prev.slug }}
+                search={{ from }}
                 className="block hover:bg-secondary/40 -m-2 p-2 transition-colors"
               >
                 <div className="text-ink-faint mb-1">← previous</div>
@@ -176,6 +236,7 @@ function EntryDetail() {
               <Link
                 to="/entries/$slug"
                 params={{ slug: next.slug }}
+                search={{ from }}
                 className="block sm:text-right hover:bg-secondary/40 -m-2 p-2 transition-colors"
               >
                 <div className="text-ink-faint mb-1">next →</div>
