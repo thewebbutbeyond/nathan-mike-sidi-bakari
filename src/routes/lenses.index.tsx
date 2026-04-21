@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Container, PageHeader, SiteShell } from "@/components/site-shell";
 import { COLLECTIONS, artifactsByCollection } from "@/content/data";
 
-export const Route = createFileRoute("/lenses")({
+export const Route = createFileRoute("/lenses/")({
   head: () => ({
     meta: [
       { title: "Lenses · Nathan Mike Sidi Bakari" },
