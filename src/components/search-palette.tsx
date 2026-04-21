@@ -1,24 +1,13 @@
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "@tanstack/react-router";
-import { Search } from "lucide-react";
+import { Search, X } from "lucide-react";
 
-import {
-  CommandDialog,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-  CommandSeparator,
-} from "@/components/ui/command";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 import {
   ENTRIES,
   NOTES,
-  COLLECTIONS,
   ALL_TAGS,
-  lensLabel,
   formatDate,
-  type Collection,
 } from "@/content/data";
 
 export function SearchTrigger() {
@@ -63,6 +52,9 @@ export function SearchTrigger() {
   );
 }
 
+const ALL_TYPES = Array.from(new Set(ENTRIES.map((e) => e.type))).sort();
+const ALL_STATUSES = Array.from(new Set(ENTRIES.map((e) => e.status))).sort();
+
 function SearchPalette({
   open,
   onOpenChange,
@@ -72,222 +64,241 @@ function SearchPalette({
 }) {
   const navigate = useNavigate();
   const [query, setQuery] = useState("");
+  const [type, setType] = useState<string | null>(null);
+  const [status, setStatus] = useState<string | null>(null);
+  const [tag, setTag] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!open) setQuery("");
+    if (!open) {
+      setQuery("");
+      setType(null);
+      setStatus(null);
+      setTag(null);
+    }
   }, [open]);
 
   const q = query.trim().toLowerCase();
 
-  const { entries, notes, tags, lenses, types, statuses } = useMemo(() => {
-    if (!q) {
-      return {
-        entries: ENTRIES.slice(0, 6),
-        notes: NOTES.slice(0, 4),
-        tags: [] as string[],
-        lenses: [] as { slug: Collection; label: string }[],
-        types: [] as string[],
-        statuses: [] as string[],
-      };
-    }
+  const entries = useMemo(() => {
+    return ENTRIES.filter((e) => {
+      if (q && !e.title.toLowerCase().includes(q)) return false;
+      if (type && e.type !== type) return false;
+      if (status && e.status !== status) return false;
+      if (tag && !e.tags.includes(tag)) return false;
+      return true;
+    });
+  }, [q, type, status, tag]);
 
-    const entries = ENTRIES.filter((e) => {
-      const hay = [
-        e.title,
-        e.summary,
-        e.type,
-        e.status,
-        ...e.tags,
-        ...e.collections.map((c) => lensLabel(c)),
-      ]
-        .join(" ")
-        .toLowerCase();
-      return hay.includes(q);
-    }).slice(0, 8);
-
-    const notes = NOTES.filter((n) => {
-      const hay = [n.title, n.summary, ...n.tags].join(" ").toLowerCase();
-      return hay.includes(q);
-    }).slice(0, 6);
-
-    const tags = ALL_TAGS.filter((t) => t.toLowerCase().includes(q)).slice(0, 8);
-
-    const lenses = COLLECTIONS.filter(
-      (c) =>
-        c.label.toLowerCase().includes(q) ||
-        c.slug.toLowerCase().includes(q) ||
-        c.description.toLowerCase().includes(q),
-    ).map((c) => ({ slug: c.slug, label: c.label }));
-
-    const allTypes = Array.from(new Set(ENTRIES.map((e) => e.type)));
-    const types = allTypes.filter((t) => t.toLowerCase().includes(q)).slice(0, 6);
-
-    const allStatuses = Array.from(new Set(ENTRIES.map((e) => e.status)));
-    const statuses = allStatuses.filter((s) => s.toLowerCase().includes(q));
-
-    return { entries, notes, tags, lenses, types, statuses };
-  }, [q]);
+  const notes = useMemo(() => {
+    // Notes only have titles + tags. Hide them when an entry-only filter is set.
+    if (type || status) return [];
+    return NOTES.filter((n) => {
+      if (q && !n.title.toLowerCase().includes(q)) return false;
+      if (tag && !n.tags.includes(tag)) return false;
+      return true;
+    });
+  }, [q, type, status, tag]);
 
   function go(fn: () => void) {
     onOpenChange(false);
-    // defer so dialog unmounts cleanly before nav
     setTimeout(fn, 0);
   }
 
+  const hasFilter = !!(type || status || tag);
+
   return (
-    <CommandDialog open={open} onOpenChange={onOpenChange}>
-      <CommandInput
-        placeholder="search entries, notes, tags, types, lenses…"
-        value={query}
-        onValueChange={setQuery}
-      />
-      <CommandList>
-        <CommandEmpty>no matches.</CommandEmpty>
+    <Dialog open={open} onOpenChange={onOpenChange}>
+      <DialogContent className="overflow-hidden p-0 max-w-xl gap-0">
+        {/* search input */}
+        <div className="flex items-center border-b border-rule px-3">
+          <Search size={14} strokeWidth={1.5} className="mr-2 text-ink-faint -scale-x-100" />
+          <input
+            autoFocus
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="search by title…"
+            className="flex h-11 w-full bg-transparent py-3 text-sm outline-none placeholder:text-ink-faint"
+          />
+        </div>
 
-        {entries.length > 0 && (
-          <CommandGroup heading={q ? "entries" : "recent entries"}>
-            {entries.map((e) => (
-              <CommandItem
-                key={`e-${e.slug}`}
-                value={`entry ${e.title} ${e.tags.join(" ")} ${e.type} ${e.status}`}
-                onSelect={() =>
-                  go(() =>
-                    navigate({
-                      to: "/entries/$slug",
-                      params: { slug: e.slug },
-                      search: { from: "" },
-                    }),
-                  )
-                }
-              >
-                <div className="flex w-full items-baseline justify-between gap-3">
-                  <span className="truncate">{e.title}</span>
-                  <span className="text-[11px] text-ink-faint shrink-0 tabular-nums">
-                    {formatDate(e.date)}
-                  </span>
-                </div>
-              </CommandItem>
-            ))}
-          </CommandGroup>
-        )}
+        {/* filters */}
+        <div className="border-b border-rule px-3 py-3 space-y-2 max-h-[40vh] overflow-y-auto">
+          <FilterRow
+            label="type"
+            options={ALL_TYPES}
+            value={type}
+            onChange={setType}
+          />
+          <FilterRow
+            label="status"
+            options={ALL_STATUSES}
+            value={status}
+            onChange={setStatus}
+          />
+          <FilterRow
+            label="tag"
+            options={ALL_TAGS}
+            value={tag}
+            onChange={setTag}
+            renderLabel={(t) => `#${t}`}
+          />
+          {hasFilter && (
+            <button
+              type="button"
+              onClick={() => {
+                setType(null);
+                setStatus(null);
+                setTag(null);
+              }}
+              className="text-[11px] text-ink-faint hover:text-ink inline-flex items-center gap-1"
+            >
+              <X size={11} strokeWidth={1.5} /> clear filters
+            </button>
+          )}
+        </div>
 
-        {notes.length > 0 && (
-          <>
-            <CommandSeparator />
-            <CommandGroup heading={q ? "notes" : "recent notes"}>
-              {notes.map((n) => (
-                <CommandItem
-                  key={`n-${n.slug}`}
-                  value={`note ${n.title} ${n.tags.join(" ")}`}
-                  onSelect={() =>
-                    go(() =>
-                      navigate({
-                        to: "/notes/$slug",
-                        params: { slug: n.slug },
-                      }),
-                    )
-                  }
-                >
-                  <div className="flex w-full items-baseline justify-between gap-3">
-                    <span className="truncate">{n.title}</span>
-                    <span className="text-[11px] text-ink-faint shrink-0 tabular-nums">
-                      {formatDate(n.date)}
-                    </span>
-                  </div>
-                </CommandItem>
-              ))}
-            </CommandGroup>
-          </>
-        )}
+        {/* results */}
+        <div className="max-h-[45vh] overflow-y-auto">
+          {entries.length === 0 && notes.length === 0 ? (
+            <div className="px-4 py-8 text-center text-sm text-ink-soft">
+              no matches.
+            </div>
+          ) : (
+            <div className="py-2">
+              {entries.length > 0 && (
+                <ResultGroup heading={`entries (${entries.length})`}>
+                  {entries.map((e) => (
+                    <ResultRow
+                      key={`e-${e.slug}`}
+                      title={e.title}
+                      meta={`${e.type} · ${e.status}`}
+                      date={formatDate(e.date)}
+                      onClick={() =>
+                        go(() =>
+                          navigate({
+                            to: "/entries/$slug",
+                            params: { slug: e.slug },
+                            search: { from: "" },
+                          }),
+                        )
+                      }
+                    />
+                  ))}
+                </ResultGroup>
+              )}
+              {notes.length > 0 && (
+                <ResultGroup heading={`notes (${notes.length})`}>
+                  {notes.map((n) => (
+                    <ResultRow
+                      key={`n-${n.slug}`}
+                      title={n.title}
+                      meta="note"
+                      date={formatDate(n.date)}
+                      onClick={() =>
+                        go(() =>
+                          navigate({
+                            to: "/notes/$slug",
+                            params: { slug: n.slug },
+                          }),
+                        )
+                      }
+                    />
+                  ))}
+                </ResultGroup>
+              )}
+            </div>
+          )}
+        </div>
+      </DialogContent>
+    </Dialog>
+  );
+}
 
-        {lenses.length > 0 && (
-          <>
-            <CommandSeparator />
-            <CommandGroup heading="lenses">
-              {lenses.map((l) => (
-                <CommandItem
-                  key={`l-${l.slug}`}
-                  value={`lens ${l.label} ${l.slug}`}
-                  onSelect={() =>
-                    go(() =>
-                      navigate({
-                        to: "/lenses/$slug",
-                        params: { slug: l.slug },
-                      }),
-                    )
-                  }
-                >
-                  <span>{l.label}</span>
-                  <span className="ml-auto text-[11px] text-ink-faint">
-                    /lenses/{l.slug}
-                  </span>
-                </CommandItem>
-              ))}
-            </CommandGroup>
-          </>
-        )}
+function FilterRow({
+  label,
+  options,
+  value,
+  onChange,
+  renderLabel,
+}: {
+  label: string;
+  options: string[];
+  value: string | null;
+  onChange: (v: string | null) => void;
+  renderLabel?: (v: string) => string;
+}) {
+  return (
+    <div className="flex items-baseline gap-3">
+      <span className="text-[10px] tracking-[0.08em] uppercase text-ink-faint w-12 shrink-0">
+        {label}
+      </span>
+      <div className="flex flex-wrap gap-1.5">
+        {options.map((o) => {
+          const active = value === o;
+          return (
+            <button
+              key={o}
+              type="button"
+              onClick={() => onChange(active ? null : o)}
+              className={
+                "text-[11px] px-1.5 py-0.5 rounded-sm border transition-colors " +
+                (active
+                  ? "border-ink text-ink bg-secondary"
+                  : "border-rule text-ink-soft hover:text-ink hover:border-ink-faint")
+              }
+            >
+              {renderLabel ? renderLabel(o) : o}
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
 
-        {tags.length > 0 && (
-          <>
-            <CommandSeparator />
-            <CommandGroup heading="tags">
-              {tags.map((t) => {
-                const matchedEntries = ENTRIES.filter((e) => e.tags.includes(t));
-                const matchedNotes = NOTES.filter((n) => n.tags.includes(t));
-                const count = matchedEntries.length + matchedNotes.length;
-                return (
-                  <CommandItem
-                    key={`t-${t}`}
-                    value={`tag ${t}`}
-                    onSelect={() => setQuery(t)}
-                  >
-                    <span>#{t}</span>
-                    <span className="ml-auto text-[11px] text-ink-faint">
-                      {count} {count === 1 ? "match" : "matches"}
-                    </span>
-                  </CommandItem>
-                );
-              })}
-            </CommandGroup>
-          </>
-        )}
+function ResultGroup({
+  heading,
+  children,
+}: {
+  heading: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="px-2 pb-2">
+      <div className="px-2 py-1 text-[10px] tracking-[0.08em] uppercase text-ink-faint">
+        {heading}
+      </div>
+      <ul>{children}</ul>
+    </div>
+  );
+}
 
-        {types.length > 0 && (
-          <>
-            <CommandSeparator />
-            <CommandGroup heading="types">
-              {types.map((t) => (
-                <CommandItem
-                  key={`ty-${t}`}
-                  value={`type ${t}`}
-                  onSelect={() => setQuery(t)}
-                >
-                  <span>{t}</span>
-                  <span className="ml-auto text-[11px] text-ink-faint">type</span>
-                </CommandItem>
-              ))}
-            </CommandGroup>
-          </>
-        )}
-
-        {statuses.length > 0 && (
-          <>
-            <CommandSeparator />
-            <CommandGroup heading="status">
-              {statuses.map((s) => (
-                <CommandItem
-                  key={`s-${s}`}
-                  value={`status ${s}`}
-                  onSelect={() => setQuery(s)}
-                >
-                  <span>{s}</span>
-                  <span className="ml-auto text-[11px] text-ink-faint">status</span>
-                </CommandItem>
-              ))}
-            </CommandGroup>
-          </>
-        )}
-      </CommandList>
-    </CommandDialog>
+function ResultRow({
+  title,
+  meta,
+  date,
+  onClick,
+}: {
+  title: string;
+  meta: string;
+  date: string;
+  onClick: () => void;
+}) {
+  return (
+    <li>
+      <button
+        type="button"
+        onClick={onClick}
+        className="w-full text-left px-2 py-2 rounded-sm hover:bg-secondary/60 transition-colors"
+      >
+        <div className="flex items-baseline justify-between gap-3">
+          <span className="text-sm text-ink truncate">{title}</span>
+          <span className="text-[11px] text-ink-faint shrink-0 tabular-nums">
+            {date}
+          </span>
+        </div>
+        <div className="text-[11px] text-ink-faint mt-0.5">{meta}</div>
+      </button>
+    </li>
   );
 }
