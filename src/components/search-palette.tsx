@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "@tanstack/react-router";
 import { Search, SlidersHorizontal, X } from "lucide-react";
 
@@ -19,6 +19,7 @@ import {
 export function SearchTrigger() {
   const [open, setOpen] = useState(false);
   const isMobile = useIsMobile();
+  const triggerRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
@@ -45,9 +46,10 @@ export function SearchTrigger() {
 
   const trigger = (
     <button
+      ref={triggerRef}
       type="button"
       onClick={() => setOpen((v) => !v)}
-      aria-label="Search"
+      aria-label={open ? "Close search" : "Search"}
       title="Search (⌘K)"
       className="text-ink-faint hover:text-ink inline-flex items-center"
     >
@@ -73,7 +75,7 @@ export function SearchTrigger() {
     );
   }
 
-  // Desktop: popover anchored to the icon, opens to the left
+  // Desktop: popover anchored to the icon
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverAnchor asChild>{trigger}</PopoverAnchor>
@@ -81,9 +83,14 @@ export function SearchTrigger() {
         align="end"
         sideOffset={8}
         className="w-[28rem] p-0 overflow-hidden"
-        onOpenAutoFocus={(e) => {
-          // Let our input handle focus
-          e.preventDefault();
+        onOpenAutoFocus={(e) => e.preventDefault()}
+        onInteractOutside={(e) => {
+          // If the click is on the trigger button, let the button's onClick
+          // handle toggling so we don't double-fire close + reopen.
+          const target = e.target as Node | null;
+          if (target && triggerRef.current?.contains(target)) {
+            e.preventDefault();
+          }
         }}
       >
         <SearchPanel onClose={() => setOpen(false)} />
