@@ -32,7 +32,7 @@ function ContactPage() {
           Messages are more than welcome.
         </p>
 
-        <dl className="space-y-2 py-1">
+        <dl className="space-y-2 border-t border-rule pt-5">
           <MetaRow label="email">
             <a
               href="mailto:nathan.sidibakari@icloud.com"
