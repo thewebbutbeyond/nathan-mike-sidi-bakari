@@ -78,9 +78,9 @@ existing_materials:
       - "Integration of technical and expressive outputs within one system"
 
 workflow:
-  current_phase: "Phase 1 - Project Brief"
-  next_recommended_skill: "wds-1-project-brief"
-  next_recommended_action: "Create the complete project brief using the discovery notes as source material."
+  current_phase: "Phase 2 - Simplified Trigger Mapping"
+  next_recommended_skill: "wds-2-trigger-mapping"
+  next_recommended_action: "Create simplified trigger mapping using the Phase 1 handover summary as source material."
   enabled_phases:
     - "1-project-brief"
     - "2-trigger-mapping-simplified"

@@ -42,10 +42,11 @@ Before writing anything in this folder:
 
 | # | Document | Status |
 |---|----------|--------|
-| 01 | Product Brief | Not started |
-| 02 | Content & Language | Not started |
-| 03 | Visual Direction | Not started |
-| 04 | Platform Requirements | Not started |
+| 01 | [Product Brief](./01-product-brief.md) | Complete |
+| 02 | [Content & Language](./02-content-language.md) | Complete |
+| 03 | [Visual Direction](./03-visual-direction.md) | Complete |
+| 04 | [Platform Requirements](./04-platform-requirements.md) | Complete |
+| 05 | [Phase 1 Handover Summary](./05-phase-1-handover-summary.md) | Complete |
 
 ---
 
