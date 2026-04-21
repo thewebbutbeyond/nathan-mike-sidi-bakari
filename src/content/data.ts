@@ -71,7 +71,6 @@ Built in Rust, with a Postgres LISTEN/NOTIFY layer for downstream consumers. Abo
     role: "Designed the reducer model, wrote the core, supervised migration.",
     outcome: "Cut month-end close from 4 days to 6 hours. Zero rollbacks since launch.",
     chefDoeuvre: true,
-    links: [{ label: "Internal RFC", href: "#" }],
     related: ["close-the-books", "operator-letter-q3-2024"],
   },
   {
@@ -328,6 +327,9 @@ function validateEntryContent(entries: Entry[], lenses: typeof LENSES) {
         for (const link of entry.links) {
           if (!isNonEmptyString(link.label) || !isNonEmptyString(link.href)) {
             errors.push(`${label}: links must include non-empty label and href`);
+          }
+          if (link.href.trim() === "#") {
+            errors.push(`${label}: links must not use placeholder "#" hrefs`);
           }
         }
       }

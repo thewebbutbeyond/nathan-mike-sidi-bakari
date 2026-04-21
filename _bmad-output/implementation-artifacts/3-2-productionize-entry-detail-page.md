@@ -1,6 +1,6 @@
 # Story 3.2: Productionize Entry Detail Page
 
-Status: ready-for-dev
+Status: review
 
 ## Story
 
@@ -18,25 +18,25 @@ so that I understand what happened and how it connects.
 
 ## Tasks / Subtasks
 
-- [ ] Inspect current Entry Detail implementation. (AC: 1-5)
-  - [ ] Review `src/routes/entries.$slug.tsx`.
-  - [ ] Confirm metadata, body, lenses, tags, role/outcome, related entries, previous/next links, and SEO metadata are present.
-  - [ ] Identify any broken or placeholder link behavior.
-- [ ] Harden entry links. (AC: 1, 4)
-  - [ ] Remove or prevent placeholder `#` links from rendering as public entry links.
-  - [ ] Keep optional link support for real links.
-  - [ ] Keep content validation aligned with this behavior.
-- [ ] Verify related entry behavior and readability. (AC: 3, 5)
-  - [ ] Confirm related entry links use `/entries/$slug`.
-  - [ ] Preserve current detail layout and visual rhythm.
-- [ ] Run baseline checks. (AC: 1-5)
-  - [ ] Run `npm run validate:shell`.
-  - [ ] Run `npm run lint`.
-  - [ ] Run `npm run build`.
-- [ ] Update story and sprint tracking. (AC: 1-5)
-  - [ ] Mark this story `review` after checks pass.
-  - [ ] Update sprint status to `review`.
-  - [ ] Record command results and warnings in Dev Agent Record.
+- [x] Inspect current Entry Detail implementation. (AC: 1-5)
+  - [x] Review `src/routes/entries.$slug.tsx`.
+  - [x] Confirm metadata, body, lenses, tags, role/outcome, related entries, previous/next links, and SEO metadata are present.
+  - [x] Identify any broken or placeholder link behavior.
+- [x] Harden entry links. (AC: 1, 4)
+  - [x] Remove or prevent placeholder `#` links from rendering as public entry links.
+  - [x] Keep optional link support for real links.
+  - [x] Keep content validation aligned with this behavior.
+- [x] Verify related entry behavior and readability. (AC: 3, 5)
+  - [x] Confirm related entry links use `/entries/$slug`.
+  - [x] Preserve current detail layout and visual rhythm.
+- [x] Run baseline checks. (AC: 1-5)
+  - [x] Run `npm run validate:shell`.
+  - [x] Run `npm run lint`.
+  - [x] Run `npm run build`.
+- [x] Update story and sprint tracking. (AC: 1-5)
+  - [x] Mark this story `review` after checks pass.
+  - [x] Update sprint status to `review`.
+  - [x] Record command results and warnings in Dev Agent Record.
 
 ## Dev Notes
 
@@ -78,21 +78,29 @@ Known non-blocking warnings:
 
 ### Agent Model Used
 
-TBD by implementing agent.
+GPT-5.4
 
 ### Debug Log References
 
-TBD.
+- `npm run validate:shell` passed.
+- `npm run lint` passed with 7 non-blocking `react-refresh/only-export-components` warnings.
+- `npm run build` passed with the existing Vite large chunk warning.
 
 ### Completion Notes List
 
-TBD.
+- Confirmed Entry Detail renders title, date, type, status, summary, body, lenses, tags, optional role/outcome, related entries, previous/next links, and SEO metadata.
+- Removed the placeholder `Internal RFC` `#` link from entry data.
+- Updated content validation to reject future `href: "#"` placeholder links.
+- Added safe external link handling in Entry Detail with `target="_blank"` and `rel="noopener noreferrer"` for HTTP/mailto links.
+- Preserved the current Entry Detail layout and visual rhythm.
 
 ### File List
-
-Expected files touched:
 
 - `src/routes/entries.$slug.tsx`
 - `src/content/data.ts`
 - `_bmad-output/implementation-artifacts/3-2-productionize-entry-detail-page.md`
 - `_bmad-output/implementation-artifacts/sprint-status.yaml`
+
+### Change Log
+
+- 2026-04-22: Hardened Entry Detail link behavior, removed placeholder content link, verified shell/lint/build, and moved story to review.
