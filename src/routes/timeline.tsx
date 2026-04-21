@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Container, PageHeader, SiteShell, Tag } from "@/components/site-shell";
-import { formatDate, formatYear, sortedArtifacts } from "@/content/data";
+import { formatDate, formatYear, sortedEntries } from "@/content/data";
 
 export const Route = createFileRoute("/timeline")({
   head: () => ({
@@ -21,7 +21,7 @@ export const Route = createFileRoute("/timeline")({
 });
 
 function TimelinePage() {
-  const all = sortedArtifacts();
+  const all = sortedEntries();
   const byYear = new Map<string, typeof all>();
   for (const a of all) {
     const y = formatYear(a.date);

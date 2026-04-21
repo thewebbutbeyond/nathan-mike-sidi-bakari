@@ -338,7 +338,7 @@ export function formatYear(iso: string) {
   return iso.slice(0, 4);
 }
 
-export function getArtifact(slug: string) {
+export function getEntry(slug: string) {
   return ENTRIES.find((a) => a.slug === slug);
 }
 
@@ -346,13 +346,13 @@ export function getNote(slug: string) {
   return NOTES.find((n) => n.slug === slug);
 }
 
-export function artifactsByCollection(slug: Collection) {
+export function entriesByCollection(slug: Collection) {
   return ENTRIES.filter((a) => a.collections.includes(slug)).sort((a, b) =>
     b.date.localeCompare(a.date),
   );
 }
 
-export function sortedArtifacts() {
+export function sortedEntries() {
   return [...ENTRIES].sort((a, b) => b.date.localeCompare(a.date));
 }
 

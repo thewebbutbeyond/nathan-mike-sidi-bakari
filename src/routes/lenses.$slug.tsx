@@ -1,10 +1,10 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Container, PageHeader, SiteShell } from "@/components/site-shell";
-import { ArtifactList } from "@/components/entry-list";
+import { EntryList } from "@/components/entry-list";
 import {
   COLLECTIONS,
   type Collection,
-  artifactsByCollection,
+  entriesByCollection,
 } from "@/content/data";
 
 export const Route = createFileRoute("/lenses/$slug")({
@@ -12,7 +12,7 @@ export const Route = createFileRoute("/lenses/$slug")({
     const slug = params.slug as Collection;
     const meta = COLLECTIONS.find((c) => c.slug === slug);
     if (!meta) throw notFound();
-    return { slug, meta, items: artifactsByCollection(slug) };
+    return { slug, meta, items: entriesByCollection(slug) };
   },
   head: ({ loaderData }) => {
     if (!loaderData) return { meta: [{ title: "Collection · Nathan Mike Sidi Bakari" }] };
@@ -57,7 +57,7 @@ function CollectionDetail() {
           title={meta.label.toLowerCase() + "."}
           description={meta.description}
         />
-        <ArtifactList entries={items} />
+        <EntryList entries={items} />
       </Container>
     </SiteShell>
   );

@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Container, PageHeader, SiteShell } from "@/components/site-shell";
-import { ArtifactList } from "@/components/entry-list";
+import { EntryList } from "@/components/entry-list";
 import { ENTRIES } from "@/content/data";
 
 export const Route = createFileRoute("/selected")({
@@ -32,7 +32,7 @@ function SelectedPage() {
           title="A handful of marked entries."
           description="A small set of pieces I’d hand someone if they only had ten minutes , pulled from the timeline rather than curated for show. The French label is half-serious; treat it as a friendly nod, not a claim."
         />
-        <ArtifactList entries={selected} />
+        <EntryList entries={selected} />
       </Container>
     </SiteShell>
   );

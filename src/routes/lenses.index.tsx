@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Container, PageHeader, SiteShell } from "@/components/site-shell";
-import { COLLECTIONS, artifactsByCollection } from "@/content/data";
+import { COLLECTIONS, entriesByCollection } from "@/content/data";
 
 export const Route = createFileRoute("/lenses/")({
   head: () => ({
@@ -33,7 +33,7 @@ function CollectionsPage() {
 
         <ul className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-rule border border-rule">
           {COLLECTIONS.map((c) => {
-            const items = artifactsByCollection(c.slug);
+            const items = entriesByCollection(c.slug);
             const preview = items.slice(0, 3);
             return (
               <li key={c.slug} className="bg-background">

@@ -7,12 +7,12 @@ import {
   SiteShell,
   Tag,
 } from "@/components/site-shell";
-import { ENTRIES, type Entry, type Collection, formatDate, getArtifact } from "@/content/data";
-import { ArtifactMosaic } from "@/components/entry-mosaic";
+import { ENTRIES, type Entry, type Collection, formatDate, getEntry } from "@/content/data";
+import { EntryMosaic } from "@/components/entry-mosaic";
 
 export const Route = createFileRoute("/entries/$slug")({
   loader: ({ params }) => {
-    const a = getArtifact(params.slug);
+    const a = getEntry(params.slug);
     if (!a) throw notFound();
     const related = (a.related ?? [])
       .map((s) => ENTRIES.find((x) => x.slug === s))
@@ -45,10 +45,10 @@ export const Route = createFileRoute("/entries/$slug")({
       </Container>
     </SiteShell>
   ),
-  component: ArtifactDetail,
+  component: EntryDetail,
 });
 
-function ArtifactDetail() {
+function EntryDetail() {
   const { entry: a, related } = Route.useLoaderData();
 
   return (
@@ -124,7 +124,7 @@ function ArtifactDetail() {
 
         <Prose text={a.body} />
 
-        <ArtifactMosaic seed={a.slug} />
+        <EntryMosaic seed={a.slug} />
 
         {related.length > 0 && (
           <section className="mt-12 pt-6 border-t border-rule">

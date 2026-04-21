@@ -5,10 +5,10 @@ import {
   ENTRIES,
   NOTES,
   formatDate,
-  sortedArtifacts,
+  sortedEntries,
   sortedNotes,
 } from "@/content/data";
-import { ArtifactList } from "@/components/entry-list";
+import { EntryList } from "@/components/entry-list";
 
 export const Route = createFileRoute("/")({
   component: HomePage,
@@ -38,7 +38,7 @@ const ROUTES = [
 ];
 
 function HomePage() {
-  const recent = sortedArtifacts().slice(0, 6);
+  const recent = sortedEntries().slice(0, 6);
   const latestNotes = sortedNotes().slice(0, 3);
 
   const allDates = ENTRIES.map((a) => a.date).concat(NOTES.map((n) => n.date));
@@ -139,7 +139,7 @@ function HomePage() {
               </Link>
             }
           />
-          <ArtifactList entries={recent} />
+          <EntryList entries={recent} />
         </section>
 
         {/* notes preview */}

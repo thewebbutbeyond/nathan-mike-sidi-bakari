@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Tag } from "@/components/site-shell";
 import { type Entry, formatDate } from "@/content/data";
 
-export function ArtifactList({ entries }: { entries: Entry[] }) {
+export function EntryList({ entries }: { entries: Entry[] }) {
   if (entries.length === 0) {
     return (
       <div className="border-t border-rule">

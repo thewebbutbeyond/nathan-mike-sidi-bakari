@@ -15,7 +15,7 @@ function pick(seed: string, count: number) {
   return Array.from({ length: count }, (_, i) => IMAGES[(start + i) % IMAGES.length]);
 }
 
-export function ArtifactMosaic({ seed }: { seed: string }) {
+export function EntryMosaic({ seed }: { seed: string }) {
   const [a, b, c, d] = pick(seed, 4);
   return (
     <section className="mt-12">
