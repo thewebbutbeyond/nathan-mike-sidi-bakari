@@ -5,15 +5,16 @@ import { COLLECTIONS, artifactsByCollection } from "@/content/data";
 export const Route = createFileRoute("/collections")({
   head: () => ({
     meta: [
-      { title: "Collections — Nathan Mike Sidi Bakari" },
+      { title: "Lenses — Nathan Mike Sidi Bakari" },
       {
         name: "description",
-        content: "Engineer, Entrepreneur, Investor, Artist. Browse the archive by identity.",
+        content:
+          "Engineering, Entrepreneurship, Investing, Art. Different ways of looking through the same archive.",
       },
-      { property: "og:title", content: "Collections — Nathan Mike Sidi Bakari" },
+      { property: "og:title", content: "Lenses — Nathan Mike Sidi Bakari" },
       {
         property: "og:description",
-        content: "Engineer · Entrepreneur · Investor · Artist.",
+        content: "The same archive, seen through different parts of my life.",
       },
     ],
   }),
@@ -25,9 +26,9 @@ function CollectionsPage() {
     <SiteShell>
       <Container>
         <PageHeader
-          eyebrow="collections"
-          title="Four ways to be in the world."
-          description="Artifacts can belong to more than one collection. Most do. The dividing lines are useful, not sharp."
+          eyebrow="lenses"
+          title="The same archive, seen through different parts of my life."
+          description="Most entries belong to more than one lens — a company is also engineering, a drawing is sometimes an investment memo. The lines are useful, not strict."
         />
 
         <ul className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-rule border border-rule">
@@ -66,7 +67,7 @@ function CollectionsPage() {
                     ))}
                   </ul>
                   <div className="mt-3 text-[11px] text-ink-faint">
-                    open collection →
+                    open lens →
                   </div>
                 </Link>
               </li>

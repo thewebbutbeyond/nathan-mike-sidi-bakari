@@ -6,16 +6,16 @@ import { ARTIFACTS } from "@/content/data";
 export const Route = createFileRoute("/selected")({
   head: () => ({
     meta: [
-      { title: "Selected — Nathan Mike Sidi Bakari" },
+      { title: "Chefs-d’œuvre — Nathan Mike Sidi Bakari" },
       {
         name: "description",
         content:
-          "A small set of entry points across engineering, entrepreneurship, investing, and art.",
+          "A handful of marked entries — the shortest way into the archive.",
       },
-      { property: "og:title", content: "Selected — Nathan Mike Sidi Bakari" },
+      { property: "og:title", content: "Chefs-d’œuvre — Nathan Mike Sidi Bakari" },
       {
         property: "og:description",
-        content: "A small set of entry points across the archive.",
+        content: "A handful of marked entries — the shortest way into the archive.",
       },
     ],
   }),
@@ -31,9 +31,9 @@ function SelectedPage() {
     <SiteShell>
       <Container>
         <PageHeader
-          eyebrow="selected"
-          title="A few entry points."
-          description="Not a best-of. A handful of artifacts that, if you read or look at them, will give you the most accurate picture of how I work and what I care about. The rest is in collections and timeline."
+          eyebrow="chefs-d’œuvre"
+          title="A few marked entries."
+          description="A small set of pieces I’d hand someone if they only had ten minutes — pulled from the timeline rather than curated for show. The French label is half-serious; treat it as a friendly nod, not a claim."
         />
         <ArtifactList artifacts={selected} />
       </Container>
