@@ -56,7 +56,7 @@ function HomePage() {
         {/* premise */}
         <section className="mb-10 max-w-2xl">
           <div className="text-xs text-ink-faint mb-4 tracking-wide">
-            personal logbook · since {earliest}
+            personal logbook · kept since {earliest}
           </div>
           <h1 className="text-xl sm:text-2xl font-medium tracking-tight leading-relaxed text-ink">
             A personal archive of work, notes, and traces.
