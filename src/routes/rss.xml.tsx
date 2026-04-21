@@ -37,7 +37,7 @@ ${items}
 </rss>`;
 }
 
-export const Route = createFileRoute("/rss.xml")({
+export const Route = createFileRoute("/rss/xml")({
   server: {
     handlers: {
       GET: ({ request }) => {

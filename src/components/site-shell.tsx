@@ -170,7 +170,7 @@ export function Prose({ text }: { text: string }) {
 
 function renderInline(text: string) {
   // bold *...* and italic _..._ minimal renderer
-  const parts: (string | JSX.Element)[] = [];
+  const parts: ReactNode[] = [];
   const regex = /\*([^*]+)\*|_([^_]+)_/g;
   let last = 0;
   let m: RegExpExecArray | null;
