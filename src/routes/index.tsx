@@ -59,12 +59,11 @@ function HomePage() {
             personal logbook · since {earliest}
           </div>
           <h1 className="text-xl sm:text-2xl font-medium tracking-tight leading-relaxed text-ink">
-            A working archive of things I’ve made, written, and noticed.
+            A personal archive of work, notes, and traces.
           </h1>
           <p className="mt-4 text-sm text-ink-soft leading-relaxed">
-            Kept for myself first, opened to anyone curious. You’ll find code, companies,
-            investment memos, drawings, and the occasional long note, sitting next to
-            each other without much fuss.
+            Kept for myself first, opened to anyone curious. You’ll find records across
+            engineering, entrepreneurship, investing, art, and reflection.
           </p>
         </section>
 
