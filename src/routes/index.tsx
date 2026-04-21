@@ -17,12 +17,12 @@ const ROUTES = [
   {
     to: "/chefs-doeuvre" as const,
     label: "chefs-d’œuvre",
-    description: "A handful of marked entries. The shortest way in.",
+    description: "A handful of marked entries.",
   },
   {
     to: "/timeline" as const,
     label: "timeline",
-    description: "Everything, by date. Newest at the top.",
+    description: "Everything, by date.",
   },
   {
     to: "/lenses" as const,
@@ -32,7 +32,7 @@ const ROUTES = [
   {
     to: "/notes" as const,
     label: "notes",
-    description: "Slower pieces. Things I wanted to make clear enough to return to.",
+    description: "(Not so) random thoughts.",
   },
 ];
 
