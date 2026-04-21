@@ -38,7 +38,7 @@ export const COLLECTIONS: { slug: Collection; label: string; description: string
   {
     slug: "entrepreneur",
     label: "Entrepreneurship",
-    description: "Companies started, products shipped, operating notes.",
+    description: "Ventures started, products shipped, failures and operating notes.",
   },
   {
     slug: "investor",
