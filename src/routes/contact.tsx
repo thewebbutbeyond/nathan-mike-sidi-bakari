@@ -29,7 +29,7 @@ function ContactPage() {
           If you want to reach out.
         </h1>
         <p className="text-sm text-ink-soft leading-relaxed max-w-prose mb-10">
-          Messages are more than welcome.
+          Messages are more than welcome!
         </p>
 
         <dl className="space-y-2 border-t border-rule pt-5">
