@@ -25,6 +25,8 @@ export interface Note {
   body: string;
   tags: string[];
   readingMinutes: number;
+  cover?: string;
+  coverAlt?: string;
 }
 
 export const COLLECTIONS: { slug: Collection; label: string; description: string }[] = [
@@ -239,6 +241,11 @@ Currently about 9,000 words. I add to it every few months when something I see m
   },
 ];
 
+import noteCoverArchives from "@/assets/notes/on-archives-not-portfolios.jpg";
+import noteCoverContext from "@/assets/notes/the-cost-of-context.jpg";
+import noteCoverInvesting from "@/assets/notes/what-investing-taught-me-about-product.jpg";
+import noteCoverDrawing from "@/assets/notes/drawing-as-rest.jpg";
+
 export const NOTES: Note[] = [
   {
     slug: "on-archives-not-portfolios",
@@ -248,6 +255,8 @@ export const NOTES: Note[] = [
       "Why I stopped maintaining a portfolio site and started keeping a record instead.",
     readingMinutes: 6,
     tags: ["meta", "writing", "archive"],
+    cover: noteCoverArchives,
+    coverAlt: "Two pale archive boxes resting on a softly lit shelf.",
     body: `A portfolio is a sales document. It selects, polishes, and presents, and the selection criterion is, almost always, "this will impress someone." That criterion quietly distorts everything you make. Over enough years, you start picking projects for the portfolio you will eventually write, and the work narrows.
 
 An archive is different. The criterion for inclusion is just: did this happen, and is it worth keeping a record of? Failures stay. Half-finished work stays. Letters stay. The shape of the record is the shape of the working life, not the shape of the pitch.
@@ -264,6 +273,8 @@ The cost is real. An archive does not convert. It does not generate leads, build
       "Notes on why holding several domains in mind at once is expensive, and worth doing anyway.",
     readingMinutes: 9,
     tags: ["practice", "engineering", "investing"],
+    cover: noteCoverContext,
+    coverAlt: "An open notebook layered with sheets of ochre and ivory paper.",
     body: `Working across engineering, operating, investing, and a quiet art practice is not a strategy. It is a description of how my attention behaves when left alone. I am not arguing for it. I am noting the cost.
 
 The cost is context. Each domain has its own vocabulary, its own pace, and its own definition of what counts as a good day. Engineering days are long and uninterrupted; investing days are short and conversational; operating days are reactive; drawing days are evening-shaped and small. The taxes of switching are real and not symmetric. A good engineering session destroyed by an investor call is more expensive than the reverse.
@@ -280,6 +291,8 @@ I do not recommend it. I am writing this down so that, in the years when the tax
       "Three habits I picked up from underwriting other people's companies that quietly changed how I build my own.",
     readingMinutes: 7,
     tags: ["investing", "product", "lessons"],
+    cover: noteCoverInvesting,
+    coverAlt: "A coffee cup beside a leather notebook and pen on warm linen.",
     body: `One. Read the cap table before the pitch. Not because the cap table predicts the outcome, but because it tells you what the founder has already decided is true about distribution of value, and that is usually load-bearing in a way decks never are. The product analogue: read the schema before the feature spec.
 
 Two. Time-box the diligence. The thing that a fourth meeting reveals is, in my experience, almost never the thing that matters. The decision was usually available after meeting two and the rest is comfort. I now apply this to product calls, too: if I cannot articulate why I am scheduling a third review, I should be making the call instead.
@@ -294,6 +307,8 @@ Three. Underwrite to a story you would defend in five years, not five months. Th
       "An evening practice that is not productive, not therapeutic, and not for anyone else.",
     readingMinutes: 5,
     tags: ["practice", "drawing", "rest"],
+    cover: noteCoverDrawing,
+    coverAlt: "A pencil resting on cream paper under a soft evening lamp.",
     body: `I draw most evenings for somewhere between fifteen minutes and an hour. It is not productive; nothing leaves the room. It is not therapeutic; I do not feel processed afterward. It is not for anyone else, because I do not show most of it. It is closer to walking.
 
 The thing I get from it is the absence of metrics. There is no count, no streak, no audience, and no improvement curve I am tracking. I sit with a pencil and a small piece of paper for a while, and then I stop. The next day I do it again, or I do not. Both are fine.
