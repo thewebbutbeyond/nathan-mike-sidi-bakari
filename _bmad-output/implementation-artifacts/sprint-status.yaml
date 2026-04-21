@@ -1,5 +1,5 @@
 # generated: 2026-04-21T21:48:59Z
-# last_updated: 2026-04-22T01:36:00Z
+# last_updated: 2026-04-22T01:45:00Z
 # project: nathansidib
 # project_key: NOKEY
 # tracking_system: file-system
@@ -24,7 +24,7 @@
 #   - done: Retrospective has been completed
 
 generated: 2026-04-21T21:48:59Z
-last_updated: 2026-04-22T01:36:00Z
+last_updated: 2026-04-22T01:45:00Z
 project: nathansidib
 project_key: NOKEY
 tracking_system: file-system
@@ -52,9 +52,9 @@ development_status:
   # Epic 2 Retrospective
   epic-2-retrospective: done
   # Entry Model and Entry Detail
-  epic-3: backlog
+  epic-3: in-progress
   # Validate Entry Content Model
-  3-1-validate-entry-content-model: backlog
+  3-1-validate-entry-content-model: ready-for-dev
   # Productionize Entry Detail Page
   3-2-productionize-entry-detail-page: backlog
   # Handle Missing and Sparse Entries
