@@ -38,15 +38,12 @@ function ContactPage() {
         <dl className="space-y-2 border-y border-rule py-5">
           <MetaRow label="email">
             <a
-              href="mailto:nathan@sidi.bakari"
+              href="mailto:nathan.sidibakari@icloud.com"
               className="underline underline-offset-4 hover:text-ink"
             >
-              nathan@sidi.bakari
+              nathan.sidibakari@icloud.com
             </a>
           </MetaRow>
-          <MetaRow label="signal">happy to share after a first email</MetaRow>
-          <MetaRow label="post">PO Box · address on request</MetaRow>
-          <MetaRow label="reply">usually within a week</MetaRow>
         </dl>
 
         <div className="mt-10 text-xs text-ink-faint leading-relaxed max-w-prose">
