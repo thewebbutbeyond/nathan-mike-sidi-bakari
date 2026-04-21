@@ -10,8 +10,15 @@ import {
 
 const valid: Collection[] = ["engineer", "entrepreneur", "investor", "artist"];
 
+type LoaderData = {
+  slug: Collection;
+  label: string;
+  description: string;
+  artifacts: ReturnType<typeof getArtifactsByCollection>;
+};
+
 export const Route = createFileRoute("/collections/$slug")({
-  loader: ({ params }) => {
+  loader: ({ params }): LoaderData => {
     if (!valid.includes(params.slug as Collection)) throw notFound();
     const slug = params.slug as Collection;
     return {
@@ -43,7 +50,7 @@ export const Route = createFileRoute("/collections/$slug")({
 });
 
 function CollectionDetail() {
-  const { label, description, artifacts, slug } = Route.useLoaderData();
+  const { label, description, artifacts, slug } = Route.useLoaderData() as LoaderData;
 
   return (
     <SiteShell>
