@@ -1,12 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Rss } from "lucide-react";
-import {
-  Container,
-  NarrowContainer,
-  Prose,
-  SiteShell,
-  Tag,
-} from "@/components/site-shell";
+import type { ReactNode } from "react";
+import { Container, NarrowContainer, SiteShell, Tag } from "@/components/site-shell";
 import { formatDate, getNote, sortedNotes } from "@/content/data";
 
 export const Route = createFileRoute("/notes/$slug")({
@@ -103,15 +98,13 @@ function NoteDetail() {
         {/* body, narrow reading column */}
         <div className="mx-auto max-w-3xl px-5 sm:px-8 pb-12">
           <div className="prose-archive prose-archive--lg text-ink">
-            {n.body
-              .split(/\n\n+/)
-              .map((p, i) => (
-                <p key={i}>{renderInline(p)}</p>
-              ))}
+            {n.body.split(/\n\n+/).map((p: string, i: number) => (
+              <p key={i}>{renderInline(p)}</p>
+            ))}
           </div>
 
           <div className="mt-12 pt-5 border-t border-rule flex flex-wrap gap-x-3 gap-y-1">
-            {n.tags.map((t) => (
+            {n.tags.map((t: string) => (
               <Tag key={t}>{t}</Tag>
             ))}
           </div>
@@ -162,8 +155,8 @@ function NoteDetail() {
   );
 }
 
-function renderInline(text: string) {
-  const parts: React.ReactNode[] = [];
+function renderInline(text: string): ReactNode[] {
+  const parts: ReactNode[] = [];
   const regex = /\*([^*]+)\*|_([^_]+)_/g;
   let last = 0;
   let m: RegExpExecArray | null;
@@ -178,5 +171,5 @@ function renderInline(text: string) {
   return parts;
 }
 
-// keep Prose imported (used elsewhere) — silence unused warning by referencing
-void Prose;
+// reference NarrowContainer to keep the import (unused in current layout but kept for future)
+void NarrowContainer;
