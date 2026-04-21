@@ -2,9 +2,9 @@ import { Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 
 const NAV = [
-  { to: "/selected", label: "Selected" },
+  { to: "/selected", label: "Chefs-d’œuvre" },
   { to: "/timeline", label: "Timeline" },
-  { to: "/collections", label: "Collections" },
+  { to: "/collections", label: "Lenses" },
   { to: "/notes", label: "Notes" },
 ] as const;
 
