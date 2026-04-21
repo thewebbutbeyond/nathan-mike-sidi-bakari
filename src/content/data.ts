@@ -69,7 +69,6 @@ Built in Rust, with a Postgres LISTEN/NOTIFY layer for downstream consumers. Abo
     role: "Designed the reducer model, wrote the core, supervised migration.",
     outcome: "Cut month-end close from 4 days to 6 hours. Zero rollbacks since launch.",
     selected: true,
-    selected: true,
     links: [{ label: "Internal RFC", href: "#" }],
     related: ["close-the-books", "operator-letter-q3-2024"],
   },
@@ -105,7 +104,6 @@ Three patterns I am underwriting: (a) workflow-shaped products that look like in
 I am not underwriting: foundation model wrappers without a data flywheel, and "AI for X" decks that read identically to a 2014 SaaS deck with the noun changed.`,
     collections: ["investor"],
     tags: ["llm", "thesis", "saas", "vertical"],
-    selected: true,
     selected: true,
   },
   {
