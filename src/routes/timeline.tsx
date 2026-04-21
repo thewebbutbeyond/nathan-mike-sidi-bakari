@@ -35,7 +35,7 @@ function TimelinePage() {
         <PageHeader
           eyebrow="timeline"
           title="Everything, by date."
-          description="Most recent at the top. Milestones marked. Each artifact links into its detail page."
+          description="Most recent at the top. Marked entries — the chefs-d’œuvre — are flagged in line. Each one opens to its own page."
         />
 
         <div className="space-y-12">
@@ -67,7 +67,7 @@ function TimelinePage() {
                           <span className="text-sm text-ink">{a.title}</span>
                           {a.milestone && (
                             <span className="text-[10px] uppercase tracking-wider text-accent">
-                              ◆ milestone
+                              ◆ chef-d’œuvre
                             </span>
                           )}
                         </div>

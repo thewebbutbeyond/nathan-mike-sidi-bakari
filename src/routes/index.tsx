@@ -1,11 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { Container, SiteShell, Tag } from "@/components/site-shell";
 import {
-  Container,
-  PageHeader,
-  SiteShell,
-  Tag,
-} from "@/components/site-shell";
-import { formatDate, sortedArtifacts, sortedNotes } from "@/content/data";
+  ARTIFACTS,
+  COLLECTIONS,
+  NOTES,
+  formatDate,
+  sortedArtifacts,
+  sortedNotes,
+} from "@/content/data";
+import { ArtifactList } from "@/components/artifact-list";
 
 export const Route = createFileRoute("/")({
   component: HomePage,
@@ -14,23 +17,23 @@ export const Route = createFileRoute("/")({
 const ROUTES = [
   {
     to: "/selected" as const,
-    label: "selected",
-    description: "A small set of entry points across domains.",
+    label: "chefs-d’œuvre",
+    description: "A handful of marked entries — the shortest way in.",
   },
   {
     to: "/timeline" as const,
     label: "timeline",
-    description: "Everything, by date, oldest at the bottom.",
+    description: "Everything, by date. Newest at the top.",
   },
   {
     to: "/collections" as const,
-    label: "collections",
-    description: "Engineer · entrepreneur · investor · artist.",
+    label: "lenses",
+    description: "The same archive, seen through different parts of my life.",
   },
   {
     to: "/notes" as const,
     label: "notes",
-    description: "Curated long-form writing. Not a feed.",
+    description: "Slower pieces — things I wanted to make clear enough to return to.",
   },
 ];
 
@@ -38,27 +41,66 @@ function HomePage() {
   const recent = sortedArtifacts().slice(0, 6);
   const latestNotes = sortedNotes().slice(0, 3);
 
+  const allDates = ARTIFACTS.map((a) => a.date).concat(NOTES.map((n) => n.date));
+  const years = new Set(allDates.map((d) => d.slice(0, 4)));
+  const earliest = allDates.sort()[0]?.slice(0, 4) ?? "2017";
+
+  const stats = [
+    { label: "entries", value: ARTIFACTS.length },
+    { label: "notes", value: NOTES.length },
+    { label: "lenses", value: COLLECTIONS.length },
+    { label: "years", value: years.size, sub: `since ${earliest}` },
+  ];
+
   return (
     <SiteShell>
       <Container>
         {/* premise */}
-        <section className="mb-14 max-w-2xl">
+        <section className="mb-10 max-w-2xl">
           <div className="text-xs text-ink-faint mb-4 tracking-wide">
-            personal archive · est. 2017
+            personal logbook · since {earliest}
           </div>
           <h1 className="text-xl sm:text-2xl font-medium tracking-tight leading-relaxed text-ink">
-            A personal archive of work, notes, and traces.
+            A working archive of things I’ve made, written, and noticed.
           </h1>
           <p className="mt-4 text-sm text-ink-soft leading-relaxed">
-            A minimally curated record of output across engineering, entrepreneurship,
-            investing, art, and reflection. Browse by identity, by time, or through a
-            small set of selected entry points.
+            Kept for myself first, opened to anyone curious. You’ll find code, companies,
+            investment memos, drawings, and the occasional long note — sitting next to
+            each other without much fuss.
           </p>
+        </section>
+
+        {/* stats / catalog block */}
+        <section className="mb-16">
+          <dl className="grid grid-cols-2 sm:grid-cols-4 border-y border-rule">
+            {stats.map((s, i) => (
+              <div
+                key={s.label}
+                className={`px-4 py-4 ${
+                  i < stats.length - 1 ? "sm:border-r border-rule" : ""
+                } ${i < 2 ? "border-b sm:border-b-0 border-rule" : ""} ${
+                  i === 0 ? "border-r border-rule" : ""
+                }`}
+              >
+                <dt className="text-[11px] uppercase tracking-[0.14em] text-ink-faint">
+                  {s.label}
+                </dt>
+                <dd className="mt-1.5 flex items-baseline gap-2">
+                  <span className="text-xl font-medium tabular-nums text-ink">
+                    {s.value.toString().padStart(2, "0")}
+                  </span>
+                  {s.sub && (
+                    <span className="text-[11px] text-ink-faint">{s.sub}</span>
+                  )}
+                </dd>
+              </div>
+            ))}
+          </dl>
         </section>
 
         {/* primary routes */}
         <section className="mb-16">
-          <SectionHeading label="routes" />
+          <SectionHeading label="ways in" />
           <ul className="grid grid-cols-1 sm:grid-cols-2 border-t border-rule">
             {ROUTES.map((r, i) => (
               <li
@@ -91,7 +133,7 @@ function HomePage() {
         {/* recent artifacts */}
         <section className="mb-16">
           <SectionHeading
-            label="recent / milestone artifacts"
+            label="recent entries"
             right={
               <Link
                 to="/timeline"
@@ -107,7 +149,7 @@ function HomePage() {
         {/* notes preview */}
         <section>
           <SectionHeading
-            label="notes"
+            label="from the notes"
             right={
               <div className="flex items-center gap-3">
                 <a
@@ -179,5 +221,3 @@ function SectionHeading({
     </div>
   );
 }
-
-import { ArtifactList } from "@/components/artifact-list";

@@ -31,22 +31,22 @@ export interface Note {
 export const COLLECTIONS: { slug: Collection; label: string; description: string }[] = [
   {
     slug: "engineer",
-    label: "Engineer",
+    label: "Engineering",
     description: "Systems, infrastructure, code. Things that compile and run.",
   },
   {
     slug: "entrepreneur",
-    label: "Entrepreneur",
+    label: "Entrepreneurship",
     description: "Companies started, products shipped, operating notes.",
   },
   {
     slug: "investor",
-    label: "Investor",
+    label: "Investing",
     description: "Theses, memos, positions held, and what they taught.",
   },
   {
     slug: "artist",
-    label: "Artist",
+    label: "Art",
     description: "Drawings, prints, generative pieces, and quiet experiments.",
   },
 ];

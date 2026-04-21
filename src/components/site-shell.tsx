@@ -2,9 +2,9 @@ import { Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 
 const NAV = [
-  { to: "/selected", label: "Selected" },
+  { to: "/selected", label: "Chefs-d’œuvre" },
   { to: "/timeline", label: "Timeline" },
-  { to: "/collections", label: "Collections" },
+  { to: "/collections", label: "Lenses" },
   { to: "/notes", label: "Notes" },
 ] as const;
 
@@ -36,7 +36,7 @@ function SiteHeader() {
               activeProps={{ className: "text-ink underline underline-offset-4" }}
               inactiveProps={{ className: "text-ink-soft hover:text-ink" }}
             >
-              {item.label.toLowerCase()}
+              {item.label.toLocaleLowerCase("fr")}
             </Link>
           ))}
           <span className="text-ink-faint">·</span>

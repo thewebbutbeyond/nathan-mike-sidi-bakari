@@ -21,15 +21,13 @@ export const Route = createFileRoute("/about")({
   component: AboutPage,
 });
 
-const ABOUT_TEXT = `I am Nathan. I write code, run small companies, underwrite a few investments a year, and draw most evenings. This site is a record of that work, kept for myself first and made public as a courtesy.
+const ABOUT_TEXT = `I am Nathan. I write code, run small companies, underwrite a few investments a year, and draw most evenings. This site is a working logbook — kept for myself first, shared openly with anyone curious.
 
-I started keeping an archive instead of a portfolio in 2024. The reasons are explained in the notes. The short version is that I wanted a place where the work could be the work — where a half-finished thing or an old letter could sit next to a current project without apology, and where the criterion for inclusion was honesty rather than impressiveness.
+I started keeping an archive in 2024 because I wanted a place where the work could be the work: a half-finished thing or an old letter sitting next to a current project, with honesty as the criterion for inclusion rather than impressiveness.
 
-I do not maintain a résumé page here. If you need one, write to me.
+Most of what I do is small. The companies I’ve worked on are not famous. The investments I’m proudest of were unfashionable. The drawings are mostly hands. The throughline, if there is one, is a preference for things that compound quietly.
 
-Most of what I do is small. The companies I have worked on were not famous. The investments I am proudest of were unfashionable. The drawings are mostly hands. The throughline, if there is one, is a preference for things that compound quietly over things that announce themselves.
-
-If you found this archive through a specific artifact, that is probably the best place to start. If you wandered in from somewhere else and want a single entry point, *Selected* is the shortest version of who I am. *Notes* is the closest I come to thinking out loud.
+If you arrived through a specific artifact, that’s a fine place to start. If you wandered in and want a single entry point, *Chefs-d’œuvre* is the shortest version. *Notes* is the closest I come to thinking out loud. *Lenses* lets you read the same archive through one part of my life at a time.
 
 Thank you for reading.`;
 
@@ -46,7 +44,7 @@ function AboutPage() {
 
         <div className="mt-12 pt-6 border-t border-rule text-xs text-ink-soft flex flex-wrap gap-x-5 gap-y-2">
           <Link to="/selected" className="hover:text-ink underline underline-offset-4">
-            selected →
+            chefs-d’œuvre →
           </Link>
           <Link to="/notes" className="hover:text-ink underline underline-offset-4">
             notes →
