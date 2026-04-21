@@ -1,6 +1,6 @@
 # Story 1.2: Verify App Shell and Primary Navigation
 
-Status: review
+Status: done
 
 ## Story
 
@@ -140,3 +140,4 @@ GPT-5.4
 ### Change Log
 
 - 2026-04-21: Added shell route validation script, verified shell navigation/search behavior, ran validation/lint/build, and moved story to review.
+- 2026-04-21: Code review completed with no blocking findings; story moved to done.
