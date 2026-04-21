@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
-import { Linkedin, Rss } from "lucide-react";
+import { Github, Linkedin, Rss } from "lucide-react";
 
 const NAV = [
   { to: "/chefs-doeuvre", label: "Chefs-d’œuvre" },
@@ -87,6 +87,15 @@ function SiteFooter() {
               className="text-ink-soft hover:text-ink"
             >
               <Linkedin size={14} strokeWidth={1.5} />
+            </a>
+            <a
+              href="https://github.com/nathansidibakari"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+              className="text-ink-soft hover:text-ink"
+            >
+              <Github size={14} strokeWidth={1.5} />
             </a>
             <a
               href="/rss.xml"
