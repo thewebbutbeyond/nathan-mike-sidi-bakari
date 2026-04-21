@@ -1,26 +1,32 @@
-import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
+import {
+  Outlet,
+  Link,
+  createRootRoute,
+  HeadContent,
+  Scripts,
+} from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import { SiteShell } from "@/components/site-shell";
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
+    <SiteShell>
+      <div className="mx-auto max-w-3xl px-5 sm:px-8 py-24">
+        <div className="text-xs text-ink-faint mb-3">404 · not found</div>
+        <h1 className="text-2xl font-medium tracking-tight text-ink">
+          No record at this path.
+        </h1>
+        <p className="mt-3 text-sm text-ink-soft">
+          The artifact may have been moved, renamed, or never existed in the first place.
         </p>
-        <div className="mt-6">
-          <Link
-            to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-          >
-            Go home
+        <div className="mt-8 text-sm">
+          <Link to="/" className="underline underline-offset-4 hover:text-ink">
+            return to portal
           </Link>
         </div>
       </div>
-    </div>
+    </SiteShell>
   );
 }
 
@@ -29,20 +35,30 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { title: "Nathan Mike Sidi Bakari" },
+      {
+        name: "description",
+        content:
+          "A personal archive of work, notes, and traces across engineering, entrepreneurship, investing, art, and reflection.",
+      },
+      { name: "author", content: "Nathan Mike Sidi Bakari" },
     ],
     links: [
+      { rel: "stylesheet", href: appCss },
+      {
+        rel: "preconnect",
+        href: "https://fonts.googleapis.com",
+      },
+      {
+        rel: "preconnect",
+        href: "https://fonts.gstatic.com",
+        crossOrigin: "anonymous",
+      },
       {
         rel: "stylesheet",
-        href: appCss,
+        href: "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap",
       },
+      { rel: "alternate", type: "application/rss+xml", href: "/rss.xml", title: "Notes" },
     ],
   }),
   shellComponent: RootShell,
