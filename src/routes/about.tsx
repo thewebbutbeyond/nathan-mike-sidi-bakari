@@ -21,15 +21,13 @@ export const Route = createFileRoute("/about")({
   component: AboutPage,
 });
 
-const ABOUT_TEXT = `I am Nathan. I write code, run small companies, underwrite a few investments a year, and draw most evenings. This site is a working logbook, kept for myself first and shared openly with anyone curious.
+const ABOUT_TEXT = `I am Nathan. Also known as Mike. This site is a logbook/archive originally kept for myself, but later shared openly with anyone curious.
 
-I started keeping an archive in 2024 because I wanted a place where the work could be the work: a half-finished thing or an old letter sitting next to a current project, with honesty as the criterion for inclusion rather than impressiveness.
+I started keeping an archive because I wanted a place where the work could simply exist: a half-finished song, an old drawing, or a current engineering project, all sitting side by side, with honesty and creativity as the only criteria for inclusion.
 
-Most of what I do is small. The companies I’ve worked on are not famous. The investments I’m proudest of were unfashionable. The drawings are mostly hands. The throughline, if there is one, is a preference for things that compound quietly.
+Here, you will find a bit of everything: larger pieces, smaller ones, completed work, abandoned attempts. This is less a portfolio than a record of what I explored, built, or cared about at different points in time.
 
-If you arrived through a specific entry, that’s a fine place to start. If you wandered in and want a single entry point, *Chefs-d’œuvre* is the shortest version. *Notes* is the closest I come to thinking out loud. *Lenses* lets you read the same archive through one part of my life at a time.
-
-Thank you for reading.`;
+Thank you for reading!`;
 
 function AboutPage() {
   return (
@@ -37,7 +35,7 @@ function AboutPage() {
       <NarrowContainer>
         <div className="text-xs text-ink-faint mb-3 tracking-wide">about</div>
         <h1 className="text-2xl sm:text-[1.7rem] font-medium tracking-tight text-ink leading-tight mb-8">
-          A short note on the archive and the person keeping it.
+          On this archive and the person keeping it.
         </h1>
 
         <Prose text={ABOUT_TEXT} />
