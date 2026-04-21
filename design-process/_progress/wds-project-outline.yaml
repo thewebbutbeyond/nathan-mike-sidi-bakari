@@ -1,0 +1,92 @@
+project:
+  name: "Nathan Mike Sidi Bakari"
+  type: greenfield
+  product_complexity: standard
+  product_kind: website
+  description: "A minimally curated, multi-domain, temporally indexed archive of personal output, where identity is expressed through tagged artifacts rather than narrative positioning."
+
+setup:
+  method: "Whiteport Design Studio"
+  phase: "0-project-setup"
+  created: "2026-04-21"
+  root_folder: "design-process"
+  alignment_required: false
+
+configuration:
+  tech_stack: "React/Next"
+  component_library: "Tailwind only"
+  skip_design_system: false
+  brief_level: complete
+  strategic_analysis: simplified
+  language: English
+
+project_context:
+  stakes: personal_hobby
+  relationship:
+    user_role: "Product Owner / Design Partner"
+    involvement: balanced
+    recommendation_style: "Direct guidance with rationale"
+  primary_owner: "Nathan"
+
+existing_materials:
+  has_materials: true
+  source: "ChatGPT discovery notes provided during WDS setup"
+  summary:
+    audience:
+      primary: "Self: long-term intellectual and creative continuity"
+      secondary: "Unknown external observers, curiosity-driven and non-targeted"
+      competence_level: "General to semi-technical"
+      geography: "Global, English default"
+    intent:
+      primary: "Self-addressed archive with public access"
+      opportunities: "Emergent collaborations or professional opportunities, not engineered"
+      call_to_action: "Explore freely; optionally follow Notes via RSS or make low-emphasis contact"
+    impression:
+      attributes:
+        - interdisciplinary
+        - introspective
+        - authentic
+      objective: "A structured but unfiltered glimpse into one mind operating across multiple domains"
+      credibility_model: "Credibility emerges from artifacts, not performative signaling"
+    content_model:
+      emphasis: "Representative breadth, process, and evolution over conventional best-work selection"
+      structural_principle: "Every artifact is accessible by identity through collections/tags and by time through timeline"
+      collections:
+        - Engineer
+        - Entrepreneur
+        - Investor
+        - Artist
+      pages:
+        - Home / Portal
+        - Collections
+        - Timeline
+        - Selected
+        - Notes / Thoughts
+        - About
+        - Contact
+    tone:
+      register: "Informal but precise"
+      aesthetic: minimalist
+      traits:
+        - human
+        - exploratory
+        - non-corporate
+        - unconstrained by single-domain identity
+    differentiation:
+      - "Simultaneous engagement across engineering, entrepreneurship, investing, and artistic production"
+      - "Non-instrumental publication optimized for trace rather than signaling"
+      - "Integration of technical and expressive outputs within one system"
+
+workflow:
+  current_phase: "Phase 1 - Project Brief"
+  next_recommended_skill: "wds-1-project-brief"
+  next_recommended_action: "Create the complete project brief using the discovery notes as source material."
+  enabled_phases:
+    - "1-project-brief"
+    - "2-trigger-mapping-simplified"
+    - "3-scenarios"
+    - "4-ux-design"
+    - "5-agentic-development"
+    - "7-design-system-optional"
+  skipped_or_deferred:
+    - "0-alignment-signoff: skipped because this is a self-owned personal project"

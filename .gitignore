@@ -1,0 +1,24 @@
+# Runtime/session state
+.codex
+.omx/logs/
+.omx/state/
+.omx/metrics.json
+
+# Local BMad/agent installation files
+.agents/
+_bmad/
+
+# Local dependency and build output
+node_modules/
+.next/
+out/
+dist/
+build/
+coverage/
+
+# Environment and editor noise
+.env
+.env.*
+!.env.example
+.DS_Store
+*.log
