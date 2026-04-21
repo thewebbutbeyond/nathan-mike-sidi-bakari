@@ -35,7 +35,7 @@ function SelectedPage() {
           title="A handful of marked entries."
           description="A small set of pieces I’d hand someone if they only had ten minutes."
         />
-        <EntryList entries={selected} />
+        <EntryList entries={selected} from="chefs-doeuvre" />
       </Container>
     </SiteShell>
   );

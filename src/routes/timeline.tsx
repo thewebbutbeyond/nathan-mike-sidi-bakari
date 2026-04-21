@@ -57,6 +57,7 @@ function TimelinePage() {
                     <Link
                       to="/entries/$slug"
                       params={{ slug: a.slug }}
+                      search={{ from: "timeline" }}
                       className="grid grid-cols-[5rem_1fr] sm:grid-cols-[6rem_1fr] gap-x-4 py-3 px-1 hover:bg-secondary/40 transition-colors"
                     >
                       <time className="text-xs text-ink-faint tabular-nums pt-0.5">

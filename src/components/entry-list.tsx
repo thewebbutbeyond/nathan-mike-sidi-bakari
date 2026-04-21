@@ -2,7 +2,13 @@ import { Link } from "@tanstack/react-router";
 import { Tag } from "@/components/site-shell";
 import { type Entry, formatDate } from "@/content/data";
 
-export function EntryList({ entries }: { entries: Entry[] }) {
+export function EntryList({
+  entries,
+  from = "",
+}: {
+  entries: Entry[];
+  from?: string;
+}) {
   if (entries.length === 0) {
     return (
       <div className="border-t border-rule">
@@ -18,6 +24,7 @@ export function EntryList({ entries }: { entries: Entry[] }) {
           <Link
             to="/entries/$slug"
             params={{ slug: a.slug }}
+            search={{ from }}
             className="block px-1 py-4 hover:bg-secondary/40 transition-colors"
           >
             <div className="flex flex-col sm:flex-row sm:items-baseline sm:gap-6">

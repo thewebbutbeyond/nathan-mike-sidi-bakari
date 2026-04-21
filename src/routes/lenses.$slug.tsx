@@ -57,7 +57,7 @@ function CollectionDetail() {
           title={meta.label.toLowerCase() + "."}
           description={meta.description}
         />
-        <EntryList entries={items} />
+        <EntryList entries={items} from={`lenses/${meta.slug}`} />
       </Container>
     </SiteShell>
   );
