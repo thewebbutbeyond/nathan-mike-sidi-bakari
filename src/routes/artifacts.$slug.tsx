@@ -11,13 +11,14 @@ import {
   COLLECTIONS,
   artifactBySlug,
   formatDate,
+  type Artifact,
 } from "@/content/data";
 
 export const Route = createFileRoute("/artifacts/$slug")({
   loader: ({ params }) => {
     const a = artifactBySlug(params.slug);
     if (!a) throw notFound();
-    return { artifact: a };
+    return null;
   },
   head: ({ params }) => {
     const a = artifactBySlug(params.slug);
@@ -46,10 +47,12 @@ export const Route = createFileRoute("/artifacts/$slug")({
 });
 
 function ArtifactDetail() {
-  const { artifact: a } = Route.useLoaderData();
-  const related = (a.related ?? [])
-    .map((s) => ARTIFACTS.find((x) => x.slug === s))
-    .filter(Boolean) as typeof ARTIFACTS;
+  const { slug } = Route.useParams();
+  const a = artifactBySlug(slug);
+  if (!a) return null;
+  const related: Artifact[] = (a.related ?? [])
+    .map((s: string) => ARTIFACTS.find((x) => x.slug === s))
+    .filter((x): x is Artifact => Boolean(x));
 
   return (
     <PageContainer>
@@ -83,7 +86,7 @@ function ArtifactDetail() {
           {a.collaborators && (
             <DetailGroup label="Collaborators">
               <ul className="space-y-1 text-sm">
-                {a.collaborators.map((c) => (
+                {a.collaborators.map((c: string) => (
                   <li key={c} className="font-mono text-[0.82rem]">
                     {c}
                   </li>
@@ -93,7 +96,7 @@ function ArtifactDetail() {
           )}
           <DetailGroup label="Tags">
             <div className="flex flex-wrap gap-1.5">
-              {a.tags.map((t) => (
+              {a.tags.map((t: string) => (
                 <span
                   key={t}
                   className="border border-border px-2 py-0.5 font-mono text-[0.7rem] text-muted-foreground"

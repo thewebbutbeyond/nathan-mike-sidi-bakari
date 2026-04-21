@@ -7,15 +7,20 @@ import {
   type Collection,
 } from "@/content/data";
 
+function isCollection(x: string): x is Collection {
+  return x in COLLECTIONS;
+}
+
 export const Route = createFileRoute("/collections/$slug")({
   loader: ({ params }) => {
-    const key = params.slug as Collection;
-    if (!COLLECTIONS[key]) throw notFound();
-    return { key };
+    if (!isCollection(params.slug)) throw notFound();
+    return { key: params.slug };
   },
   head: ({ params }) => {
-    const c = COLLECTIONS[params.slug as Collection];
-    if (!c) return { meta: [{ title: "Collection — Archive" }] };
+    if (!isCollection(params.slug)) {
+      return { meta: [{ title: "Collection — Archive" }] };
+    }
+    const c = COLLECTIONS[params.slug];
     return {
       meta: [
         { title: `${c.label} — N. M. S. Bakari Archive` },
@@ -40,7 +45,8 @@ export const Route = createFileRoute("/collections/$slug")({
 });
 
 function CollectionDetail() {
-  const { key } = Route.useLoaderData();
+  const { slug } = Route.useParams();
+  const key = slug as Collection;
   const c = COLLECTIONS[key];
   const items = artifactsByCollection(key);
 
@@ -54,12 +60,10 @@ function CollectionDetail() {
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-xs text-muted-foreground">
             <span>Holdings · {items.length}</span>
             {items.length > 0 && (
-              <>
-                <span>
-                  Range · {items[items.length - 1].date.slice(0, 4)} –{" "}
-                  {items[0].date.slice(0, 4)}
-                </span>
-              </>
+              <span>
+                Range · {items[items.length - 1].date.slice(0, 4)} –{" "}
+                {items[0].date.slice(0, 4)}
+              </span>
             )}
             <Link to="/collections" className="hover:text-foreground">
               ← All collections
