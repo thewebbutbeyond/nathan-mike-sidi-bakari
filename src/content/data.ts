@@ -33,7 +33,7 @@ export const COLLECTIONS: { slug: Collection; label: string; description: string
   {
     slug: "engineer",
     label: "Engineering",
-    description: "Systems, infrastructure, code. Things that compile and run.",
+    description: "Things that I designed and built.",
   },
   {
     slug: "entrepreneur",
