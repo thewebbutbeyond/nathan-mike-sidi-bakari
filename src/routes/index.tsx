@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Rss } from "lucide-react";
+
 import { Container, SiteShell, Tag } from "@/components/site-shell";
 import {
   ENTRIES,
@@ -135,7 +135,7 @@ function HomePage() {
                 to="/timeline"
                 className="text-xs text-ink-soft hover:text-ink underline underline-offset-4"
               >
-                full timeline →
+                timeline →
               </Link>
             }
           />
@@ -147,21 +147,12 @@ function HomePage() {
           <SectionHeading
             label="from the notes"
             right={
-              <div className="flex items-center gap-3">
-                <a
-                  href="/rss.xml"
-                  aria-label="RSS feed"
-                  className="text-ink-faint hover:text-ink"
-                >
-                  <Rss size={13} strokeWidth={1.5} />
-                </a>
-                <Link
-                  to="/notes"
-                  className="text-xs text-ink-soft hover:text-ink underline underline-offset-4"
-                >
-                  all notes →
-                </Link>
-              </div>
+              <Link
+                to="/notes"
+                className="text-xs text-ink-soft hover:text-ink underline underline-offset-4"
+              >
+                notes →
+              </Link>
             }
           />
           <ul className="border-t border-rule">
