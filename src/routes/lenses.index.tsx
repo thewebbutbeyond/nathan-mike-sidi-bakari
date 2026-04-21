@@ -28,7 +28,7 @@ function CollectionsPage() {
         <PageHeader
           eyebrow="lenses"
           title="The same archive, seen differently."
-          description="Four ways of looking through the same body of work."
+          description="Four ways of writing the same story."
         />
 
         <ul className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-rule border border-rule">
