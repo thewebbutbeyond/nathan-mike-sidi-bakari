@@ -77,7 +77,7 @@ function HomePage() {
                   i < stats.length - 1 ? "border-r border-rule" : ""
                 }`}
               >
-                <dt className="text-[11px] uppercase tracking-[0.14em] text-ink-faint">
+                <dt className="text-[11px] tracking-[0.08em] text-ink-faint">
                   {s.label}
                 </dt>
                 <dd className="mt-1.5 flex items-baseline gap-2">
@@ -209,7 +209,7 @@ function SectionHeading({
 }) {
   return (
     <div className="flex items-baseline justify-between mb-3">
-      <h2 className="text-xs uppercase tracking-[0.14em] text-ink-faint">
+      <h2 className="text-xs tracking-[0.08em] text-ink-faint">
         {label}
       </h2>
       {right}

@@ -66,7 +66,7 @@ function ArtifactDetail() {
           <div className="text-xs text-ink-faint mb-3 tabular-nums">
             {formatDate(a.date, { long: true })}
             {a.selected && (
-              <span className="ml-3 text-accent uppercase tracking-wider text-[10px]">
+              <span className="ml-3 text-accent tracking-wide text-[10px]">
                 ◆ chef-d’œuvre
               </span>
             )}
@@ -125,7 +125,7 @@ function ArtifactDetail() {
 
         {related.length > 0 && (
           <section className="mt-12 pt-6 border-t border-rule">
-            <h2 className="text-xs uppercase tracking-[0.14em] text-ink-faint mb-3">
+            <h2 className="text-xs tracking-[0.08em] text-ink-faint mb-3">
               related
             </h2>
             <ul className="space-y-2">
