@@ -40,10 +40,11 @@ function NotesIndex() {
           />
           <a
             href="/rss.xml"
-            aria-label="RSS feed"
-            className="text-ink-soft hover:text-ink mt-2"
+            aria-label="Subscribe via RSS"
+            className="inline-flex items-center gap-2 text-xs text-ink-soft hover:text-ink mt-2"
           >
-            <Rss size={14} strokeWidth={1.5} />
+            <Rss size={13} strokeWidth={1.5} />
+            <span>subscribe via rss</span>
           </a>
         </div>
 
