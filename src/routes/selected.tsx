@@ -6,13 +6,13 @@ import { ARTIFACTS } from "@/content/data";
 export const Route = createFileRoute("/selected")({
   head: () => ({
     meta: [
-      { title: "Chefs-d’œuvre , Nathan Mike Sidi Bakari" },
+      { title: "Chefs-d’œuvre · Nathan Mike Sidi Bakari" },
       {
         name: "description",
         content:
           "A handful of marked entries , the shortest way into the archive.",
       },
-      { property: "og:title", content: "Chefs-d’œuvre , Nathan Mike Sidi Bakari" },
+      { property: "og:title", content: "Chefs-d’œuvre · Nathan Mike Sidi Bakari" },
       {
         property: "og:description",
         content: "A handful of marked entries , the shortest way into the archive.",

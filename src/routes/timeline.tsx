@@ -5,12 +5,12 @@ import { formatDate, formatYear, sortedArtifacts } from "@/content/data";
 export const Route = createFileRoute("/timeline")({
   head: () => ({
     meta: [
-      { title: "Timeline , Nathan Mike Sidi Bakari" },
+      { title: "Timeline · Nathan Mike Sidi Bakari" },
       {
         name: "description",
         content: "All artifacts in chronological order.",
       },
-      { property: "og:title", content: "Timeline , Nathan Mike Sidi Bakari" },
+      { property: "og:title", content: "Timeline · Nathan Mike Sidi Bakari" },
       {
         property: "og:description",
         content: "All artifacts in chronological order.",

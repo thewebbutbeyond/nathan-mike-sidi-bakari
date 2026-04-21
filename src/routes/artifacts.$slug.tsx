@@ -19,9 +19,9 @@ export const Route = createFileRoute("/artifacts/$slug")({
     return { artifact: a, related };
   },
   head: ({ loaderData }) => {
-    if (!loaderData) return { meta: [{ title: "Artifact , Nathan Mike Sidi Bakari" }] };
+    if (!loaderData) return { meta: [{ title: "Artifact · Nathan Mike Sidi Bakari" }] };
     const a = loaderData.artifact;
-    const title = `${a.title} , Nathan Mike Sidi Bakari`;
+    const title = `${a.title} · Nathan Mike Sidi Bakari`;
     return {
       meta: [
         { title },

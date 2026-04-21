@@ -5,13 +5,13 @@ import { COLLECTIONS, artifactsByCollection } from "@/content/data";
 export const Route = createFileRoute("/collections")({
   head: () => ({
     meta: [
-      { title: "Lenses , Nathan Mike Sidi Bakari" },
+      { title: "Lenses · Nathan Mike Sidi Bakari" },
       {
         name: "description",
         content:
           "Engineering, Entrepreneurship, Investing, Art. Different ways of looking through the same archive.",
       },
-      { property: "og:title", content: "Lenses , Nathan Mike Sidi Bakari" },
+      { property: "og:title", content: "Lenses · Nathan Mike Sidi Bakari" },
       {
         property: "og:description",
         content: "The same archive, seen through different parts of my life.",

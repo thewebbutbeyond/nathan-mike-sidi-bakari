@@ -4,13 +4,13 @@ import { NarrowContainer, Prose, SiteShell } from "@/components/site-shell";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About , Nathan Mike Sidi Bakari" },
+      { title: "About · Nathan Mike Sidi Bakari" },
       {
         name: "description",
         content:
           "About the archive and the person keeping it. Engineer, operator, investor, and quiet artist.",
       },
-      { property: "og:title", content: "About , Nathan Mike Sidi Bakari" },
+      { property: "og:title", content: "About · Nathan Mike Sidi Bakari" },
       {
         property: "og:description",
         content:
