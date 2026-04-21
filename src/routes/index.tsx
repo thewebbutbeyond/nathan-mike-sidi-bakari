@@ -2,7 +2,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Container, SiteShell, Tag } from "@/components/site-shell";
 import {
   ARTIFACTS,
-  COLLECTIONS,
   NOTES,
   formatDate,
   sortedArtifacts,
@@ -48,7 +47,6 @@ function HomePage() {
   const stats = [
     { label: "entries", value: ARTIFACTS.length },
     { label: "notes", value: NOTES.length },
-    { label: "lenses", value: COLLECTIONS.length },
     { label: "years", value: years.size, sub: `since ${earliest}` },
   ];
 
@@ -72,14 +70,12 @@ function HomePage() {
 
         {/* stats / catalog block */}
         <section className="mb-16">
-          <dl className="grid grid-cols-2 sm:grid-cols-4 border-y border-rule">
+          <dl className="grid grid-cols-3 border-y border-rule">
             {stats.map((s, i) => (
               <div
                 key={s.label}
                 className={`px-4 py-4 ${
-                  i < stats.length - 1 ? "sm:border-r border-rule" : ""
-                } ${i < 2 ? "border-b sm:border-b-0 border-rule" : ""} ${
-                  i === 0 ? "border-r border-rule" : ""
+                  i < stats.length - 1 ? "border-r border-rule" : ""
                 }`}
               >
                 <dt className="text-[11px] uppercase tracking-[0.14em] text-ink-faint">
