@@ -30,7 +30,7 @@ function SiteHeader() {
             nathan mike sidi bakari
           </span>
         </Link>
-        <nav className="flex items-center justify-end gap-x-5 gap-y-1 flex-wrap text-xs pr-8 sm:pr-8">
+        <nav className="flex items-center gap-x-5 gap-y-1 flex-wrap text-xs pr-8 sm:pr-8">
           {NAV.map((item) => (
             <Link
               key={item.to}
