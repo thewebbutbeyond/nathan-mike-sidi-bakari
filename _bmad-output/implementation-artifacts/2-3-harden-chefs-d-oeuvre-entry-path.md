@@ -1,6 +1,6 @@
 # Story 2.3: Harden Chefs-d'oeuvre Entry Path
 
-Status: review
+Status: done
 
 ## Story
 
@@ -105,3 +105,4 @@ GPT-5.4
 ### Change Log
 
 - 2026-04-22: Hardened chefs-d'oeuvre marked-entry copy and empty state, verified shell/lint/build, and moved story to review.
+- 2026-04-22: Code review completed with no blocking findings; story moved to done.
