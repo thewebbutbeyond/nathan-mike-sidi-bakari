@@ -32,9 +32,9 @@ story_location: _bmad-output/implementation-artifacts
 
 development_status:
   # Stabilize the Chosen Prototype Baseline
-  epic-1: backlog
+  epic-1: in-progress
   # Capture Prototype Baseline
-  1-1-capture-prototype-baseline: backlog
+  1-1-capture-prototype-baseline: ready-for-dev
   # Verify App Shell and Primary Navigation
   1-2-verify-app-shell-and-primary-navigation: backlog
   # Establish Build and Lint Baseline
