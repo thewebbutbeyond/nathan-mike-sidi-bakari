@@ -174,8 +174,8 @@ function EntryDetail() {
                   <a
                     key={l.label}
                     href={l.href}
-                    target={/^(https?:|mailto:)/.test(l.href) ? "_blank" : undefined}
-                    rel={/^(https?:|mailto:)/.test(l.href) ? "noopener noreferrer" : undefined}
+                    target={/^https?:/.test(l.href) ? "_blank" : undefined}
+                    rel={/^https?:/.test(l.href) ? "noopener noreferrer" : undefined}
                     className="underline underline-offset-4 hover:text-ink"
                   >
                     {l.label} ↗

@@ -1,6 +1,6 @@
 # Story 3.2: Productionize Entry Detail Page
 
-Status: review
+Status: done
 
 ## Story
 
@@ -91,7 +91,8 @@ GPT-5.4
 - Confirmed Entry Detail renders title, date, type, status, summary, body, lenses, tags, optional role/outcome, related entries, previous/next links, and SEO metadata.
 - Removed the placeholder `Internal RFC` `#` link from entry data.
 - Updated content validation to reject future `href: "#"` placeholder links.
-- Added safe external link handling in Entry Detail with `target="_blank"` and `rel="noopener noreferrer"` for HTTP/mailto links.
+- Added safe external link handling in Entry Detail with `target="_blank"` and `rel="noopener noreferrer"` for HTTP(S) links.
+- Addressed review nit by leaving `mailto:` links in the current tab/window instead of forcing a blank target.
 - Preserved the current Entry Detail layout and visual rhythm.
 
 ### File List
@@ -104,3 +105,4 @@ GPT-5.4
 ### Change Log
 
 - 2026-04-22: Hardened Entry Detail link behavior, removed placeholder content link, verified shell/lint/build, and moved story to review.
+- 2026-04-22: Refined external-link handling after review; story moved to done.
