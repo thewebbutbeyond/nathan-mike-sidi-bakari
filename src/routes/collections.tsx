@@ -5,13 +5,13 @@ import { COLLECTIONS, artifactsByCollection } from "@/content/data";
 export const Route = createFileRoute("/collections")({
   head: () => ({
     meta: [
-      { title: "Lenses — Nathan Mike Sidi Bakari" },
+      { title: "Lenses , Nathan Mike Sidi Bakari" },
       {
         name: "description",
         content:
           "Engineering, Entrepreneurship, Investing, Art. Different ways of looking through the same archive.",
       },
-      { property: "og:title", content: "Lenses — Nathan Mike Sidi Bakari" },
+      { property: "og:title", content: "Lenses , Nathan Mike Sidi Bakari" },
       {
         property: "og:description",
         content: "The same archive, seen through different parts of my life.",
@@ -28,7 +28,7 @@ function CollectionsPage() {
         <PageHeader
           eyebrow="lenses"
           title="The same archive, seen through different parts of my life."
-          description="Most entries belong to more than one lens — a company is also engineering, a drawing is sometimes an investment memo. The lines are useful, not strict."
+          description="Most entries belong to more than one lens , a company is also engineering, a drawing is sometimes an investment memo. The lines are useful, not strict."
         />
 
         <ul className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-rule border border-rule">

@@ -4,13 +4,13 @@ import { MetaRow, NarrowContainer, SiteShell } from "@/components/site-shell";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Nathan Mike Sidi Bakari" },
+      { title: "Contact , Nathan Mike Sidi Bakari" },
       {
         name: "description",
         content:
           "Quiet contact information. For genuine intersections of interest, not introductions.",
       },
-      { property: "og:title", content: "Contact — Nathan Mike Sidi Bakari" },
+      { property: "og:title", content: "Contact , Nathan Mike Sidi Bakari" },
       {
         property: "og:description",
         content: "Quiet contact information. For genuine intersections of interest.",
@@ -30,7 +30,7 @@ function ContactPage() {
         </h1>
         <p className="text-sm text-ink-soft leading-relaxed max-w-prose mb-10">
           Messages are more than welcome. A short paragraph about what you’re working
-          on or thinking about — and where it touches the archive — is the easiest way
+          on or thinking about , and where it touches the archive , is the easiest way
           to start a real conversation. I read everything and reply when I have something
           useful to say.
         </p>

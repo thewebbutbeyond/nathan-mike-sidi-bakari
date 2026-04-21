@@ -29,7 +29,7 @@ function buildRss(origin: string) {
   return `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
   <channel>
-    <title>Nathan Mike Sidi Bakari — Notes</title>
+    <title>Nathan Mike Sidi Bakari , Notes</title>
     <link>${origin}/notes</link>
     <description>Curated long-form writing.</description>
     <language>en</language>

@@ -4,13 +4,13 @@ import { NarrowContainer, Prose, SiteShell } from "@/components/site-shell";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Nathan Mike Sidi Bakari" },
+      { title: "About , Nathan Mike Sidi Bakari" },
       {
         name: "description",
         content:
           "About the archive and the person keeping it. Engineer, operator, investor, and quiet artist.",
       },
-      { property: "og:title", content: "About — Nathan Mike Sidi Bakari" },
+      { property: "og:title", content: "About , Nathan Mike Sidi Bakari" },
       {
         property: "og:description",
         content:
@@ -21,7 +21,7 @@ export const Route = createFileRoute("/about")({
   component: AboutPage,
 });
 
-const ABOUT_TEXT = `I am Nathan. I write code, run small companies, underwrite a few investments a year, and draw most evenings. This site is a working logbook — kept for myself first, shared openly with anyone curious.
+const ABOUT_TEXT = `I am Nathan. I write code, run small companies, underwrite a few investments a year, and draw most evenings. This site is a working logbook , kept for myself first, shared openly with anyone curious.
 
 I started keeping an archive in 2024 because I wanted a place where the work could be the work: a half-finished thing or an old letter sitting next to a current project, with honesty as the criterion for inclusion rather than impressiveness.
 
