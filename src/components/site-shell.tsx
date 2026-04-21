@@ -23,8 +23,7 @@ function SiteHeader() {
   return (
     <header className="border-b border-rule">
       <div className="mx-auto max-w-5xl px-5 sm:px-8 py-5 flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-3">
-        <Link to="/" className="group inline-flex items-baseline gap-2">
-          <span className="text-ink-faint text-xs">~/</span>
+        <Link to="/" className="group inline-flex items-baseline">
           <span className="text-sm font-medium tracking-tight group-hover:underline underline-offset-4">
             nathan mike sidi bakari
           </span>
