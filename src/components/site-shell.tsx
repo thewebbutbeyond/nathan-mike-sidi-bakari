@@ -64,10 +64,9 @@ function SiteFooter() {
   const year = new Date().getFullYear();
   return (
     <footer className="border-t border-rule mt-16">
-      <div className="mx-auto max-w-5xl px-5 sm:px-8 py-8 flex flex-col gap-6 text-xs text-ink-soft">
-
+      <div className="mx-auto max-w-5xl px-5 sm:px-8 py-8 text-xs text-ink-soft">
         {/* Two columns: site links (left) · icons + copyright (right) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-6 pt-4 border-t border-rule">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-6">
           {/* Top-left: sitemap */}
           <nav aria-label="Sitemap" className="flex flex-wrap gap-x-5 gap-y-2">
             {NAV.map((item) => (
