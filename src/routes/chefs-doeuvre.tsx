@@ -19,11 +19,11 @@ export const Route = createFileRoute("/chefs-doeuvre")({
       },
     ],
   }),
-  component: SelectedPage,
+  component: ChefsDoeuvrePage,
 });
 
-function SelectedPage() {
-  const selected = ENTRIES.filter((a) => a.chefDoeuvre).sort((a, b) =>
+function ChefsDoeuvrePage() {
+  const items = ENTRIES.filter((a) => a.chefDoeuvre).sort((a, b) =>
     b.date.localeCompare(a.date),
   );
 
@@ -35,7 +35,7 @@ function SelectedPage() {
           title="A handful of marked entries."
           description="A small set of pieces I’d hand someone if they only had ten minutes."
         />
-        <EntryList entries={selected} from="chefs-doeuvre" />
+        <EntryList entries={items} from="chefs-doeuvre" />
       </Container>
     </SiteShell>
   );

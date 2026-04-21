@@ -12,7 +12,7 @@ export interface Entry {
   tags: string[];
   role?: string;
   outcome?: string;
-  selected?: boolean;
+  chefDoeuvre?: boolean;
   links?: { label: string; href: string }[];
   related?: string[];
 }
