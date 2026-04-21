@@ -2,7 +2,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Container, SiteShell, Tag } from "@/components/site-shell";
 import {
   ARTIFACTS,
-  COLLECTIONS,
   NOTES,
   formatDate,
   sortedArtifacts,
@@ -76,9 +75,7 @@ function HomePage() {
               <div
                 key={s.label}
                 className={`px-4 py-4 ${
-                  i < stats.length - 1 ? "sm:border-r border-rule" : ""
-                } ${i < 2 ? "border-b sm:border-b-0 border-rule" : ""} ${
-                  i === 0 ? "border-r border-rule" : ""
+                  i < stats.length - 1 ? "border-r border-rule" : ""
                 }`}
               >
                 <dt className="text-[11px] uppercase tracking-[0.14em] text-ink-faint">
