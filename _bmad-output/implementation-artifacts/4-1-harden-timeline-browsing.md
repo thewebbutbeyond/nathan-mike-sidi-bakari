@@ -1,6 +1,6 @@
 # Story 4.1: Harden Timeline Browsing
 
-Status: review
+Status: done
 
 ## Story
 
@@ -104,3 +104,4 @@ GPT-5.4
 ### Change Log
 
 - 2026-04-22: Added Timeline empty state and validation, verified timeline/entry/shell/lint/build, and moved story to review.
+- 2026-04-22: Code review completed with no blocking findings; story moved to done.
