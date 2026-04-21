@@ -94,16 +94,18 @@ Core principle:
 
 Recommended page-spec order:
 
-1. Home / Portal
-2. Artifact Detail
-3. Collections and Collection Detail
-4. Timeline
-5. Selected
-6. Notes Index and Note Detail
-7. About
-8. Contact
+1. [Home / Portal](./Page-Specifications/01-home-portal.md)
+2. [Artifact Detail](./Page-Specifications/02-artifact-detail.md)
+3. [Collections](./Page-Specifications/03-collections.md) and [Collection Detail](./Page-Specifications/04-collection-detail.md)
+4. [Timeline](./Page-Specifications/05-timeline.md)
+5. [Selected](./Page-Specifications/06-selected.md)
+6. [Notes Index](./Page-Specifications/07-notes-index.md) and [Note Detail](./Page-Specifications/08-note-detail.md)
+7. [About](./Page-Specifications/09-about.md)
+8. [Contact](./Page-Specifications/10-contact.md)
 
 This order starts with the structural pages that govern the rest of the archive.
+
+See [Page Specification Index](./Page-Specifications/00-page-specification-index.md) for the full Phase 4 spec set.
 
 ---
 
@@ -115,6 +117,12 @@ All six scenarios:
 - Include entry point, mental state, success goals, shortest path, and Trigger Map connections.
 - Keep paths linear with no branches.
 - Preserve the archive-first, non-instrumental posture.
+
+Page specifications:
+
+- Cover the full page matrix.
+- Include page purpose, object IDs, layout structure, states, and technical notes.
+- Reference shared design tokens.
 
 ---
 

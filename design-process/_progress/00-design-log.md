@@ -13,7 +13,9 @@
 - [x] Complete product brief - Phase 1
 - [x] Define simplified trigger map - Phase 2
 - [x] Create UX scenarios - Phase 3
-- [ ] Create page specifications - Phase 4
+- [x] Create page specifications - Phase 4
+- [ ] Validate page specifications - Phase 4
+- [ ] Package design delivery - Phase 4
 - [ ] Build and verify the website - Phase 5
 
 ---
@@ -22,7 +24,7 @@
 
 | Task | Started | Agent |
 |------|---------|-------|
-| Phase 4 UX Design | 2026-04-21 | Freya |
+| Phase 4 Specification Validation | 2026-04-21 | Freya |
 
 **Rules:** Mark what you start. Complete it when done (move to Log). One task at a time per agent.
 
@@ -34,6 +36,16 @@
 
 | Scenario | Step | Page | Status | Updated |
 |----------|------|------|--------|---------|
+| Shared | P | Home / Portal | specified | 2026-04-21 |
+| Shared | P | Artifact Detail | specified | 2026-04-21 |
+| Shared | P | Collections | specified | 2026-04-21 |
+| Shared | P | Collection Detail | specified | 2026-04-21 |
+| Shared | P | Timeline | specified | 2026-04-21 |
+| Shared | P | Selected | specified | 2026-04-21 |
+| Shared | P | Notes Index | specified | 2026-04-21 |
+| Shared | P | Note Detail | specified | 2026-04-21 |
+| Shared | P | About | specified | 2026-04-21 |
+| Shared | P | Contact | specified | 2026-04-21 |
 
 **Status values:** `discussed` -> `wireframed` -> `specified` -> `explored` -> `building` -> `built` -> `approved` | `removed`
 
@@ -81,6 +93,13 @@
 - Created `05-reading-notes`
 - Created `06-finding-contact`
 - Next: Phase 4 UX Design
+
+### 2026-04-21 - Page specifications completed (Phase 4)
+- Created `C-UX-Scenarios/Page-Specifications/00-page-specification-index.md`
+- Created shared page specs for Home / Portal, Artifact Detail, Collections, Collection Detail, Timeline, Selected, Notes Index, Note Detail, About, and Contact
+- Created `D-Design-System/01-design-tokens.md` as the initial token baseline
+- Updated the scenario index with links to page specifications
+- Next: Phase 4 specification validation and design delivery packaging
 
 ---
 

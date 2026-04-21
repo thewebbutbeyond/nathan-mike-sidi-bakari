@@ -62,7 +62,7 @@ Before creating components:
 
 ## Tokens
 
-_Tokens will be documented as visual direction and page specifications mature._
+Initial tokens are documented in [01-design-tokens.md](./01-design-tokens.md).
 
 ---
 
