@@ -14,7 +14,7 @@
 | **URL** | `/collections` |
 | **Primary Keyword** | Nathan Mike Sidi Bakari work |
 | **Meta Title** | Collections - Nathan Mike Sidi Bakari |
-| **Meta Description** | Browse archive artifacts by engineering, entrepreneurship, investing, and art. |
+| **Meta Description** | Browse archive entries by engineering, entrepreneurship, investing, and art. |
 | **Structured Data** | `CollectionPage` |
 
 ---
@@ -31,12 +31,12 @@
 
 - Home / Portal.
 - Header navigation.
-- Artifact collection links.
+- Entry collection links.
 
 **Exit Points:**
 
 - Collection Detail.
-- Artifact Detail.
+- Entry Detail.
 
 ---
 
@@ -49,7 +49,7 @@
 | Object | ID | Component | Content / Behavior |
 |--------|----|-----------|--------------------|
 | Title | `collections-title` | H1 | "Collections" |
-| Description | `collections-description` | Body text | "Browse artifacts by domain. One artifact can belong to several collections." |
+| Description | `collections-description` | Body text | "Browse entries by domain. One entry can belong to several collections." |
 
 ### Section: Collection Routes
 
@@ -122,14 +122,14 @@
 | State | When | Appearance | Actions |
 |-------|------|------------|---------|
 | Default | Collections exist | Four routes with counts | Open collection |
-| Empty collection | Collection has no artifacts | Route remains with "No artifacts yet." | Browse other collections |
+| Empty collection | Collection has no entries | Route remains with "No entries yet." | Browse other collections |
 
 ---
 
 ## Technical Notes
 
 - Suggested route: `/collections`.
-- Counts should derive from artifact metadata.
+- Counts should derive from entry metadata.
 - Do not present collections as a fixed self-description.
 
 ---

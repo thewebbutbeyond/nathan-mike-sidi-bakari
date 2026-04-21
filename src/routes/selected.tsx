@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Container, PageHeader, SiteShell } from "@/components/site-shell";
-import { ArtifactList } from "@/components/artifact-list";
-import { ARTIFACTS } from "@/content/data";
+import { ArtifactList } from "@/components/entry-list";
+import { ENTRIES } from "@/content/data";
 
 export const Route = createFileRoute("/selected")({
   head: () => ({
@@ -22,7 +22,7 @@ export const Route = createFileRoute("/selected")({
 });
 
 function SelectedPage() {
-  const selected = ARTIFACTS.filter((a) => a.selected).sort((a, b) => b.date.localeCompare(a.date));
+  const selected = ENTRIES.filter((a) => a.selected).sort((a, b) => b.date.localeCompare(a.date));
 
   return (
     <SiteShell>
@@ -32,7 +32,7 @@ function SelectedPage() {
           title="A handful of marked entries."
           description="A small set of pieces I’d hand someone if they only had ten minutes , pulled from the timeline rather than curated for show. The French label is half-serious; treat it as a friendly nod, not a claim."
         />
-        <ArtifactList artifacts={selected} />
+        <ArtifactList entries={selected} />
       </Container>
     </SiteShell>
   );

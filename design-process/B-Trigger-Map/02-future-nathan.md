@@ -21,7 +21,7 @@ Personal output tends to scatter across code repositories, notes, images, docume
 Future Nathan needs:
 
 - Stable dates and chronology.
-- Context around why artifacts exist.
+- Context around why entries exist.
 - Cross-domain relationships.
 - A way to distinguish milestones from ordinary entries.
 - A maintenance model that remains usable over years.
@@ -52,15 +52,15 @@ Future Nathan needs:
 
 **1. Durable recall**
 
-- Wants artifacts to remain understandable after memory fades.
+- Wants entries to remain understandable after memory fades.
 - Success means each entry has enough context to stand alone.
-- **Archive promise:** Artifact pages preserve date, summary, role, tags, links, and process notes.
+- **Archive promise:** Entry pages preserve date, summary, role, tags, links, and process notes.
 
 **2. Visible trajectory**
 
 - Wants to see evolution across years and domains.
 - Success means the timeline shows progression, milestones, and recurring themes.
-- **Archive promise:** Timeline aggregates all artifacts and can emphasize milestones.
+- **Archive promise:** Timeline aggregates all entries and can emphasize milestones.
 
 **3. Integrated identity**
 
@@ -74,13 +74,13 @@ Future Nathan needs:
 
 - Fears work disappearing into disconnected tools.
 - Failure looks like fragments that cannot be reassembled.
-- **Archive answer:** Central metadata and structured indexes reconnect artifacts.
+- **Archive answer:** Central metadata and structured indexes reconnect entries.
 
 **2. Flattened self-definition**
 
 - Fears the site forcing one professional narrative.
 - Failure looks like a conventional portfolio that erases breadth.
-- **Archive answer:** Identity is expressed through tags and artifacts, not a fixed headline.
+- **Archive answer:** Identity is expressed through tags and entries, not a fixed headline.
 
 **3. Maintenance entropy**
 
@@ -100,7 +100,7 @@ Future Nathan needs:
 
 ### After the Archive
 
-- Artifacts are retrievable and linked.
+- Entries are retrievable and linked.
 - Chronology makes development visible.
 - Future work has an obvious place to go.
 
@@ -109,7 +109,7 @@ Future Nathan needs:
 ## Design Requirements
 
 - Timeline must be a first-class route.
-- Artifact metadata must be consistent.
+- Entry metadata must be consistent.
 - Collections must allow multiple memberships.
 - Selected entries must not replace the full archive.
 - Content creation must stay lightweight.

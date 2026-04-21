@@ -10,7 +10,7 @@
 
 ## Vision
 
-Build a minimally curated, multi-domain, temporally indexed archive of personal output, where identity is expressed through tagged artifacts rather than narrative positioning.
+Build a minimally curated, multi-domain, temporally indexed archive of personal output, where identity is expressed through tagged entries rather than narrative positioning.
 
 The archive is self-addressed first and publicly accessible second. Public access should create optional discovery, not optimization pressure.
 
@@ -21,14 +21,14 @@ The archive is self-addressed first and publicly accessible second. Public acces
 ### Primary Objective: Preserve Personal Continuity
 
 - **Statement:** Create a durable system for long-term intellectual and creative continuity.
-- **Measure:** Artifacts have stable metadata, dates, summaries, tags, and contextual notes.
-- **Target:** Every published artifact can be understood later without relying on memory alone.
+- **Measure:** Entries have stable metadata, dates, summaries, tags, and contextual notes.
+- **Target:** Every published entry can be understood later without relying on memory alone.
 - **Impact:** This is the engine. If continuity fails, external discovery does not matter.
 
 ### Secondary Objective: Enable Open Exploration
 
 - **Statement:** Let visitors browse through identity, time, and selected entry points.
-- **Measure:** Every artifact appears in both timeline and one or more collection/tag routes.
+- **Measure:** Every entry appears in both timeline and one or more collection/tag routes.
 - **Target:** A new visitor can understand the archive model and choose a route within the first screen.
 - **Impact:** Exploration stays non-linear without becoming confusing.
 
@@ -61,7 +61,7 @@ This project uses visitor modes instead of marketing personas. A visitor mode de
 | Future Nathan | Primary | Recover continuity, context, and trajectory. |
 | Curious Observer | Secondary | Understand and explore without being sold to. |
 | Potential Collaborator | Secondary | Find authentic overlap and enough context to reach out. |
-| Professional Observer | Secondary | Infer competence through artifacts and structure. |
+| Professional Observer | Secondary | Infer competence through entries and structure. |
 
 ---
 
@@ -69,11 +69,11 @@ This project uses visitor modes instead of marketing personas. A visitor mode de
 
 This is not a growth flywheel. It is a continuity flywheel:
 
-1. Nathan creates artifacts and notes.
+1. Nathan creates entries and notes.
 2. The archive captures them with structured metadata.
 3. Timeline and collections make relationships visible.
 4. Re-reading and browsing reveal trajectory.
-5. Better context improves future artifacts and curation.
+5. Better context improves future entries and curation.
 6. Public access permits optional discovery without changing the primary purpose.
 
 ---

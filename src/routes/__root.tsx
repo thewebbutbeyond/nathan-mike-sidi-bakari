@@ -18,7 +18,7 @@ function NotFoundComponent() {
           No record at this path.
         </h1>
         <p className="mt-3 text-sm text-ink-soft">
-          The artifact may have been moved, renamed, or never existed in the first place.
+          The entry may have been moved, renamed, or never existed in the first place.
         </p>
         <div className="mt-8 text-sm">
           <Link to="/" className="underline underline-offset-4 hover:text-ink">

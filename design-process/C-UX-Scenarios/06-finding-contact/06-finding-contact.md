@@ -9,7 +9,7 @@
 ## Transaction
 
 **What this scenario covers:**
-A collaborator sees enough overlap through artifacts and finds a restrained contact route.
+A collaborator sees enough overlap through entries and finds a restrained contact route.
 
 ---
 
@@ -29,7 +29,7 @@ A collaborator sees enough overlap through artifacts and finds a restrained cont
 
 ## Mental State
 
-**Trigger:** Related artifacts suggest a real overlap worth discussing.
+**Trigger:** Related entries suggest a real overlap worth discussing.
 
 **Hope:** Contact feels simple, respectful, and context-aware.
 
@@ -40,7 +40,7 @@ A collaborator sees enough overlap through artifacts and finds a restrained cont
 ## Device & Starting Point
 
 **Device:** Desktop or mobile.
-**Entry:** They start from a relevant Artifact Detail page after browsing related work.
+**Entry:** They start from a relevant Entry Detail page after browsing related work.
 
 ---
 
@@ -56,7 +56,7 @@ The site permits contact without compromising its non-instrumental posture.
 
 ## Shortest Path
 
-1. **Artifact Detail** - Collaborator confirms relevant overlap.
+1. **Entry Detail** - Collaborator confirms relevant overlap.
 2. **About** - Collaborator reads a minimal identity statement for context.
 3. **Contact** - Collaborator finds a low-emphasis contact method. ✓
 
@@ -81,7 +81,7 @@ The site permits contact without compromising its non-instrumental posture.
 
 | Step | Folder | Purpose | Exit Action |
 |------|--------|---------|-------------|
-| 06.1 | `06.1-artifact-detail/` | Confirm that contact has a real reason. | Open About. |
+| 06.1 | `06.1-entry-detail/` | Confirm that contact has a real reason. | Open About. |
 | 06.2 | `06.2-about/` | Get minimal identity context. | Open Contact. |
 | 06.3 | `06.3-contact/` | Find a restrained contact route. | Scenario success. |
 

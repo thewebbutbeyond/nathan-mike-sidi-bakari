@@ -25,7 +25,7 @@
 
 **User Situation:** The visitor wants a useful starting point without committing to the full archive.
 
-**Success Criteria:** The visitor opens a representative artifact and understands Selected as entry guidance, not a best-work trophy case.
+**Success Criteria:** The visitor opens a representative entry and understands Selected as entry guidance, not a best-work trophy case.
 
 **Entry Points:**
 
@@ -34,7 +34,7 @@
 
 **Exit Points:**
 
-- Artifact Detail.
+- Entry Detail.
 - Timeline.
 - Collections.
 
@@ -51,13 +51,13 @@
 | Title | `selected-title` | H1 | "Selected" |
 | Description | `selected-description` | Body text | "A few entry points into the archive." |
 
-### Section: Selected Artifact List
+### Section: Selected Entry List
 
-**OBJECT ID:** `selected-artifact-list`
+**OBJECT ID:** `selected-entry-list`
 
 | Object | ID | Component | Content / Behavior |
 |--------|----|-----------|--------------------|
-| Artifact cards | `selected-artifact-cards` | Artifact list/card group | Representative artifacts with date, type, collections, summary |
+| Entry cards | `selected-entry-cards` | Entry list/card group | Representative entries with date, type, collections, summary |
 
 ### Section: Continue Exploring
 
@@ -77,8 +77,8 @@
 | `selected-header` | Section | Selected page heading |
 | `selected-title` | Heading | Selected page title |
 | `selected-description` | Text | Selected framing copy |
-| `selected-artifact-list` | Section | Curated artifact list |
-| `selected-artifact-cards` | Artifact list | Selected artifact entries |
+| `selected-entry-list` | Section | Curated entry list |
+| `selected-entry-cards` | Entry list | Selected entry entries |
 | `selected-continue` | Section | Continuation links |
 | `selected-timeline-link` | Link | Opens Timeline |
 | `selected-collections-link` | Link | Opens Collections |
@@ -91,7 +91,7 @@
 +------------------------------+
 | Header + framing copy         |
 +------------------------------+
-| Selected artifact entries     |
+| Selected entry entries     |
 +------------------------------+
 | Continue via Timeline/Collections |
 +------------------------------+
@@ -107,7 +107,7 @@
 | Entry gap | `space-lg` |
 | Section gap | `space-2xl` |
 | Title | `text-3xl` |
-| Artifact title | `text-xl` |
+| Entry title | `text-xl` |
 
 ---
 
@@ -115,8 +115,8 @@
 
 | State | When | Appearance | Actions |
 |-------|------|------------|---------|
-| Default | Selected artifacts exist | Curated artifact list | Open artifact |
-| Empty | No selected artifacts | "No selected entries yet." | Browse Timeline |
+| Default | Selected entries exist | Curated entry list | Open entry |
+| Empty | No selected entries | "No selected entries yet." | Browse Timeline |
 
 ---
 

@@ -23,7 +23,7 @@ The Curious Observer needs:
 - Immediate orientation.
 - Obvious entry points.
 - Low-pressure browsing.
-- Plain explanations of unfamiliar artifact types.
+- Plain explanations of unfamiliar entry types.
 - Enough curation to avoid feeling lost.
 
 ---
@@ -40,7 +40,7 @@ The Curious Observer needs:
 **Browsing style:**
 
 - Samples before committing.
-- Moves from one interesting artifact to another.
+- Moves from one interesting entry to another.
 - Uses tags, dates, and selected entries as clues.
 - Leaves quickly if the site feels like a pitch.
 
@@ -59,14 +59,14 @@ The Curious Observer needs:
 **2. Non-linear discovery**
 
 - Wants to browse by interest rather than follow a scripted path.
-- Success means tags, related artifacts, and timeline links create optional routes.
-- **Archive promise:** Every artifact connects to identity and time.
+- Success means tags, related entries, and timeline links create optional routes.
+- **Archive promise:** Every entry connects to identity and time.
 
 **3. Authentic context**
 
-- Wants enough explanation to understand why an artifact matters.
+- Wants enough explanation to understand why an entry matters.
 - Success means project pages include process and context, not just output.
-- **Archive promise:** Artifact entries include summaries, metadata, and related links.
+- **Archive promise:** Entry entries include summaries, metadata, and related links.
 
 ### Negative Drivers
 
@@ -80,7 +80,7 @@ The Curious Observer needs:
 
 - Fears generic language that says little.
 - Failure looks like "passionate multidisciplinary creator" without evidence.
-- **Archive answer:** Let artifact lists, notes, and timelines explain the person.
+- **Archive answer:** Let entry lists, notes, and timelines explain the person.
 
 **3. No entry point**
 
@@ -110,7 +110,7 @@ The Curious Observer needs:
 
 - Home / Portal must communicate archive structure quickly.
 - Selected must be small, useful, and non-performative.
-- Artifact summaries must be scannable.
+- Entry summaries must be scannable.
 - Related links should support wandering.
 - Notes should be followable but not pushed.
 

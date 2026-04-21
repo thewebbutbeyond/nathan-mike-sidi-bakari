@@ -1,43 +1,43 @@
-# 02 - Artifact Detail
+# 02 - Entry Detail
 
 ## Page Metadata
 
 | Property | Value |
 |----------|-------|
 | **Scenario Coverage** | All scenarios except Notes-only reading |
-| **Source Scenarios** | `01-orienting-at-the-portal`, `02-tracing-a-domain`, `03-following-time`, `04-inspecting-an-artifact`, `06-finding-contact` |
+| **Source Scenarios** | `01-orienting-at-the-portal`, `02-tracing-a-domain`, `03-following-time`, `04-inspecting-an-entry`, `06-finding-contact` |
 | **Platform** | Responsive web |
 | **Page Type** | Full page |
 | **Viewport** | Mobile-first, desktop-enhanced |
 | **Interaction** | Touch + mouse/keyboard |
 | **Visibility** | Public |
-| **URL** | `/artifacts/[slug]` |
-| **Primary Keyword** | personal archive artifact |
-| **Meta Title** | Artifact title followed by "Nathan Mike Sidi Bakari" |
-| **Meta Description** | Artifact summary |
+| **URL** | `/entries/[slug]` |
+| **Primary Keyword** | personal archive entry |
+| **Meta Title** | Entry title followed by "Nathan Mike Sidi Bakari" |
+| **Meta Description** | Entry summary |
 | **Structured Data** | `CreativeWork` |
 
 ---
 
 ## Overview
 
-**Page Purpose:** Present one artifact with enough context to support recall, exploration, and credibility.
+**Page Purpose:** Present one entry with enough context to support recall, exploration, and credibility.
 
-**User Situation:** A visitor opens an artifact from Selected, Timeline, Collections, related links, or a direct URL.
+**User Situation:** A visitor opens an entry from Selected, Timeline, Collections, related links, or a direct URL.
 
-**Success Criteria:** The visitor understands what the artifact is, when it happened, why it matters, how it connects, and where to go next.
+**Success Criteria:** The visitor understands what the entry is, when it happened, why it matters, how it connects, and where to go next.
 
 **Entry Points:**
 
 - Selected.
 - Timeline.
 - Collection Detail.
-- Related artifact links.
+- Related entry links.
 - Direct URL.
 
 **Exit Points:**
 
-- Related Artifacts.
+- Related Entries.
 - Collection Detail.
 - Timeline.
 - Contact.
@@ -50,7 +50,7 @@
 +------------------------------------------------+
 | Header / Breadcrumb                             |
 +------------------------------------------------+
-| Artifact Header: title, date, type, status      |
+| Entry Header: title, date, type, status      |
 +------------------------------------------------+
 | Summary + Context                               |
 +------------------------------------------------+
@@ -58,7 +58,7 @@
 +------------------------------------------------+
 | Metadata: collections, tags, role, status       |
 +------------------------------------------------+
-| Related Artifacts                               |
+| Related Entries                               |
 +------------------------------------------------+
 | Footer                                          |
 +------------------------------------------------+
@@ -68,55 +68,55 @@
 
 ## Page Sections
 
-### Section: Artifact Header
+### Section: Entry Header
 
-**OBJECT ID:** `artifact-header`
-
-| Object | ID | Component | Content / Behavior |
-|--------|----|-----------|--------------------|
-| Breadcrumb | `artifact-breadcrumb` | Breadcrumb nav | Previous context when available |
-| Title | `artifact-title` | H1 | Artifact title |
-| Metadata row | `artifact-meta-row` | Metadata group | Date, type, status |
-| Summary | `artifact-summary` | Lead text | One clear paragraph |
-
-### Section: Artifact Context
-
-**OBJECT ID:** `artifact-context`
+**OBJECT ID:** `entry-header`
 
 | Object | ID | Component | Content / Behavior |
 |--------|----|-----------|--------------------|
-| Context block | `artifact-context-block` | Rich text | Why it exists, constraints, process |
-| Role block | `artifact-role-block` | Fact list | Nathan's role or contribution |
-| Outcome block | `artifact-outcome-block` | Rich text | Outcome, state, or current relevance |
+| Breadcrumb | `entry-breadcrumb` | Breadcrumb nav | Previous context when available |
+| Title | `entry-title` | H1 | Entry title |
+| Metadata row | `entry-meta-row` | Metadata group | Date, type, status |
+| Summary | `entry-summary` | Lead text | One clear paragraph |
 
-### Section: Artifact Body
+### Section: Entry Context
 
-**OBJECT ID:** `artifact-body`
+**OBJECT ID:** `entry-context`
 
 | Object | ID | Component | Content / Behavior |
 |--------|----|-----------|--------------------|
-| Media area | `artifact-media-area` | Media block | Optional images, screenshots, embeds |
-| Content body | `artifact-content-body` | Prose / structured content | Markdown or MDX content |
-| External links | `artifact-external-links` | Link list | Repository, demo, document, image, reference |
+| Context block | `entry-context-block` | Rich text | Why it exists, constraints, process |
+| Role block | `entry-role-block` | Fact list | Nathan's role or contribution |
+| Outcome block | `entry-outcome-block` | Rich text | Outcome, state, or current relevance |
+
+### Section: Entry Body
+
+**OBJECT ID:** `entry-body`
+
+| Object | ID | Component | Content / Behavior |
+|--------|----|-----------|--------------------|
+| Media area | `entry-media-area` | Media block | Optional images, screenshots, embeds |
+| Content body | `entry-content-body` | Prose / structured content | Markdown or MDX content |
+| External links | `entry-external-links` | Link list | Repository, demo, document, image, reference |
 
 ### Section: Classification
 
-**OBJECT ID:** `artifact-classification`
+**OBJECT ID:** `entry-classification`
 
 | Object | ID | Component | Content / Behavior |
 |--------|----|-----------|--------------------|
-| Collections | `artifact-collections` | Tag list | Engineer, Entrepreneur, Investor, Artist; multiple allowed |
-| Tags | `artifact-tags` | Tag list | Flexible tags |
-| Timeline link | `artifact-timeline-link` | Text link | Opens date context in Timeline |
+| Collections | `entry-collections` | Tag list | Engineer, Entrepreneur, Investor, Artist; multiple allowed |
+| Tags | `entry-tags` | Tag list | Flexible tags |
+| Timeline link | `entry-timeline-link` | Text link | Opens date context in Timeline |
 
-### Section: Related Artifacts
+### Section: Related Entries
 
-**OBJECT ID:** `artifact-related`
+**OBJECT ID:** `entry-related`
 
 | Object | ID | Component | Content / Behavior |
 |--------|----|-----------|--------------------|
-| Heading | `artifact-related-heading` | H2 | "Related" |
-| Related list | `artifact-related-list` | Artifact list | Related artifacts by tag, collection, or manual link |
+| Heading | `entry-related-heading` | H2 | "Related" |
+| Related list | `entry-related-list` | Entry list | Related entries by tag, collection, or manual link |
 
 ---
 
@@ -124,26 +124,26 @@
 
 | Object ID | Type | Description |
 |-----------|------|-------------|
-| `artifact-header` | Section | Artifact heading and summary container |
-| `artifact-breadcrumb` | Navigation | Optional previous-context breadcrumb |
-| `artifact-title` | Heading | Artifact title |
-| `artifact-meta-row` | Metadata group | Date, type, and status |
-| `artifact-summary` | Lead text | Artifact summary |
-| `artifact-context` | Section | Context and contribution section |
-| `artifact-context-block` | Rich text | Why the artifact exists |
-| `artifact-role-block` | Fact list | Nathan's role or contribution |
-| `artifact-outcome-block` | Rich text | Outcome or current relevance |
-| `artifact-body` | Section | Artifact media and body content |
-| `artifact-media-area` | Media block | Optional media area |
-| `artifact-content-body` | Rich text | Main artifact body |
-| `artifact-external-links` | Link list | External references |
-| `artifact-classification` | Section | Collections and tags |
-| `artifact-collections` | Tag list | Collection memberships |
-| `artifact-tags` | Tag list | Flexible tags |
-| `artifact-timeline-link` | Link | Opens timeline context |
-| `artifact-related` | Section | Related artifact section |
-| `artifact-related-heading` | Heading | Related section heading |
-| `artifact-related-list` | List | Related artifacts |
+| `entry-header` | Section | Entry heading and summary container |
+| `entry-breadcrumb` | Navigation | Optional previous-context breadcrumb |
+| `entry-title` | Heading | Entry title |
+| `entry-meta-row` | Metadata group | Date, type, and status |
+| `entry-summary` | Lead text | Entry summary |
+| `entry-context` | Section | Context and contribution section |
+| `entry-context-block` | Rich text | Why the entry exists |
+| `entry-role-block` | Fact list | Nathan's role or contribution |
+| `entry-outcome-block` | Rich text | Outcome or current relevance |
+| `entry-body` | Section | Entry media and body content |
+| `entry-media-area` | Media block | Optional media area |
+| `entry-content-body` | Rich text | Main entry body |
+| `entry-external-links` | Link list | External references |
+| `entry-classification` | Section | Collections and tags |
+| `entry-collections` | Tag list | Collection memberships |
+| `entry-tags` | Tag list | Flexible tags |
+| `entry-timeline-link` | Link | Opens timeline context |
+| `entry-related` | Section | Related entry section |
+| `entry-related-heading` | Heading | Related section heading |
+| `entry-related-list` | List | Related entries |
 
 ---
 
@@ -167,19 +167,19 @@ Use [Design Tokens](../../D-Design-System/01-design-tokens.md).
 
 | State | When | Appearance | Actions |
 |-------|------|------------|---------|
-| Default | Artifact exists | Full artifact content | Browse related links |
+| Default | Entry exists | Full entry content | Browse related links |
 | Missing media | Media unavailable | Body remains; media block omitted | Continue reading |
-| Draft/historical | Artifact incomplete or old | Status label visible | Browse context |
-| Not found | Slug missing | Plain missing-artifact page | Return to Timeline |
+| Draft/historical | Entry incomplete or old | Status label visible | Browse context |
+| Not found | Slug missing | Plain missing-entry page | Return to Timeline |
 
 ---
 
 ## Technical Notes
 
-- Suggested route: `/artifacts/[slug]`.
-- The artifact detail page is the core reusable content renderer.
-- Avoid requiring every artifact to have media.
-- Related artifacts should support both manual and computed relationships.
+- Suggested route: `/entries/[slug]`.
+- The entry detail page is the core reusable content renderer.
+- Avoid requiring every entry to have media.
+- Related entries should support both manual and computed relationships.
 
 ---
 

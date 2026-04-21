@@ -12,7 +12,7 @@
 
 Nathan Mike Sidi Bakari is a personal portfolio website conceived as a self-addressed archive with public access. Its primary purpose is long-term intellectual and creative continuity: a durable system for preserving, organizing, revisiting, and publishing output across multiple domains.
 
-The site is not a conventional audience-optimized portfolio. It should not posture, over-explain, or push visitors into a funnel. Its value comes from the accumulated artifacts: projects, notes, timelines, traces of process, and cross-domain evidence of how one mind develops over time.
+The site is not a conventional audience-optimized portfolio. It should not posture, over-explain, or push visitors into a funnel. Its value comes from the accumulated entries: projects, notes, timelines, traces of process, and cross-domain evidence of how one mind develops over time.
 
 The public surface exists because public access creates optional discovery. Unknown observers can browse, follow, or make contact, but the site should remain internally coherent even if no external opportunity ever emerges.
 
@@ -20,7 +20,7 @@ The public surface exists because public access creates optional discovery. Unkn
 
 ## Positioning Statement
 
-For Nathan and curiosity-driven external observers, this site is a minimally curated, multi-domain, temporally indexed archive of personal output that reveals breadth, process, and evolution through tagged artifacts rather than narrative self-positioning.
+For Nathan and curiosity-driven external observers, this site is a minimally curated, multi-domain, temporally indexed archive of personal output that reveals breadth, process, and evolution through tagged entries rather than narrative self-positioning.
 
 **Breakdown:**
 
@@ -48,9 +48,9 @@ Secondary public users include:
 
 - **Curious observers** who arrive without a fixed goal and browse through identity, time, or selected entry points.
 - **Potential collaborators** who notice overlap in engineering, creative work, entrepreneurship, investing, or reflective writing.
-- **Professional observers** who infer competence from concrete artifacts rather than explicit claims.
+- **Professional observers** who infer competence from concrete entries rather than explicit claims.
 
-The site should remain legible to general and semi-technical readers. Technical depth can appear where the artifact requires it, but the interface should not assume expert context.
+The site should remain legible to general and semi-technical readers. Technical depth can appear where the entry requires it, but the interface should not assume expert context.
 
 ### Secondary Users
 
@@ -64,8 +64,8 @@ This project should be judged by coherence, durability, and expressive bandwidth
 
 Primary success criteria:
 
-- Artifacts can be accessed through both identity and time.
-- The structure supports multi-membership: one artifact can belong to engineering, entrepreneurship, investing, art, notes, or several at once.
+- Entries can be accessed through both identity and time.
+- The structure supports multi-membership: one entry can belong to engineering, entrepreneurship, investing, art, notes, or several at once.
 - Visitors can understand the site as an archive within the first interaction.
 - Selected work gives new visitors useful entry points without pretending to be a definitive "best of" list.
 - Timeline navigation makes trajectory and evolution visible.
@@ -75,7 +75,7 @@ Primary success criteria:
 Secondary success criteria:
 
 - The site can grow for years without needing a full conceptual redesign.
-- New artifact types can be added without breaking the navigation model.
+- New entry types can be added without breaking the navigation model.
 - RSS support makes following Notes optional and non-intrusive.
 - The overall impression remains interdisciplinary, introspective, authentic, and non-corporate.
 
@@ -109,7 +109,7 @@ The core advantage is structural authenticity. Nathan is not trying to compress 
 - Minimalist aesthetic; avoid corporate portfolio conventions unless they serve the archive.
 - Technical depth should be contextual, not imposed everywhere.
 - Content must support long-term persistence and ongoing additions.
-- The site must preserve artifact-first credibility: show the work, process, and evolution.
+- The site must preserve entry-first credibility: show the work, process, and evolution.
 
 ---
 
@@ -128,7 +128,7 @@ The core advantage is structural authenticity. Nathan is not trying to compress 
 **Interaction Models:**
 
 - Non-linear browsing by collection, tag, timeline, and selected entries.
-- Search/filter behavior for artifacts once content volume justifies it.
+- Search/filter behavior for entries once content volume justifies it.
 - Reading mode for Notes and project entries.
 - Low-emphasis contact path.
 
@@ -143,10 +143,10 @@ A web platform is the right medium because the archive must be globally accessib
 
 **Future Platform Plans:**
 
-- Search once artifact volume grows.
+- Search once entry volume grows.
 - RSS for Notes at launch or shortly after.
 - Optional content management workflow if manual Markdown editing becomes a bottleneck.
-- Potential API/content layer if artifacts become complex enough to justify it.
+- Potential API/content layer if entries become complex enough to justify it.
 
 **Design Implications:**
 
@@ -154,7 +154,7 @@ The interface should prioritize orientation, scanning, and cross-linking. The si
 
 **Development Implications:**
 
-Artifacts should be represented with structured metadata: title, date, summary, tags, collection memberships, artifact type, status, links, and optional milestone weight. The timeline and collection pages should derive from the same underlying content model.
+Entries should be represented with structured metadata: title, date, summary, tags, collection memberships, entry type, status, links, and optional milestone weight. The timeline and collection pages should derive from the same underlying content model.
 
 ---
 
@@ -173,7 +173,7 @@ Artifacts should be represented with structured metadata: title, date, summary, 
 
 **Error Messages:**
 
-- Good: "This artifact is not available yet."
+- Good: "This entry is not available yet."
 - Avoid: "Oops! Something amazing went wrong."
 
 **Button Text:**
@@ -196,7 +196,7 @@ Artifacts should be represented with structured metadata: title, date, summary, 
 **Do:**
 
 - Use plain, specific labels.
-- Let artifacts carry credibility.
+- Let entries carry credibility.
 - Make navigation feel open and non-linear.
 - Use first-person sparingly and only when it adds clarity.
 
@@ -214,9 +214,9 @@ Artifacts should be represented with structured metadata: title, date, summary, 
 The site's central organizing principle is dual access:
 
 - **Identity:** collections and tags such as Engineer, Entrepreneur, Investor, Artist.
-- **Time:** a chronological timeline across all artifacts.
+- **Time:** a chronological timeline across all entries.
 
-Every artifact should be able to appear in both structures. Selected work should function as a small set of entry points, not a claim that the highlighted items are objectively the "best" work.
+Every entry should be able to appear in both structures. Selected work should function as a small set of entry points, not a claim that the highlighted items are objectively the "best" work.
 
 ---
 

@@ -18,9 +18,9 @@ description: |
 
 user_value:
   problem: "Personal output is scattered across domains and hard to revisit, browse, or understand over time."
-  solution: "Create a structured web archive with artifacts, collections, timeline, notes, selected entries, and contact."
+  solution: "Create a structured web archive with entries, collections, timeline, notes, selected entries, and contact."
   success_criteria:
-    - "Every artifact can be reached through both collection/tag identity and timeline chronology."
+    - "Every entry can be reached through both collection/tag identity and timeline chronology."
     - "A first-time visitor can understand the archive routes from the Home / Portal."
     - "Selected entries provide useful entry points without becoming a trophy case."
     - "Notes are readable as curated editorial pieces and can support RSS."
@@ -30,28 +30,28 @@ design_artifacts:
   scenarios:
     - id: "01-orienting-at-the-portal"
       path: "design-process/C-UX-Scenarios/01-orienting-at-the-portal/01-orienting-at-the-portal.md"
-      screens: ["Home / Portal", "Selected", "Artifact Detail"]
+      screens: ["Home / Portal", "Selected", "Entry Detail"]
     - id: "02-tracing-a-domain"
       path: "design-process/C-UX-Scenarios/02-tracing-a-domain/02-tracing-a-domain.md"
-      screens: ["Collections", "Collection Detail", "Artifact Detail", "Related Artifacts"]
+      screens: ["Collections", "Collection Detail", "Entry Detail", "Related Entries"]
     - id: "03-following-time"
       path: "design-process/C-UX-Scenarios/03-following-time/03-following-time.md"
-      screens: ["Home / Portal", "Timeline", "Artifact Detail", "Related Artifacts"]
-    - id: "04-inspecting-an-artifact"
-      path: "design-process/C-UX-Scenarios/04-inspecting-an-artifact/04-inspecting-an-artifact.md"
-      screens: ["Artifact Detail", "Related Artifacts", "Context View"]
+      screens: ["Home / Portal", "Timeline", "Entry Detail", "Related Entries"]
+    - id: "04-inspecting-an-entry"
+      path: "design-process/C-UX-Scenarios/04-inspecting-an-entry/04-inspecting-an-entry.md"
+      screens: ["Entry Detail", "Related Entries", "Context View"]
     - id: "05-reading-notes"
       path: "design-process/C-UX-Scenarios/05-reading-notes/05-reading-notes.md"
       screens: ["Notes Index", "Note Detail", "RSS"]
     - id: "06-finding-contact"
       path: "design-process/C-UX-Scenarios/06-finding-contact/06-finding-contact.md"
-      screens: ["Artifact Detail", "About", "Contact"]
+      screens: ["Entry Detail", "About", "Contact"]
 
   page_specifications:
     index: "design-process/C-UX-Scenarios/Page-Specifications/00-page-specification-index.md"
     pages:
       - "design-process/C-UX-Scenarios/Page-Specifications/01-home-portal.md"
-      - "design-process/C-UX-Scenarios/Page-Specifications/02-artifact-detail.md"
+      - "design-process/C-UX-Scenarios/Page-Specifications/02-entry-detail.md"
       - "design-process/C-UX-Scenarios/Page-Specifications/03-collections.md"
       - "design-process/C-UX-Scenarios/Page-Specifications/04-collection-detail.md"
       - "design-process/C-UX-Scenarios/Page-Specifications/05-timeline.md"
@@ -67,8 +67,8 @@ design_artifacts:
     components:
       - "Navigation list"
       - "Route card"
-      - "Artifact list"
-      - "Artifact detail renderer"
+      - "Entry list"
+      - "Entry detail renderer"
       - "Metadata row"
       - "Tag list"
       - "Timeline list"
@@ -95,7 +95,7 @@ technical_requirements:
       required: false
 
   data_models:
-    - name: "Artifact"
+    - name: "Entry"
       fields:
         - "title"
         - "slug"
@@ -127,11 +127,11 @@ technical_requirements:
 acceptance_criteria:
   functional:
     - "Home / Portal exposes Selected, Timeline, Collections, and Notes."
-    - "Artifact Detail renders metadata, summary, context, links, tags, collections, and related artifacts."
+    - "Entry Detail renders metadata, summary, context, links, tags, collections, and related entries."
     - "Collections index exposes Engineer, Entrepreneur, Investor, and Artist routes."
-    - "Collection Detail lists artifacts derived from collection metadata."
-    - "Timeline aggregates artifacts by date and supports milestone emphasis."
-    - "Selected lists manually curated entry artifacts."
+    - "Collection Detail lists entries derived from collection metadata."
+    - "Timeline aggregates entries by date and supports milestone emphasis."
+    - "Selected lists manually curated entry entries."
     - "Notes Index lists curated notes and exposes RSS."
     - "Note Detail renders readable long-form content and related links."
     - "About provides minimal identity context."
@@ -145,10 +145,10 @@ acceptance_criteria:
     - "Core pages load quickly as static or mostly static content."
 
   edge_cases:
-    - "No artifacts yet -> show plain empty archive states without hiding navigation."
-    - "Collection has no artifacts -> keep route visible and show a quiet empty state."
-    - "Artifact has no media -> omit media area while preserving body and metadata."
-    - "Missing note/artifact slug -> show plain not-found state with return route."
+    - "No entries yet -> show plain empty archive states without hiding navigation."
+    - "Collection has no entries -> keep route visible and show a quiet empty state."
+    - "Entry has no media -> omit media area while preserving body and metadata."
+    - "Missing note/entry slug -> show plain not-found state with return route."
     - "RSS unavailable during early implementation -> document as known gap or ship feed before release."
 
 testing_guidance:
@@ -159,7 +159,7 @@ testing_guidance:
 
   qa_testing:
     - "Verify all page routes render."
-    - "Verify artifact data appears consistently across Home, Selected, Timeline, Collections, and Artifact Detail."
+    - "Verify entry data appears consistently across Home, Selected, Timeline, Collections, and Entry Detail."
     - "Verify markdown links and route links are not broken."
     - "Verify metadata and structured data are present for public pages."
     - "Verify keyboard navigation reaches all primary links."

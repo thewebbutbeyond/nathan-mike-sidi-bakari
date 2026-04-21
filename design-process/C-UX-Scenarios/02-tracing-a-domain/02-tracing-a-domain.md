@@ -9,13 +9,13 @@
 ## Transaction
 
 **What this scenario covers:**
-A professional observer enters through a domain collection, inspects relevant work, and follows related artifacts to infer capability.
+A professional observer enters through a domain collection, inspects relevant work, and follows related entries to infer capability.
 
 ---
 
 ## Business Goal
 
-**Goal:** Enable open exploration while preserving artifact-first credibility.
+**Goal:** Enable open exploration while preserving entry-first credibility.
 **Objective:** Collections provide domain-specific access without forcing fixed identity claims.
 
 ---
@@ -47,19 +47,19 @@ A professional observer enters through a domain collection, inspects relevant wo
 ## Best Outcome
 
 **User Success:**
-The observer finds a relevant collection, opens a representative artifact, and understands role, process, and related work.
+The observer finds a relevant collection, opens a representative entry, and understands role, process, and related work.
 
 **Archive Success:**
-Professional signal emerges from artifacts and structure rather than claims.
+Professional signal emerges from entries and structure rather than claims.
 
 ---
 
 ## Shortest Path
 
 1. **Collections** - Observer chooses a domain such as Engineer or Entrepreneur.
-2. **Collection Detail** - Observer scans artifacts, metadata, and representative entries.
-3. **Artifact Detail** - Observer opens a relevant artifact and evaluates concrete evidence.
-4. **Related Artifacts** - Observer follows a related artifact to confirm trajectory or breadth. ✓
+2. **Collection Detail** - Observer scans entries, metadata, and representative entries.
+3. **Entry Detail** - Observer opens a relevant entry and evaluates concrete evidence.
+4. **Related Entries** - Observer follows a related entry to confirm trajectory or breadth. ✓
 
 ---
 
@@ -74,7 +74,7 @@ Professional signal emerges from artifacts and structure rather than claims.
 - ❌ **Fear:** Weak signal hidden in clutter.
 - ❌ **Fear:** Inflated positioning.
 
-**Archive Goal:** Enable non-linear exploration and artifact-first credibility.
+**Archive Goal:** Enable non-linear exploration and entry-first credibility.
 
 ---
 
@@ -83,9 +83,9 @@ Professional signal emerges from artifacts and structure rather than claims.
 | Step | Folder | Purpose | Exit Action |
 |------|--------|---------|-------------|
 | 02.1 | `02.1-collections/` | Choose a domain route. | Open a collection. |
-| 02.2 | `02.2-collection-detail/` | Scan relevant artifacts and metadata. | Open an artifact. |
-| 02.3 | `02.3-artifact-detail/` | Inspect concrete work and context. | Open related artifact. |
-| 02.4 | `02.4-related-artifact/` | Confirm breadth or trajectory. | Scenario success. |
+| 02.2 | `02.2-collection-detail/` | Scan relevant entries and metadata. | Open an entry. |
+| 02.3 | `02.3-entry-detail/` | Inspect concrete work and context. | Open related entry. |
+| 02.4 | `02.4-related-entry/` | Confirm breadth or trajectory. | Scenario success. |
 
 ---
 

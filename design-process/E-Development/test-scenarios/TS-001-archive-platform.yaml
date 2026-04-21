@@ -10,7 +10,7 @@ test_scenario:
 test_objectives:
   - "Validate implementation matches the validated page specifications."
   - "Verify the archive can be browsed by identity and time."
-  - "Confirm artifact pages preserve context, metadata, and related links."
+  - "Confirm entry pages preserve context, metadata, and related links."
   - "Ensure Notes support editorial reading and RSS follow behavior."
   - "Ensure Contact remains low-emphasis."
 
@@ -19,11 +19,11 @@ test_environment:
     - "Desktop browser"
     - "Mobile browser"
   test_data:
-    - "At least 4 artifacts across Engineer, Entrepreneur, Investor, and Artist"
-    - "At least 1 artifact with multiple collection memberships"
-    - "At least 1 milestone artifact"
+    - "At least 4 entries across Engineer, Entrepreneur, Investor, and Artist"
+    - "At least 1 entry with multiple collection memberships"
+    - "At least 1 milestone entry"
     - "At least 2 notes"
-    - "At least 1 related artifact link"
+    - "At least 1 related entry link"
 
 happy_path:
   - id: "HP-001"
@@ -34,14 +34,14 @@ happy_path:
         expected: "Selected, Timeline, Collections, and Notes routes are visible without a dominant CTA."
         design_ref: "design-process/C-UX-Scenarios/Page-Specifications/01-home-portal.md"
       - action: "Open Selected."
-        expected: "A small curated set of artifacts is shown as entry points."
+        expected: "A small curated set of entries is shown as entry points."
         design_ref: "design-process/C-UX-Scenarios/Page-Specifications/06-selected.md"
-      - action: "Open a selected artifact."
-        expected: "Artifact metadata, summary, context, and related paths are visible."
-        design_ref: "design-process/C-UX-Scenarios/Page-Specifications/02-artifact-detail.md"
+      - action: "Open a selected entry."
+        expected: "Entry metadata, summary, context, and related paths are visible."
+        design_ref: "design-process/C-UX-Scenarios/Page-Specifications/02-entry-detail.md"
     success_criteria:
       - "Visitor can explain the site as an archive."
-      - "Visitor reaches one artifact in three steps."
+      - "Visitor reaches one entry in three steps."
 
   - id: "HP-002"
     name: "Tracing a Domain"
@@ -51,13 +51,13 @@ happy_path:
         expected: "Engineer, Entrepreneur, Investor, and Artist routes are visible."
         design_ref: "design-process/C-UX-Scenarios/Page-Specifications/03-collections.md"
       - action: "Open one collection."
-        expected: "Relevant artifacts list with dates, types, summaries, and tags."
+        expected: "Relevant entries list with dates, types, summaries, and tags."
         design_ref: "design-process/C-UX-Scenarios/Page-Specifications/04-collection-detail.md"
-      - action: "Open a related artifact."
-        expected: "Artifact can expose cross-domain membership."
-        design_ref: "design-process/C-UX-Scenarios/Page-Specifications/02-artifact-detail.md"
+      - action: "Open a related entry."
+        expected: "Entry can expose cross-domain membership."
+        design_ref: "design-process/C-UX-Scenarios/Page-Specifications/02-entry-detail.md"
     success_criteria:
-      - "Artifacts can be found by identity route."
+      - "Entries can be found by identity route."
       - "Multi-membership is visible when present."
 
   - id: "HP-003"
@@ -65,11 +65,11 @@ happy_path:
     priority: "critical"
     steps:
       - action: "Open Timeline."
-        expected: "Artifacts are grouped or ordered chronologically."
+        expected: "Entries are grouped or ordered chronologically."
         design_ref: "design-process/C-UX-Scenarios/Page-Specifications/05-timeline.md"
-      - action: "Open a milestone artifact."
-        expected: "Artifact detail preserves date, context, and related links."
-        design_ref: "design-process/C-UX-Scenarios/Page-Specifications/02-artifact-detail.md"
+      - action: "Open a milestone entry."
+        expected: "Entry detail preserves date, context, and related links."
+        design_ref: "design-process/C-UX-Scenarios/Page-Specifications/02-entry-detail.md"
     success_criteria:
       - "Visitor can browse by chronology."
       - "Milestone emphasis is visible but restrained."
@@ -95,7 +95,7 @@ happy_path:
     name: "Finding Contact"
     priority: "medium"
     steps:
-      - action: "Open About from an artifact or nav."
+      - action: "Open About from an entry or nav."
         expected: "Minimal identity context appears without personal-brand exaggeration."
         design_ref: "design-process/C-UX-Scenarios/Page-Specifications/09-about.md"
       - action: "Open Contact."
@@ -107,29 +107,29 @@ happy_path:
 
 error_states:
   - id: "ES-001"
-    name: "Missing Artifact"
+    name: "Missing Entry"
     priority: "high"
     steps:
-      - action: "Open an invalid artifact slug."
-      - expected: "Plain missing-artifact state with return route to Timeline."
-      - design_ref: "design-process/C-UX-Scenarios/Page-Specifications/02-artifact-detail.md#page-states"
+      - action: "Open an invalid entry slug."
+      - expected: "Plain missing-entry state with return route to Timeline."
+      - design_ref: "design-process/C-UX-Scenarios/Page-Specifications/02-entry-detail.md#page-states"
 
   - id: "ES-002"
     name: "Empty Collection"
     priority: "medium"
     steps:
-      - action: "Open a collection with no artifacts."
+      - action: "Open a collection with no entries."
       - expected: "Quiet empty state with route back to Collections."
       - design_ref: "design-process/C-UX-Scenarios/Page-Specifications/04-collection-detail.md#page-states"
 
 edge_cases:
   - id: "EC-001"
-    name: "Artifact Without Media"
+    name: "Entry Without Media"
     priority: "medium"
     steps:
-      - action: "Open artifact with no media."
+      - action: "Open entry with no media."
       - expected: "Media block is omitted; body, metadata, and related links remain."
-      - design_ref: "design-process/C-UX-Scenarios/Page-Specifications/02-artifact-detail.md#page-states"
+      - design_ref: "design-process/C-UX-Scenarios/Page-Specifications/02-entry-detail.md#page-states"
 
   - id: "EC-002"
     name: "No Notes Yet"
@@ -192,4 +192,4 @@ sign_off:
     - "No broken internal links."
     - "No critical accessibility failures."
     - "Archive routes preserve non-instrumental language."
-    - "Artifact data is consistent across list and detail views."
+    - "Entry data is consistent across list and detail views."

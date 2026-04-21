@@ -6,7 +6,7 @@ import m5 from "@/assets/mosaic-05.jpg";
 
 const IMAGES = [m1, m2, m3, m4, m5];
 
-// Deterministic pick based on a seed string so each artifact gets a stable
+// Deterministic pick based on a seed string so each entry gets a stable
 // but varied selection from the shared image pool.
 function pick(seed: string, count: number) {
   let h = 0;

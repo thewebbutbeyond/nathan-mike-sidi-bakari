@@ -19,14 +19,14 @@ No formal brand assets are defined yet. The initial direction should emerge from
 | Logo | Not defined | TBD |
 | Typography system | Not defined | Design phase |
 | Color palette | Not defined | Design phase |
-| Photography / imagery | Not defined | Artifact-specific |
+| Photography / imagery | Not defined | Entry-specific |
 
 ### Brand Constraints
 
 - The site should feel personal, not corporate.
-- Visual credibility should come from structure and artifacts, not decorative branding.
+- Visual credibility should come from structure and entries, not decorative branding.
 - Avoid startup landing-page tropes and resume-site polish.
-- Keep the interface quiet enough for heterogeneous artifacts to coexist.
+- Keep the interface quiet enough for heterogeneous entries to coexist.
 
 ---
 
@@ -57,7 +57,7 @@ Minimal, structured, reflective, unforced. The interface should feel like a care
 
 **Primary Style:** Minimal editorial archive.
 
-The design should provide strong information architecture and quiet visual hierarchy. It should make browsing feel open and calm, with enough structure to handle many artifact types over time.
+The design should provide strong information architecture and quiet visual hierarchy. It should make browsing feel open and calm, with enough structure to handle many entry types over time.
 
 **Characteristics:**
 
@@ -73,7 +73,7 @@ The design should provide strong information architecture and quiet visual hiera
 
 **Aesthetic:** Restrained, personal, and systematic.
 
-The site should avoid one-note trend palettes and heavy visual effects. It can have personality through typography, spacing, layout rhythm, artifact presentation, and editorial detail rather than loud color or illustration.
+The site should avoid one-note trend palettes and heavy visual effects. It can have personality through typography, spacing, layout rhythm, entry presentation, and editorial detail rather than loud color or illustration.
 
 ---
 
@@ -81,7 +81,7 @@ The site should avoid one-note trend palettes and heavy visual effects. It can h
 
 ### Color Strategy
 
-Use a neutral foundation with limited accent colors tied to navigation, tags, or artifact status. The palette should not make one domain feel like the "main" identity.
+Use a neutral foundation with limited accent colors tied to navigation, tags, or entry status. The palette should not make one domain feel like the "main" identity.
 
 ### Palette Direction
 
@@ -103,14 +103,14 @@ Use a neutral foundation with limited accent colors tied to navigation, tags, or
 
 ### Type Approach
 
-Typography should carry much of the site's personality. Use a readable body face for Notes and artifact descriptions, paired with a clear UI/meta treatment for tags, dates, and navigation.
+Typography should carry much of the site's personality. Use a readable body face for Notes and entry descriptions, paired with a clear UI/meta treatment for tags, dates, and navigation.
 
 ### Font Direction
 
 | Role | Style | Examples | Rationale |
 |------|-------|----------|-----------|
 | **Headlines** | Editorial serif or distinctive humanist sans | TBD | Adds personal and reflective character without decoration. |
-| **Body** | Highly readable serif or humanist sans | TBD | Supports long-form Notes and artifact pages. |
+| **Body** | Highly readable serif or humanist sans | TBD | Supports long-form Notes and entry pages. |
 | **UI** | Clean sans-serif | TBD | Keeps navigation, metadata, and filters precise. |
 
 ---
@@ -128,7 +128,7 @@ Use archive-native layouts: portals, indexes, timelines, lists, filters, and edi
 | **Home / Portal** | Compact archive entry | Show core routes quickly: Selected, Timeline, Collections, Notes. |
 | **Content Layout** | Lists, metadata rows, readable detail pages | Favor scanability and continuity. |
 | **Navigation** | Persistent, quiet, collection-aware | No oversized CTA. |
-| **Cards/Modules** | Minimal repeated artifact summaries | Cards should not become decorative tiles; preserve metadata clarity. |
+| **Cards/Modules** | Minimal repeated entry summaries | Cards should not become decorative tiles; preserve metadata clarity. |
 
 ---
 
@@ -142,8 +142,8 @@ Effects should be sparse and functional. Use transitions only to clarify interac
 
 | Effect | Usage | Notes |
 |--------|-------|-------|
-| Hover states | Links, artifact rows, filters | Subtle feedback only. |
-| Timeline emphasis | Milestone or highlighted artifacts | Scale, weight, or spacing can show importance without spectacle. |
+| Hover states | Links, entry rows, filters | Subtle feedback only. |
+| Timeline emphasis | Milestone or highlighted entries | Scale, weight, or spacing can show importance without spectacle. |
 | Sticky context | Filters or section navigation | Useful if content grows. |
 
 ---
@@ -152,20 +152,20 @@ Effects should be sparse and functional. Use transitions only to clarify interac
 
 ### Photography Style
 
-Artifact-specific. Images should reveal the real work, object, process, place, or output. Avoid generic stock imagery and purely atmospheric media.
+Entry-specific. Images should reveal the real work, object, process, place, or output. Avoid generic stock imagery and purely atmospheric media.
 
 ### Image Sources
 
 | Type | Source | Notes |
 |------|--------|-------|
-| Project images | Nathan's artifacts | Prefer real screenshots, photos, diagrams, or process images. |
+| Project images | Nathan's entries | Prefer real screenshots, photos, diagrams, or process images. |
 | Notes images | Optional, editorially relevant | Only when they improve comprehension. |
 | Portrait | Optional | Low emphasis; not required for launch. |
 
 ### Image Guidelines
 
 - Images should support inspection and understanding.
-- Do not use decorative imagery as a substitute for real artifacts.
+- Do not use decorative imagery as a substitute for real entries.
 - Keep thumbnails consistent enough for browsing but flexible enough for varied media.
 - Optimize image sizes for performance.
 

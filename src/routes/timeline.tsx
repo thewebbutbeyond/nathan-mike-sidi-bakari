@@ -8,12 +8,12 @@ export const Route = createFileRoute("/timeline")({
       { title: "Timeline · Nathan Mike Sidi Bakari" },
       {
         name: "description",
-        content: "All artifacts in chronological order.",
+        content: "All entries in chronological order.",
       },
       { property: "og:title", content: "Timeline · Nathan Mike Sidi Bakari" },
       {
         property: "og:description",
-        content: "All artifacts in chronological order.",
+        content: "All entries in chronological order.",
       },
     ],
   }),
@@ -55,7 +55,7 @@ function TimelinePage() {
                     className="border-b border-rule border-dotted last:border-b-0"
                   >
                     <Link
-                      to="/artifacts/$slug"
+                      to="/entries/$slug"
                       params={{ slug: a.slug }}
                       className="grid grid-cols-[5rem_1fr] sm:grid-cols-[6rem_1fr] gap-x-4 py-3 px-1 hover:bg-secondary/40 transition-colors"
                     >

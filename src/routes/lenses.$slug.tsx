@@ -1,6 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Container, PageHeader, SiteShell } from "@/components/site-shell";
-import { ArtifactList } from "@/components/artifact-list";
+import { ArtifactList } from "@/components/entry-list";
 import {
   COLLECTIONS,
   type Collection,
@@ -57,7 +57,7 @@ function CollectionDetail() {
           title={meta.label.toLowerCase() + "."}
           description={meta.description}
         />
-        <ArtifactList artifacts={items} />
+        <ArtifactList entries={items} />
       </Container>
     </SiteShell>
   );

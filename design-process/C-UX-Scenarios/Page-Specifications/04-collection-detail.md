@@ -14,28 +14,28 @@
 | **URL** | `/collections/[collection]` |
 | **Primary Keyword** | Collection name plus projects |
 | **Meta Title** | Collection name followed by "Nathan Mike Sidi Bakari" |
-| **Meta Description** | Browse the collection's artifacts with dates, summaries, tags, and related work. |
+| **Meta Description** | Browse the collection's entries with dates, summaries, tags, and related work. |
 | **Structured Data** | `CollectionPage` |
 
 ---
 
 ## Overview
 
-**Page Purpose:** Show artifacts within one collection while preserving cross-domain relationships.
+**Page Purpose:** Show entries within one collection while preserving cross-domain relationships.
 
-**User Situation:** A visitor chooses a domain route and wants relevant artifacts with enough metadata to inspect further.
+**User Situation:** A visitor chooses a domain route and wants relevant entries with enough metadata to inspect further.
 
-**Success Criteria:** The visitor finds a representative artifact and understands that artifacts can cross collection boundaries.
+**Success Criteria:** The visitor finds a representative entry and understands that entries can cross collection boundaries.
 
 **Entry Points:**
 
 - Collections.
-- Artifact collection links.
+- Entry collection links.
 - Direct route.
 
 **Exit Points:**
 
-- Artifact Detail.
+- Entry Detail.
 - Other Collection Detail pages.
 - Timeline.
 
@@ -51,16 +51,16 @@
 |--------|----|-----------|--------------------|
 | Title | `collection-title` | H1 | Collection name |
 | Description | `collection-description` | Body text | Domain-specific explanation |
-| Count | `collection-count` | Metadata | Number of artifacts |
+| Count | `collection-count` | Metadata | Number of entries |
 
-### Section: Artifact List
+### Section: Entry List
 
-**OBJECT ID:** `collection-artifact-list`
+**OBJECT ID:** `collection-entry-list`
 
 | Object | ID | Component | Content / Behavior |
 |--------|----|-----------|--------------------|
 | Filter row | `collection-filter-row` | Filter controls | Optional tag/type filters |
-| Artifact rows | `collection-artifact-rows` | Artifact list | Date, title, type, summary, tags |
+| Entry rows | `collection-entry-rows` | Entry list | Date, title, type, summary, tags |
 
 ### Section: Cross-Collection Links
 
@@ -79,10 +79,10 @@
 | `collection-header` | Section | Collection detail heading |
 | `collection-title` | Heading | Active collection name |
 | `collection-description` | Text | Domain-specific collection explanation |
-| `collection-count` | Metadata | Artifact count |
-| `collection-artifact-list` | Section | Artifact list section |
+| `collection-count` | Metadata | Entry count |
+| `collection-entry-list` | Section | Entry list section |
 | `collection-filter-row` | Controls | Optional tag/type filters |
-| `collection-artifact-rows` | List | Artifact rows |
+| `collection-entry-rows` | List | Entry rows |
 | `collection-cross-links` | Section | Cross-collection navigation |
 | `collection-related-collections` | Link list | Related collections |
 
@@ -96,7 +96,7 @@
 +----------------------------+
 | Filter row                  |
 +----------------------------+
-| Artifact list               |
+| Entry list               |
 +----------------------------+
 | Related collections         |
 +----------------------------+
@@ -112,7 +112,7 @@
 | List row gap | `space-md` |
 | Header gap | `space-sm` |
 | Title | `text-3xl` |
-| Artifact title | `text-lg` |
+| Entry title | `text-lg` |
 | Metadata | `text-sm` |
 
 ---
@@ -121,8 +121,8 @@
 
 | State | When | Appearance | Actions |
 |-------|------|------------|---------|
-| Default | Artifacts exist | List with metadata | Open artifact |
-| Empty | No artifacts | "No artifacts here yet." | Return to Collections |
+| Default | Entries exist | List with metadata | Open entry |
+| Empty | No entries | "No entries here yet." | Return to Collections |
 | Filtered empty | Filter has no matches | Plain empty message | Clear filter |
 
 ---
@@ -131,7 +131,7 @@
 
 - Suggested route: `/collections/[collection]`.
 - Filters are optional for MVP if content volume is small.
-- Collection membership derives from artifact metadata.
+- Collection membership derives from entry metadata.
 
 ---
 

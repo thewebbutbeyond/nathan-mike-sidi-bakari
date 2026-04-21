@@ -39,7 +39,7 @@
 - Timeline.
 - Collections.
 - Notes.
-- Artifact Detail via featured entries.
+- Entry Detail via featured entries.
 
 ---
 
@@ -53,7 +53,7 @@
 +------------------------------------------------+
 | Primary Routes: Selected / Timeline / Collections / Notes |
 +------------------------------------------------+
-| Recent or Milestone Artifacts                   |
+| Recent or Milestone Entries                   |
 +------------------------------------------------+
 | Notes Preview + RSS affordance                  |
 +------------------------------------------------+
@@ -96,14 +96,14 @@
 | Collections route | `home-route-collections` | Route card | Opens Collections |
 | Notes route | `home-route-notes` | Route card | Opens Notes |
 
-### Section: Recent or Milestone Artifacts
+### Section: Recent or Milestone Entries
 
-**OBJECT ID:** `home-artifact-preview`
+**OBJECT ID:** `home-entry-preview`
 
 | Object | ID | Component | Content / Behavior |
 |--------|----|-----------|--------------------|
-| Section heading | `home-artifact-preview-heading` | H2 | "Recent and milestone artifacts" |
-| Artifact list | `home-artifact-preview-list` | Artifact list | Shows date, type, collections, summary |
+| Section heading | `home-entry-preview-heading` | H2 | "Recent and milestone entries" |
+| Entry list | `home-entry-preview-list` | Entry list | Shows date, type, collections, summary |
 
 ### Section: Notes Preview
 
@@ -134,9 +134,9 @@
 | `home-route-timeline` | Route card | Opens Timeline |
 | `home-route-collections` | Route card | Opens Collections |
 | `home-route-notes` | Route card | Opens Notes |
-| `home-artifact-preview` | Section | Recent or milestone artifact preview |
-| `home-artifact-preview-heading` | Heading | Preview section heading |
-| `home-artifact-preview-list` | List | Artifact teaser list |
+| `home-entry-preview` | Section | Recent or milestone entry preview |
+| `home-entry-preview-heading` | Heading | Preview section heading |
+| `home-entry-preview-list` | List | Entry teaser list |
 | `home-notes-preview` | Section | Notes teaser section |
 | `home-notes-heading` | Heading | Notes section heading |
 | `home-notes-list` | List | Latest note teasers |
@@ -164,7 +164,7 @@ Use [Design Tokens](../../D-Design-System/01-design-tokens.md).
 | State | When | Appearance | Actions |
 |-------|------|------------|---------|
 | Default | Content exists | Full route and preview layout | Navigate to route |
-| Empty archive | No artifacts yet | Routes remain; preview says "No artifacts yet." | Navigate to Notes or About |
+| Empty archive | No entries yet | Routes remain; preview says "No entries yet." | Navigate to Notes or About |
 | Loading | Static build or data hydration | Minimal skeleton rows | None |
 | Error | Content index fails | Plain message: "Archive index is unavailable." | Retry or navigate |
 
@@ -175,7 +175,7 @@ Use [Design Tokens](../../D-Design-System/01-design-tokens.md).
 - Root route: `/`.
 - Keep route cards semantic links.
 - Do not use a marketing hero or CTA button as the primary structure.
-- Home previews should derive from the same artifact index as Timeline and Collections.
+- Home previews should derive from the same entry index as Timeline and Collections.
 
 ---
 

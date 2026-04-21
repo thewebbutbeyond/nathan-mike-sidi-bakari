@@ -25,7 +25,7 @@ Use `main` as the stable planning and release coordination branch. Use short-liv
 
 ## Workflow
 
-1. Keep WDS artifacts and `.lovable/plan.md` on `main`.
+1. Keep WDS entries and `.lovable/plan.md` on `main`.
 2. Create one prototype branch per visual direction.
 3. Let Lovable generate a complete visual prototype on that branch.
 4. Compare branches for visual feel, information architecture, and maintainability.

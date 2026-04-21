@@ -1,22 +1,22 @@
 import { Link } from "@tanstack/react-router";
 import { Tag } from "@/components/site-shell";
-import { type Artifact, formatDate } from "@/content/data";
+import { type Entry, formatDate } from "@/content/data";
 
-export function ArtifactList({ artifacts }: { artifacts: Artifact[] }) {
-  if (artifacts.length === 0) {
+export function ArtifactList({ entries }: { entries: Entry[] }) {
+  if (entries.length === 0) {
     return (
       <div className="border-t border-rule">
-        <p className="px-1 py-8 text-sm text-ink-soft">No artifacts yet.</p>
+        <p className="px-1 py-8 text-sm text-ink-soft">No entries yet.</p>
       </div>
     );
   }
 
   return (
     <ul className="border-t border-rule">
-      {artifacts.map((a) => (
+      {entries.map((a) => (
         <li key={a.slug} className="border-b border-rule">
           <Link
-            to="/artifacts/$slug"
+            to="/entries/$slug"
             params={{ slug: a.slug }}
             className="block px-1 py-4 hover:bg-secondary/40 transition-colors"
           >
