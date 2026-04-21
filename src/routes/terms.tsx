@@ -24,7 +24,7 @@ const TEXT = `This is a personal site. The content here is shared in good faith 
 
 All written content, drawings, photographs, and original media on this site are © Nathan Mike Sidi Bakari unless otherwise stated. You may quote short excerpts for non-commercial use with a clear link back to the original page. For anything more substantial, please ask first via the contact page.
 
-Code samples shared on the site, or in linked repositories, are licensed under their respective open-source licences. Where no licence is stated, treat the code as "all rights reserved" and ask before reuse.
+Code samples shared on the site, or in linked repositories, are licensed under their respective open-source licences. Where no licence is stated, treat the code as "all rights reserved" and please ask before reuse.
 
 Some entries describe past projects, companies, or investments. They reflect my recollection at the time of writing and should not be read as current statements of fact, financial advice, or representations on behalf of any other party.
 
