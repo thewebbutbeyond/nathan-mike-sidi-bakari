@@ -1,5 +1,5 @@
 # generated: 2026-04-21T21:48:59Z
-# last_updated: 2026-04-22T03:27:00Z
+# last_updated: 2026-04-22T03:36:00Z
 # project: nathansidib
 # project_key: NOKEY
 # tracking_system: file-system
@@ -24,7 +24,7 @@
 #   - done: Retrospective has been completed
 
 generated: 2026-04-21T21:48:59Z
-last_updated: 2026-04-22T03:27:00Z
+last_updated: 2026-04-22T03:36:00Z
 project: nathansidib
 project_key: NOKEY
 tracking_system: file-system
@@ -62,9 +62,9 @@ development_status:
   # Epic 3 Retrospective
   epic-3-retrospective: done
   # Timeline, Lenses, and Search Discovery
-  epic-4: backlog
+  epic-4: in-progress
   # Harden Timeline Browsing
-  4-1-harden-timeline-browsing: backlog
+  4-1-harden-timeline-browsing: ready-for-dev
   # Harden Lens Browsing
   4-2-harden-lens-browsing: backlog
   # Stabilize Search Palette
