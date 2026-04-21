@@ -1,6 +1,6 @@
 # Story 2.3: Harden Chefs-d'oeuvre Entry Path
 
-Status: ready-for-dev
+Status: review
 
 ## Story
 
@@ -17,27 +17,27 @@ so that I can get a strong first impression without browsing the whole archive.
 
 ## Tasks / Subtasks
 
-- [ ] Inspect current chefs-d'oeuvre path. (AC: 1-4)
-  - [ ] Confirm current filtering uses the `chefDoeuvre` marker.
-  - [ ] Confirm listed entries use `EntryList` and link to entry details.
-  - [ ] Identify copy that may frame marked entries as trophies rather than entry points.
-  - [ ] Identify whether empty state is specific enough for this route.
-- [ ] Refine chefs-d'oeuvre page copy. (AC: 3)
-  - [ ] Keep the route label and slug unchanged.
-  - [ ] Present chefs-d'oeuvre as marked entries from the timeline.
-  - [ ] Avoid trophy-case or portfolio language.
-- [ ] Add route-specific empty state. (AC: 4)
-  - [ ] Extend `EntryList` or page usage to support a route-specific empty message.
-  - [ ] Use quiet empty-state copy for no marked entries.
-  - [ ] Avoid changing default empty behavior for other entry lists unless intentional.
-- [ ] Verify route behavior and baseline checks. (AC: 1-4)
-  - [ ] Run `npm run validate:shell`.
-  - [ ] Run `npm run lint`.
-  - [ ] Run `npm run build`.
-- [ ] Update story and sprint tracking. (AC: 1-4)
-  - [ ] Mark this story `review` after checks pass.
-  - [ ] Update sprint status to `review`.
-  - [ ] Record command results and warnings in Dev Agent Record.
+- [x] Inspect current chefs-d'oeuvre path. (AC: 1-4)
+  - [x] Confirm current filtering uses the `chefDoeuvre` marker.
+  - [x] Confirm listed entries use `EntryList` and link to entry details.
+  - [x] Identify copy that may frame marked entries as trophies rather than entry points.
+  - [x] Identify whether empty state is specific enough for this route.
+- [x] Refine chefs-d'oeuvre page copy. (AC: 3)
+  - [x] Keep the route label and slug unchanged.
+  - [x] Present chefs-d'oeuvre as marked entries from the timeline.
+  - [x] Avoid trophy-case or portfolio language.
+- [x] Add route-specific empty state. (AC: 4)
+  - [x] Extend `EntryList` or page usage to support a route-specific empty message.
+  - [x] Use quiet empty-state copy for no marked entries.
+  - [x] Avoid changing default empty behavior for other entry lists unless intentional.
+- [x] Verify route behavior and baseline checks. (AC: 1-4)
+  - [x] Run `npm run validate:shell`.
+  - [x] Run `npm run lint`.
+  - [x] Run `npm run build`.
+- [x] Update story and sprint tracking. (AC: 1-4)
+  - [x] Mark this story `review` after checks pass.
+  - [x] Update sprint status to `review`.
+  - [x] Record command results and warnings in Dev Agent Record.
 
 ## Dev Notes
 
@@ -78,21 +78,30 @@ Known non-blocking warnings:
 
 ### Agent Model Used
 
-TBD by implementing agent.
+GPT-5.4
 
 ### Debug Log References
 
-TBD.
+- `npm run validate:shell` passed.
+- `npm run lint` passed with 7 non-blocking `react-refresh/only-export-components` warnings.
+- `npm run build` passed with the existing Vite large chunk warning.
 
 ### Completion Notes List
 
-TBD.
+- Confirmed the chefs-d'oeuvre page filters entries with the `chefDoeuvre` marker.
+- Reframed page metadata and copy around marked entries from the timeline.
+- Preserved route slug and label.
+- Added optional `emptyMessage` support to `EntryList`.
+- Added a chefs-d'oeuvre-specific empty state: "No marked entries yet. The full timeline is still open."
+- Left default `EntryList` empty behavior unchanged for other pages.
 
 ### File List
-
-Expected files touched:
 
 - `src/routes/chefs-doeuvre.tsx`
 - `src/components/entry-list.tsx`
 - `_bmad-output/implementation-artifacts/2-3-harden-chefs-d-oeuvre-entry-path.md`
 - `_bmad-output/implementation-artifacts/sprint-status.yaml`
+
+### Change Log
+
+- 2026-04-22: Hardened chefs-d'oeuvre marked-entry copy and empty state, verified shell/lint/build, and moved story to review.

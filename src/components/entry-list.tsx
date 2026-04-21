@@ -2,11 +2,19 @@ import { Link } from "@tanstack/react-router";
 import { Tag } from "@/components/site-shell";
 import { type Entry, formatDate, lensLabels } from "@/content/data";
 
-export function EntryList({ entries, from = "" }: { entries: Entry[]; from?: string }) {
+export function EntryList({
+  entries,
+  from = "",
+  emptyMessage = "No entries yet.",
+}: {
+  entries: Entry[];
+  from?: string;
+  emptyMessage?: string;
+}) {
   if (entries.length === 0) {
     return (
       <div className="border-t border-rule">
-        <p className="px-1 py-8 text-sm text-ink-soft">No entries yet.</p>
+        <p className="px-1 py-8 text-sm text-ink-soft">{emptyMessage}</p>
       </div>
     );
   }

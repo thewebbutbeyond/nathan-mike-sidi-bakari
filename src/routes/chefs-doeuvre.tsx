@@ -9,12 +9,12 @@ export const Route = createFileRoute("/chefs-doeuvre")({
       { title: "Chefs-d’œuvre · Nathan Mike Sidi Bakari" },
       {
         name: "description",
-        content: "A handful of marked entries. The shortest way into the archive.",
+        content: "Marked entries from the timeline. A compact first way into the archive.",
       },
       { property: "og:title", content: "Chefs-d’œuvre · Nathan Mike Sidi Bakari" },
       {
         property: "og:description",
-        content: "A handful of marked entries. The shortest way into the archive.",
+        content: "Marked entries from the timeline. A compact first way into the archive.",
       },
     ],
   }),
@@ -29,10 +29,14 @@ function ChefsDoeuvrePage() {
       <Container>
         <PageHeader
           eyebrow="chefs-d’œuvre"
-          title="A handful of marked entries."
-          description="A small set of pieces I’d hand someone if they only had ten minutes."
+          title="Marked entries from the timeline."
+          description="A compact first way into the archive: pieces that show a useful cross-section of the work, notes, and traces kept here."
         />
-        <EntryList entries={items} from="chefs-doeuvre" />
+        <EntryList
+          entries={items}
+          from="chefs-doeuvre"
+          emptyMessage="No marked entries yet. The full timeline is still open."
+        />
       </Container>
     </SiteShell>
   );
