@@ -26,7 +26,7 @@ function ContactPage() {
       <NarrowContainer>
         <div className="text-xs text-ink-faint mb-3 tracking-wide">contact</div>
         <h1 className="text-2xl sm:text-[1.7rem] font-medium tracking-tight text-ink leading-tight mb-6">
-          If something here overlaps with something you care about.
+          If you want to reach out.
         </h1>
         <p className="text-sm text-ink-soft leading-relaxed max-w-prose mb-10">
           Messages are more than welcome.
