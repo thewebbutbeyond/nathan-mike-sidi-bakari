@@ -8,6 +8,7 @@ import {
   Tag,
 } from "@/components/site-shell";
 import { ARTIFACTS, type Artifact, type Collection, formatDate, getArtifact } from "@/content/data";
+import { ArtifactMosaic } from "@/components/artifact-mosaic";
 
 export const Route = createFileRoute("/artifacts/$slug")({
   loader: ({ params }) => {
@@ -122,6 +123,8 @@ function ArtifactDetail() {
         </dl>
 
         <Prose text={a.body} />
+
+        <ArtifactMosaic seed={a.slug} />
 
         {related.length > 0 && (
           <section className="mt-12 pt-6 border-t border-rule">
