@@ -16,6 +16,7 @@ import {
   type Collection,
   formatDate,
   getEntry,
+  lensLabel,
   sortedEntries,
 } from "@/content/data";
 import { EntryMosaic } from "@/components/entry-mosaic";
@@ -145,7 +146,7 @@ function EntryDetail() {
           <MetaRow label="type">{a.type}</MetaRow>
           <MetaRow label="status">{a.status}</MetaRow>
           <MetaRow label="date">{formatDate(a.date)}</MetaRow>
-          <MetaRow label="collections">
+          <MetaRow label="lenses">
             <span className="flex flex-wrap gap-x-3">
               {a.collections.map((c: Collection) => (
                 <Link
@@ -154,7 +155,7 @@ function EntryDetail() {
                   params={{ slug: c }}
                   className="hover:underline underline-offset-4"
                 >
-                  {c}
+                  {lensLabel(c)}
                 </Link>
               ))}
             </span>

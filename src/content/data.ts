@@ -359,3 +359,12 @@ export function sortedEntries() {
 export function sortedNotes() {
   return [...NOTES].sort((a, b) => b.date.localeCompare(a.date));
 }
+
+export function lensLabel(slug: Collection): string {
+  return COLLECTIONS.find((c) => c.slug === slug)?.label ?? slug;
+}
+
+export function lensLabels(slugs: Collection[]): string[] {
+  return slugs.map(lensLabel);
+}
+
