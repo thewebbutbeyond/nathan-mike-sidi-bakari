@@ -28,6 +28,24 @@ Recommended next build workflow after design handoff:
 
 | Document | Status |
 |----------|--------|
-| Development delivery package | Not started |
-| Acceptance criteria | Not started |
+| [DD-001 Archive Platform Foundation](./deliveries/DD-001-archive-platform.yaml) | Ready |
+| [TS-001 Archive Platform Foundation Testing](./test-scenarios/TS-001-archive-platform.yaml) | Ready |
 | Build verification notes | Not started |
+
+---
+
+## Handoff Summary
+
+**Delivery:** DD-001 Archive Platform Foundation  
+**Status:** Ready for implementation planning  
+**Scope:** Public archive foundation pages, artifact model, collections, timeline, selected entries, notes, RSS, about, and contact.  
+**Source Specs:** `../C-UX-Scenarios/Page-Specifications/`  
+**Validation:** `../_progress/validation-report.md` reports pass with minor handoff notes.
+
+### Implementation Guardrails
+
+- Build the content model before visual polish.
+- Keep the site archive-first, not conversion-first.
+- Generate Timeline, Collections, Selected, and Artifact Detail from the same artifact data.
+- Keep Contact low-emphasis.
+- Defer search, analytics, and CMS until proven necessary.

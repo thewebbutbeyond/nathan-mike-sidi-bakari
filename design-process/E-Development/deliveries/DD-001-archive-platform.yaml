@@ -1,0 +1,177 @@
+delivery:
+  id: "DD-001"
+  name: "Archive Platform Foundation"
+  type: "user_flow"
+  status: "ready"
+  priority: "high"
+  created_by: "wds-ux-design"
+  created_at: "2026-04-21T00:00:00Z"
+  updated_at: "2026-04-21T00:00:00Z"
+  version: "1.0"
+
+description: |
+  Development-ready design delivery for the personal archive platform.
+  This package covers the reusable public pages needed to browse by
+  identity, time, selected entry points, editorial notes, and low-pressure
+  contact. It preserves the archive-first, non-instrumental direction:
+  the site is a durable trace system, not a conversion-focused portfolio.
+
+user_value:
+  problem: "Personal output is scattered across domains and hard to revisit, browse, or understand over time."
+  solution: "Create a structured web archive with artifacts, collections, timeline, notes, selected entries, and contact."
+  success_criteria:
+    - "Every artifact can be reached through both collection/tag identity and timeline chronology."
+    - "A first-time visitor can understand the archive routes from the Home / Portal."
+    - "Selected entries provide useful entry points without becoming a trophy case."
+    - "Notes are readable as curated editorial pieces and can support RSS."
+    - "Contact remains available but low-emphasis."
+
+design_artifacts:
+  scenarios:
+    - id: "01-orienting-at-the-portal"
+      path: "design-process/C-UX-Scenarios/01-orienting-at-the-portal/01-orienting-at-the-portal.md"
+      screens: ["Home / Portal", "Selected", "Artifact Detail"]
+    - id: "02-tracing-a-domain"
+      path: "design-process/C-UX-Scenarios/02-tracing-a-domain/02-tracing-a-domain.md"
+      screens: ["Collections", "Collection Detail", "Artifact Detail", "Related Artifacts"]
+    - id: "03-following-time"
+      path: "design-process/C-UX-Scenarios/03-following-time/03-following-time.md"
+      screens: ["Home / Portal", "Timeline", "Artifact Detail", "Related Artifacts"]
+    - id: "04-inspecting-an-artifact"
+      path: "design-process/C-UX-Scenarios/04-inspecting-an-artifact/04-inspecting-an-artifact.md"
+      screens: ["Artifact Detail", "Related Artifacts", "Context View"]
+    - id: "05-reading-notes"
+      path: "design-process/C-UX-Scenarios/05-reading-notes/05-reading-notes.md"
+      screens: ["Notes Index", "Note Detail", "RSS"]
+    - id: "06-finding-contact"
+      path: "design-process/C-UX-Scenarios/06-finding-contact/06-finding-contact.md"
+      screens: ["Artifact Detail", "About", "Contact"]
+
+  page_specifications:
+    index: "design-process/C-UX-Scenarios/Page-Specifications/00-page-specification-index.md"
+    pages:
+      - "design-process/C-UX-Scenarios/Page-Specifications/01-home-portal.md"
+      - "design-process/C-UX-Scenarios/Page-Specifications/02-artifact-detail.md"
+      - "design-process/C-UX-Scenarios/Page-Specifications/03-collections.md"
+      - "design-process/C-UX-Scenarios/Page-Specifications/04-collection-detail.md"
+      - "design-process/C-UX-Scenarios/Page-Specifications/05-timeline.md"
+      - "design-process/C-UX-Scenarios/Page-Specifications/06-selected.md"
+      - "design-process/C-UX-Scenarios/Page-Specifications/07-notes-index.md"
+      - "design-process/C-UX-Scenarios/Page-Specifications/08-note-detail.md"
+      - "design-process/C-UX-Scenarios/Page-Specifications/09-about.md"
+      - "design-process/C-UX-Scenarios/Page-Specifications/10-contact.md"
+
+  design_system:
+    path: "design-process/D-Design-System/"
+    tokens: "design-process/D-Design-System/01-design-tokens.md"
+    components:
+      - "Navigation list"
+      - "Route card"
+      - "Artifact list"
+      - "Artifact detail renderer"
+      - "Metadata row"
+      - "Tag list"
+      - "Timeline list"
+      - "Note list"
+      - "Rich text/prose renderer"
+      - "Quiet text link"
+
+technical_requirements:
+  platform:
+    frontend: "Next.js / React"
+    styling: "Tailwind CSS"
+    content: "File-based Markdown/MDX or structured content files"
+    backend: "None required for launch"
+
+  integrations:
+    - name: "RSS"
+      purpose: "Optional following for Notes / Thoughts"
+      required: true
+    - name: "Email contact"
+      purpose: "Low-emphasis contact for genuine intersections of interest"
+      required: true
+    - name: "Search"
+      purpose: "Archive retrieval when content volume grows"
+      required: false
+
+  data_models:
+    - name: "Artifact"
+      fields:
+        - "title"
+        - "slug"
+        - "date"
+        - "type"
+        - "summary"
+        - "collections"
+        - "tags"
+        - "status"
+        - "milestone"
+        - "links"
+        - "related"
+    - name: "Note"
+      fields:
+        - "title"
+        - "slug"
+        - "date"
+        - "summary"
+        - "tags"
+        - "body"
+        - "related"
+    - name: "Collection"
+      fields:
+        - "slug"
+        - "name"
+        - "description"
+        - "artifactCount"
+
+acceptance_criteria:
+  functional:
+    - "Home / Portal exposes Selected, Timeline, Collections, and Notes."
+    - "Artifact Detail renders metadata, summary, context, links, tags, collections, and related artifacts."
+    - "Collections index exposes Engineer, Entrepreneur, Investor, and Artist routes."
+    - "Collection Detail lists artifacts derived from collection metadata."
+    - "Timeline aggregates artifacts by date and supports milestone emphasis."
+    - "Selected lists manually curated entry artifacts."
+    - "Notes Index lists curated notes and exposes RSS."
+    - "Note Detail renders readable long-form content and related links."
+    - "About provides minimal identity context."
+    - "Contact provides a low-emphasis contact method."
+
+  non_functional:
+    - "Responsive public web experience across mobile and desktop."
+    - "Semantic HTML and accessible link text."
+    - "No conversion-first copy or dominant CTA."
+    - "Page metadata and structured data are implemented per page spec."
+    - "Core pages load quickly as static or mostly static content."
+
+  edge_cases:
+    - "No artifacts yet -> show plain empty archive states without hiding navigation."
+    - "Collection has no artifacts -> keep route visible and show a quiet empty state."
+    - "Artifact has no media -> omit media area while preserving body and metadata."
+    - "Missing note/artifact slug -> show plain not-found state with return route."
+    - "RSS unavailable during early implementation -> document as known gap or ship feed before release."
+
+testing_guidance:
+  user_testing:
+    - "Ask a first-time visitor to explain what the site is from the Home / Portal."
+    - "Ask a visitor to find work by collection and by timeline."
+    - "Ask a visitor to find a note and identify whether RSS is available."
+
+  qa_testing:
+    - "Verify all page routes render."
+    - "Verify artifact data appears consistently across Home, Selected, Timeline, Collections, and Artifact Detail."
+    - "Verify markdown links and route links are not broken."
+    - "Verify metadata and structured data are present for public pages."
+    - "Verify keyboard navigation reaches all primary links."
+
+estimated_complexity:
+  size: "medium"
+  effort: "1-2 weeks for static MVP"
+  risk: "medium"
+  dependencies: []
+
+notes: |
+  Keep implementation aligned with the validated WDS docs. The design
+  deliberately avoids a marketing-style portfolio funnel. Build the content
+  model first, then derive pages from it. Search, analytics, and CMS features
+  are deferred until content volume or maintenance pain proves the need.

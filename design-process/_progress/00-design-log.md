@@ -16,7 +16,7 @@
 - [x] Create page specifications - Phase 4
 - [x] Validate page specifications - Phase 4
 - [x] Fix page specification validation issues - Phase 4
-- [ ] Package design delivery - Phase 4
+- [x] Package design delivery - Phase 4
 - [ ] Build and verify the website - Phase 5
 
 ---
@@ -25,7 +25,7 @@
 
 | Task | Started | Agent |
 |------|---------|-------|
-| Phase 4 Design Delivery Packaging | 2026-04-21 | Freya |
+| Phase 5 Agentic Development | 2026-04-21 | Codex / OMX |
 
 **Rules:** Mark what you start. Complete it when done (move to Log). One task at a time per agent.
 
@@ -117,6 +117,13 @@
 - Re-ran validation checks: metadata fields present, object registry coverage 100%, local links valid, no placeholders found
 - Updated `_progress/validation-report.md` to Pass with minor handoff notes
 - Next: package design delivery
+
+### 2026-04-21 - Design delivery packaged (Phase 4)
+- Created `E-Development/deliveries/DD-001-archive-platform.yaml`
+- Created `E-Development/test-scenarios/TS-001-archive-platform.yaml`
+- Updated `E-Development/00-development-handoff.md`
+- Delivery status: ready for implementation planning
+- Next: Phase 5 Agentic Development
 
 ---
 

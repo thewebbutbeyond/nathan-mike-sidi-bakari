@@ -1,0 +1,195 @@
+test_scenario:
+  id: "TS-001"
+  name: "Archive Platform Foundation Testing"
+  delivery_id: "DD-001"
+  type: "user_acceptance"
+  status: "ready"
+  tester: "designer_qa_developer"
+  created_at: "2026-04-21T00:00:00Z"
+
+test_objectives:
+  - "Validate implementation matches the validated page specifications."
+  - "Verify the archive can be browsed by identity and time."
+  - "Confirm artifact pages preserve context, metadata, and related links."
+  - "Ensure Notes support editorial reading and RSS follow behavior."
+  - "Ensure Contact remains low-emphasis."
+
+test_environment:
+  devices:
+    - "Desktop browser"
+    - "Mobile browser"
+  test_data:
+    - "At least 4 artifacts across Engineer, Entrepreneur, Investor, and Artist"
+    - "At least 1 artifact with multiple collection memberships"
+    - "At least 1 milestone artifact"
+    - "At least 2 notes"
+    - "At least 1 related artifact link"
+
+happy_path:
+  - id: "HP-001"
+    name: "Orienting at the Portal"
+    priority: "critical"
+    steps:
+      - action: "Open the Home / Portal."
+        expected: "Selected, Timeline, Collections, and Notes routes are visible without a dominant CTA."
+        design_ref: "design-process/C-UX-Scenarios/Page-Specifications/01-home-portal.md"
+      - action: "Open Selected."
+        expected: "A small curated set of artifacts is shown as entry points."
+        design_ref: "design-process/C-UX-Scenarios/Page-Specifications/06-selected.md"
+      - action: "Open a selected artifact."
+        expected: "Artifact metadata, summary, context, and related paths are visible."
+        design_ref: "design-process/C-UX-Scenarios/Page-Specifications/02-artifact-detail.md"
+    success_criteria:
+      - "Visitor can explain the site as an archive."
+      - "Visitor reaches one artifact in three steps."
+
+  - id: "HP-002"
+    name: "Tracing a Domain"
+    priority: "critical"
+    steps:
+      - action: "Open Collections."
+        expected: "Engineer, Entrepreneur, Investor, and Artist routes are visible."
+        design_ref: "design-process/C-UX-Scenarios/Page-Specifications/03-collections.md"
+      - action: "Open one collection."
+        expected: "Relevant artifacts list with dates, types, summaries, and tags."
+        design_ref: "design-process/C-UX-Scenarios/Page-Specifications/04-collection-detail.md"
+      - action: "Open a related artifact."
+        expected: "Artifact can expose cross-domain membership."
+        design_ref: "design-process/C-UX-Scenarios/Page-Specifications/02-artifact-detail.md"
+    success_criteria:
+      - "Artifacts can be found by identity route."
+      - "Multi-membership is visible when present."
+
+  - id: "HP-003"
+    name: "Following Time"
+    priority: "critical"
+    steps:
+      - action: "Open Timeline."
+        expected: "Artifacts are grouped or ordered chronologically."
+        design_ref: "design-process/C-UX-Scenarios/Page-Specifications/05-timeline.md"
+      - action: "Open a milestone artifact."
+        expected: "Artifact detail preserves date, context, and related links."
+        design_ref: "design-process/C-UX-Scenarios/Page-Specifications/02-artifact-detail.md"
+    success_criteria:
+      - "Visitor can browse by chronology."
+      - "Milestone emphasis is visible but restrained."
+
+  - id: "HP-004"
+    name: "Reading Notes"
+    priority: "high"
+    steps:
+      - action: "Open Notes."
+        expected: "Editorial notes list shows dates and summaries."
+        design_ref: "design-process/C-UX-Scenarios/Page-Specifications/07-notes-index.md"
+      - action: "Open a note."
+        expected: "Long-form note is readable and uncluttered."
+        design_ref: "design-process/C-UX-Scenarios/Page-Specifications/08-note-detail.md"
+      - action: "Find RSS."
+        expected: "RSS is available as an optional follow route."
+        design_ref: "design-process/C-UX-Scenarios/Page-Specifications/07-notes-index.md"
+    success_criteria:
+      - "Visitor can read a complete note."
+      - "RSS availability is discoverable without being pushed."
+
+  - id: "HP-005"
+    name: "Finding Contact"
+    priority: "medium"
+    steps:
+      - action: "Open About from an artifact or nav."
+        expected: "Minimal identity context appears without personal-brand exaggeration."
+        design_ref: "design-process/C-UX-Scenarios/Page-Specifications/09-about.md"
+      - action: "Open Contact."
+        expected: "A low-emphasis contact method is available."
+        design_ref: "design-process/C-UX-Scenarios/Page-Specifications/10-contact.md"
+    success_criteria:
+      - "Visitor can contact Nathan if a genuine intersection exists."
+      - "Contact does not dominate the experience."
+
+error_states:
+  - id: "ES-001"
+    name: "Missing Artifact"
+    priority: "high"
+    steps:
+      - action: "Open an invalid artifact slug."
+      - expected: "Plain missing-artifact state with return route to Timeline."
+      - design_ref: "design-process/C-UX-Scenarios/Page-Specifications/02-artifact-detail.md#page-states"
+
+  - id: "ES-002"
+    name: "Empty Collection"
+    priority: "medium"
+    steps:
+      - action: "Open a collection with no artifacts."
+      - expected: "Quiet empty state with route back to Collections."
+      - design_ref: "design-process/C-UX-Scenarios/Page-Specifications/04-collection-detail.md#page-states"
+
+edge_cases:
+  - id: "EC-001"
+    name: "Artifact Without Media"
+    priority: "medium"
+    steps:
+      - action: "Open artifact with no media."
+      - expected: "Media block is omitted; body, metadata, and related links remain."
+      - design_ref: "design-process/C-UX-Scenarios/Page-Specifications/02-artifact-detail.md#page-states"
+
+  - id: "EC-002"
+    name: "No Notes Yet"
+    priority: "low"
+    steps:
+      - action: "Open Notes when no notes exist."
+      - expected: "Plain empty state: No notes here yet."
+      - design_ref: "design-process/C-UX-Scenarios/Page-Specifications/07-notes-index.md#page-states"
+
+design_system_checks:
+  - id: "DS-001"
+    name: "Token Usage"
+    checks:
+      - component: "All pages"
+        instances: ["Page spacing", "Typography", "Metadata"]
+        verify:
+          - "Page specs reference token names from D-Design-System/01-design-tokens.md."
+          - "No page implementation hardcodes arbitrary styling outside the token system."
+        design_ref: "design-process/D-Design-System/01-design-tokens.md"
+
+accessibility:
+  - id: "A11Y-001"
+    name: "Keyboard Navigation"
+    priority: "high"
+    setup: "Use keyboard only."
+    steps:
+      - action: "Tab through Home, Collections, Timeline, Notes, About, and Contact."
+      - verify:
+          - "All primary links receive visible focus."
+          - "Navigation order follows visual order."
+    success_criteria:
+      - "All primary routes are keyboard accessible."
+
+  - id: "A11Y-002"
+    name: "Semantic Structure"
+    priority: "high"
+    setup: "Inspect rendered HTML."
+    steps:
+      - action: "Check headings and landmarks."
+      - verify:
+          - "Each page has one H1."
+          - "Lists, navigation, and main content use semantic elements."
+    success_criteria:
+      - "Screen reader structure matches page intent."
+
+performance:
+  - id: "PERF-001"
+    name: "Static Page Performance"
+    verify:
+      - "Core public routes load quickly on mobile."
+      - "Images are optimized when present."
+      - "No unnecessary client-side work is added for static content."
+    success_criteria:
+      - "Largest Contentful Paint under 2.5 seconds on target deployment."
+      - "Cumulative Layout Shift below 0.1."
+
+sign_off:
+  required_for_approval:
+    - "All critical happy-path tests pass."
+    - "No broken internal links."
+    - "No critical accessibility failures."
+    - "Archive routes preserve non-instrumental language."
+    - "Artifact data is consistent across list and detail views."
