@@ -60,7 +60,7 @@ export const ARTIFACTS: Artifact[] = [
     status: "active",
     summary:
       "Double-entry accounting core rewritten around an append-only event log with deterministic reducers.",
-    body: `The first version drifted under load , reconciliation queries grew linearly with account count and any historical correction required hand-edited migrations. v2 treats every posting as an immutable event and computes balances as a fold over a stable, ordered stream.
+    body: `The first version drifted under load - reconciliation queries grew linearly with account count and any historical correction required hand-edited migrations. v2 treats every posting as an immutable event and computes balances as a fold over a stable, ordered stream.
 
 The win is not performance, though that improved. The win is that auditing becomes trivial: every state at every point in time is a pure function of the log up to that moment. Corrections are new events, never edits. The system became something I trust enough to leave alone.
 
@@ -76,13 +76,13 @@ Built in Rust, with a Postgres LISTEN/NOTIFY layer for downstream consumers. Abo
   },
   {
     slug: "operator-letter-q3-2024",
-    title: "Operator Letter , Q3 2024",
+    title: "Operator Letter - Q3 2024",
     date: "2024-10-08",
     type: "letter",
     status: "archived",
     summary:
       "Quarterly letter to the team covering revenue mix, the decision to sunset the consumer tier, and how we hire under constraint.",
-    body: `Three things this quarter. First, revenue concentration crossed a line I am no longer comfortable with , top three customers, 61%. We are not shifting strategy because of this; we are shifting cadence. Outbound reopens in November.
+    body: `Three things this quarter. First, revenue concentration crossed a line I am no longer comfortable with - top three customers, 61%. We are not shifting strategy because of this; we are shifting cadence. Outbound reopens in November.
 
 Second, the consumer tier. It served its purpose as a discovery channel and we learned what we needed to learn. It will not earn its keep against the focus it costs. We sunset it in stages over Q4 and reissue refunds where appropriate.
 
@@ -99,7 +99,7 @@ Third, hiring. We are still pacing slower than the market expects of a company a
     status: "active",
     summary:
       "A position paper on why the next wave of useful LLM products will be narrow, opinionated, and indistinguishable from internal tools at first.",
-    body: `Horizontal copilots are now table stakes and unprofitable. The interesting surface is narrow workflows , claims adjustment, contract redlining, freight reconciliation , where the model is one component of a system that already has data, users, and a billing relationship.
+    body: `Horizontal copilots are now table stakes and unprofitable. The interesting surface is narrow workflows - claims adjustment, contract redlining, freight reconciliation - where the model is one component of a system that already has data, users, and a billing relationship.
 
 Three patterns I am underwriting: (a) workflow-shaped products that look like internal tools at launch and graduate into platforms; (b) inference-cost arbitrage as a temporary moat that the team must convert into proprietary data within 18 months; (c) regulated verticals where the integration debt is the moat, not the model.
 
@@ -116,10 +116,10 @@ I am not underwriting: foundation model wrappers without a data flywheel, and "A
     type: "essay",
     status: "active",
     summary:
-      "On the discipline of finishing , why I treat the end of a project as a separate, deliberate piece of work.",
+      "On the discipline of finishing - why I treat the end of a project as a separate, deliberate piece of work.",
     body: `Most of what I have abandoned was not abandoned at the start. It was abandoned somewhere between 80% and 95%, in the part of the work that has no momentum and no audience. The work of closing.
 
-Closing is its own skill. It looks like writing the README that makes the thing inheritable, deleting the three branches you will never merge, paying off the small debts you privately know about, and saying out loud , to yourself, in writing , what the thing did and did not do. It is the single most underrated act in a working life.
+Closing is its own skill. It looks like writing the README that makes the thing inheritable, deleting the three branches you will never merge, paying off the small debts you privately know about, and saying out loud - to yourself, in writing - what the thing did and did not do. It is the single most underrated act in a working life.
 
 I now schedule closing the same way I schedule starting. A finished thing, even a small one, compounds. An almost-finished thing decays.`,
     collections: ["engineer", "entrepreneur"],
@@ -164,7 +164,7 @@ Right: hiring slowly in year one, choosing a hard market, refusing to raise a Se
     status: "archived",
     summary:
       "A position taken on payments orchestration at a moment when the category looked crowded and was not.",
-    body: `The pitch I kept hearing in 2023 was that orchestration is a feature, not a category. The pitch was wrong, and the bias underneath it , that infra companies should be "thin" , kept good investors out of a wave they should have caught.
+    body: `The pitch I kept hearing in 2023 was that orchestration is a feature, not a category. The pitch was wrong, and the bias underneath it - that infra companies should be "thin" - kept good investors out of a wave they should have caught.
 
 I wrote a small check into one team in this space in November 2023. The thesis was simple: every additional payment method a merchant adopts converts a one-time integration into a recurring operations cost, and someone is going to absorb that cost professionally.`,
     collections: ["investor"],
@@ -194,7 +194,7 @@ I do not recommend designing your own PCB to save money. I do recommend doing it
       "Twelve risograph prints generated from a small Rust program and printed in a two-color run.",
     body: `The program is twenty pages of Rust and produces deterministic outputs from a seed. I generated about three hundred candidates, selected twelve, and printed them on a borrowed RISO in two colors.
 
-The interesting part was the selection , sitting with the outputs over two weekends and noticing which ones I came back to. Generative work makes the curatorial step legible in a way that drawing does not.`,
+The interesting part was the selection - sitting with the outputs over two weekends and noticing which ones I came back to. Generative work makes the curatorial step legible in a way that drawing does not.`,
     collections: ["artist", "engineer"],
     tags: ["generative", "riso", "rust", "print"],
     selected: true,
@@ -234,7 +234,7 @@ Skipped or abandoned: many. Time spent abandoning a book is time spent honoring 
     status: "in-progress",
     summary:
       "A short guide for the first ten people at a company, written for the people, not the founder.",
-    body: `Most "first ten" advice is written for founders. This is for the people they hire , what to ask in the offer conversation, how to read equity terms without spending money on a lawyer, how to know when to leave.
+    body: `Most "first ten" advice is written for founders. This is for the people they hire - what to ask in the offer conversation, how to read equity terms without spending money on a lawyer, how to know when to leave.
 
 Currently about 9,000 words. I add to it every few months when something I see makes me wish someone had written it down.`,
     collections: ["entrepreneur"],
@@ -251,11 +251,11 @@ export const NOTES: Note[] = [
       "Why I stopped maintaining a portfolio site and started keeping a record instead.",
     readingMinutes: 6,
     tags: ["meta", "writing", "archive"],
-    body: `A portfolio is a sales document. It selects, polishes, and presents , and the selection criterion is, almost always, "this will impress someone." That criterion quietly distorts everything you make. Over enough years, you start picking projects for the portfolio you will eventually write, and the work narrows.
+    body: `A portfolio is a sales document. It selects, polishes, and presents - and the selection criterion is, almost always, "this will impress someone." That criterion quietly distorts everything you make. Over enough years, you start picking projects for the portfolio you will eventually write, and the work narrows.
 
 An archive is different. The criterion for inclusion is just: did this happen, and is it worth keeping a record of? Failures stay. Half-finished work stays. Letters stay. The shape of the record is the shape of the working life, not the shape of the pitch.
 
-I made the switch about a year ago. The first month I felt the absence of the polish , the urge to add a "featured" badge, to crop a screenshot, to write in the marketing voice. I sat with the urge until it passed. What is left is something I can stand behind in ten years, because it is not asking anything of the visitor.
+I made the switch about a year ago. The first month I felt the absence of the polish - the urge to add a "featured" badge, to crop a screenshot, to write in the marketing voice. I sat with the urge until it passed. What is left is something I can stand behind in ten years, because it is not asking anything of the visitor.
 
 The cost is real. An archive does not convert. It does not generate leads, build a personal brand, or perform well on the platforms designed for performance. It accrues, slowly, and it is legible mostly to people who already have a reason to look. That trade is the whole point.`,
   },
@@ -264,14 +264,14 @@ The cost is real. An archive does not convert. It does not generate leads, build
     title: "The cost of context",
     date: "2025-01-18",
     summary:
-      "Notes on why holding several domains in mind at once is expensive , and worth doing anyway.",
+      "Notes on why holding several domains in mind at once is expensive - and worth doing anyway.",
     readingMinutes: 9,
     tags: ["practice", "engineering", "investing"],
     body: `Working across engineering, operating, investing, and a quiet art practice is not a strategy. It is a description of how my attention behaves when left alone. I am not arguing for it. I am noting the cost.
 
 The cost is context. Each domain has its own vocabulary, its own pace, and its own definition of what counts as a good day. Engineering days are long and uninterrupted; investing days are short and conversational; operating days are reactive; drawing days are evening-shaped and small. The taxes of switching are real and not symmetric. A good engineering session destroyed by an investor call is more expensive than the reverse.
 
-What makes it bearable is that the domains are not separate. The engineering taste shows up in how I read a memo. The operating reflexes show up in how I sketch. The drawing practice , and I notice this most , shows up in the patience required to sit with a system before changing it. None of this is a transferable skill in the LinkedIn sense. It is a kind of sediment.
+What makes it bearable is that the domains are not separate. The engineering taste shows up in how I read a memo. The operating reflexes show up in how I sketch. The drawing practice - and I notice this most - shows up in the patience required to sit with a system before changing it. None of this is a transferable skill in the LinkedIn sense. It is a kind of sediment.
 
 I do not recommend it. I am writing this down so that, in the years when the taxes feel highest, I have a record of having chosen it.`,
   },
@@ -285,7 +285,7 @@ I do not recommend it. I am writing this down so that, in the years when the tax
     tags: ["investing", "product", "lessons"],
     body: `One. Read the cap table before the pitch. Not because the cap table predicts the outcome, but because it tells you what the founder has already decided is true about distribution of value, and that is usually load-bearing in a way decks never are. The product analogue: read the schema before the feature spec.
 
-Two. Time-box the diligence. The thing that a fourth meeting reveals is, in my experience, almost never the thing that matters. The decision was usually available after meeting two and the rest is comfort. I now apply this to product calls, too , if I cannot articulate why I am scheduling a third review, I should be making the call instead.
+Two. Time-box the diligence. The thing that a fourth meeting reveals is, in my experience, almost never the thing that matters. The decision was usually available after meeting two and the rest is comfort. I now apply this to product calls, too - if I cannot articulate why I am scheduling a third review, I should be making the call instead.
 
 Three. Underwrite to a story you would defend in five years, not five months. The investments I am proudest of were unfashionable on entry. The features I am proudest of were the same.`,
   },
@@ -297,7 +297,7 @@ Three. Underwrite to a story you would defend in five years, not five months. Th
       "An evening practice that is not productive, not therapeutic, and not for anyone else.",
     readingMinutes: 5,
     tags: ["practice", "drawing", "rest"],
-    body: `I draw most evenings for somewhere between fifteen minutes and an hour. It is not productive , nothing leaves the room. It is not therapeutic , I do not feel processed afterward. It is not for anyone else, because I do not show most of it. It is closer to walking.
+    body: `I draw most evenings for somewhere between fifteen minutes and an hour. It is not productive - nothing leaves the room. It is not therapeutic - I do not feel processed afterward. It is not for anyone else, because I do not show most of it. It is closer to walking.
 
 The thing I get from it is the absence of metrics. There is no count, no streak, no audience, and no improvement curve I am tracking. I sit with a pencil and a small piece of paper for a while, and then I stop. The next day I do it again, or I do not. Both are fine.
 
