@@ -35,14 +35,17 @@ function HomePage() {
   const recent = sortedEntries().slice(0, 6);
   const latestNotes = sortedNotes().slice(0, 3);
 
-  const allDates = ENTRIES.map((a) => a.date).concat(NOTES.map((n) => n.date));
-  const years = new Set(allDates.map((d) => d.slice(0, 4)));
-  const earliest = allDates.sort()[0]?.slice(0, 4) ?? "2017";
+  const contentYears = [...ENTRIES.map((entry) => entry.date), ...NOTES.map((note) => note.date)]
+    .map((date) => date.slice(0, 4))
+    .filter((year) => /^\d{4}$/.test(year))
+    .sort();
+  const years = new Set(contentYears);
+  const earliest = contentYears[0];
 
   const stats = [
     { label: "entries", value: ENTRIES.length },
     { label: "notes", value: NOTES.length },
-    { label: "years", value: years.size, sub: `since ${earliest}` },
+    { label: "years", value: years.size, sub: earliest ? `since ${earliest}` : "not yet" },
   ];
 
   return (
@@ -51,7 +54,7 @@ function HomePage() {
         {/* premise */}
         <section className="mb-10 max-w-2xl">
           <div className="text-xs text-ink-faint mb-4 tracking-wide">
-            personal logbook · kept since {earliest}
+            personal logbook · {earliest ? `kept since ${earliest}` : "newly opened"}
           </div>
           <h1 className="text-xl sm:text-2xl font-medium tracking-tight leading-relaxed text-ink">
             A personal logbook of work, notes, and traces.

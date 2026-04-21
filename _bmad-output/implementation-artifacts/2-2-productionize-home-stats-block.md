@@ -1,6 +1,6 @@
 # Story 2.2: Productionize Home Stats Block
 
-Status: ready-for-dev
+Status: review
 
 ## Story
 
@@ -17,24 +17,24 @@ so that the site feels tangible and browsable.
 
 ## Tasks / Subtasks
 
-- [ ] Inspect current Home / Portal stats implementation. (AC: 1-2)
-  - [ ] Identify how entry count, note count, and year span are derived.
-  - [ ] Identify any hardcoded or misleading fallback values.
-  - [ ] Confirm current stats block layout should remain visually intact.
-- [ ] Extract or harden stats derivation. (AC: 1-4)
-  - [ ] Derive stats from `ENTRIES` and `NOTES`.
-  - [ ] Avoid mutating source date arrays while calculating earliest year.
-  - [ ] Handle empty content without showing a fake start year.
-  - [ ] Preserve current stats block markup and visual rhythm.
-- [ ] Verify stats behavior and route stability. (AC: 1-4)
-  - [ ] Run `npm run validate:shell`.
-  - [ ] Run `npm run lint`.
-  - [ ] Run `npm run build`.
-  - [ ] Confirm `src/routeTree.gen.ts` remains deterministic or commit generated changes.
-- [ ] Update story and sprint tracking. (AC: 1-4)
-  - [ ] Mark this story `review` after checks pass.
-  - [ ] Update sprint status to `review`.
-  - [ ] Record command results and warnings in Dev Agent Record.
+- [x] Inspect current Home / Portal stats implementation. (AC: 1-2)
+  - [x] Identify how entry count, note count, and year span are derived.
+  - [x] Identify any hardcoded or misleading fallback values.
+  - [x] Confirm current stats block layout should remain visually intact.
+- [x] Extract or harden stats derivation. (AC: 1-4)
+  - [x] Derive stats from `ENTRIES` and `NOTES`.
+  - [x] Avoid mutating source date arrays while calculating earliest year.
+  - [x] Handle empty content without showing a fake start year.
+  - [x] Preserve current stats block markup and visual rhythm.
+- [x] Verify stats behavior and route stability. (AC: 1-4)
+  - [x] Run `npm run validate:shell`.
+  - [x] Run `npm run lint`.
+  - [x] Run `npm run build`.
+  - [x] Confirm `src/routeTree.gen.ts` remains deterministic or commit generated changes.
+- [x] Update story and sprint tracking. (AC: 1-4)
+  - [x] Mark this story `review` after checks pass.
+  - [x] Update sprint status to `review`.
+  - [x] Record command results and warnings in Dev Agent Record.
 
 ## Dev Notes
 
@@ -78,15 +78,21 @@ Known non-blocking warnings:
 
 ### Agent Model Used
 
-TBD by implementing agent.
+GPT-5.4
 
 ### Debug Log References
 
-TBD.
+- `npm run validate:shell` passed.
+- `npm run lint` passed with 7 non-blocking `react-refresh/only-export-components` warnings.
+- `npm run build` passed with the existing Vite large chunk warning.
 
 ### Completion Notes List
 
-TBD.
+- Replaced the hardcoded `"2017"` fallback with data-derived date handling.
+- Derived year values from `ENTRIES` and `NOTES` without mutating the local date collection.
+- Preserved the existing three-stat layout and visual rhythm.
+- Empty date data now renders a quiet `"not yet"` stats sublabel and `"newly opened"` premise subcopy rather than a fake start year.
+- `src/routeTree.gen.ts` stayed stable after build.
 
 ### File List
 
@@ -95,3 +101,7 @@ Expected files touched:
 - `src/routes/index.tsx`
 - `_bmad-output/implementation-artifacts/2-2-productionize-home-stats-block.md`
 - `_bmad-output/implementation-artifacts/sprint-status.yaml`
+
+### Change Log
+
+- 2026-04-22: Hardened Home / Portal stats derivation, removed fake fallback year, verified shell/lint/build, and moved story to review.
