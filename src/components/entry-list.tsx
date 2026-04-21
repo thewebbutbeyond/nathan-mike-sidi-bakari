@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Tag } from "@/components/site-shell";
-import { type Entry, formatDate } from "@/content/data";
+import { type Entry, formatDate, lensLabels } from "@/content/data";
 
 export function EntryList({
   entries,
@@ -45,7 +45,7 @@ export function EntryList({
                   <span>·</span>
                   <span>{a.status}</span>
                   <span>·</span>
-                  <span>{a.collections.join(" / ")}</span>
+                  <span>{lensLabels(a.collections).join(" / ")}</span>
                 </div>
                 <p className="mt-1.5 text-xs text-ink-soft leading-relaxed max-w-2xl">
                   {a.summary}

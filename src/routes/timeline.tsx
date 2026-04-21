@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Container, PageHeader, SiteShell, Tag } from "@/components/site-shell";
-import { formatDate, formatYear, sortedEntries } from "@/content/data";
+import { formatDate, formatYear, lensLabels, sortedEntries } from "@/content/data";
 
 export const Route = createFileRoute("/timeline")({
   head: () => ({
@@ -75,7 +75,7 @@ function TimelinePage() {
                         <div className="mt-0.5 text-[11px] text-ink-faint flex items-center gap-2 flex-wrap">
                           <span>{a.type}</span>
                           <span>·</span>
-                          <span>{a.collections.join(" / ")}</span>
+                          <span>{lensLabels(a.collections).join(" / ")}</span>
                           {a.tags.slice(0, 3).map((t) => (
                             <span key={t}>
                               · <Tag>{t}</Tag>
