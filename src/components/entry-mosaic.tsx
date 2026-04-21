@@ -8,43 +8,54 @@ import m5 from "@/assets/mosaic-05.jpg";
 
 const IMAGES = [m1, m2, m3, m4, m5];
 
-// A "tile" is a position in the mosaic grid. We use Tailwind's static class
-// names so the JIT picks them up. Each layout is a 6-column grid; rows are
-// implied by aspect ratio classes per tile.
+// Layouts are defined on a 6-column × N-row grid. Every cell of the rectangle
+// must be filled by exactly one tile (sum of col*row spans = 6 * rows) so the
+// mosaic always resolves to a clean rectangle with no gaps.
 type Tile = { className: string };
-type Layout = Tile[];
+type Layout = { rows: number; tiles: Tile[] };
 
 const LAYOUTS: Layout[] = [
-  // 0 — big-left + two stacked + wide bottom (the original)
-  [
-    { className: "col-span-4 row-span-2 aspect-[4/3]" },
-    { className: "col-span-2 aspect-square" },
-    { className: "col-span-2 aspect-square" },
-    { className: "col-span-6 aspect-[16/7]" },
-  ],
-  // 1 — three across + tall hero on the right
-  [
-    { className: "col-span-2 aspect-square" },
-    { className: "col-span-2 aspect-square" },
-    { className: "col-span-2 row-span-2 aspect-[3/5]" },
-    { className: "col-span-4 aspect-[2/1]" },
-  ],
-  // 2 — two equal squares on top + wide panorama
-  [
-    { className: "col-span-3 aspect-[5/4]" },
-    { className: "col-span-3 aspect-[5/4]" },
-    { className: "col-span-6 aspect-[21/9]" },
-  ],
-  // 3 — wide top + three equal columns below
-  [
-    { className: "col-span-6 aspect-[16/7]" },
-    { className: "col-span-2 aspect-square" },
-    { className: "col-span-2 aspect-square" },
-    { className: "col-span-2 aspect-square" },
-  ],
+  // 0 — Big left (4×2) + two stacked squares right (2×1, 2×1) + wide bottom (6×1) = 6×3
+  {
+    rows: 3,
+    tiles: [
+      { className: "col-span-4 row-span-2" },
+      { className: "col-span-2 row-span-1" },
+      { className: "col-span-2 row-span-1" },
+      { className: "col-span-6 row-span-1" },
+    ],
+  },
+  // 1 — Two top tiles (3×1, 3×1) + tall left (3×2) + two stacked right (3×1, 3×1) ... keep simple: 3×1 + 3×1 then 6×1 = 6×2
+  {
+    rows: 2,
+    tiles: [
+      { className: "col-span-3 row-span-1" },
+      { className: "col-span-3 row-span-1" },
+      { className: "col-span-6 row-span-1" },
+    ],
+  },
+  // 2 — Tall hero left (3×2) + 3 tiles right (3×1 split into 3×1 then 3×1; we need 6 cols total)
+  // Layout: [3×2 hero] [3×1] / [3×2 hero cont.] [3×1] = 6×2
+  {
+    rows: 2,
+    tiles: [
+      { className: "col-span-3 row-span-2" },
+      { className: "col-span-3 row-span-1" },
+      { className: "col-span-3 row-span-1" },
+    ],
+  },
+  // 3 — Three columns of equal squares (2×1, 2×1, 2×1) + wide bottom (6×1) = 6×2
+  {
+    rows: 2,
+    tiles: [
+      { className: "col-span-2 row-span-1" },
+      { className: "col-span-2 row-span-1" },
+      { className: "col-span-2 row-span-1" },
+      { className: "col-span-6 row-span-1" },
+    ],
+  },
 ];
 
-// Deterministic hash so the same seed always picks the same layout + image set.
 function hash(seed: string) {
   let h = 0;
   for (let i = 0; i < seed.length; i++) h = (h * 31 + seed.charCodeAt(i)) >>> 0;
@@ -54,8 +65,6 @@ function hash(seed: string) {
 function pickImages(seed: string, count: number) {
   const h = hash(seed);
   const start = h % IMAGES.length;
-  // small offset so two seeds with the same start don't always go in the same
-  // direction through the pool
   const step = (h % 3) + 1;
   return Array.from(
     { length: count },
@@ -66,7 +75,7 @@ function pickImages(seed: string, count: number) {
 export function EntryMosaic({ seed }: { seed: string }) {
   const h = hash(seed);
   const layout = LAYOUTS[h % LAYOUTS.length];
-  const images = pickImages(seed, layout.length);
+  const images = pickImages(seed, layout.tiles.length);
   const [open, setOpen] = useState<string | null>(null);
 
   useEffect(() => {
@@ -83,10 +92,14 @@ export function EntryMosaic({ seed }: { seed: string }) {
     };
   }, [open]);
 
+  // Fixed row height (responsive) so row-span tiles always line up cleanly.
+  // The whole grid resolves to a perfect rectangle of (rows × rowHeight) tall.
   return (
     <section className="mt-12" aria-label="Media mosaic">
-      <div className="grid grid-cols-6 gap-1.5 sm:gap-2">
-        {layout.map((tile, i) => {
+      <div
+        className="grid grid-cols-6 gap-1.5 sm:gap-2 [grid-auto-rows:7rem] sm:[grid-auto-rows:10rem] md:[grid-auto-rows:12rem]"
+      >
+        {layout.tiles.map((tile, i) => {
           const src = images[i];
           return (
             <button
