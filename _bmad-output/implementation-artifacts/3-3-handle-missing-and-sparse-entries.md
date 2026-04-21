@@ -1,6 +1,6 @@
 # Story 3.3: Handle Missing and Sparse Entries
 
-Status: ready-for-dev
+Status: review
 
 ## Story
 
@@ -17,25 +17,25 @@ so that browsing does not feel broken.
 
 ## Tasks / Subtasks
 
-- [ ] Inspect Entry Detail missing/sparse behavior. (AC: 1-4)
-  - [ ] Confirm unknown entries throw `notFound()`.
-  - [ ] Confirm `notFoundComponent` is quiet and provides a return path.
-  - [ ] Confirm role, outcome, links, and related sections are conditional.
-  - [ ] Confirm body and metadata are not conditional on media.
-- [ ] Add or run Entry Detail behavior validation. (AC: 1-4)
-  - [ ] Validate not-found behavior is present.
-  - [ ] Validate sparse optional sections are guarded.
-  - [ ] Validate related entries are conditionally rendered.
-  - [ ] Validate internal return path exists.
-- [ ] Run baseline checks. (AC: 1-4)
-  - [ ] Run `npm run validate:shell`.
-  - [ ] Run any Entry Detail validator introduced by this story.
-  - [ ] Run `npm run lint`.
-  - [ ] Run `npm run build`.
-- [ ] Update story and sprint tracking. (AC: 1-4)
-  - [ ] Mark this story `review` after checks pass.
-  - [ ] Update sprint status to `review`.
-  - [ ] Record command results and warnings in Dev Agent Record.
+- [x] Inspect Entry Detail missing/sparse behavior. (AC: 1-4)
+  - [x] Confirm unknown entries throw `notFound()`.
+  - [x] Confirm `notFoundComponent` is quiet and provides a return path.
+  - [x] Confirm role, outcome, links, and related sections are conditional.
+  - [x] Confirm body and metadata are not conditional on media.
+- [x] Add or run Entry Detail behavior validation. (AC: 1-4)
+  - [x] Validate not-found behavior is present.
+  - [x] Validate sparse optional sections are guarded.
+  - [x] Validate related entries are conditionally rendered.
+  - [x] Validate internal return path exists.
+- [x] Run baseline checks. (AC: 1-4)
+  - [x] Run `npm run validate:shell`.
+  - [x] Run any Entry Detail validator introduced by this story.
+  - [x] Run `npm run lint`.
+  - [x] Run `npm run build`.
+- [x] Update story and sprint tracking. (AC: 1-4)
+  - [x] Mark this story `review` after checks pass.
+  - [x] Update sprint status to `review`.
+  - [x] Record command results and warnings in Dev Agent Record.
 
 ## Dev Notes
 
@@ -76,25 +76,29 @@ Known non-blocking warnings:
 
 ### Agent Model Used
 
-TBD by implementing agent.
+GPT-5.4
 
 ### Debug Log References
 
-TBD.
+- Added `scripts/validate-entry-detail.mjs` and `npm run validate:entry-detail`.
+- `npm run validate:entry-detail` passed: validated 10 missing/sparse entry safeguards.
+- `npm run validate:shell` passed.
+- `npm run lint` passed with 7 non-blocking `react-refresh/only-export-components` warnings.
+- `npm run build` passed with the existing Vite large chunk warning.
 
 ### Completion Notes List
 
-TBD.
+- Added deterministic Entry Detail validation for not-found behavior, quiet return path, required metadata, body rendering, optional role/outcome/links, optional related entries, and related entry detail routes.
+- Confirmed `Entry Detail` already guards sparse optional sections and omits related entries when none exist.
+- Preserved the existing Entry Detail UI and visual rhythm.
 
 ### File List
 
-Expected files touched:
-
 - `_bmad-output/implementation-artifacts/3-3-handle-missing-and-sparse-entries.md`
 - `_bmad-output/implementation-artifacts/sprint-status.yaml`
-
-Likely files if implementation changes are required:
-
 - `scripts/validate-entry-detail.mjs`
 - `package.json`
-- `src/routes/entries.$slug.tsx`
+
+### Change Log
+
+- 2026-04-22: Added Entry Detail behavior validation, verified missing/sparse safeguards, ran validation/lint/build, and moved story to review.
