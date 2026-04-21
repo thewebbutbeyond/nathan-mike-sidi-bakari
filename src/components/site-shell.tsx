@@ -36,7 +36,7 @@ function SiteHeader() {
               activeProps={{ className: "text-ink underline underline-offset-4" }}
               inactiveProps={{ className: "text-ink-soft hover:text-ink" }}
             >
-              {item.label.toLowerCase()}
+              {item.label.toLocaleLowerCase("fr")}
             </Link>
           ))}
           <span className="text-ink-faint">·</span>
