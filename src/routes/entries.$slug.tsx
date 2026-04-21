@@ -7,7 +7,7 @@ import {
   SiteShell,
   Tag,
 } from "@/components/site-shell";
-import { ENTRIES, type Entry, type Collection, formatDate, getEntry } from "@/content/data";
+import { ENTRIES, type Entry, type Collection, formatDate, getEntry, sortedEntries } from "@/content/data";
 import { EntryMosaic } from "@/components/entry-mosaic";
 
 export const Route = createFileRoute("/entries/$slug")({
@@ -17,7 +17,12 @@ export const Route = createFileRoute("/entries/$slug")({
     const related = (a.related ?? [])
       .map((s) => ENTRIES.find((x) => x.slug === s))
       .filter((x): x is NonNullable<typeof x> => Boolean(x));
-    return { entry: a, related };
+    // sortedEntries is newest-first, so the "next" entry chronologically is the one before it in the list
+    const all = sortedEntries();
+    const idx = all.findIndex((e) => e.slug === a.slug);
+    const prev = idx < all.length - 1 ? all[idx + 1] : null; // older
+    const next = idx > 0 ? all[idx - 1] : null; // newer
+    return { entry: a, related, prev, next };
   },
   head: ({ loaderData }) => {
     if (!loaderData) return { meta: [{ title: "Entry · Nathan Mike Sidi Bakari" }] };
@@ -49,7 +54,7 @@ export const Route = createFileRoute("/entries/$slug")({
 });
 
 function EntryDetail() {
-  const { entry: a, related } = Route.useLoaderData();
+  const { entry: a, related, prev, next } = Route.useLoaderData();
 
   return (
     <SiteShell>
