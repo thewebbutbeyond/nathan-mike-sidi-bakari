@@ -74,8 +74,9 @@ function SiteFooter() {
           </footer>
         </blockquote>
 
-        {/* Row 1: sitemap (left) + legal (right) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4 border-t border-rule">
+        {/* Two columns: site links (left) · icons + copyright (right) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-6 pt-4 border-t border-rule">
+          {/* Top-left: sitemap */}
           <nav aria-label="Sitemap" className="flex flex-wrap gap-x-5 gap-y-2">
             {NAV.map((item) => (
               <Link
@@ -87,25 +88,9 @@ function SiteFooter() {
               </Link>
             ))}
           </nav>
-          <nav
-            aria-label="Legal"
-            className="flex flex-wrap gap-x-5 gap-y-2 sm:justify-end"
-          >
-            <Link to="/privacy" className="text-ink-soft hover:text-ink">
-              privacy
-            </Link>
-            <Link to="/terms" className="text-ink-soft hover:text-ink">
-              terms
-            </Link>
-            <Link to="/colophon" className="text-ink-soft hover:text-ink">
-              colophon
-            </Link>
-          </nav>
-        </div>
 
-        {/* Row 2: socials (left) + copyright (right) */}
-        <div className="flex flex-col-reverse sm:flex-row sm:items-center sm:justify-between gap-3">
-          <div className="flex items-center gap-4">
+          {/* Top-right: icons */}
+          <div className="flex items-center gap-4 sm:justify-end">
             <a
               href="https://www.linkedin.com/in/nathan-sidi-bakari-686007199"
               target="_blank"
@@ -132,6 +117,21 @@ function SiteFooter() {
               <Rss size={14} strokeWidth={1.5} />
             </a>
           </div>
+
+          {/* Bottom-left: legal pages */}
+          <nav aria-label="Legal" className="flex flex-wrap gap-x-5 gap-y-2">
+            <Link to="/privacy" className="text-ink-soft hover:text-ink">
+              privacy
+            </Link>
+            <Link to="/terms" className="text-ink-soft hover:text-ink">
+              terms
+            </Link>
+            <Link to="/colophon" className="text-ink-soft hover:text-ink">
+              colophon
+            </Link>
+          </nav>
+
+          {/* Bottom-right: copyright */}
           <div className="sm:text-right">
             <span className="text-ink-faint">©</span> {year} · nathan mike sidi bakari
           </div>
