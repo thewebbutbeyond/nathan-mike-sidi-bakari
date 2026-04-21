@@ -18,10 +18,10 @@ export const Route = createFileRoute("/lenses/")({
       },
     ],
   }),
-  component: CollectionsPage,
+  component: LensesPage,
 });
 
-function CollectionsPage() {
+function LensesPage() {
   return (
     <SiteShell>
       <Container>
