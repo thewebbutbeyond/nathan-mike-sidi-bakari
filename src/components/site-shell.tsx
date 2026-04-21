@@ -65,14 +65,6 @@ function SiteFooter() {
   return (
     <footer className="border-t border-rule mt-16">
       <div className="mx-auto max-w-5xl px-5 sm:px-8 py-8 flex flex-col gap-6 text-xs text-ink-soft">
-        <blockquote className="max-w-xl">
-          <p className="text-ink-soft italic leading-relaxed">
-            “He who has a why to live can bear almost any how.”
-          </p>
-          <footer className="mt-1.5 text-ink-faint not-italic">
-            Friedrich Nietzsche
-          </footer>
-        </blockquote>
 
         {/* Two columns: site links (left) · icons + copyright (right) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-6 pt-4 border-t border-rule">

@@ -39,6 +39,15 @@ function AboutPage() {
         </h1>
 
         <Prose text={ABOUT_TEXT} />
+
+        <blockquote className="mt-10 max-w-xl text-xs text-ink-soft">
+          <p className="italic leading-relaxed">
+            “He who has a why to live can bear almost any how.”
+          </p>
+          <footer className="mt-1.5 text-ink-faint not-italic">
+            Friedrich Nietzsche
+          </footer>
+        </blockquote>
       </NarrowContainer>
     </SiteShell>
   );
