@@ -79,7 +79,7 @@ function NoteDetail() {
           <Prose text={n.body} />
 
           <div className="mt-10 pt-4 border-t border-rule flex flex-wrap gap-x-3 gap-y-1">
-            {n.tags.map((t) => (
+            {n.tags.map((t: string) => (
               <Tag key={t}>{t}</Tag>
             ))}
           </div>

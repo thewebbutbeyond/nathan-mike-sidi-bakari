@@ -7,7 +7,7 @@ import {
   SiteShell,
   Tag,
 } from "@/components/site-shell";
-import { ARTIFACTS, formatDate, getArtifact } from "@/content/data";
+import { ARTIFACTS, type Artifact, type Collection, formatDate, getArtifact } from "@/content/data";
 
 export const Route = createFileRoute("/artifacts/$slug")({
   loader: ({ params }) => {
@@ -83,7 +83,42 @@ function ArtifactDetail() {
           <MetaRow label="date">{formatDate(a.date)}</MetaRow>
           <MetaRow label="collections">
             <span className="flex flex-wrap gap-x-3">
-              {a.collections.map((c) => (
+              {a.collections.map((c: Collection) => (
+                <Link
+                  key={c}
+                  to="/collections/$slug"
+                  params={{ slug: c }}
+                  className="hover:underline underline-offset-4"
+                >
+                  {c}
+                </Link>
+              ))}
+            </span>
+          </MetaRow>
+          {a.role && <MetaRow label="role">{a.role}</MetaRow>}
+          {a.outcome && <MetaRow label="outcome">{a.outcome}</MetaRow>}
+          <MetaRow label="tags">
+            <span className="flex flex-wrap gap-x-3 gap-y-1">
+              {a.tags.map((t: string) => (
+                <Tag key={t}>{t}</Tag>
+              ))}
+            </span>
+          </MetaRow>
+          {a.links && a.links.length > 0 && (
+            <MetaRow label="links">
+              <span className="flex flex-wrap gap-x-3">
+                {a.links.map((l: { label: string; href: string }) => (
+                  <a
+                    key={l.label}
+                    href={l.href}
+                    className="underline underline-offset-4 hover:text-ink"
+                  >
+                    {l.label} ↗
+                  </a>
+                ))}
+              </span>
+            </MetaRow>
+          )}
                 <Link
                   key={c}
                   to="/collections/$slug"
@@ -129,7 +164,7 @@ function ArtifactDetail() {
               related
             </h2>
             <ul className="space-y-2">
-              {related.map((r) => (
+              {related.map((r: Artifact) => (
                 <li key={r.slug} className="text-sm">
                   <Link
                     to="/artifacts/$slug"
