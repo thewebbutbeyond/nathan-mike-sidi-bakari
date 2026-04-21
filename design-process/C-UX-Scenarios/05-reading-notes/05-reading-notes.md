@@ -29,7 +29,7 @@ A visitor opens Notes, reads a curated long-form piece, and optionally follows t
 
 ## Mental State
 
-**Trigger:** They notice Notes from the Home / Portal or an artifact.
+**Trigger:** They notice Notes from the Home / Portal or an entry.
 
 **Hope:** They can read something clear, durable, and reflective.
 
@@ -40,7 +40,7 @@ A visitor opens Notes, reads a curated long-form piece, and optionally follows t
 ## Device & Starting Point
 
 **Device:** Mobile or desktop.
-**Entry:** They open Notes from Home / Portal or from a related artifact.
+**Entry:** They open Notes from Home / Portal or from a related entry.
 
 ---
 

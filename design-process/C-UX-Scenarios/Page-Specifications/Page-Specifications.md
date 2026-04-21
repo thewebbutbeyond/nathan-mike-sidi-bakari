@@ -8,7 +8,7 @@
 ## Included Files
 - `00-page-specification-index.md`
 - `01-home-portal.md`
-- `02-artifact-detail.md`
+- `02-entry-detail.md`
 - `03-collections.md`
 - `04-collection-detail.md`
 - `05-timeline.md`
@@ -33,14 +33,14 @@
 
 ## Specification Set
 
-These shared page specifications cover the structural pages used across the six Phase 3 scenarios. Shared specs prevent duplicate definitions of common pages such as Home / Portal, Artifact Detail, Timeline, and Contact.
+These shared page specifications cover the structural pages used across the six Phase 3 scenarios. Shared specs prevent duplicate definitions of common pages such as Home / Portal, Entry Detail, Timeline, and Contact.
 
 These are **shared page specifications**, not per-scenario step specifications. The scenario files define the linear journeys; this folder defines the reusable public pages those journeys pass through.
 
 | # | Page | Spec | Primary Scenarios |
 |---|------|------|-------------------|
 | 01 | Home / Portal | [01-home-portal.md](./01-home-portal.md) | 01, 03 |
-| 02 | Artifact Detail | [02-artifact-detail.md](./02-artifact-detail.md) | 01, 02, 03, 04, 06 |
+| 02 | Entry Detail | [02-entry-detail.md](./02-entry-detail.md) | 01, 02, 03, 04, 06 |
 | 03 | Collections | [03-collections.md](./03-collections.md) | 02 |
 | 04 | Collection Detail | [04-collection-detail.md](./04-collection-detail.md) | 02 |
 | 05 | Timeline | [05-timeline.md](./05-timeline.md) | 03 |
@@ -56,7 +56,7 @@ These are **shared page specifications**, not per-scenario step specifications. 
 
 - Archive-first, not conversion-first.
 - Structural copy over self-promotional copy.
-- Every artifact must be reachable through time and identity.
+- Every entry must be reachable through time and identity.
 - Tags and collections support multi-membership.
 - Selected is an entry layer, not a trophy case.
 - Contact exists for genuine intersections, not funnel completion.
@@ -65,11 +65,11 @@ These are **shared page specifications**, not per-scenario step specifications. 
 
 ## Shared Content Model
 
-All artifact-like entries should support:
+All entry-like entries should support:
 
 | Field | Purpose |
 |-------|---------|
-| `title` | Human-readable artifact title |
+| `title` | Human-readable entry title |
 | `slug` | Stable URL path |
 | `date` | Timeline ordering |
 | `type` | Project, note, artwork, investment note, experiment, etc. |
@@ -79,7 +79,7 @@ All artifact-like entries should support:
 | `status` | Draft, active, archived, historical, in-progress |
 | `milestone` | Optional timeline emphasis |
 | `links` | External repo, demo, image, document, reference |
-| `related` | Related artifact slugs |
+| `related` | Related entry slugs |
 
 ---
 
@@ -87,7 +87,7 @@ All artifact-like entries should support:
 
 Before development handoff:
 
-- Confirm real initial artifacts and notes.
+- Confirm real initial entries and notes.
 - Confirm final contact method.
 - Add sketches or wireframes if visual handoff requires them.
 - Run `wds-4-ux-design validate` against this folder.
@@ -137,7 +137,7 @@ Before development handoff:
 - Timeline.
 - Collections.
 - Notes.
-- Artifact Detail via featured entries.
+- Entry Detail via featured entries.
 
 ---
 
@@ -151,7 +151,7 @@ Before development handoff:
 +------------------------------------------------+
 | Primary Routes: Selected / Timeline / Collections / Notes |
 +------------------------------------------------+
-| Recent or Milestone Artifacts                   |
+| Recent or Milestone Entries                   |
 +------------------------------------------------+
 | Notes Preview + RSS affordance                  |
 +------------------------------------------------+
@@ -194,14 +194,14 @@ Before development handoff:
 | Collections route | `home-route-collections` | Route card | Opens Collections |
 | Notes route | `home-route-notes` | Route card | Opens Notes |
 
-### Section: Recent or Milestone Artifacts
+### Section: Recent or Milestone Entries
 
-**OBJECT ID:** `home-artifact-preview`
+**OBJECT ID:** `home-entry-preview`
 
 | Object | ID | Component | Content / Behavior |
 |--------|----|-----------|--------------------|
-| Section heading | `home-artifact-preview-heading` | H2 | "Recent and milestone artifacts" |
-| Artifact list | `home-artifact-preview-list` | Artifact list | Shows date, type, collections, summary |
+| Section heading | `home-entry-preview-heading` | H2 | "Recent and milestone entries" |
+| Entry list | `home-entry-preview-list` | Entry list | Shows date, type, collections, summary |
 
 ### Section: Notes Preview
 
@@ -232,9 +232,9 @@ Before development handoff:
 | `home-route-timeline` | Route card | Opens Timeline |
 | `home-route-collections` | Route card | Opens Collections |
 | `home-route-notes` | Route card | Opens Notes |
-| `home-artifact-preview` | Section | Recent or milestone artifact preview |
-| `home-artifact-preview-heading` | Heading | Preview section heading |
-| `home-artifact-preview-list` | List | Artifact teaser list |
+| `home-entry-preview` | Section | Recent or milestone entry preview |
+| `home-entry-preview-heading` | Heading | Preview section heading |
+| `home-entry-preview-list` | List | Entry teaser list |
 | `home-notes-preview` | Section | Notes teaser section |
 | `home-notes-heading` | Heading | Notes section heading |
 | `home-notes-list` | List | Latest note teasers |
@@ -262,7 +262,7 @@ Use [Design Tokens](../../D-Design-System/01-design-tokens.md).
 | State | When | Appearance | Actions |
 |-------|------|------------|---------|
 | Default | Content exists | Full route and preview layout | Navigate to route |
-| Empty archive | No artifacts yet | Routes remain; preview says "No artifacts yet." | Navigate to Notes or About |
+| Empty archive | No entries yet | Routes remain; preview says "No entries yet." | Navigate to Notes or About |
 | Loading | Static build or data hydration | Minimal skeleton rows | None |
 | Error | Content index fails | Plain message: "Archive index is unavailable." | Retry or navigate |
 
@@ -273,7 +273,7 @@ Use [Design Tokens](../../D-Design-System/01-design-tokens.md).
 - Root route: `/`.
 - Keep route cards semantic links.
 - Do not use a marketing hero or CTA button as the primary structure.
-- Home previews should derive from the same artifact index as Timeline and Collections.
+- Home previews should derive from the same entry index as Timeline and Collections.
 
 ---
 
@@ -287,48 +287,48 @@ Use [Design Tokens](../../D-Design-System/01-design-tokens.md).
 
 ---
 
-# Source File: `02-artifact-detail.md`
+# Source File: `02-entry-detail.md`
 
-# 02 - Artifact Detail
+# 02 - Entry Detail
 
 ## Page Metadata
 
 | Property | Value |
 |----------|-------|
 | **Scenario Coverage** | All scenarios except Notes-only reading |
-| **Source Scenarios** | `01-orienting-at-the-portal`, `02-tracing-a-domain`, `03-following-time`, `04-inspecting-an-artifact`, `06-finding-contact` |
+| **Source Scenarios** | `01-orienting-at-the-portal`, `02-tracing-a-domain`, `03-following-time`, `04-inspecting-an-entry`, `06-finding-contact` |
 | **Platform** | Responsive web |
 | **Page Type** | Full page |
 | **Viewport** | Mobile-first, desktop-enhanced |
 | **Interaction** | Touch + mouse/keyboard |
 | **Visibility** | Public |
-| **URL** | `/artifacts/[slug]` |
-| **Primary Keyword** | personal archive artifact |
-| **Meta Title** | Artifact title followed by "Nathan Mike Sidi Bakari" |
-| **Meta Description** | Artifact summary |
+| **URL** | `/entries/[slug]` |
+| **Primary Keyword** | personal archive entry |
+| **Meta Title** | Entry title followed by "Nathan Mike Sidi Bakari" |
+| **Meta Description** | Entry summary |
 | **Structured Data** | `CreativeWork` |
 
 ---
 
 ## Overview
 
-**Page Purpose:** Present one artifact with enough context to support recall, exploration, and credibility.
+**Page Purpose:** Present one entry with enough context to support recall, exploration, and credibility.
 
-**User Situation:** A visitor opens an artifact from Selected, Timeline, Collections, related links, or a direct URL.
+**User Situation:** A visitor opens an entry from Selected, Timeline, Collections, related links, or a direct URL.
 
-**Success Criteria:** The visitor understands what the artifact is, when it happened, why it matters, how it connects, and where to go next.
+**Success Criteria:** The visitor understands what the entry is, when it happened, why it matters, how it connects, and where to go next.
 
 **Entry Points:**
 
 - Selected.
 - Timeline.
 - Collection Detail.
-- Related artifact links.
+- Related entry links.
 - Direct URL.
 
 **Exit Points:**
 
-- Related Artifacts.
+- Related Entries.
 - Collection Detail.
 - Timeline.
 - Contact.
@@ -341,7 +341,7 @@ Use [Design Tokens](../../D-Design-System/01-design-tokens.md).
 +------------------------------------------------+
 | Header / Breadcrumb                             |
 +------------------------------------------------+
-| Artifact Header: title, date, type, status      |
+| Entry Header: title, date, type, status      |
 +------------------------------------------------+
 | Summary + Context                               |
 +------------------------------------------------+
@@ -349,7 +349,7 @@ Use [Design Tokens](../../D-Design-System/01-design-tokens.md).
 +------------------------------------------------+
 | Metadata: collections, tags, role, status       |
 +------------------------------------------------+
-| Related Artifacts                               |
+| Related Entries                               |
 +------------------------------------------------+
 | Footer                                          |
 +------------------------------------------------+
@@ -359,55 +359,55 @@ Use [Design Tokens](../../D-Design-System/01-design-tokens.md).
 
 ## Page Sections
 
-### Section: Artifact Header
+### Section: Entry Header
 
-**OBJECT ID:** `artifact-header`
-
-| Object | ID | Component | Content / Behavior |
-|--------|----|-----------|--------------------|
-| Breadcrumb | `artifact-breadcrumb` | Breadcrumb nav | Previous context when available |
-| Title | `artifact-title` | H1 | Artifact title |
-| Metadata row | `artifact-meta-row` | Metadata group | Date, type, status |
-| Summary | `artifact-summary` | Lead text | One clear paragraph |
-
-### Section: Artifact Context
-
-**OBJECT ID:** `artifact-context`
+**OBJECT ID:** `entry-header`
 
 | Object | ID | Component | Content / Behavior |
 |--------|----|-----------|--------------------|
-| Context block | `artifact-context-block` | Rich text | Why it exists, constraints, process |
-| Role block | `artifact-role-block` | Fact list | Nathan's role or contribution |
-| Outcome block | `artifact-outcome-block` | Rich text | Outcome, state, or current relevance |
+| Breadcrumb | `entry-breadcrumb` | Breadcrumb nav | Previous context when available |
+| Title | `entry-title` | H1 | Entry title |
+| Metadata row | `entry-meta-row` | Metadata group | Date, type, status |
+| Summary | `entry-summary` | Lead text | One clear paragraph |
 
-### Section: Artifact Body
+### Section: Entry Context
 
-**OBJECT ID:** `artifact-body`
+**OBJECT ID:** `entry-context`
 
 | Object | ID | Component | Content / Behavior |
 |--------|----|-----------|--------------------|
-| Media area | `artifact-media-area` | Media block | Optional images, screenshots, embeds |
-| Content body | `artifact-content-body` | Prose / structured content | Markdown or MDX content |
-| External links | `artifact-external-links` | Link list | Repository, demo, document, image, reference |
+| Context block | `entry-context-block` | Rich text | Why it exists, constraints, process |
+| Role block | `entry-role-block` | Fact list | Nathan's role or contribution |
+| Outcome block | `entry-outcome-block` | Rich text | Outcome, state, or current relevance |
+
+### Section: Entry Body
+
+**OBJECT ID:** `entry-body`
+
+| Object | ID | Component | Content / Behavior |
+|--------|----|-----------|--------------------|
+| Media area | `entry-media-area` | Media block | Optional images, screenshots, embeds |
+| Content body | `entry-content-body` | Prose / structured content | Markdown or MDX content |
+| External links | `entry-external-links` | Link list | Repository, demo, document, image, reference |
 
 ### Section: Classification
 
-**OBJECT ID:** `artifact-classification`
+**OBJECT ID:** `entry-classification`
 
 | Object | ID | Component | Content / Behavior |
 |--------|----|-----------|--------------------|
-| Collections | `artifact-collections` | Tag list | Engineer, Entrepreneur, Investor, Artist; multiple allowed |
-| Tags | `artifact-tags` | Tag list | Flexible tags |
-| Timeline link | `artifact-timeline-link` | Text link | Opens date context in Timeline |
+| Collections | `entry-collections` | Tag list | Engineer, Entrepreneur, Investor, Artist; multiple allowed |
+| Tags | `entry-tags` | Tag list | Flexible tags |
+| Timeline link | `entry-timeline-link` | Text link | Opens date context in Timeline |
 
-### Section: Related Artifacts
+### Section: Related Entries
 
-**OBJECT ID:** `artifact-related`
+**OBJECT ID:** `entry-related`
 
 | Object | ID | Component | Content / Behavior |
 |--------|----|-----------|--------------------|
-| Heading | `artifact-related-heading` | H2 | "Related" |
-| Related list | `artifact-related-list` | Artifact list | Related artifacts by tag, collection, or manual link |
+| Heading | `entry-related-heading` | H2 | "Related" |
+| Related list | `entry-related-list` | Entry list | Related entries by tag, collection, or manual link |
 
 ---
 
@@ -415,26 +415,26 @@ Use [Design Tokens](../../D-Design-System/01-design-tokens.md).
 
 | Object ID | Type | Description |
 |-----------|------|-------------|
-| `artifact-header` | Section | Artifact heading and summary container |
-| `artifact-breadcrumb` | Navigation | Optional previous-context breadcrumb |
-| `artifact-title` | Heading | Artifact title |
-| `artifact-meta-row` | Metadata group | Date, type, and status |
-| `artifact-summary` | Lead text | Artifact summary |
-| `artifact-context` | Section | Context and contribution section |
-| `artifact-context-block` | Rich text | Why the artifact exists |
-| `artifact-role-block` | Fact list | Nathan's role or contribution |
-| `artifact-outcome-block` | Rich text | Outcome or current relevance |
-| `artifact-body` | Section | Artifact media and body content |
-| `artifact-media-area` | Media block | Optional media area |
-| `artifact-content-body` | Rich text | Main artifact body |
-| `artifact-external-links` | Link list | External references |
-| `artifact-classification` | Section | Collections and tags |
-| `artifact-collections` | Tag list | Collection memberships |
-| `artifact-tags` | Tag list | Flexible tags |
-| `artifact-timeline-link` | Link | Opens timeline context |
-| `artifact-related` | Section | Related artifact section |
-| `artifact-related-heading` | Heading | Related section heading |
-| `artifact-related-list` | List | Related artifacts |
+| `entry-header` | Section | Entry heading and summary container |
+| `entry-breadcrumb` | Navigation | Optional previous-context breadcrumb |
+| `entry-title` | Heading | Entry title |
+| `entry-meta-row` | Metadata group | Date, type, and status |
+| `entry-summary` | Lead text | Entry summary |
+| `entry-context` | Section | Context and contribution section |
+| `entry-context-block` | Rich text | Why the entry exists |
+| `entry-role-block` | Fact list | Nathan's role or contribution |
+| `entry-outcome-block` | Rich text | Outcome or current relevance |
+| `entry-body` | Section | Entry media and body content |
+| `entry-media-area` | Media block | Optional media area |
+| `entry-content-body` | Rich text | Main entry body |
+| `entry-external-links` | Link list | External references |
+| `entry-classification` | Section | Collections and tags |
+| `entry-collections` | Tag list | Collection memberships |
+| `entry-tags` | Tag list | Flexible tags |
+| `entry-timeline-link` | Link | Opens timeline context |
+| `entry-related` | Section | Related entry section |
+| `entry-related-heading` | Heading | Related section heading |
+| `entry-related-list` | List | Related entries |
 
 ---
 
@@ -458,19 +458,19 @@ Use [Design Tokens](../../D-Design-System/01-design-tokens.md).
 
 | State | When | Appearance | Actions |
 |-------|------|------------|---------|
-| Default | Artifact exists | Full artifact content | Browse related links |
+| Default | Entry exists | Full entry content | Browse related links |
 | Missing media | Media unavailable | Body remains; media block omitted | Continue reading |
-| Draft/historical | Artifact incomplete or old | Status label visible | Browse context |
-| Not found | Slug missing | Plain missing-artifact page | Return to Timeline |
+| Draft/historical | Entry incomplete or old | Status label visible | Browse context |
+| Not found | Slug missing | Plain missing-entry page | Return to Timeline |
 
 ---
 
 ## Technical Notes
 
-- Suggested route: `/artifacts/[slug]`.
-- The artifact detail page is the core reusable content renderer.
-- Avoid requiring every artifact to have media.
-- Related artifacts should support both manual and computed relationships.
+- Suggested route: `/entries/[slug]`.
+- The entry detail page is the core reusable content renderer.
+- Avoid requiring every entry to have media.
+- Related entries should support both manual and computed relationships.
 
 ---
 
@@ -502,7 +502,7 @@ Use [Design Tokens](../../D-Design-System/01-design-tokens.md).
 | **URL** | `/collections` |
 | **Primary Keyword** | Nathan Mike Sidi Bakari work |
 | **Meta Title** | Collections - Nathan Mike Sidi Bakari |
-| **Meta Description** | Browse archive artifacts by engineering, entrepreneurship, investing, and art. |
+| **Meta Description** | Browse archive entries by engineering, entrepreneurship, investing, and art. |
 | **Structured Data** | `CollectionPage` |
 
 ---
@@ -519,12 +519,12 @@ Use [Design Tokens](../../D-Design-System/01-design-tokens.md).
 
 - Home / Portal.
 - Header navigation.
-- Artifact collection links.
+- Entry collection links.
 
 **Exit Points:**
 
 - Collection Detail.
-- Artifact Detail.
+- Entry Detail.
 
 ---
 
@@ -537,7 +537,7 @@ Use [Design Tokens](../../D-Design-System/01-design-tokens.md).
 | Object | ID | Component | Content / Behavior |
 |--------|----|-----------|--------------------|
 | Title | `collections-title` | H1 | "Collections" |
-| Description | `collections-description` | Body text | "Browse artifacts by domain. One artifact can belong to several collections." |
+| Description | `collections-description` | Body text | "Browse entries by domain. One entry can belong to several collections." |
 
 ### Section: Collection Routes
 
@@ -610,14 +610,14 @@ Use [Design Tokens](../../D-Design-System/01-design-tokens.md).
 | State | When | Appearance | Actions |
 |-------|------|------------|---------|
 | Default | Collections exist | Four routes with counts | Open collection |
-| Empty collection | Collection has no artifacts | Route remains with "No artifacts yet." | Browse other collections |
+| Empty collection | Collection has no entries | Route remains with "No entries yet." | Browse other collections |
 
 ---
 
 ## Technical Notes
 
 - Suggested route: `/collections`.
-- Counts should derive from artifact metadata.
+- Counts should derive from entry metadata.
 - Do not present collections as a fixed self-description.
 
 ---
@@ -649,28 +649,28 @@ Use [Design Tokens](../../D-Design-System/01-design-tokens.md).
 | **URL** | `/collections/[collection]` |
 | **Primary Keyword** | Collection name plus projects |
 | **Meta Title** | Collection name followed by "Nathan Mike Sidi Bakari" |
-| **Meta Description** | Browse the collection's artifacts with dates, summaries, tags, and related work. |
+| **Meta Description** | Browse the collection's entries with dates, summaries, tags, and related work. |
 | **Structured Data** | `CollectionPage` |
 
 ---
 
 ## Overview
 
-**Page Purpose:** Show artifacts within one collection while preserving cross-domain relationships.
+**Page Purpose:** Show entries within one collection while preserving cross-domain relationships.
 
-**User Situation:** A visitor chooses a domain route and wants relevant artifacts with enough metadata to inspect further.
+**User Situation:** A visitor chooses a domain route and wants relevant entries with enough metadata to inspect further.
 
-**Success Criteria:** The visitor finds a representative artifact and understands that artifacts can cross collection boundaries.
+**Success Criteria:** The visitor finds a representative entry and understands that entries can cross collection boundaries.
 
 **Entry Points:**
 
 - Collections.
-- Artifact collection links.
+- Entry collection links.
 - Direct route.
 
 **Exit Points:**
 
-- Artifact Detail.
+- Entry Detail.
 - Other Collection Detail pages.
 - Timeline.
 
@@ -686,16 +686,16 @@ Use [Design Tokens](../../D-Design-System/01-design-tokens.md).
 |--------|----|-----------|--------------------|
 | Title | `collection-title` | H1 | Collection name |
 | Description | `collection-description` | Body text | Domain-specific explanation |
-| Count | `collection-count` | Metadata | Number of artifacts |
+| Count | `collection-count` | Metadata | Number of entries |
 
-### Section: Artifact List
+### Section: Entry List
 
-**OBJECT ID:** `collection-artifact-list`
+**OBJECT ID:** `collection-entry-list`
 
 | Object | ID | Component | Content / Behavior |
 |--------|----|-----------|--------------------|
 | Filter row | `collection-filter-row` | Filter controls | Optional tag/type filters |
-| Artifact rows | `collection-artifact-rows` | Artifact list | Date, title, type, summary, tags |
+| Entry rows | `collection-entry-rows` | Entry list | Date, title, type, summary, tags |
 
 ### Section: Cross-Collection Links
 
@@ -714,10 +714,10 @@ Use [Design Tokens](../../D-Design-System/01-design-tokens.md).
 | `collection-header` | Section | Collection detail heading |
 | `collection-title` | Heading | Active collection name |
 | `collection-description` | Text | Domain-specific collection explanation |
-| `collection-count` | Metadata | Artifact count |
-| `collection-artifact-list` | Section | Artifact list section |
+| `collection-count` | Metadata | Entry count |
+| `collection-entry-list` | Section | Entry list section |
 | `collection-filter-row` | Controls | Optional tag/type filters |
-| `collection-artifact-rows` | List | Artifact rows |
+| `collection-entry-rows` | List | Entry rows |
 | `collection-cross-links` | Section | Cross-collection navigation |
 | `collection-related-collections` | Link list | Related collections |
 
@@ -731,7 +731,7 @@ Use [Design Tokens](../../D-Design-System/01-design-tokens.md).
 +----------------------------+
 | Filter row                  |
 +----------------------------+
-| Artifact list               |
+| Entry list               |
 +----------------------------+
 | Related collections         |
 +----------------------------+
@@ -747,7 +747,7 @@ Use [Design Tokens](../../D-Design-System/01-design-tokens.md).
 | List row gap | `space-md` |
 | Header gap | `space-sm` |
 | Title | `text-3xl` |
-| Artifact title | `text-lg` |
+| Entry title | `text-lg` |
 | Metadata | `text-sm` |
 
 ---
@@ -756,8 +756,8 @@ Use [Design Tokens](../../D-Design-System/01-design-tokens.md).
 
 | State | When | Appearance | Actions |
 |-------|------|------------|---------|
-| Default | Artifacts exist | List with metadata | Open artifact |
-| Empty | No artifacts | "No artifacts here yet." | Return to Collections |
+| Default | Entries exist | List with metadata | Open entry |
+| Empty | No entries | "No entries here yet." | Return to Collections |
 | Filtered empty | Filter has no matches | Plain empty message | Clear filter |
 
 ---
@@ -766,7 +766,7 @@ Use [Design Tokens](../../D-Design-System/01-design-tokens.md).
 
 - Suggested route: `/collections/[collection]`.
 - Filters are optional for MVP if content volume is small.
-- Collection membership derives from artifact metadata.
+- Collection membership derives from entry metadata.
 
 ---
 
@@ -797,28 +797,28 @@ Use [Design Tokens](../../D-Design-System/01-design-tokens.md).
 | **URL** | `/timeline` |
 | **Primary Keyword** | personal archive timeline |
 | **Meta Title** | Timeline - Nathan Mike Sidi Bakari |
-| **Meta Description** | Browse a chronological archive of artifacts, notes, milestones, and cross-domain work. |
+| **Meta Description** | Browse a chronological archive of entries, notes, milestones, and cross-domain work. |
 | **Structured Data** | `CollectionPage` |
 
 ---
 
 ## Overview
 
-**Page Purpose:** Aggregate artifacts chronologically so trajectory, recall, and milestones are visible.
+**Page Purpose:** Aggregate entries chronologically so trajectory, recall, and milestones are visible.
 
 **User Situation:** Future Nathan or an external observer wants to browse by time instead of category.
 
-**Success Criteria:** The visitor finds a period or artifact and opens it with enough context to reconstruct the thread.
+**Success Criteria:** The visitor finds a period or entry and opens it with enough context to reconstruct the thread.
 
 **Entry Points:**
 
 - Home / Portal.
 - Header navigation.
-- Artifact date links.
+- Entry date links.
 
 **Exit Points:**
 
-- Artifact Detail.
+- Entry Detail.
 - Collection Detail.
 - Selected.
 
@@ -833,7 +833,7 @@ Use [Design Tokens](../../D-Design-System/01-design-tokens.md).
 | Object | ID | Component | Content / Behavior |
 |--------|----|-----------|--------------------|
 | Title | `timeline-title` | H1 | "Timeline" |
-| Description | `timeline-description` | Body text | Chronological aggregation across all artifacts |
+| Description | `timeline-description` | Body text | Chronological aggregation across all entries |
 
 ### Section: Timeline Controls
 
@@ -842,7 +842,7 @@ Use [Design Tokens](../../D-Design-System/01-design-tokens.md).
 | Object | ID | Component | Content / Behavior |
 |--------|----|-----------|--------------------|
 | Collection filter | `timeline-collection-filter` | Segmented/filter control | Optional by collection |
-| Type filter | `timeline-type-filter` | Filter control | Optional by artifact type |
+| Type filter | `timeline-type-filter` | Filter control | Optional by entry type |
 
 ### Section: Chronological List
 
@@ -850,8 +850,8 @@ Use [Design Tokens](../../D-Design-System/01-design-tokens.md).
 
 | Object | ID | Component | Content / Behavior |
 |--------|----|-----------|--------------------|
-| Year group | `timeline-year-group` | Group heading | Groups artifacts by year |
-| Timeline item | `timeline-item` | Artifact row | Date, milestone marker, title, type, tags, summary |
+| Year group | `timeline-year-group` | Group heading | Groups entries by year |
+| Timeline item | `timeline-item` | Entry row | Date, milestone marker, title, type, tags, summary |
 
 ---
 
@@ -864,10 +864,10 @@ Use [Design Tokens](../../D-Design-System/01-design-tokens.md).
 | `timeline-description` | Text | Timeline explanation |
 | `timeline-controls` | Section | Optional filter controls |
 | `timeline-collection-filter` | Control | Collection filter |
-| `timeline-type-filter` | Control | Artifact type filter |
+| `timeline-type-filter` | Control | Entry type filter |
 | `timeline-list` | Section | Chronological list |
 | `timeline-year-group` | Group | Year-based grouping |
-| `timeline-item` | Artifact row | Individual timeline item |
+| `timeline-item` | Entry row | Individual timeline item |
 
 ---
 
@@ -880,9 +880,9 @@ Use [Design Tokens](../../D-Design-System/01-design-tokens.md).
 | Optional filters              |
 +------------------------------+
 | Year group                    |
-|   Artifact rows               |
+|   Entry rows               |
 | Year group                    |
-|   Artifact rows               |
+|   Entry rows               |
 +------------------------------+
 ```
 
@@ -905,16 +905,16 @@ Use [Design Tokens](../../D-Design-System/01-design-tokens.md).
 
 | State | When | Appearance | Actions |
 |-------|------|------------|---------|
-| Default | Artifacts exist | Grouped chronological list | Open artifact |
-| Empty | No artifacts | "No timeline entries yet." | Return home |
-| Filtered empty | No matches | "No artifacts match this filter." | Clear filters |
+| Default | Entries exist | Grouped chronological list | Open entry |
+| Empty | No entries | "No timeline entries yet." | Return home |
+| Filtered empty | No matches | "No entries match this filter." | Clear filters |
 
 ---
 
 ## Technical Notes
 
 - Suggested route: `/timeline`.
-- Timeline should derive from artifact `date` and `milestone`.
+- Timeline should derive from entry `date` and `milestone`.
 - Milestone emphasis must remain restrained.
 
 ---
@@ -957,7 +957,7 @@ Use [Design Tokens](../../D-Design-System/01-design-tokens.md).
 
 **User Situation:** The visitor wants a useful starting point without committing to the full archive.
 
-**Success Criteria:** The visitor opens a representative artifact and understands Selected as entry guidance, not a best-work trophy case.
+**Success Criteria:** The visitor opens a representative entry and understands Selected as entry guidance, not a best-work trophy case.
 
 **Entry Points:**
 
@@ -966,7 +966,7 @@ Use [Design Tokens](../../D-Design-System/01-design-tokens.md).
 
 **Exit Points:**
 
-- Artifact Detail.
+- Entry Detail.
 - Timeline.
 - Collections.
 
@@ -983,13 +983,13 @@ Use [Design Tokens](../../D-Design-System/01-design-tokens.md).
 | Title | `selected-title` | H1 | "Selected" |
 | Description | `selected-description` | Body text | "A few entry points into the archive." |
 
-### Section: Selected Artifact List
+### Section: Selected Entry List
 
-**OBJECT ID:** `selected-artifact-list`
+**OBJECT ID:** `selected-entry-list`
 
 | Object | ID | Component | Content / Behavior |
 |--------|----|-----------|--------------------|
-| Artifact cards | `selected-artifact-cards` | Artifact list/card group | Representative artifacts with date, type, collections, summary |
+| Entry cards | `selected-entry-cards` | Entry list/card group | Representative entries with date, type, collections, summary |
 
 ### Section: Continue Exploring
 
@@ -1009,8 +1009,8 @@ Use [Design Tokens](../../D-Design-System/01-design-tokens.md).
 | `selected-header` | Section | Selected page heading |
 | `selected-title` | Heading | Selected page title |
 | `selected-description` | Text | Selected framing copy |
-| `selected-artifact-list` | Section | Curated artifact list |
-| `selected-artifact-cards` | Artifact list | Selected artifact entries |
+| `selected-entry-list` | Section | Curated entry list |
+| `selected-entry-cards` | Entry list | Selected entry entries |
 | `selected-continue` | Section | Continuation links |
 | `selected-timeline-link` | Link | Opens Timeline |
 | `selected-collections-link` | Link | Opens Collections |
@@ -1023,7 +1023,7 @@ Use [Design Tokens](../../D-Design-System/01-design-tokens.md).
 +------------------------------+
 | Header + framing copy         |
 +------------------------------+
-| Selected artifact entries     |
+| Selected entry entries     |
 +------------------------------+
 | Continue via Timeline/Collections |
 +------------------------------+
@@ -1039,7 +1039,7 @@ Use [Design Tokens](../../D-Design-System/01-design-tokens.md).
 | Entry gap | `space-lg` |
 | Section gap | `space-2xl` |
 | Title | `text-3xl` |
-| Artifact title | `text-xl` |
+| Entry title | `text-xl` |
 
 ---
 
@@ -1047,8 +1047,8 @@ Use [Design Tokens](../../D-Design-System/01-design-tokens.md).
 
 | State | When | Appearance | Actions |
 |-------|------|------------|---------|
-| Default | Selected artifacts exist | Curated artifact list | Open artifact |
-| Empty | No selected artifacts | "No selected entries yet." | Browse Timeline |
+| Default | Selected entries exist | Curated entry list | Open entry |
+| Empty | No selected entries | "No selected entries yet." | Browse Timeline |
 
 ---
 
@@ -1104,13 +1104,13 @@ Use [Design Tokens](../../D-Design-System/01-design-tokens.md).
 
 - Home / Portal.
 - Header navigation.
-- Artifact related links.
+- Entry related links.
 
 **Exit Points:**
 
 - Note Detail.
 - RSS.
-- Artifact Detail when notes reference artifacts.
+- Entry Detail when notes reference entries.
 
 ---
 
@@ -1228,18 +1228,18 @@ Use [Design Tokens](../../D-Design-System/01-design-tokens.md).
 
 **User Situation:** A visitor opens a note because they want reflective context or worldview evidence.
 
-**Success Criteria:** The visitor reads the note, can navigate related artifacts or notes, and can optionally follow RSS.
+**Success Criteria:** The visitor reads the note, can navigate related entries or notes, and can optionally follow RSS.
 
 **Entry Points:**
 
 - Notes Index.
 - Direct note URL.
-- Related artifact links.
+- Related entry links.
 
 **Exit Points:**
 
 - Notes Index.
-- Related Artifacts.
+- Related Entries.
 - RSS.
 
 ---
@@ -1270,7 +1270,7 @@ Use [Design Tokens](../../D-Design-System/01-design-tokens.md).
 
 | Object | ID | Component | Content / Behavior |
 |--------|----|-----------|--------------------|
-| Related links | `note-related-links` | Link list | Related artifacts or notes |
+| Related links | `note-related-links` | Link list | Related entries or notes |
 | RSS link | `note-rss-link` | Quiet link | Opens RSS feed |
 
 ---
@@ -1286,7 +1286,7 @@ Use [Design Tokens](../../D-Design-System/01-design-tokens.md).
 | `note-body` | Section | Main note body |
 | `note-prose` | Rich text | Long-form note content |
 | `note-connections` | Section | Related links and RSS |
-| `note-related-links` | Link list | Related artifacts or notes |
+| `note-related-links` | Link list | Related entries or notes |
 | `note-rss-link` | Link | RSS feed link |
 
 ---
@@ -1377,7 +1377,7 @@ Use [Design Tokens](../../D-Design-System/01-design-tokens.md).
 **Entry Points:**
 
 - Header navigation.
-- Artifact Detail.
+- Entry Detail.
 - Contact path.
 
 **Exit Points:**
@@ -1518,7 +1518,7 @@ Use [Design Tokens](../../D-Design-System/01-design-tokens.md).
 
 - Header navigation.
 - About.
-- Artifact Detail.
+- Entry Detail.
 
 **Exit Points:**
 

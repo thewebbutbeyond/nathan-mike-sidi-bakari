@@ -7,21 +7,21 @@ import {
   SiteShell,
   Tag,
 } from "@/components/site-shell";
-import { ARTIFACTS, type Artifact, type Collection, formatDate, getArtifact } from "@/content/data";
-import { ArtifactMosaic } from "@/components/artifact-mosaic";
+import { ENTRIES, type Entry, type Collection, formatDate, getEntry } from "@/content/data";
+import { EntryMosaic } from "@/components/entry-mosaic";
 
-export const Route = createFileRoute("/artifacts/$slug")({
+export const Route = createFileRoute("/entries/$slug")({
   loader: ({ params }) => {
-    const a = getArtifact(params.slug);
+    const a = getEntry(params.slug);
     if (!a) throw notFound();
     const related = (a.related ?? [])
-      .map((s) => ARTIFACTS.find((x) => x.slug === s))
+      .map((s) => ENTRIES.find((x) => x.slug === s))
       .filter((x): x is NonNullable<typeof x> => Boolean(x));
-    return { artifact: a, related };
+    return { entry: a, related };
   },
   head: ({ loaderData }) => {
-    if (!loaderData) return { meta: [{ title: "Artifact · Nathan Mike Sidi Bakari" }] };
-    const a = loaderData.artifact;
+    if (!loaderData) return { meta: [{ title: "Entry · Nathan Mike Sidi Bakari" }] };
+    const a = loaderData.entry;
     const title = `${a.title} · Nathan Mike Sidi Bakari`;
     return {
       meta: [
@@ -37,7 +37,7 @@ export const Route = createFileRoute("/artifacts/$slug")({
   notFoundComponent: () => (
     <SiteShell>
       <Container>
-        <div className="text-xs text-ink-faint mb-3">404 · artifact not found</div>
+        <div className="text-xs text-ink-faint mb-3">404 · entry not found</div>
         <h1 className="text-xl font-medium">No record at this slug.</h1>
         <Link to="/timeline" className="mt-6 inline-block text-sm underline">
           ← timeline
@@ -45,11 +45,11 @@ export const Route = createFileRoute("/artifacts/$slug")({
       </Container>
     </SiteShell>
   ),
-  component: ArtifactDetail,
+  component: EntryDetail,
 });
 
-function ArtifactDetail() {
-  const { artifact: a, related } = Route.useLoaderData();
+function EntryDetail() {
+  const { entry: a, related } = Route.useLoaderData();
 
   return (
     <SiteShell>
@@ -124,7 +124,7 @@ function ArtifactDetail() {
 
         <Prose text={a.body} />
 
-        <ArtifactMosaic seed={a.slug} />
+        <EntryMosaic seed={a.slug} />
 
         {related.length > 0 && (
           <section className="mt-12 pt-6 border-t border-rule">
@@ -132,10 +132,10 @@ function ArtifactDetail() {
               related
             </h2>
             <ul className="space-y-2">
-              {related.map((r: Artifact) => (
+              {related.map((r: Entry) => (
                 <li key={r.slug} className="text-sm">
                   <Link
-                    to="/artifacts/$slug"
+                    to="/entries/$slug"
                     params={{ slug: r.slug }}
                     className="hover:underline underline-offset-4"
                   >

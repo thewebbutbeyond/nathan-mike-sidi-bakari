@@ -31,7 +31,7 @@
 
 - Header navigation.
 - About.
-- Artifact Detail.
+- Entry Detail.
 
 **Exit Points:**
 

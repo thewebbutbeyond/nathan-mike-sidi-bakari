@@ -25,18 +25,18 @@
 
 **User Situation:** A visitor opens a note because they want reflective context or worldview evidence.
 
-**Success Criteria:** The visitor reads the note, can navigate related artifacts or notes, and can optionally follow RSS.
+**Success Criteria:** The visitor reads the note, can navigate related entries or notes, and can optionally follow RSS.
 
 **Entry Points:**
 
 - Notes Index.
 - Direct note URL.
-- Related artifact links.
+- Related entry links.
 
 **Exit Points:**
 
 - Notes Index.
-- Related Artifacts.
+- Related Entries.
 - RSS.
 
 ---
@@ -67,7 +67,7 @@
 
 | Object | ID | Component | Content / Behavior |
 |--------|----|-----------|--------------------|
-| Related links | `note-related-links` | Link list | Related artifacts or notes |
+| Related links | `note-related-links` | Link list | Related entries or notes |
 | RSS link | `note-rss-link` | Quiet link | Opens RSS feed |
 
 ---
@@ -83,7 +83,7 @@
 | `note-body` | Section | Main note body |
 | `note-prose` | Rich text | Long-form note content |
 | `note-connections` | Section | Related links and RSS |
-| `note-related-links` | Link list | Related artifacts or notes |
+| `note-related-links` | Link list | Related entries or notes |
 | `note-rss-link` | Link | RSS feed link |
 
 ---

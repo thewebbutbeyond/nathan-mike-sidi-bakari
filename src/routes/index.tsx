@@ -2,13 +2,13 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Rss } from "lucide-react";
 import { Container, SiteShell, Tag } from "@/components/site-shell";
 import {
-  ARTIFACTS,
+  ENTRIES,
   NOTES,
   formatDate,
-  sortedArtifacts,
+  sortedEntries,
   sortedNotes,
 } from "@/content/data";
-import { ArtifactList } from "@/components/artifact-list";
+import { EntryList } from "@/components/entry-list";
 
 export const Route = createFileRoute("/")({
   component: HomePage,
@@ -38,15 +38,15 @@ const ROUTES = [
 ];
 
 function HomePage() {
-  const recent = sortedArtifacts().slice(0, 6);
+  const recent = sortedEntries().slice(0, 6);
   const latestNotes = sortedNotes().slice(0, 3);
 
-  const allDates = ARTIFACTS.map((a) => a.date).concat(NOTES.map((n) => n.date));
+  const allDates = ENTRIES.map((a) => a.date).concat(NOTES.map((n) => n.date));
   const years = new Set(allDates.map((d) => d.slice(0, 4)));
   const earliest = allDates.sort()[0]?.slice(0, 4) ?? "2017";
 
   const stats = [
-    { label: "entries", value: ARTIFACTS.length },
+    { label: "entries", value: ENTRIES.length },
     { label: "notes", value: NOTES.length },
     { label: "years", value: years.size, sub: `since ${earliest}` },
   ];
@@ -126,7 +126,7 @@ function HomePage() {
           </ul>
         </section>
 
-        {/* recent artifacts */}
+        {/* recent entries */}
         <section className="mb-16">
           <SectionHeading
             label="recent entries"
@@ -139,7 +139,7 @@ function HomePage() {
               </Link>
             }
           />
-          <ArtifactList artifacts={recent} />
+          <EntryList entries={recent} />
         </section>
 
         {/* notes preview */}

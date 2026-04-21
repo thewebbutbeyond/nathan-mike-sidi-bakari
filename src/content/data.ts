@@ -1,6 +1,6 @@
 export type Collection = "engineer" | "entrepreneur" | "investor" | "artist";
 
-export interface Artifact {
+export interface Entry {
   slug: string;
   title: string;
   date: string; // ISO
@@ -52,7 +52,7 @@ export const COLLECTIONS: { slug: Collection; label: string; description: string
   },
 ];
 
-export const ARTIFACTS: Artifact[] = [
+export const ENTRIES: Entry[] = [
   {
     slug: "ledger-engine-v2",
     title: "Ledger Engine v2",
@@ -318,7 +318,7 @@ A friend once asked me what the practice "was for." I think the honest answer is
 ];
 
 export const ALL_TAGS = Array.from(
-  new Set([...ARTIFACTS.flatMap((a) => a.tags), ...NOTES.flatMap((n) => n.tags)]),
+  new Set([...ENTRIES.flatMap((a) => a.tags), ...NOTES.flatMap((n) => n.tags)]),
 ).sort();
 
 export function formatDate(iso: string, opts?: { long?: boolean }) {
@@ -338,22 +338,22 @@ export function formatYear(iso: string) {
   return iso.slice(0, 4);
 }
 
-export function getArtifact(slug: string) {
-  return ARTIFACTS.find((a) => a.slug === slug);
+export function getEntry(slug: string) {
+  return ENTRIES.find((a) => a.slug === slug);
 }
 
 export function getNote(slug: string) {
   return NOTES.find((n) => n.slug === slug);
 }
 
-export function artifactsByCollection(slug: Collection) {
-  return ARTIFACTS.filter((a) => a.collections.includes(slug)).sort((a, b) =>
+export function entriesByCollection(slug: Collection) {
+  return ENTRIES.filter((a) => a.collections.includes(slug)).sort((a, b) =>
     b.date.localeCompare(a.date),
   );
 }
 
-export function sortedArtifacts() {
-  return [...ARTIFACTS].sort((a, b) => b.date.localeCompare(a.date));
+export function sortedEntries() {
+  return [...ENTRIES].sort((a, b) => b.date.localeCompare(a.date));
 }
 
 export function sortedNotes() {

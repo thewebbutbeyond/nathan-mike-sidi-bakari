@@ -30,7 +30,7 @@
 **Entry Points:**
 
 - Header navigation.
-- Artifact Detail.
+- Entry Detail.
 - Contact path.
 
 **Exit Points:**

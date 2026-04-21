@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Container, PageHeader, SiteShell, Tag } from "@/components/site-shell";
-import { formatDate, formatYear, sortedArtifacts } from "@/content/data";
+import { formatDate, formatYear, sortedEntries } from "@/content/data";
 
 export const Route = createFileRoute("/timeline")({
   head: () => ({
@@ -8,12 +8,12 @@ export const Route = createFileRoute("/timeline")({
       { title: "Timeline · Nathan Mike Sidi Bakari" },
       {
         name: "description",
-        content: "All artifacts in chronological order.",
+        content: "All entries in chronological order.",
       },
       { property: "og:title", content: "Timeline · Nathan Mike Sidi Bakari" },
       {
         property: "og:description",
-        content: "All artifacts in chronological order.",
+        content: "All entries in chronological order.",
       },
     ],
   }),
@@ -21,7 +21,7 @@ export const Route = createFileRoute("/timeline")({
 });
 
 function TimelinePage() {
-  const all = sortedArtifacts();
+  const all = sortedEntries();
   const byYear = new Map<string, typeof all>();
   for (const a of all) {
     const y = formatYear(a.date);
@@ -55,7 +55,7 @@ function TimelinePage() {
                     className="border-b border-rule border-dotted last:border-b-0"
                   >
                     <Link
-                      to="/artifacts/$slug"
+                      to="/entries/$slug"
                       params={{ slug: a.slug }}
                       className="grid grid-cols-[5rem_1fr] sm:grid-cols-[6rem_1fr] gap-x-4 py-3 px-1 hover:bg-secondary/40 transition-colors"
                     >

@@ -15,7 +15,7 @@
 **CMS/Framework:** React / Next.js
 **Approach:** Static or mostly static content-driven website.
 
-Use structured local content as the initial source of truth. The archive model benefits from file-based artifacts and metadata that can generate collection pages, timeline views, RSS, and detail pages.
+Use structured local content as the initial source of truth. The archive model benefits from file-based entries and metadata that can generate collection pages, timeline views, RSS, and detail pages.
 
 ### Key Technologies
 
@@ -35,7 +35,7 @@ To be determined during development. Likely package needs:
 
 | Package Area | Purpose | Status |
 |--------------|---------|--------|
-| MDX / Markdown | Notes and artifact content | Candidate |
+| MDX / Markdown | Notes and entry content | Candidate |
 | RSS generation | Notes feed | Required or near-required |
 | Content indexing | Collections and timeline | Required |
 | SEO metadata | Page titles, descriptions, structured data | Required |
@@ -86,7 +86,7 @@ These constraints inform Phase 4 UX Design.
 
 ### Platform Limitations
 
-- The content model must support artifacts belonging to multiple collections.
+- The content model must support entries belonging to multiple collections.
 - Timeline and collections should derive from the same metadata.
 - Notes must support long-form readability and RSS output.
 - The site should remain useful before there is a large amount of content.
@@ -131,7 +131,7 @@ Future multilingual support is optional and should be driven by actual content n
 | Home / About | `Person` | name, url, sameAs |
 | Notes Index | `Blog` or `CollectionPage` | name, url, itemListElement |
 | Note Detail | `Article` | headline, author, datePublished |
-| Artifact Detail | `CreativeWork` | name, creator, dateCreated, keywords |
+| Entry Detail | `CreativeWork` | name, creator, dateCreated, keywords |
 | Timeline / Selected | `CollectionPage` | name, itemListElement |
 
 ### Local SEO
@@ -172,7 +172,7 @@ Use framework-native metadata and generated sitemap/RSS where possible. Avoid he
 
 | Aspect | Owner | Notes |
 |--------|-------|-------|
-| **Content Updates** | Nathan | Add artifacts, notes, metadata, and selected entries. |
+| **Content Updates** | Nathan | Add entries, notes, metadata, and selected entries. |
 | **Technical Maintenance** | Nathan / Codex | Keep dependencies current and verify builds. |
 | **Package Updates** | Nathan / Codex | Review before updating; avoid unnecessary package growth. |
 
@@ -187,7 +187,7 @@ Expected development stack:
 - Node.js
 - Next.js
 - Tailwind CSS
-- File-based content directory for artifacts and notes
+- File-based content directory for entries and notes
 - Git for versioned content and implementation changes
 
 ### Deployment Process
@@ -197,7 +197,7 @@ Deployment target is not selected yet. Prefer a host with preview deployments, f
 ### Key Considerations
 
 - Model content before designing pages in detail.
-- Keep artifact metadata stable and explicit.
+- Keep entry metadata stable and explicit.
 - Generate timeline and collection views from the same data source.
 - Add RSS early enough that Notes structure does not need to be reworked.
 - Avoid adding analytics, CMS, or search until there is a clear need.

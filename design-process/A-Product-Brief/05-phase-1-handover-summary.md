@@ -12,14 +12,14 @@ The site is a self-addressed archive with public access. It should preserve long
 
 The strongest synthesis:
 
-> A minimally curated, multi-domain, temporally indexed archive of personal output, where identity is expressed through tagged artifacts rather than narrative positioning.
+> A minimally curated, multi-domain, temporally indexed archive of personal output, where identity is expressed through tagged entries rather than narrative positioning.
 
 ---
 
 ## Strategic Commitments
 
 - Preserve the archive-first intent.
-- Let artifacts create credibility.
+- Let entries create credibility.
 - Avoid performative signaling and conventional portfolio exaggeration.
 - Make identity navigable through collections and tags.
 - Make trajectory navigable through time.
@@ -35,7 +35,7 @@ The strongest synthesis:
 |-----------|---------|
 | Home / Portal | Minimal entry point with immediate routes into the archive. |
 | Collections | Identity-based views: Engineer, Entrepreneur, Investor, Artist. |
-| Timeline | Chronological aggregation across all artifact types. |
+| Timeline | Chronological aggregation across all entry types. |
 | Selected | Small curated subset for new visitors. |
 | Notes / Thoughts | Editorial long-form reflections with RSS support. |
 | About | Minimal identity statement. |
@@ -50,7 +50,7 @@ Phase 2 should use simplified trigger mapping. Treat audiences as **visitor mode
 - Future Nathan: continuity, retrieval, reflection.
 - Curious Observer: non-linear exploration and sense-making.
 - Potential Collaborator: authentic overlap and contact.
-- Professional Observer: competence inferred from artifacts.
+- Professional Observer: competence inferred from entries.
 
 The key question for Phase 2:
 
@@ -62,7 +62,7 @@ The key question for Phase 2:
 
 - Accidentally turning the homepage into a resume pitch.
 - Making Selected feel like a trophy case instead of an entry point.
-- Over-designing the visual identity before real artifacts shape it.
+- Over-designing the visual identity before real entries shape it.
 - Making Notes too blog-like, too frequent, or too raw.
 - Letting collections become fixed identities rather than flexible tags.
 - Adding analytics, contact flows, or conversion mechanisms before they are needed.

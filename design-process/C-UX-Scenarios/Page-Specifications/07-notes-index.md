@@ -31,13 +31,13 @@
 
 - Home / Portal.
 - Header navigation.
-- Artifact related links.
+- Entry related links.
 
 **Exit Points:**
 
 - Note Detail.
 - RSS.
-- Artifact Detail when notes reference artifacts.
+- Entry Detail when notes reference entries.
 
 ---
 

@@ -27,7 +27,7 @@ I started keeping an archive in 2024 because I wanted a place where the work cou
 
 Most of what I do is small. The companies I’ve worked on are not famous. The investments I’m proudest of were unfashionable. The drawings are mostly hands. The throughline, if there is one, is a preference for things that compound quietly.
 
-If you arrived through a specific artifact, that’s a fine place to start. If you wandered in and want a single entry point, *Chefs-d’œuvre* is the shortest version. *Notes* is the closest I come to thinking out loud. *Lenses* lets you read the same archive through one part of my life at a time.
+If you arrived through a specific entry, that’s a fine place to start. If you wandered in and want a single entry point, *Chefs-d’œuvre* is the shortest version. *Notes* is the closest I come to thinking out loud. *Lenses* lets you read the same archive through one part of my life at a time.
 
 Thank you for reading.`;
 

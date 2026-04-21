@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Container, PageHeader, SiteShell } from "@/components/site-shell";
-import { ArtifactList } from "@/components/artifact-list";
-import { ARTIFACTS } from "@/content/data";
+import { EntryList } from "@/components/entry-list";
+import { ENTRIES } from "@/content/data";
 
 export const Route = createFileRoute("/chefs-doeuvre")({
   head: () => ({
@@ -23,7 +23,7 @@ export const Route = createFileRoute("/chefs-doeuvre")({
 });
 
 function SelectedPage() {
-  const selected = ARTIFACTS.filter((a) => a.selected).sort((a, b) =>
+  const selected = ENTRIES.filter((a) => a.selected).sort((a, b) =>
     b.date.localeCompare(a.date),
   );
 
@@ -35,7 +35,7 @@ function SelectedPage() {
           title="A handful of marked entries."
           description="A small set of pieces I’d hand someone if they only had ten minutes."
         />
-        <ArtifactList artifacts={selected} />
+        <EntryList entries={selected} />
       </Container>
     </SiteShell>
   );

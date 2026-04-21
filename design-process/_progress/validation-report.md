@@ -29,7 +29,7 @@ The Phase 4 shared page specifications now satisfy the validation blockers found
 | Page | File | Status |
 |------|------|--------|
 | Home / Portal | `01-home-portal.md` | Pass |
-| Artifact Detail | `02-artifact-detail.md` | Pass |
+| Entry Detail | `02-entry-detail.md` | Pass |
 | Collections | `03-collections.md` | Pass |
 | Collection Detail | `04-collection-detail.md` | Pass |
 | Timeline | `05-timeline.md` | Pass |
