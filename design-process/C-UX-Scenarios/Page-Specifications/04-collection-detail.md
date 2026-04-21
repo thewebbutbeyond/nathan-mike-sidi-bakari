@@ -1,10 +1,21 @@
 # 04 - Collection Detail
 
-**Scenario Coverage:** Tracing a Domain
-**Platform:** Responsive web
-**Page Type:** Full page
-**Viewport:** Mobile-first, desktop-enhanced
-**Visibility:** Public
+## Page Metadata
+
+| Property | Value |
+|----------|-------|
+| **Scenario Coverage** | Tracing a Domain |
+| **Source Scenarios** | `02-tracing-a-domain` |
+| **Platform** | Responsive web |
+| **Page Type** | Full page |
+| **Viewport** | Mobile-first, desktop-enhanced |
+| **Interaction** | Touch + mouse/keyboard |
+| **Visibility** | Public |
+| **URL** | `/collections/[collection]` |
+| **Primary Keyword** | Collection name plus projects |
+| **Meta Title** | Collection name followed by "Nathan Mike Sidi Bakari" |
+| **Meta Description** | Browse the collection's artifacts with dates, summaries, tags, and related work. |
+| **Structured Data** | `CollectionPage` |
 
 ---
 
@@ -58,6 +69,22 @@
 | Object | ID | Component | Content / Behavior |
 |--------|----|-----------|--------------------|
 | Related collections | `collection-related-collections` | Link list | Other collections with overlap |
+
+---
+
+## Object Registry
+
+| Object ID | Type | Description |
+|-----------|------|-------------|
+| `collection-header` | Section | Collection detail heading |
+| `collection-title` | Heading | Active collection name |
+| `collection-description` | Text | Domain-specific collection explanation |
+| `collection-count` | Metadata | Artifact count |
+| `collection-artifact-list` | Section | Artifact list section |
+| `collection-filter-row` | Controls | Optional tag/type filters |
+| `collection-artifact-rows` | List | Artifact rows |
+| `collection-cross-links` | Section | Cross-collection navigation |
+| `collection-related-collections` | Link list | Related collections |
 
 ---
 

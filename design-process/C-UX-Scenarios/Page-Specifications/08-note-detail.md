@@ -1,10 +1,21 @@
 # 08 - Note Detail
 
-**Scenario Coverage:** Reading Notes
-**Platform:** Responsive web
-**Page Type:** Full page
-**Viewport:** Mobile-first, desktop-readable
-**Visibility:** Public
+## Page Metadata
+
+| Property | Value |
+|----------|-------|
+| **Scenario Coverage** | Reading Notes |
+| **Source Scenarios** | `05-reading-notes` |
+| **Platform** | Responsive web |
+| **Page Type** | Full page |
+| **Viewport** | Mobile-first, desktop-readable |
+| **Interaction** | Touch + mouse/keyboard |
+| **Visibility** | Public |
+| **URL** | `/notes/[slug]` |
+| **Primary Keyword** | Note title |
+| **Meta Title** | Note title followed by "Nathan Mike Sidi Bakari" |
+| **Meta Description** | Note summary |
+| **Structured Data** | `Article` |
 
 ---
 
@@ -58,6 +69,22 @@
 |--------|----|-----------|--------------------|
 | Related links | `note-related-links` | Link list | Related artifacts or notes |
 | RSS link | `note-rss-link` | Quiet link | Opens RSS feed |
+
+---
+
+## Object Registry
+
+| Object ID | Type | Description |
+|-----------|------|-------------|
+| `note-header` | Section | Note heading and metadata |
+| `note-title` | Heading | Note title |
+| `note-metadata` | Metadata row | Date, reading context, and tags |
+| `note-summary` | Lead text | Optional note summary |
+| `note-body` | Section | Main note body |
+| `note-prose` | Rich text | Long-form note content |
+| `note-connections` | Section | Related links and RSS |
+| `note-related-links` | Link list | Related artifacts or notes |
+| `note-rss-link` | Link | RSS feed link |
 
 ---
 

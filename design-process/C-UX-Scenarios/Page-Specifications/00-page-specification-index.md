@@ -11,6 +11,8 @@
 
 These shared page specifications cover the structural pages used across the six Phase 3 scenarios. Shared specs prevent duplicate definitions of common pages such as Home / Portal, Artifact Detail, Timeline, and Contact.
 
+These are **shared page specifications**, not per-scenario step specifications. The scenario files define the linear journeys; this folder defines the reusable public pages those journeys pass through.
+
 | # | Page | Spec | Primary Scenarios |
 |---|------|------|-------------------|
 | 01 | Home / Portal | [01-home-portal.md](./01-home-portal.md) | 01, 03 |
@@ -62,7 +64,6 @@ All artifact-like entries should support:
 Before development handoff:
 
 - Confirm real initial artifacts and notes.
-- Confirm final routing slugs.
-- Confirm whether RSS ships in MVP.
-- Confirm contact method.
+- Confirm final contact method.
+- Add sketches or wireframes if visual handoff requires them.
 - Run `wds-4-ux-design validate` against this folder.

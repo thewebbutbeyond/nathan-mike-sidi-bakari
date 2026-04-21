@@ -1,10 +1,21 @@
 # 02 - Artifact Detail
 
-**Scenario Coverage:** All scenarios except Notes-only reading
-**Platform:** Responsive web
-**Page Type:** Full page
-**Viewport:** Mobile-first, desktop-enhanced
-**Visibility:** Public
+## Page Metadata
+
+| Property | Value |
+|----------|-------|
+| **Scenario Coverage** | All scenarios except Notes-only reading |
+| **Source Scenarios** | `01-orienting-at-the-portal`, `02-tracing-a-domain`, `03-following-time`, `04-inspecting-an-artifact`, `06-finding-contact` |
+| **Platform** | Responsive web |
+| **Page Type** | Full page |
+| **Viewport** | Mobile-first, desktop-enhanced |
+| **Interaction** | Touch + mouse/keyboard |
+| **Visibility** | Public |
+| **URL** | `/artifacts/[slug]` |
+| **Primary Keyword** | personal archive artifact |
+| **Meta Title** | Artifact title followed by "Nathan Mike Sidi Bakari" |
+| **Meta Description** | Artifact summary |
+| **Structured Data** | `CreativeWork` |
 
 ---
 
@@ -106,6 +117,33 @@
 |--------|----|-----------|--------------------|
 | Heading | `artifact-related-heading` | H2 | "Related" |
 | Related list | `artifact-related-list` | Artifact list | Related artifacts by tag, collection, or manual link |
+
+---
+
+## Object Registry
+
+| Object ID | Type | Description |
+|-----------|------|-------------|
+| `artifact-header` | Section | Artifact heading and summary container |
+| `artifact-breadcrumb` | Navigation | Optional previous-context breadcrumb |
+| `artifact-title` | Heading | Artifact title |
+| `artifact-meta-row` | Metadata group | Date, type, and status |
+| `artifact-summary` | Lead text | Artifact summary |
+| `artifact-context` | Section | Context and contribution section |
+| `artifact-context-block` | Rich text | Why the artifact exists |
+| `artifact-role-block` | Fact list | Nathan's role or contribution |
+| `artifact-outcome-block` | Rich text | Outcome or current relevance |
+| `artifact-body` | Section | Artifact media and body content |
+| `artifact-media-area` | Media block | Optional media area |
+| `artifact-content-body` | Rich text | Main artifact body |
+| `artifact-external-links` | Link list | External references |
+| `artifact-classification` | Section | Collections and tags |
+| `artifact-collections` | Tag list | Collection memberships |
+| `artifact-tags` | Tag list | Flexible tags |
+| `artifact-timeline-link` | Link | Opens timeline context |
+| `artifact-related` | Section | Related artifact section |
+| `artifact-related-heading` | Heading | Related section heading |
+| `artifact-related-list` | List | Related artifacts |
 
 ---
 

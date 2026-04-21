@@ -1,10 +1,21 @@
 # 07 - Notes Index
 
-**Scenario Coverage:** Reading Notes
-**Platform:** Responsive web
-**Page Type:** Full page
-**Viewport:** Mobile-first, desktop-enhanced
-**Visibility:** Public
+## Page Metadata
+
+| Property | Value |
+|----------|-------|
+| **Scenario Coverage** | Reading Notes |
+| **Source Scenarios** | `05-reading-notes` |
+| **Platform** | Responsive web |
+| **Page Type** | Full page |
+| **Viewport** | Mobile-first, desktop-enhanced |
+| **Interaction** | Touch + mouse/keyboard |
+| **Visibility** | Public |
+| **URL** | `/notes` |
+| **Primary Keyword** | notes and essays |
+| **Meta Title** | Notes - Nathan Mike Sidi Bakari |
+| **Meta Description** | Curated long-form reflections and notes from Nathan Mike Sidi Bakari. |
+| **Structured Data** | `Blog`, `CollectionPage` |
 
 ---
 
@@ -49,6 +60,19 @@
 | Object | ID | Component | Content / Behavior |
 |--------|----|-----------|--------------------|
 | Note rows | `notes-rows` | Note list | Date, title, summary, tags |
+
+---
+
+## Object Registry
+
+| Object ID | Type | Description |
+|-----------|------|-------------|
+| `notes-header` | Section | Notes page heading |
+| `notes-title` | Heading | Notes page title |
+| `notes-description` | Text | Editorial notes framing |
+| `notes-rss-link` | Link | RSS feed link |
+| `notes-list` | Section | Note listing section |
+| `notes-rows` | List | Editorial note rows |
 
 ---
 

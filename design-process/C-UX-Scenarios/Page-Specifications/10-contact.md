@@ -1,10 +1,21 @@
 # 10 - Contact
 
-**Scenario Coverage:** Finding Contact
-**Platform:** Responsive web
-**Page Type:** Full page
-**Viewport:** Mobile-first, desktop-enhanced
-**Visibility:** Public
+## Page Metadata
+
+| Property | Value |
+|----------|-------|
+| **Scenario Coverage** | Finding Contact |
+| **Source Scenarios** | `06-finding-contact` |
+| **Platform** | Responsive web |
+| **Page Type** | Full page |
+| **Viewport** | Mobile-first, desktop-enhanced |
+| **Interaction** | Touch + mouse/keyboard |
+| **Visibility** | Public |
+| **URL** | `/contact` |
+| **Primary Keyword** | contact Nathan Mike Sidi Bakari |
+| **Meta Title** | Contact - Nathan Mike Sidi Bakari |
+| **Meta Description** | Low-emphasis contact for genuine intersections of interest with Nathan Mike Sidi Bakari. |
+| **Structured Data** | `ContactPage` |
 
 ---
 
@@ -57,6 +68,22 @@
 |--------|----|-----------|--------------------|
 | Back to archive | `contact-archive-link` | Text link | Opens Home / Portal |
 | Selected link | `contact-selected-link` | Text link | Opens Selected |
+
+---
+
+## Object Registry
+
+| Object ID | Type | Description |
+|-----------|------|-------------|
+| `contact-header` | Section | Contact page heading |
+| `contact-title` | Heading | Contact page title |
+| `contact-description` | Text | Contact framing copy |
+| `contact-method` | Section | Contact method section |
+| `contact-email-link` | Link | Email contact route |
+| `contact-context-note` | Helper text | Outreach context guidance |
+| `contact-return-routes` | Section | Return navigation |
+| `contact-archive-link` | Link | Opens Home / Portal |
+| `contact-selected-link` | Link | Opens Selected |
 
 ---
 

@@ -1,10 +1,21 @@
 # 06 - Selected
 
-**Scenario Coverage:** Orienting at the Portal
-**Platform:** Responsive web
-**Page Type:** Full page
-**Viewport:** Mobile-first, desktop-enhanced
-**Visibility:** Public
+## Page Metadata
+
+| Property | Value |
+|----------|-------|
+| **Scenario Coverage** | Orienting at the Portal |
+| **Source Scenarios** | `01-orienting-at-the-portal` |
+| **Platform** | Responsive web |
+| **Page Type** | Full page |
+| **Viewport** | Mobile-first, desktop-enhanced |
+| **Interaction** | Touch + mouse/keyboard |
+| **Visibility** | Public |
+| **URL** | `/selected` |
+| **Primary Keyword** | selected work |
+| **Meta Title** | Selected - Nathan Mike Sidi Bakari |
+| **Meta Description** | A small set of selected entry points into Nathan's archive of work, notes, and traces. |
+| **Structured Data** | `CollectionPage` |
 
 ---
 
@@ -56,6 +67,21 @@
 |--------|----|-----------|--------------------|
 | Timeline link | `selected-timeline-link` | Text link | Opens Timeline |
 | Collections link | `selected-collections-link` | Text link | Opens Collections |
+
+---
+
+## Object Registry
+
+| Object ID | Type | Description |
+|-----------|------|-------------|
+| `selected-header` | Section | Selected page heading |
+| `selected-title` | Heading | Selected page title |
+| `selected-description` | Text | Selected framing copy |
+| `selected-artifact-list` | Section | Curated artifact list |
+| `selected-artifact-cards` | Artifact list | Selected artifact entries |
+| `selected-continue` | Section | Continuation links |
+| `selected-timeline-link` | Link | Opens Timeline |
+| `selected-collections-link` | Link | Opens Collections |
 
 ---
 

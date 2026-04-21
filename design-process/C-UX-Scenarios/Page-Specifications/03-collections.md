@@ -1,10 +1,21 @@
 # 03 - Collections
 
-**Scenario Coverage:** Tracing a Domain
-**Platform:** Responsive web
-**Page Type:** Full page
-**Viewport:** Mobile-first, desktop-enhanced
-**Visibility:** Public
+## Page Metadata
+
+| Property | Value |
+|----------|-------|
+| **Scenario Coverage** | Tracing a Domain |
+| **Source Scenarios** | `02-tracing-a-domain` |
+| **Platform** | Responsive web |
+| **Page Type** | Full page |
+| **Viewport** | Mobile-first, desktop-enhanced |
+| **Interaction** | Touch + mouse/keyboard |
+| **Visibility** | Public |
+| **URL** | `/collections` |
+| **Primary Keyword** | Nathan Mike Sidi Bakari work |
+| **Meta Title** | Collections - Nathan Mike Sidi Bakari |
+| **Meta Description** | Browse archive artifacts by engineering, entrepreneurship, investing, and art. |
+| **Structured Data** | `CollectionPage` |
 
 ---
 
@@ -58,6 +69,23 @@
 | Object | ID | Component | Content / Behavior |
 |--------|----|-----------|--------------------|
 | Note | `collections-note` | Small text block | Explains multi-membership and overlap |
+
+---
+
+## Object Registry
+
+| Object ID | Type | Description |
+|-----------|------|-------------|
+| `collections-header` | Section | Collection index heading |
+| `collections-title` | Heading | Collections page title |
+| `collections-description` | Text | Collection model explanation |
+| `collections-routes` | Section | Domain route group |
+| `collections-engineer` | Route | Engineer collection route |
+| `collections-entrepreneur` | Route | Entrepreneur collection route |
+| `collections-investor` | Route | Investor collection route |
+| `collections-artist` | Route | Artist collection route |
+| `collections-cross-domain-note` | Section | Multi-membership explanation section |
+| `collections-note` | Text | Cross-domain note |
 
 ---
 

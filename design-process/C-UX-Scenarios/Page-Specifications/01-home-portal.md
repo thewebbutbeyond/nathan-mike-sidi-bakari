@@ -1,10 +1,21 @@
 # 01 - Home / Portal
 
-**Scenario Coverage:** Orienting at the Portal, Following Time
-**Platform:** Responsive web
-**Page Type:** Full page
-**Viewport:** Mobile-first, desktop-enhanced
-**Visibility:** Public
+## Page Metadata
+
+| Property | Value |
+|----------|-------|
+| **Scenario Coverage** | Orienting at the Portal, Following Time |
+| **Source Scenarios** | `01-orienting-at-the-portal`, `03-following-time` |
+| **Platform** | Responsive web |
+| **Page Type** | Full page |
+| **Viewport** | Mobile-first, desktop-enhanced |
+| **Interaction** | Touch + mouse/keyboard |
+| **Visibility** | Public |
+| **URL** | `/` |
+| **Primary Keyword** | Nathan Mike Sidi Bakari |
+| **Meta Title** | Nathan Mike Sidi Bakari |
+| **Meta Description** | A personal archive of work, notes, and traces across engineering, entrepreneurship, investing, art, and reflection. |
+| **Structured Data** | `Person`, `WebSite` |
 
 ---
 
@@ -103,6 +114,33 @@
 | Section heading | `home-notes-heading` | H2 | "Notes" |
 | Note list | `home-notes-list` | Note teaser list | Shows latest curated notes |
 | RSS link | `home-rss-link` | Quiet link | "RSS"; opens feed |
+
+---
+
+## Object Registry
+
+| Object ID | Type | Description |
+|-----------|------|-------------|
+| `home-site-header` | Section | Site header container |
+| `home-name-link` | Link | Name link returning home |
+| `home-primary-nav` | Navigation | Primary site navigation |
+| `home-contact-link` | Link | Low-emphasis contact route |
+| `home-archive-premise` | Section | Archive framing section |
+| `home-title` | Heading | Main archive statement |
+| `home-summary` | Text | One-paragraph archive summary |
+| `home-route-hint` | Helper text | Explains browsing routes |
+| `home-primary-routes` | Section | Primary navigation routes |
+| `home-route-selected` | Route card | Opens Selected |
+| `home-route-timeline` | Route card | Opens Timeline |
+| `home-route-collections` | Route card | Opens Collections |
+| `home-route-notes` | Route card | Opens Notes |
+| `home-artifact-preview` | Section | Recent or milestone artifact preview |
+| `home-artifact-preview-heading` | Heading | Preview section heading |
+| `home-artifact-preview-list` | List | Artifact teaser list |
+| `home-notes-preview` | Section | Notes teaser section |
+| `home-notes-heading` | Heading | Notes section heading |
+| `home-notes-list` | List | Latest note teasers |
+| `home-rss-link` | Link | RSS feed link |
 
 ---
 

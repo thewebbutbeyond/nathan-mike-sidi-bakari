@@ -1,10 +1,21 @@
 # 09 - About
 
-**Scenario Coverage:** Finding Contact
-**Platform:** Responsive web
-**Page Type:** Full page
-**Viewport:** Mobile-first, desktop-enhanced
-**Visibility:** Public
+## Page Metadata
+
+| Property | Value |
+|----------|-------|
+| **Scenario Coverage** | Finding Contact |
+| **Source Scenarios** | `06-finding-contact` |
+| **Platform** | Responsive web |
+| **Page Type** | Full page |
+| **Viewport** | Mobile-first, desktop-enhanced |
+| **Interaction** | Touch + mouse/keyboard |
+| **Visibility** | Public |
+| **URL** | `/about` |
+| **Primary Keyword** | about Nathan Mike Sidi Bakari |
+| **Meta Title** | About - Nathan Mike Sidi Bakari |
+| **Meta Description** | Minimal context for Nathan Mike Sidi Bakari and the archive's domains. |
+| **Structured Data** | `Person`, `AboutPage` |
 
 ---
 
@@ -57,6 +68,21 @@
 |--------|----|-----------|--------------------|
 | Contact link | `about-contact-link` | Quiet text link | Opens Contact |
 | Timeline link | `about-timeline-link` | Text link | Opens Timeline |
+
+---
+
+## Object Registry
+
+| Object ID | Type | Description |
+|-----------|------|-------------|
+| `about-identity` | Section | Minimal identity statement |
+| `about-title` | Heading | About page title |
+| `about-statement` | Text | Identity and archive purpose |
+| `about-domains` | Section | Domain context links |
+| `about-domain-list` | Link list | Domain collection links |
+| `about-continue` | Section | Continue links |
+| `about-contact-link` | Link | Opens Contact |
+| `about-timeline-link` | Link | Opens Timeline |
 
 ---
 

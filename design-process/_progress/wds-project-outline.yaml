@@ -80,7 +80,7 @@ existing_materials:
 workflow:
   current_phase: "Phase 4 - UX Design"
   next_recommended_skill: "wds-4-ux-design"
-  next_recommended_action: "Fix validation issues in the Phase 4 page specifications, then package design delivery."
+  next_recommended_action: "Package design delivery from the validated Phase 4 page specifications."
   enabled_phases:
     - "1-project-brief"
     - "2-trigger-mapping-simplified"

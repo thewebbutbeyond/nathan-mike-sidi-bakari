@@ -1,10 +1,21 @@
 # 05 - Timeline
 
-**Scenario Coverage:** Following Time
-**Platform:** Responsive web
-**Page Type:** Full page
-**Viewport:** Desktop-first for deep browsing, mobile-readable
-**Visibility:** Public
+## Page Metadata
+
+| Property | Value |
+|----------|-------|
+| **Scenario Coverage** | Following Time |
+| **Source Scenarios** | `03-following-time` |
+| **Platform** | Responsive web |
+| **Page Type** | Full page |
+| **Viewport** | Desktop-first for deep browsing, mobile-readable |
+| **Interaction** | Touch + mouse/keyboard |
+| **Visibility** | Public |
+| **URL** | `/timeline` |
+| **Primary Keyword** | personal archive timeline |
+| **Meta Title** | Timeline - Nathan Mike Sidi Bakari |
+| **Meta Description** | Browse a chronological archive of artifacts, notes, milestones, and cross-domain work. |
+| **Structured Data** | `CollectionPage` |
 
 ---
 
@@ -58,6 +69,22 @@
 |--------|----|-----------|--------------------|
 | Year group | `timeline-year-group` | Group heading | Groups artifacts by year |
 | Timeline item | `timeline-item` | Artifact row | Date, milestone marker, title, type, tags, summary |
+
+---
+
+## Object Registry
+
+| Object ID | Type | Description |
+|-----------|------|-------------|
+| `timeline-header` | Section | Timeline heading |
+| `timeline-title` | Heading | Timeline page title |
+| `timeline-description` | Text | Timeline explanation |
+| `timeline-controls` | Section | Optional filter controls |
+| `timeline-collection-filter` | Control | Collection filter |
+| `timeline-type-filter` | Control | Artifact type filter |
+| `timeline-list` | Section | Chronological list |
+| `timeline-year-group` | Group | Year-based grouping |
+| `timeline-item` | Artifact row | Individual timeline item |
 
 ---
 
