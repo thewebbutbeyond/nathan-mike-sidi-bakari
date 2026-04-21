@@ -1,6 +1,6 @@
 # Story 3.1: Validate Entry Content Model
 
-Status: review
+Status: done
 
 ## Story
 
@@ -104,3 +104,4 @@ GPT-5.4
 ### Change Log
 
 - 2026-04-22: Added entry content validation, verified current content with shell/lint/build, and moved story to review.
+- 2026-04-22: Code review completed with no blocking findings; story moved to done.
