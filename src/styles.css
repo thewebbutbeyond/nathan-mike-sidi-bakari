@@ -157,6 +157,14 @@
     line-height: 1.7;
     font-size: 0.95rem;
   }
+  .prose-archive--lg {
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    max-width: 64ch;
+  }
+  .prose-archive--lg p {
+    margin-block: 1.2em;
+  }
   .prose-archive p {
     margin-block: 1em;
   }
