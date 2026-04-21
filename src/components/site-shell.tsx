@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
+import { Linkedin, Rss } from "lucide-react";
 
 const NAV = [
   { to: "/chefs-doeuvre", label: "Chefs-d’œuvre" },
@@ -78,14 +79,21 @@ function SiteFooter() {
             <span className="text-ink-faint">©</span> {year} · nathan mike sidi bakari
           </div>
           <div className="flex items-center gap-4">
-            <Link to="/about" className="hover:text-ink">
-              about
-            </Link>
-            <Link to="/contact" className="hover:text-ink">
-              contact
-            </Link>
-            <a href="/rss.xml" className="hover:text-ink">
-              rss
+            <a
+              href="https://www.linkedin.com/in/nathansidibakari"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="text-ink-soft hover:text-ink"
+            >
+              <Linkedin size={14} strokeWidth={1.5} />
+            </a>
+            <a
+              href="/rss.xml"
+              aria-label="RSS feed"
+              className="text-ink-soft hover:text-ink"
+            >
+              <Rss size={14} strokeWidth={1.5} />
             </a>
           </div>
         </div>
