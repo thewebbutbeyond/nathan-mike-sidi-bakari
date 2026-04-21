@@ -48,7 +48,7 @@ export const COLLECTIONS: { slug: Collection; label: string; description: string
   {
     slug: "artist",
     label: "Art",
-    description: "Songs, lyrics, beats, drawings, paintings, and poems.",
+    description: "Music, drawings, paintings, poems and more.",
   },
 ];
 
