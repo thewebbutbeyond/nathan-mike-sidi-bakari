@@ -11,7 +11,7 @@
 > Business-value items. Add links to detail files if needed.
 
 - [x] Complete product brief - Phase 1
-- [ ] Define simplified trigger map - Phase 2
+- [x] Define simplified trigger map - Phase 2
 - [ ] Create UX scenarios - Phase 3
 - [ ] Create page specifications - Phase 4
 - [ ] Build and verify the website - Phase 5
@@ -22,7 +22,7 @@
 
 | Task | Started | Agent |
 |------|---------|-------|
-| Phase 2 Simplified Trigger Mapping | 2026-04-21 | Saga |
+| Phase 3 UX Scenarios | 2026-04-21 | Saga |
 
 **Rules:** Mark what you start. Complete it when done (move to Log). One task at a time per agent.
 
@@ -63,6 +63,14 @@
 - Created `A-Product-Brief/05-phase-1-handover-summary.md`
 - Preserved the self-addressed archive intent and non-instrumental opportunity model
 - Next: Phase 2 Simplified Trigger Mapping
+
+### 2026-04-21 - Simplified trigger map completed (Phase 2)
+- Created `B-Trigger-Map/01-strategic-context.md`
+- Created visitor-mode documents for Future Nathan, Curious Observer, Potential Collaborator, and Professional Observer
+- Created `B-Trigger-Map/06-feature-impact-analysis.md`
+- Created `B-Trigger-Map/07-key-insights.md`
+- Updated `B-Trigger-Map/00-trigger-map.md` as the Phase 2 hub
+- Next: Phase 3 UX Scenarios
 
 ---
 

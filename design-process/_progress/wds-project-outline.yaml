@@ -78,9 +78,9 @@ existing_materials:
       - "Integration of technical and expressive outputs within one system"
 
 workflow:
-  current_phase: "Phase 2 - Simplified Trigger Mapping"
-  next_recommended_skill: "wds-2-trigger-mapping"
-  next_recommended_action: "Create simplified trigger mapping using the Phase 1 handover summary as source material."
+  current_phase: "Phase 3 - UX Scenarios"
+  next_recommended_skill: "wds-3-scenarios"
+  next_recommended_action: "Create UX scenarios using the Trigger Map key insights and scenario seeds."
   enabled_phases:
     - "1-project-brief"
     - "2-trigger-mapping-simplified"
