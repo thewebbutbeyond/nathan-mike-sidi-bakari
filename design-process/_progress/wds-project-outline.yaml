@@ -78,9 +78,9 @@ existing_materials:
       - "Integration of technical and expressive outputs within one system"
 
 workflow:
-  current_phase: "Phase 3 - UX Scenarios"
-  next_recommended_skill: "wds-3-scenarios"
-  next_recommended_action: "Create UX scenarios using the Trigger Map key insights and scenario seeds."
+  current_phase: "Phase 4 - UX Design"
+  next_recommended_skill: "wds-4-ux-design"
+  next_recommended_action: "Create page specifications from the Phase 3 scenario overview."
   enabled_phases:
     - "1-project-brief"
     - "2-trigger-mapping-simplified"

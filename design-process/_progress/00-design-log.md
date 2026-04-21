@@ -12,7 +12,7 @@
 
 - [x] Complete product brief - Phase 1
 - [x] Define simplified trigger map - Phase 2
-- [ ] Create UX scenarios - Phase 3
+- [x] Create UX scenarios - Phase 3
 - [ ] Create page specifications - Phase 4
 - [ ] Build and verify the website - Phase 5
 
@@ -22,7 +22,7 @@
 
 | Task | Started | Agent |
 |------|---------|-------|
-| Phase 3 UX Scenarios | 2026-04-21 | Saga |
+| Phase 4 UX Design | 2026-04-21 | Freya |
 
 **Rules:** Mark what you start. Complete it when done (move to Log). One task at a time per agent.
 
@@ -71,6 +71,16 @@
 - Created `B-Trigger-Map/07-key-insights.md`
 - Updated `B-Trigger-Map/00-trigger-map.md` as the Phase 2 hub
 - Next: Phase 3 UX Scenarios
+
+### 2026-04-21 - UX scenarios completed (Phase 3)
+- Updated `C-UX-Scenarios/00-ux-scenarios.md` with scenario index and page coverage matrix
+- Created `01-orienting-at-the-portal`
+- Created `02-tracing-a-domain`
+- Created `03-following-time`
+- Created `04-inspecting-an-artifact`
+- Created `05-reading-notes`
+- Created `06-finding-contact`
+- Next: Phase 4 UX Design
 
 ---
 
