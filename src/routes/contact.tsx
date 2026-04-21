@@ -43,9 +43,14 @@ function ContactPage() {
           </MetaRow>
         </dl>
 
-        <div className="mt-10 text-xs text-ink-faint leading-relaxed max-w-prose">
-          There is no bad reason to write!
-        </div>
+        <blockquote className="mt-10 max-w-xl text-xs text-ink-soft">
+          <p className="italic leading-relaxed">
+            « Celui qui demande trop peut être agaçant, mais il ne mourra pas ignorant. »
+          </p>
+          <footer className="mt-1.5 text-ink-faint not-italic">
+            Amadou Hampâté Bâ
+          </footer>
+        </blockquote>
       </NarrowContainer>
     </SiteShell>
   );
