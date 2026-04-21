@@ -1,6 +1,6 @@
 # Story 5.1: Harden Notes Index
 
-Status: ready-for-dev
+Status: review
 
 ## Story
 
@@ -17,23 +17,23 @@ so that I can choose what to read without a noisy feed.
 
 ## Tasks / Subtasks
 
-- [ ] Inspect current Notes Index. (AC: 1-4)
-  - [ ] Confirm date, title, summary, reading time, and tags render for each note.
-  - [ ] Confirm RSS link is visible and low-emphasis.
-  - [ ] Identify whether empty state exists.
-- [ ] Harden Notes Index empty state and validation. (AC: 1-4)
-  - [ ] Add quiet empty-state copy if no notes exist.
-  - [ ] Add or run deterministic validation for Notes Index assumptions.
-  - [ ] Preserve current editorial layout and visual rhythm.
-- [ ] Run baseline checks. (AC: 1-4)
-  - [ ] Run notes validator if added.
-  - [ ] Run existing validators.
-  - [ ] Run `npm run lint`.
-  - [ ] Run `npm run build`.
-- [ ] Update story and sprint tracking. (AC: 1-4)
-  - [ ] Mark this story `review` after checks pass.
-  - [ ] Update sprint status to `review`.
-  - [ ] Record command results and warnings in Dev Agent Record.
+- [x] Inspect current Notes Index. (AC: 1-4)
+  - [x] Confirm date, title, summary, reading time, and tags render for each note.
+  - [x] Confirm RSS link is visible and low-emphasis.
+  - [x] Identify whether empty state exists.
+- [x] Harden Notes Index empty state and validation. (AC: 1-4)
+  - [x] Add quiet empty-state copy if no notes exist.
+  - [x] Add or run deterministic validation for Notes Index assumptions.
+  - [x] Preserve current editorial layout and visual rhythm.
+- [x] Run baseline checks. (AC: 1-4)
+  - [x] Run notes validator if added.
+  - [x] Run existing validators.
+  - [x] Run `npm run lint`.
+  - [x] Run `npm run build`.
+- [x] Update story and sprint tracking. (AC: 1-4)
+  - [x] Mark this story `review` after checks pass.
+  - [x] Update sprint status to `review`.
+  - [x] Record command results and warnings in Dev Agent Record.
 
 ## Dev Notes
 
@@ -73,25 +73,30 @@ Known non-blocking warnings:
 
 ### Agent Model Used
 
-TBD by implementing agent.
+GPT-5.4
 
 ### Debug Log References
 
-TBD.
+- Added `scripts/validate-notes.mjs` and `npm run validate:notes`.
+- `npm run validate:notes` passed: validated 7 notes index safeguards.
+- Existing validators passed.
+- `npm run lint` passed with 7 non-blocking `react-refresh/only-export-components` warnings.
+- `npm run build` passed with the existing Vite large chunk warning.
 
 ### Completion Notes List
 
-TBD.
+- Added quiet Notes Index empty state: "No notes yet. The slower pieces will live here when they are ready."
+- Added deterministic validation for note dates, titles, summaries, reading time, tags, note-detail links, RSS visibility, and empty state.
+- Preserved the current editorial list layout and low-emphasis RSS link.
 
 ### File List
-
-Expected files touched:
 
 - `src/routes/notes.index.tsx`
 - `_bmad-output/implementation-artifacts/5-1-harden-notes-index.md`
 - `_bmad-output/implementation-artifacts/sprint-status.yaml`
-
-Likely files if validation is added:
-
 - `scripts/validate-notes.mjs`
 - `package.json`
+
+### Change Log
+
+- 2026-04-22: Added Notes Index empty state and validation, verified notes/search/lenses/timeline/entry/shell/lint/build, and moved story to review.

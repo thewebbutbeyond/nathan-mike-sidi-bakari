@@ -11,6 +11,7 @@
     "lint": "eslint .",
     "validate:entry-detail": "node scripts/validate-entry-detail.mjs",
     "validate:lenses": "node scripts/validate-lenses.mjs",
+    "validate:notes": "node scripts/validate-notes.mjs",
     "validate:search": "node scripts/validate-search-palette.mjs",
     "validate:shell": "node scripts/validate-shell-routes.mjs",
     "validate:timeline": "node scripts/validate-timeline.mjs",

@@ -46,38 +46,46 @@ function NotesIndex() {
           </a>
         </div>
 
-        <ul className="border-t border-rule">
-          {notes.map((n) => (
-            <li key={n.slug} className="border-b border-rule">
-              <Link
-                to="/notes/$slug"
-                params={{ slug: n.slug }}
-                className="block px-1 py-5 hover:bg-secondary/40 transition-colors"
-              >
-                <div className="flex flex-col sm:flex-row sm:gap-6">
-                  <time className="text-xs text-ink-faint sm:w-24 shrink-0 tabular-nums pt-0.5">
-                    {formatDate(n.date)}
-                  </time>
-                  <div className="min-w-0 flex-1">
-                    <h2 className="text-base text-ink font-medium leading-snug">{n.title}</h2>
-                    <p className="mt-2 text-sm text-ink-soft leading-relaxed max-w-2xl">
-                      {n.summary}
-                    </p>
-                    <div className="mt-2 flex items-center gap-3 text-[11px] text-ink-faint flex-wrap">
-                      <span>{n.readingMinutes} min read</span>
-                      <span>·</span>
-                      <span className="flex gap-2">
-                        {n.tags.map((t) => (
-                          <Tag key={t}>{t}</Tag>
-                        ))}
-                      </span>
+        {notes.length === 0 ? (
+          <div className="border-t border-rule">
+            <p className="px-1 py-8 text-sm text-ink-soft">
+              No notes yet. The slower pieces will live here when they are ready.
+            </p>
+          </div>
+        ) : (
+          <ul className="border-t border-rule">
+            {notes.map((n) => (
+              <li key={n.slug} className="border-b border-rule">
+                <Link
+                  to="/notes/$slug"
+                  params={{ slug: n.slug }}
+                  className="block px-1 py-5 hover:bg-secondary/40 transition-colors"
+                >
+                  <div className="flex flex-col sm:flex-row sm:gap-6">
+                    <time className="text-xs text-ink-faint sm:w-24 shrink-0 tabular-nums pt-0.5">
+                      {formatDate(n.date)}
+                    </time>
+                    <div className="min-w-0 flex-1">
+                      <h2 className="text-base text-ink font-medium leading-snug">{n.title}</h2>
+                      <p className="mt-2 text-sm text-ink-soft leading-relaxed max-w-2xl">
+                        {n.summary}
+                      </p>
+                      <div className="mt-2 flex items-center gap-3 text-[11px] text-ink-faint flex-wrap">
+                        <span>{n.readingMinutes} min read</span>
+                        <span>·</span>
+                        <span className="flex gap-2">
+                          {n.tags.map((t) => (
+                            <Tag key={t}>{t}</Tag>
+                          ))}
+                        </span>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </Link>
-            </li>
-          ))}
-        </ul>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        )}
       </Container>
     </SiteShell>
   );
