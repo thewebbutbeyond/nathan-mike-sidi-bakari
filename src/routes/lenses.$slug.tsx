@@ -15,7 +15,7 @@ export const Route = createFileRoute("/lenses/$slug")({
     return { slug, meta, items: entriesByCollection(slug) };
   },
   head: ({ loaderData }) => {
-    if (!loaderData) return { meta: [{ title: "Collection · Nathan Mike Sidi Bakari" }] };
+    if (!loaderData) return { meta: [{ title: "Lens · Nathan Mike Sidi Bakari" }] };
     const title = `${loaderData.meta.label} · Nathan Mike Sidi Bakari`;
     return {
       meta: [
@@ -36,10 +36,10 @@ export const Route = createFileRoute("/lenses/$slug")({
       </Container>
     </SiteShell>
   ),
-  component: CollectionDetail,
+  component: LensDetail,
 });
 
-function CollectionDetail() {
+function LensDetail() {
   const { meta, items } = Route.useLoaderData();
   return (
     <SiteShell>
