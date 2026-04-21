@@ -1,6 +1,6 @@
 # Story 4.2: Harden Lens Browsing
 
-Status: ready-for-dev
+Status: review
 
 ## Story
 
@@ -17,24 +17,24 @@ so that overlap across domains feels natural.
 
 ## Tasks / Subtasks
 
-- [ ] Inspect current lens browsing behavior. (AC: 1-4)
-  - [ ] Confirm `LENSES` defines Engineering, Entrepreneurship, Investing, and Art.
-  - [ ] Confirm Lenses index maps all lenses and shows counts/previews.
-  - [ ] Confirm lens detail uses `entriesByLens`.
-  - [ ] Confirm invalid lens slugs throw `notFound()` and render a return path.
-- [ ] Harden lens empty state and validation. (AC: 1-4)
-  - [ ] Add route-specific empty-state copy for a lens with no matching entries.
-  - [ ] Add or run deterministic validation for lens browsing assumptions.
-  - [ ] Preserve multi-lens behavior.
-- [ ] Run baseline checks. (AC: 1-4)
-  - [ ] Run `npm run validate:shell`.
-  - [ ] Run any lens validator introduced by this story.
-  - [ ] Run `npm run lint`.
-  - [ ] Run `npm run build`.
-- [ ] Update story and sprint tracking. (AC: 1-4)
-  - [ ] Mark this story `review` after checks pass.
-  - [ ] Update sprint status to `review`.
-  - [ ] Record command results and warnings in Dev Agent Record.
+- [x] Inspect current lens browsing behavior. (AC: 1-4)
+  - [x] Confirm `LENSES` defines Engineering, Entrepreneurship, Investing, and Art.
+  - [x] Confirm Lenses index maps all lenses and shows counts/previews.
+  - [x] Confirm lens detail uses `entriesByLens`.
+  - [x] Confirm invalid lens slugs throw `notFound()` and render a return path.
+- [x] Harden lens empty state and validation. (AC: 1-4)
+  - [x] Add route-specific empty-state copy for a lens with no matching entries.
+  - [x] Add or run deterministic validation for lens browsing assumptions.
+  - [x] Preserve multi-lens behavior.
+- [x] Run baseline checks. (AC: 1-4)
+  - [x] Run `npm run validate:shell`.
+  - [x] Run any lens validator introduced by this story.
+  - [x] Run `npm run lint`.
+  - [x] Run `npm run build`.
+- [x] Update story and sprint tracking. (AC: 1-4)
+  - [x] Mark this story `review` after checks pass.
+  - [x] Update sprint status to `review`.
+  - [x] Record command results and warnings in Dev Agent Record.
 
 ## Dev Notes
 
@@ -75,26 +75,33 @@ Known non-blocking warnings:
 
 ### Agent Model Used
 
-TBD by implementing agent.
+GPT-5.4
 
 ### Debug Log References
 
-TBD.
+- Added `scripts/validate-lenses.mjs` and `npm run validate:lenses`.
+- `npm run validate:lenses` passed: validated 9 lens browsing safeguards.
+- `npm run validate:timeline` passed.
+- `npm run validate:entry-detail` passed.
+- `npm run validate:shell` passed.
+- `npm run lint` passed with 7 non-blocking `react-refresh/only-export-components` warnings.
+- `npm run build` passed with the existing Vite large chunk warning.
 
 ### Completion Notes List
 
-TBD.
+- Added route-specific empty-state copy for lens detail pages with no matching entries.
+- Added deterministic validation for expected lens slugs, `entriesByLens` multi-lens membership behavior, lens index counts/previews, lens detail lookup, invalid lens not-found behavior, and empty-state coverage.
+- Preserved current Lenses layout and vocabulary.
 
 ### File List
-
-Expected files touched:
 
 - `src/routes/lenses.index.tsx`
 - `src/routes/lenses.$slug.tsx`
 - `_bmad-output/implementation-artifacts/4-2-harden-lens-browsing.md`
 - `_bmad-output/implementation-artifacts/sprint-status.yaml`
-
-Likely files if validation is added:
-
 - `scripts/validate-lenses.mjs`
 - `package.json`
+
+### Change Log
+
+- 2026-04-22: Added lens detail empty state and lens browsing validation, verified lenses/timeline/entry/shell/lint/build, and moved story to review.

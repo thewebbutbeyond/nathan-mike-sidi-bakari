@@ -50,7 +50,11 @@ function LensDetail() {
           title={meta.label.toLowerCase() + "."}
           description={meta.description}
         />
-        <EntryList entries={items} from={`lenses/${meta.slug}`} />
+        <EntryList
+          entries={items}
+          from={`lenses/${meta.slug}`}
+          emptyMessage="No entries through this lens yet."
+        />
       </Container>
     </SiteShell>
   );
