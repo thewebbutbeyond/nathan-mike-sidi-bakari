@@ -7,7 +7,7 @@ import {
   SiteShell,
   Tag,
 } from "@/components/site-shell";
-import { ENTRIES, type Entry, type Collection, formatDate, getEntry } from "@/content/data";
+import { ENTRIES, type Entry, type Collection, formatDate, getEntry, sortedEntries } from "@/content/data";
 import { EntryMosaic } from "@/components/entry-mosaic";
 
 export const Route = createFileRoute("/entries/$slug")({
@@ -17,7 +17,12 @@ export const Route = createFileRoute("/entries/$slug")({
     const related = (a.related ?? [])
       .map((s) => ENTRIES.find((x) => x.slug === s))
       .filter((x): x is NonNullable<typeof x> => Boolean(x));
-    return { entry: a, related };
+    // sortedEntries is newest-first, so the "next" entry chronologically is the one before it in the list
+    const all = sortedEntries();
+    const idx = all.findIndex((e) => e.slug === a.slug);
+    const prev = idx < all.length - 1 ? all[idx + 1] : null; // older
+    const next = idx > 0 ? all[idx - 1] : null; // newer
+    return { entry: a, related, prev, next };
   },
   head: ({ loaderData }) => {
     if (!loaderData) return { meta: [{ title: "Entry · Nathan Mike Sidi Bakari" }] };
@@ -49,7 +54,7 @@ export const Route = createFileRoute("/entries/$slug")({
 });
 
 function EntryDetail() {
-  const { entry: a, related } = Route.useLoaderData();
+  const { entry: a, related, prev, next } = Route.useLoaderData();
 
   return (
     <SiteShell>
@@ -148,6 +153,41 @@ function EntryDetail() {
               ))}
             </ul>
           </section>
+        )}
+
+        {(prev || next) && (
+          <nav className="mt-12 pt-6 border-t border-rule grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+            {prev ? (
+              <Link
+                to="/entries/$slug"
+                params={{ slug: prev.slug }}
+                className="block hover:bg-secondary/40 -m-2 p-2 transition-colors"
+              >
+                <div className="text-ink-faint mb-1">← previous</div>
+                <div className="text-ink">{prev.title}</div>
+                <div className="text-ink-faint tabular-nums mt-0.5 text-[11px]">
+                  {formatDate(prev.date)}
+                </div>
+              </Link>
+            ) : (
+              <div />
+            )}
+            {next ? (
+              <Link
+                to="/entries/$slug"
+                params={{ slug: next.slug }}
+                className="block sm:text-right hover:bg-secondary/40 -m-2 p-2 transition-colors"
+              >
+                <div className="text-ink-faint mb-1">next →</div>
+                <div className="text-ink">{next.title}</div>
+                <div className="text-ink-faint tabular-nums mt-0.5 text-[11px]">
+                  {formatDate(next.date)}
+                </div>
+              </Link>
+            ) : (
+              <div />
+            )}
+          </nav>
         )}
       </NarrowContainer>
     </SiteShell>
