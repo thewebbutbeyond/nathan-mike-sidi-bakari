@@ -154,6 +154,41 @@ function EntryDetail() {
             </ul>
           </section>
         )}
+
+        {(prev || next) && (
+          <nav className="mt-12 pt-6 border-t border-rule grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+            {prev ? (
+              <Link
+                to="/entries/$slug"
+                params={{ slug: prev.slug }}
+                className="block hover:bg-secondary/40 -m-2 p-2 transition-colors"
+              >
+                <div className="text-ink-faint mb-1">← previous</div>
+                <div className="text-ink">{prev.title}</div>
+                <div className="text-ink-faint tabular-nums mt-0.5 text-[11px]">
+                  {formatDate(prev.date)}
+                </div>
+              </Link>
+            ) : (
+              <div />
+            )}
+            {next ? (
+              <Link
+                to="/entries/$slug"
+                params={{ slug: next.slug }}
+                className="block sm:text-right hover:bg-secondary/40 -m-2 p-2 transition-colors"
+              >
+                <div className="text-ink-faint mb-1">next →</div>
+                <div className="text-ink">{next.title}</div>
+                <div className="text-ink-faint tabular-nums mt-0.5 text-[11px]">
+                  {formatDate(next.date)}
+                </div>
+              </Link>
+            ) : (
+              <div />
+            )}
+          </nav>
+        )}
       </NarrowContainer>
     </SiteShell>
   );
