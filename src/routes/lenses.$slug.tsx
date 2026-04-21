@@ -29,9 +29,9 @@ export const Route = createFileRoute("/lenses/$slug")({
   notFoundComponent: () => (
     <SiteShell>
       <Container>
-        <PageHeader title="Collection not found." />
+        <PageHeader title="Lens not found." />
         <Link to="/lenses" className="text-sm underline underline-offset-4">
-          ← all collections
+          ← all lenses
         </Link>
       </Container>
     </SiteShell>
@@ -49,11 +49,11 @@ function CollectionDetail() {
             to="/lenses"
             className="text-ink-soft hover:text-ink underline underline-offset-4"
           >
-            ← collections
+            ← lenses
           </Link>
         </div>
         <PageHeader
-          eyebrow={`collection · ${items.length} entries`}
+          eyebrow={`lens · ${items.length} entries`}
           title={meta.label.toLowerCase() + "."}
           description={meta.description}
         />
