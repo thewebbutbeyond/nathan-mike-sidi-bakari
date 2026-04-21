@@ -2,17 +2,8 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "@tanstack/react-router";
 import { Search, SlidersHorizontal, X } from "lucide-react";
 
-import {
-  Popover,
-  PopoverAnchor,
-  PopoverContent,
-} from "@/components/ui/popover";
-import {
-  ENTRIES,
-  NOTES,
-  ALL_TAGS,
-  formatDate,
-} from "@/content/data";
+import { Popover, PopoverAnchor, PopoverContent } from "@/components/ui/popover";
+import { ENTRIES, NOTES, ALL_TAGS, formatDate } from "@/content/data";
 
 export function SearchTrigger() {
   const [open, setOpen] = useState(false);
@@ -23,9 +14,7 @@ export function SearchTrigger() {
       const target = e.target as HTMLElement | null;
       const typing =
         target &&
-        (target.tagName === "INPUT" ||
-          target.tagName === "TEXTAREA" ||
-          target.isContentEditable);
+        (target.tagName === "INPUT" || target.tagName === "TEXTAREA" || target.isContentEditable);
 
       if ((e.key === "k" || e.key === "K") && (e.metaKey || e.ctrlKey)) {
         e.preventDefault();
@@ -134,9 +123,7 @@ function SearchPanel({ onClose }: { onClose: () => void }) {
           title="Filters"
           className={
             "mr-2 inline-flex items-center transition-colors " +
-            (filtersOpen || hasFilter
-              ? "text-ink"
-              : "text-ink-faint hover:text-ink")
+            (filtersOpen || hasFilter ? "text-ink" : "text-ink-faint hover:text-ink")
           }
         >
           <SlidersHorizontal size={14} strokeWidth={1.5} />
@@ -158,18 +145,8 @@ function SearchPanel({ onClose }: { onClose: () => void }) {
       {/* filters (collapsed by default) */}
       {filtersOpen && (
         <div className="border-b border-rule px-3 py-3 space-y-2 max-h-[40vh] overflow-y-auto">
-          <FilterRow
-            label="type"
-            options={ALL_TYPES}
-            value={type}
-            onChange={setType}
-          />
-          <FilterRow
-            label="status"
-            options={ALL_STATUSES}
-            value={status}
-            onChange={setStatus}
-          />
+          <FilterRow label="type" options={ALL_TYPES} value={type} onChange={setType} />
+          <FilterRow label="status" options={ALL_STATUSES} value={status} onChange={setStatus} />
           <FilterRow
             label="tag"
             options={ALL_TAGS}
@@ -196,9 +173,7 @@ function SearchPanel({ onClose }: { onClose: () => void }) {
       {/* results */}
       <div className="max-h-[50vh] overflow-y-auto">
         {entries.length === 0 && notes.length === 0 ? (
-          <div className="px-4 py-8 text-center text-sm text-ink-soft">
-            no matches.
-          </div>
+          <div className="px-4 py-8 text-center text-sm text-ink-soft">no matches.</div>
         ) : (
           <div className="py-2">
             {entries.length > 0 && (
@@ -291,13 +266,7 @@ function FilterRow({
   );
 }
 
-function ResultGroup({
-  heading,
-  children,
-}: {
-  heading: string;
-  children: React.ReactNode;
-}) {
+function ResultGroup({ heading, children }: { heading: string; children: React.ReactNode }) {
   return (
     <div className="px-2 pb-2">
       <div className="px-2 py-1 text-[10px] tracking-[0.08em] uppercase text-ink-faint">
@@ -328,9 +297,7 @@ function ResultRow({
       >
         <div className="flex items-baseline justify-between gap-3">
           <span className="text-sm text-ink truncate">{title}</span>
-          <span className="text-[11px] text-ink-faint shrink-0 tabular-nums">
-            {date}
-          </span>
+          <span className="text-[11px] text-ink-faint shrink-0 tabular-nums">{date}</span>
         </div>
         <div className="text-[11px] text-ink-faint mt-0.5">{meta}</div>
       </button>

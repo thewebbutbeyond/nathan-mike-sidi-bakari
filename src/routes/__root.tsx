@@ -1,10 +1,4 @@
-import {
-  Outlet,
-  Link,
-  createRootRoute,
-  HeadContent,
-  Scripts,
-} from "@tanstack/react-router";
+import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
 import { SiteShell } from "@/components/site-shell";
@@ -14,9 +8,7 @@ function NotFoundComponent() {
     <SiteShell>
       <div className="mx-auto max-w-3xl px-5 sm:px-8 py-24">
         <div className="text-xs text-ink-faint mb-3">404 · not found</div>
-        <h1 className="text-2xl font-medium tracking-tight text-ink">
-          No record at this path.
-        </h1>
+        <h1 className="text-2xl font-medium tracking-tight text-ink">No record at this path.</h1>
         <p className="mt-3 text-sm text-ink-soft">
           The entry may have been moved, renamed, or never existed in the first place.
         </p>

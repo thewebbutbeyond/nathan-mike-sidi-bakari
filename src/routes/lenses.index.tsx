@@ -43,22 +43,15 @@ function LensesPage() {
                   className="block p-5 sm:p-6 hover:bg-secondary/50 transition-colors h-full"
                 >
                   <div className="flex items-baseline justify-between mb-2">
-                    <h2 className="text-base font-medium text-ink">
-                      {c.label.toLowerCase()}
-                    </h2>
+                    <h2 className="text-base font-medium text-ink">{c.label.toLowerCase()}</h2>
                     <span className="text-xs text-ink-faint tabular-nums">
                       {items.length.toString().padStart(2, "0")} entries
                     </span>
                   </div>
-                  <p className="text-xs text-ink-soft leading-relaxed mb-4">
-                    {c.description}
-                  </p>
+                  <p className="text-xs text-ink-soft leading-relaxed mb-4">{c.description}</p>
                   <ul className="space-y-1 border-t border-rule border-dotted pt-3">
                     {preview.map((a) => (
-                      <li
-                        key={a.slug}
-                        className="text-[11px] text-ink-soft truncate"
-                      >
+                      <li key={a.slug} className="text-[11px] text-ink-soft truncate">
                         <span className="text-ink-faint tabular-nums mr-2">
                           {a.date.slice(0, 7)}
                         </span>
@@ -66,9 +59,7 @@ function LensesPage() {
                       </li>
                     ))}
                   </ul>
-                  <div className="mt-3 text-[11px] text-ink-faint">
-                    open lens →
-                  </div>
+                  <div className="mt-3 text-[11px] text-ink-faint">open lens →</div>
                 </Link>
               </li>
             );

@@ -19,9 +19,7 @@ export const Route = createFileRoute("/notes/")({
           "Curated long-form writing on practice, engineering, investing, and the work of finishing.",
       },
     ],
-    links: [
-      { rel: "alternate", type: "application/rss+xml", href: "/rss.xml", title: "Notes" },
-    ],
+    links: [{ rel: "alternate", type: "application/rss+xml", href: "/rss.xml", title: "Notes" }],
   }),
   component: NotesIndex,
 });
@@ -61,9 +59,7 @@ function NotesIndex() {
                     {formatDate(n.date)}
                   </time>
                   <div className="min-w-0 flex-1">
-                    <h2 className="text-base text-ink font-medium leading-snug">
-                      {n.title}
-                    </h2>
+                    <h2 className="text-base text-ink font-medium leading-snug">{n.title}</h2>
                     <p className="mt-2 text-sm text-ink-soft leading-relaxed max-w-2xl">
                       {n.summary}
                     </p>

@@ -1,13 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 
 import { Container, SiteShell, Tag } from "@/components/site-shell";
-import {
-  ENTRIES,
-  NOTES,
-  formatDate,
-  sortedEntries,
-  sortedNotes,
-} from "@/content/data";
+import { ENTRIES, NOTES, formatDate, sortedEntries, sortedNotes } from "@/content/data";
 import { EntryList } from "@/components/entry-list";
 
 export const Route = createFileRoute("/")({
@@ -63,8 +57,8 @@ function HomePage() {
             A personal archive of work, notes, and traces.
           </h1>
           <p className="mt-4 text-sm text-ink-soft leading-relaxed">
-            Kept for myself first, opened to anyone curious. You’ll find records across
-            engineering, entrepreneurship, investing, art, and reflection.
+            Kept for myself first, opened to anyone curious. You’ll find records across engineering,
+            entrepreneurship, investing, art, and reflection.
           </p>
         </section>
 
@@ -74,20 +68,14 @@ function HomePage() {
             {stats.map((s, i) => (
               <div
                 key={s.label}
-                className={`px-4 py-4 ${
-                  i < stats.length - 1 ? "border-r border-rule" : ""
-                }`}
+                className={`px-4 py-4 ${i < stats.length - 1 ? "border-r border-rule" : ""}`}
               >
-                <dt className="text-[11px] tracking-[0.08em] text-ink-faint">
-                  {s.label}
-                </dt>
+                <dt className="text-[11px] tracking-[0.08em] text-ink-faint">{s.label}</dt>
                 <dd className="mt-1.5 flex items-baseline gap-2">
                   <span className="text-xl font-medium tabular-nums text-ink">
                     {s.value.toString().padStart(2, "0")}
                   </span>
-                  {s.sub && (
-                    <span className="text-[11px] text-ink-faint">{s.sub}</span>
-                  )}
+                  {s.sub && <span className="text-[11px] text-ink-faint">{s.sub}</span>}
                 </dd>
               </div>
             ))}
@@ -99,27 +87,18 @@ function HomePage() {
           <SectionHeading label="places to start" />
           <ul className="grid grid-cols-1 sm:grid-cols-2 border-t border-rule">
             {ROUTES.map((r, i) => (
-              <li
-                key={r.to}
-                className={`border-b border-rule ${
-                  i % 2 === 0 ? "sm:border-r" : ""
-                }`}
-              >
+              <li key={r.to} className={`border-b border-rule ${i % 2 === 0 ? "sm:border-r" : ""}`}>
                 <Link
                   to={r.to}
                   className="group block px-4 py-5 hover:bg-secondary/60 transition-colors"
                 >
                   <div className="flex items-baseline justify-between gap-4">
-                    <span className="text-sm font-medium text-ink">
-                      → {r.label}
-                    </span>
+                    <span className="text-sm font-medium text-ink">→ {r.label}</span>
                     <span className="text-[11px] text-ink-faint group-hover:text-ink-soft">
                       {r.to}
                     </span>
                   </div>
-                  <p className="mt-1.5 text-xs text-ink-soft leading-relaxed">
-                    {r.description}
-                  </p>
+                  <p className="mt-1.5 text-xs text-ink-soft leading-relaxed">{r.description}</p>
                 </Link>
               </li>
             ))}
@@ -169,9 +148,7 @@ function HomePage() {
                     </time>
                     <div className="min-w-0">
                       <div className="text-sm text-ink font-medium">{n.title}</div>
-                      <p className="mt-1 text-xs text-ink-soft leading-relaxed">
-                        {n.summary}
-                      </p>
+                      <p className="mt-1 text-xs text-ink-soft leading-relaxed">{n.summary}</p>
                       <div className="mt-1.5 flex items-center gap-3 text-[11px] text-ink-faint">
                         <span>{n.readingMinutes} min read</span>
                         <span>·</span>
@@ -193,18 +170,10 @@ function HomePage() {
   );
 }
 
-function SectionHeading({
-  label,
-  right,
-}: {
-  label: string;
-  right?: React.ReactNode;
-}) {
+function SectionHeading({ label, right }: { label: string; right?: React.ReactNode }) {
   return (
     <div className="flex items-baseline justify-between mb-3">
-      <h2 className="text-xs tracking-[0.08em] text-ink-faint">
-        {label}
-      </h2>
+      <h2 className="text-xs tracking-[0.08em] text-ink-faint">{label}</h2>
       {right}
     </div>
   );

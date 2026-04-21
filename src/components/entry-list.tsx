@@ -2,13 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Tag } from "@/components/site-shell";
 import { type Entry, formatDate, lensLabels } from "@/content/data";
 
-export function EntryList({
-  entries,
-  from = "",
-}: {
-  entries: Entry[];
-  from?: string;
-}) {
+export function EntryList({ entries, from = "" }: { entries: Entry[]; from?: string }) {
   if (entries.length === 0) {
     return (
       <div className="border-t border-rule">
@@ -35,9 +29,7 @@ export function EntryList({
                 <div className="flex items-baseline gap-2 flex-wrap">
                   <h3 className="text-sm text-ink font-medium">{a.title}</h3>
                   {a.chefDoeuvre && (
-                    <span className="text-[10px] tracking-wide text-accent">
-                      ◆ chef-d’œuvre
-                    </span>
+                    <span className="text-[10px] tracking-wide text-accent">◆ chef-d’œuvre</span>
                   )}
                 </div>
                 <div className="mt-1 text-[11px] text-ink-faint flex items-center gap-2 flex-wrap">

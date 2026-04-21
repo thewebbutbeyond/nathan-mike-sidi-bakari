@@ -50,10 +50,7 @@ function TimelinePage() {
               </div>
               <ul>
                 {items.map((a) => (
-                  <li
-                    key={a.slug}
-                    className="border-b border-rule border-dotted last:border-b-0"
-                  >
+                  <li key={a.slug} className="border-b border-rule border-dotted last:border-b-0">
                     <Link
                       to="/entries/$slug"
                       params={{ slug: a.slug }}

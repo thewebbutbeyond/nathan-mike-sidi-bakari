@@ -251,8 +251,7 @@ export const NOTES: Note[] = [
     slug: "on-archives-not-portfolios",
     title: "On archives, not portfolios",
     date: "2025-04-02",
-    summary:
-      "Why I stopped maintaining a portfolio site and started keeping a record instead.",
+    summary: "Why I stopped maintaining a portfolio site and started keeping a record instead.",
     readingMinutes: 6,
     tags: ["meta", "writing", "archive"],
     cover: noteCoverArchives,
@@ -367,4 +366,3 @@ export function lensLabel(slug: Lens): string {
 export function lensLabels(slugs: Lens[]): string[] {
   return slugs.map(lensLabel);
 }
-

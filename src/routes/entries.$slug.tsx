@@ -131,9 +131,7 @@ function EntryDetail() {
           <div className="text-xs text-ink-faint mb-3 tabular-nums">
             {formatDate(a.date, { long: true })}
             {a.chefDoeuvre && (
-              <span className="ml-3 text-accent tracking-wide text-[10px]">
-                ◆ chef-d’œuvre
-              </span>
+              <span className="ml-3 text-accent tracking-wide text-[10px]">◆ chef-d’œuvre</span>
             )}
           </div>
           <h1 className="text-2xl sm:text-[1.7rem] font-medium tracking-tight text-ink leading-tight">
@@ -192,9 +190,7 @@ function EntryDetail() {
 
         {related.length > 0 && (
           <section className="mt-12 pt-6 border-t border-rule">
-            <h2 className="text-xs tracking-[0.08em] text-ink-faint mb-3">
-              related
-            </h2>
+            <h2 className="text-xs tracking-[0.08em] text-ink-faint mb-3">related</h2>
             <ul className="space-y-2">
               {related.map((r: Entry) => (
                 <li key={r.slug} className="text-sm">

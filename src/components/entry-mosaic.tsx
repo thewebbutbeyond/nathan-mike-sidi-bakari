@@ -66,10 +66,7 @@ function pickImages(seed: string, count: number) {
   const h = hash(seed);
   const start = h % IMAGES.length;
   const step = (h % 3) + 1;
-  return Array.from(
-    { length: count },
-    (_, i) => IMAGES[(start + i * step) % IMAGES.length],
-  );
+  return Array.from({ length: count }, (_, i) => IMAGES[(start + i * step) % IMAGES.length]);
 }
 
 export function EntryMosaic({ seed }: { seed: string }) {
@@ -96,9 +93,7 @@ export function EntryMosaic({ seed }: { seed: string }) {
   // The whole grid resolves to a perfect rectangle of (rows × rowHeight) tall.
   return (
     <section className="mt-12" aria-label="Media mosaic">
-      <div
-        className="grid grid-cols-6 gap-1.5 sm:gap-2 [grid-auto-rows:7rem] sm:[grid-auto-rows:10rem] md:[grid-auto-rows:12rem]"
-      >
+      <div className="grid grid-cols-6 gap-1.5 sm:gap-2 [grid-auto-rows:7rem] sm:[grid-auto-rows:10rem] md:[grid-auto-rows:12rem]">
         {layout.tiles.map((tile, i) => {
           const src = images[i];
           return (

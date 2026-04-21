@@ -9,8 +9,7 @@ export const Route = createFileRoute("/chefs-doeuvre")({
       { title: "Chefs-d’œuvre · Nathan Mike Sidi Bakari" },
       {
         name: "description",
-        content:
-          "A handful of marked entries. The shortest way into the archive.",
+        content: "A handful of marked entries. The shortest way into the archive.",
       },
       { property: "og:title", content: "Chefs-d’œuvre · Nathan Mike Sidi Bakari" },
       {
@@ -23,9 +22,7 @@ export const Route = createFileRoute("/chefs-doeuvre")({
 });
 
 function ChefsDoeuvrePage() {
-  const items = ENTRIES.filter((a) => a.chefDoeuvre).sort((a, b) =>
-    b.date.localeCompare(a.date),
-  );
+  const items = ENTRIES.filter((a) => a.chefDoeuvre).sort((a, b) => b.date.localeCompare(a.date));
 
   return (
     <SiteShell>

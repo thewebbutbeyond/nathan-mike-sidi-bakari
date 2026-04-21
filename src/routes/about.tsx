@@ -13,8 +13,7 @@ export const Route = createFileRoute("/about")({
       { property: "og:title", content: "About · Nathan Mike Sidi Bakari" },
       {
         property: "og:description",
-        content:
-          "About the archive and the person keeping it.",
+        content: "About the archive and the person keeping it.",
       },
     ],
   }),
@@ -44,9 +43,7 @@ function AboutPage() {
           <p className="italic leading-relaxed">
             “He who has a why to live can bear almost any how.”
           </p>
-          <footer className="mt-1.5 text-ink-faint not-italic">
-            Friedrich Nietzsche
-          </footer>
+          <footer className="mt-1.5 text-ink-faint not-italic">Friedrich Nietzsche</footer>
         </blockquote>
       </NarrowContainer>
     </SiteShell>

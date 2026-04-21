@@ -77,11 +77,7 @@ function SiteFooter() {
           {/* Top-left: sitemap */}
           <nav aria-label="Sitemap" className="flex flex-wrap gap-x-5 gap-y-2">
             {NAV.map((item) => (
-              <Link
-                key={item.to}
-                to={item.to}
-                className="text-ink-soft hover:text-ink"
-              >
+              <Link key={item.to} to={item.to} className="text-ink-soft hover:text-ink">
                 {item.label.toLocaleLowerCase("fr")}
               </Link>
             ))}
@@ -107,11 +103,7 @@ function SiteFooter() {
             >
               <Github size={14} strokeWidth={1.5} />
             </a>
-            <a
-              href="/rss.xml"
-              aria-label="RSS feed"
-              className="text-ink-soft hover:text-ink"
-            >
+            <a href="/rss.xml" aria-label="RSS feed" className="text-ink-soft hover:text-ink">
               <Rss size={14} strokeWidth={1.5} />
             </a>
           </div>
@@ -152,16 +144,10 @@ export function PageHeader({
 }) {
   return (
     <header className="mb-10">
-      {eyebrow && (
-        <div className="text-xs text-ink-faint mb-3 tracking-wide">{eyebrow}</div>
-      )}
-      <h1 className="text-2xl sm:text-[1.75rem] font-medium tracking-tight text-ink">
-        {title}
-      </h1>
+      {eyebrow && <div className="text-xs text-ink-faint mb-3 tracking-wide">{eyebrow}</div>}
+      <h1 className="text-2xl sm:text-[1.75rem] font-medium tracking-tight text-ink">{title}</h1>
       {description && (
-        <p className="mt-3 text-sm text-ink-soft max-w-2xl leading-relaxed">
-          {description}
-        </p>
+        <p className="mt-3 text-sm text-ink-soft max-w-2xl leading-relaxed">{description}</p>
       )}
     </header>
   );
@@ -178,9 +164,7 @@ export function MetaRow({ label, children }: { label: string; children: ReactNod
 
 export function Tag({ children }: { children: ReactNode }) {
   return (
-    <span className="text-ink-soft hover:text-ink text-[11px] tracking-tight">
-      #{children}
-    </span>
+    <span className="text-ink-soft hover:text-ink text-[11px] tracking-tight">#{children}</span>
   );
 }
 
@@ -192,9 +176,7 @@ export function Container({
   className?: string;
 }) {
   return (
-    <div className={`mx-auto max-w-5xl px-5 sm:px-8 py-10 sm:py-14 ${className}`}>
-      {children}
-    </div>
+    <div className={`mx-auto max-w-5xl px-5 sm:px-8 py-10 sm:py-14 ${className}`}>{children}</div>
   );
 }
 
@@ -206,9 +188,7 @@ export function NarrowContainer({
   className?: string;
 }) {
   return (
-    <div className={`mx-auto max-w-3xl px-5 sm:px-8 py-10 sm:py-14 ${className}`}>
-      {children}
-    </div>
+    <div className={`mx-auto max-w-3xl px-5 sm:px-8 py-10 sm:py-14 ${className}`}>{children}</div>
   );
 }
 

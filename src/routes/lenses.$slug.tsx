@@ -1,11 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Container, PageHeader, SiteShell } from "@/components/site-shell";
 import { EntryList } from "@/components/entry-list";
-import {
-  LENSES,
-  type Lens,
-  entriesByLens,
-} from "@/content/data";
+import { LENSES, type Lens, entriesByLens } from "@/content/data";
 
 export const Route = createFileRoute("/lenses/$slug")({
   loader: ({ params }) => {
@@ -45,10 +41,7 @@ function LensDetail() {
     <SiteShell>
       <Container>
         <div className="mb-6 text-xs">
-          <Link
-            to="/lenses"
-            className="text-ink-soft hover:text-ink underline underline-offset-4"
-          >
+          <Link to="/lenses" className="text-ink-soft hover:text-ink underline underline-offset-4">
             ← lenses
           </Link>
         </div>
