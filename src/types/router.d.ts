@@ -1,7 +1,7 @@
-import "@tanstack/react-router";
+import "@tanstack/router-core";
 
-declare module "@tanstack/react-router" {
-  interface FileBaseRouteOptions {
+declare module "@tanstack/router-core" {
+  interface FilebaseRouteOptionsInterface {
     server?: {
       handlers?: {
         GET?: (ctx: { request: Request }) => Response | Promise<Response>;
