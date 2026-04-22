@@ -44,7 +44,7 @@ export function SearchTrigger({ locale = "en" }: { locale?: Locale }) {
       onClick={() => setOpen((v) => !v)}
       aria-label={open ? "close search" : "search"}
       title="search (⌘K)"
-      className="text-ink-soft hover:text-ink inline-flex items-center"
+      className="text-ink-soft hover:text-ink inline-flex cursor-pointer items-center"
     >
       {open ? (
         <X size={14} strokeWidth={1.5} />
