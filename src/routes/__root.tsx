@@ -34,6 +34,13 @@ export const Route = createRootRoute({
           "A personal archive of work, notes, and traces across engineering, entrepreneurship, investing, art, and reflection.",
       },
       { name: "author", content: "Nathan Mike Sidi Bakari" },
+      { property: "og:title", content: "Nathan Mike Sidi Bakari" },
+      {
+        property: "og:description",
+        content:
+          "A personal archive of work, notes, and traces across engineering, entrepreneurship, investing, art, and reflection.",
+      },
+      { property: "og:type", content: "website" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },

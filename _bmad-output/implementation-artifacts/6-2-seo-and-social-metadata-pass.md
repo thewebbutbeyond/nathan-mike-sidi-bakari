@@ -1,6 +1,6 @@
 # Story 6.2: SEO and Social Metadata Pass
 
-Status: ready-for-dev
+Status: review
 
 ## Story
 
@@ -17,29 +17,29 @@ so that previews and search snippets match the site.
 
 ## Tasks / Subtasks
 
-- [ ] Inspect current metadata coverage. (AC: 1-4)
-  - [ ] Review root metadata.
-  - [ ] Review static public route metadata.
-  - [ ] Review dynamic entry, note, and lens metadata.
-  - [ ] Review RSS alternate links.
-- [ ] Patch metadata gaps. (AC: 1-4)
-  - [ ] Add root Open Graph metadata if missing.
-  - [ ] Keep metadata aligned with archive/logbook positioning.
-  - [ ] Avoid inflated or conversion-oriented descriptions.
-- [ ] Add or run SEO validation. (AC: 1-4)
-  - [ ] Validate static route titles/descriptions.
-  - [ ] Validate dynamic route metadata is content-derived.
-  - [ ] Validate RSS alternate links.
-  - [ ] Validate no known overstatement phrases appear in route metadata.
-- [ ] Run baseline checks. (AC: 1-4)
-  - [ ] Run SEO validator if added.
-  - [ ] Run existing validators.
-  - [ ] Run `npm run lint`.
-  - [ ] Run `npm run build`.
-- [ ] Update story and sprint tracking. (AC: 1-4)
-  - [ ] Mark this story `review` after checks pass.
-  - [ ] Update sprint status to `review`.
-  - [ ] Record command results and warnings in Dev Agent Record.
+- [x] Inspect current metadata coverage. (AC: 1-4)
+  - [x] Review root metadata.
+  - [x] Review static public route metadata.
+  - [x] Review dynamic entry, note, and lens metadata.
+  - [x] Review RSS alternate links.
+- [x] Patch metadata gaps. (AC: 1-4)
+  - [x] Add root Open Graph metadata if missing.
+  - [x] Keep metadata aligned with archive/logbook positioning.
+  - [x] Avoid inflated or conversion-oriented descriptions.
+- [x] Add or run SEO validation. (AC: 1-4)
+  - [x] Validate static route titles/descriptions.
+  - [x] Validate dynamic route metadata is content-derived.
+  - [x] Validate RSS alternate links.
+  - [x] Validate no known overstatement phrases appear in route metadata.
+- [x] Run baseline checks. (AC: 1-4)
+  - [x] Run SEO validator if added.
+  - [x] Run existing validators.
+  - [x] Run `npm run lint`.
+  - [x] Run `npm run build`.
+- [x] Update story and sprint tracking. (AC: 1-4)
+  - [x] Mark this story `review` after checks pass.
+  - [x] Update sprint status to `review`.
+  - [x] Record command results and warnings in Dev Agent Record.
 
 ## Dev Notes
 
@@ -77,25 +77,31 @@ so that previews and search snippets match the site.
 
 ### Agent Model Used
 
-TBD by implementing agent.
+GPT-5.4
 
 ### Debug Log References
 
-TBD.
+- Added `scripts/validate-seo.mjs` and `npm run validate:seo`.
+- `npm run validate:seo` passed: validated 13 public route metadata files.
+- Existing validators passed.
+- `npm run lint` passed with 7 non-blocking `react-refresh/only-export-components` warnings.
+- `npm run build` passed with the existing Vite large chunk warning.
 
 ### Completion Notes List
 
-TBD.
+- Added root Open Graph title, description, and type metadata.
+- Added deterministic SEO validation across static routes, dynamic entry/note/lens metadata, RSS alternate links, and known overstatement phrases.
+- Confirmed entry and note metadata derive from content data.
+- Confirmed metadata remains archive/logbook aligned rather than conversion-oriented.
 
 ### File List
-
-Expected files touched:
 
 - `src/routes/__root.tsx`
 - `_bmad-output/implementation-artifacts/6-2-seo-and-social-metadata-pass.md`
 - `_bmad-output/implementation-artifacts/sprint-status.yaml`
-
-Likely files if validation is added:
-
 - `scripts/validate-seo.mjs`
 - `package.json`
+
+### Change Log
+
+- 2026-04-22: Added root Open Graph metadata and SEO validation, verified full validation/lint/build, and moved story to review.
