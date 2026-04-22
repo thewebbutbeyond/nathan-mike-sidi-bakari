@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import { Github, Globe2, Linkedin, Rss } from "lucide-react";
 
 import { SearchTrigger } from "@/components/search-palette";
-import { Popover, PopoverAnchor, PopoverContent } from "@/components/ui/popover";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { type Locale, localizedPath } from "@/content/localized";
 import { withBasePath } from "@/lib/public-paths";
 
@@ -183,7 +183,7 @@ function LanguageSelector({ locale }: { locale: Locale }) {
 
   return (
     <Popover>
-      <PopoverAnchor asChild>
+      <PopoverTrigger asChild>
         <button
           type="button"
           aria-label={locale === "fr" ? "langue" : "language"}
@@ -192,7 +192,7 @@ function LanguageSelector({ locale }: { locale: Locale }) {
         >
           <Globe2 size={14} strokeWidth={1.5} />
         </button>
-      </PopoverAnchor>
+      </PopoverTrigger>
       <PopoverContent
         align="end"
         sideOffset={8}
