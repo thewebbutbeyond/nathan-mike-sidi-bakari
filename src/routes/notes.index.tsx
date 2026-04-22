@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Rss } from "lucide-react";
 import { Container, PageHeader, SiteShell, Tag } from "@/components/site-shell";
 import { formatDate, sortedNotes } from "@/content/data";
+import { withBasePath } from "@/lib/public-paths";
 
 export const Route = createFileRoute("/notes/")({
   head: () => ({
@@ -19,7 +20,14 @@ export const Route = createFileRoute("/notes/")({
           "Curated long-form writing on practice, engineering, investing, and the work of finishing.",
       },
     ],
-    links: [{ rel: "alternate", type: "application/rss+xml", href: "/rss.xml", title: "Notes" }],
+    links: [
+      {
+        rel: "alternate",
+        type: "application/rss+xml",
+        href: withBasePath("/rss.xml"),
+        title: "Notes",
+      },
+    ],
   }),
   component: NotesIndex,
 });
@@ -37,7 +45,7 @@ function NotesIndex() {
             description="Slower reflections, loosely structured."
           />
           <a
-            href="/rss.xml"
+            href={withBasePath("/rss.xml")}
             aria-label="Subscribe via RSS"
             className="inline-flex items-center gap-2 text-xs text-ink-soft hover:text-ink mt-2"
           >

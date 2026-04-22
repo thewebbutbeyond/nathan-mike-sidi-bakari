@@ -30,7 +30,9 @@ const checks = [
   },
   {
     name: "rss link is visible",
-    pass: indexSource.includes('href="/rss.xml"') && indexSource.includes("subscribe via rss"),
+    pass:
+      indexSource.includes('href={withBasePath("/rss.xml")}') &&
+      indexSource.includes("subscribe via rss"),
   },
   {
     name: "empty state is quiet",
@@ -80,7 +82,9 @@ const checks = [
   },
   {
     name: "note detail exposes rss link",
-    pass: detailSource.includes('href="/rss.xml"') && detailSource.includes("subscribe via rss"),
+    pass:
+      detailSource.includes('href={withBasePath("/rss.xml")}') &&
+      detailSource.includes("subscribe via rss"),
   },
   {
     name: "rss route exists and serves rss xml",
@@ -101,7 +105,7 @@ const checks = [
   },
   {
     name: "rss item links point to note routes",
-    pass: rssSource.includes("`${origin}/notes/${n.slug}`"),
+    pass: rssSource.includes("`${origin}${publicBasePath}/notes/${n.slug}`"),
   },
   {
     name: "rss escapes core xml characters",
@@ -116,13 +120,13 @@ const checks = [
     pass:
       rootSource.includes('rel: "alternate"') &&
       rootSource.includes('type: "application/rss+xml"') &&
-      rootSource.includes('href: "/rss.xml"'),
+      rootSource.includes('href: withBasePath("/rss.xml")'),
   },
   {
     name: "notes surfaces expose rss links",
     pass:
-      indexSource.includes('href="/rss.xml"') &&
-      detailSource.includes('href="/rss.xml"') &&
+      indexSource.includes('href={withBasePath("/rss.xml")}') &&
+      detailSource.includes('href={withBasePath("/rss.xml")}') &&
       indexSource.includes("subscribe via rss") &&
       detailSource.includes("subscribe via rss"),
   },

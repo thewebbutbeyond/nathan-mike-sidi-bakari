@@ -86,7 +86,7 @@ for (const [name, source] of [
   if (
     !source.includes('rel: "alternate"') ||
     !source.includes('type: "application/rss+xml"') ||
-    !source.includes('href: "/rss.xml"')
+    !source.includes('href: withBasePath("/rss.xml")')
   ) {
     errors.push(`${name} is missing RSS alternate metadata`);
   }

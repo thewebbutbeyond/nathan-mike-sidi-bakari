@@ -6,11 +6,13 @@
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
+    "build:github-pages": "node scripts/build-github-pages.mjs",
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "eslint .",
     "validate:a11y": "node scripts/validate-a11y-responsive.mjs",
     "validate:copy": "node scripts/validate-copy-tone.mjs",
+    "validate:deploy": "node scripts/validate-github-pages-deployment.mjs",
     "validate:entry-detail": "node scripts/validate-entry-detail.mjs",
     "validate:lenses": "node scripts/validate-lenses.mjs",
     "validate:notes": "node scripts/validate-notes.mjs",

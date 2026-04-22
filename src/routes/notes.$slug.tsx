@@ -3,6 +3,7 @@ import { Rss } from "lucide-react";
 import type { ReactNode } from "react";
 import { Container, SiteShell, Tag } from "@/components/site-shell";
 import { formatDate, getNote, sortedNotes } from "@/content/data";
+import { withBasePath } from "@/lib/public-paths";
 
 export const Route = createFileRoute("/notes/$slug")({
   loader: ({ params }) => {
@@ -141,7 +142,7 @@ function NoteDetail() {
 
           <div className="mt-8 flex items-center gap-2 text-xs text-ink-faint">
             <a
-              href="/rss.xml"
+              href={withBasePath("/rss.xml")}
               aria-label="Subscribe via RSS"
               className="inline-flex items-center gap-2 hover:text-ink"
             >

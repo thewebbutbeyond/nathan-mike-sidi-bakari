@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { Github, Linkedin, Rss } from "lucide-react";
 
 import { SearchTrigger } from "@/components/search-palette";
+import { withBasePath } from "@/lib/public-paths";
 
 const NAV = [
   { to: "/chefs-doeuvre", label: "Chefs-d’œuvre" },
@@ -106,7 +107,11 @@ function SiteFooter() {
             >
               <Github size={14} strokeWidth={1.5} />
             </a>
-            <a href="/rss.xml" aria-label="RSS feed" className="text-ink-soft hover:text-ink">
+            <a
+              href={withBasePath("/rss.xml")}
+              aria-label="RSS feed"
+              className="text-ink-soft hover:text-ink"
+            >
               <Rss size={14} strokeWidth={1.5} />
             </a>
           </div>

@@ -2,6 +2,7 @@ import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/r
 
 import appCss from "../styles.css?url";
 import { SiteShell } from "@/components/site-shell";
+import { withBasePath } from "@/lib/public-paths";
 
 function NotFoundComponent() {
   return (
@@ -57,7 +58,12 @@ export const Route = createRootRoute({
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap",
       },
-      { rel: "alternate", type: "application/rss+xml", href: "/rss.xml", title: "Notes" },
+      {
+        rel: "alternate",
+        type: "application/rss+xml",
+        href: withBasePath("/rss.xml"),
+        title: "Notes",
+      },
     ],
   }),
   shellComponent: RootShell,
