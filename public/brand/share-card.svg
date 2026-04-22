@@ -7,10 +7,10 @@
     font-weight="500"
     letter-spacing="0"
   >
-    <text x="140" y="415">nathan</text>
-    <text x="140" y="535">mike</text>
-    <text x="140" y="655">sidi</text>
-    <text x="140" y="775">bakari</text>
+    <text x="424" y="415">nathan</text>
+    <text x="424" y="535">mike</text>
+    <text x="424" y="655">sidi</text>
+    <text x="424" y="775">bakari</text>
   </g>
-  <line x1="140" y1="850" x2="360" y2="850" stroke="#ddd6c6" stroke-width="2" />
+  <line x1="424" y1="850" x2="644" y2="850" stroke="#ddd6c6" stroke-width="2" />
 </svg>
