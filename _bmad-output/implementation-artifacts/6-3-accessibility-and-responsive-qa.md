@@ -1,6 +1,6 @@
 # Story 6.3: Accessibility and Responsive QA
 
-Status: review
+Status: done
 
 ## Story
 
@@ -104,3 +104,4 @@ GPT-5.4
 ### Change Log
 
 - 2026-04-22: Added focus-visible style, primary nav label, accessibility/responsive validation, verified full validation/lint/build, and moved story to review.
+- 2026-04-22: Code review completed with no blocking findings; story moved to done.
