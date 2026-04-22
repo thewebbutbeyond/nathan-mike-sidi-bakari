@@ -1,6 +1,6 @@
 # Story 6.4: GitHub Pages Deployment
 
-Status: review
+Status: done
 
 ## Story
 
@@ -135,3 +135,4 @@ GPT-5.4
 ### Change Log
 
 - 2026-04-22: Added GitHub Pages static deployment workflow, build preparation, validation, documentation, and base-path-safe route/RSS handling; verified full validation/lint/build and moved story to review.
+- 2026-04-22: Code review completed with no blocking findings; story moved to done.
