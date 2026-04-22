@@ -42,7 +42,7 @@ Construit en Rust, avec une couche Postgres LISTEN/NOTIFY pour les consommateurs
     outcome: "Clôture mensuelle réduite de 4 jours à 6 heures. Zéro rollback depuis le lancement.",
   },
   "operator-letter-q3-2024": {
-    title: "lettre opérateur, T3 2024",
+    title: "Lettre opérateur, T3 2024",
     type: "lettre",
     summary:
       "Lettre trimestrielle à l'équipe sur le mix de revenus, l'arrêt du segment consumer et la manière d'embaucher sous contrainte.",
@@ -55,7 +55,7 @@ Enfin, le recrutement. Nous avançons toujours plus lentement que ce que le marc
     role: "Auteur.",
   },
   "thesis-vertical-llms": {
-    title: "thèse d'investissement : outillage LLM vertical",
+    title: "Thèse d'investissement : outillage LLM vertical",
     type: "mémo",
     summary:
       "Note de position sur pourquoi les prochains produits LLM utiles seront étroits, opinionated, et proches d'outils internes au départ.",
@@ -67,7 +67,7 @@ Je n'underwrite pas : wrappers de foundation models sans flywheel de données, n
     tags: ["llm", "thèse", "saas", "vertical"],
   },
   "close-the-books": {
-    title: "clore les dossiers",
+    title: "Clore les dossiers",
     type: "essai",
     summary:
       "Sur la discipline de finir, et pourquoi je traite la fin d'un projet comme un travail séparé.",
@@ -79,7 +79,7 @@ Je planifie maintenant la clôture comme je planifie le départ. Une chose finie
     tags: ["pratique", "écriture", "processus"],
   },
   "graphite-studies": {
-    title: "études au graphite, 2023-2024",
+    title: "Études au graphite, 2023-2024",
     type: "série de dessins",
     summary:
       "Quarante petits dessins au graphite réalisés sur quatorze mois. Surtout des mains, surtout le soir.",
@@ -89,7 +89,7 @@ Ils ne sont pas techniquement ambitieux. Le point, c'était le rythme. Je les ai
     tags: ["dessin", "graphite", "pratique", "mains"],
   },
   "first-company-postmortem": {
-    title: "postmortem : première entreprise, 2017-2020",
+    title: "Postmortem : première entreprise, 2017-2020",
     type: "postmortem",
     summary:
       "Ce que j'ai bien fait, ce que j'ai mal compris, et ce que je ne crois plus sur la construction d'une première entreprise.",
@@ -99,7 +99,7 @@ Juste : recruter lentement la première année, choisir un marché difficile, re
     tags: ["postmortem", "première-entreprise", "leçons"],
   },
   "memo-fintech-infra-2023": {
-    title: "mémo : infrastructure fintech, fin 2023",
+    title: "Mémo : infrastructure fintech, fin 2023",
     type: "mémo",
     summary:
       "Position prise sur l'orchestration des paiements à un moment où la catégorie semblait saturée, alors qu'elle ne l'était pas.",
@@ -109,7 +109,7 @@ J'ai écrit un petit chèque dans une équipe de cet espace en novembre 2023. La
     tags: ["fintech", "paiements", "mémo"],
   },
   "tiny-pcb-clock": {
-    title: "petite horloge PCB",
+    title: "Petite horloge PCB",
     type: "hardware",
     summary:
       "Une horloge de bureau 35x35mm autour d'un ATtiny et d'un afficheur 7 segments. Un projet de week-end qui a duré quatre mois.",
@@ -119,7 +119,7 @@ Je ne recommande pas de concevoir son propre PCB pour économiser de l'argent. J
     tags: ["hardware", "pcb", "projet-parallèle"],
   },
   "generative-prints-001": {
-    title: "tirages génératifs, série 001",
+    title: "Tirages génératifs, série 001",
     type: "série d'impressions",
     summary:
       "Douze impressions risograph générées depuis un petit programme Rust et imprimées en deux couleurs.",
@@ -129,7 +129,7 @@ La partie intéressante était la sélection : rester avec les sorties pendant d
     tags: ["génératif", "riso", "rust", "impression"],
   },
   "infra-bill-audit-2024": {
-    title: "audit de facture infra, mi-2024",
+    title: "Audit de facture infra, mi-2024",
     type: "note d'opération",
     summary:
       "Audit ligne par ligne de notre facture cloud, qui a récupéré 38 % sans changement d'architecture.",
@@ -139,7 +139,7 @@ La partie intéressante était la sélection : rester avec les sorties pendant d
     tags: ["opérations", "cloud", "coût"],
   },
   "reading-list-2024": {
-    title: "liste de lecture, 2024",
+    title: "Liste de lecture, 2024",
     type: "liste",
     summary:
       "Quarante et un livres terminés en 2024, avec les sept que je recommanderais vraiment.",
@@ -149,7 +149,7 @@ Abandonnés ou sautés : beaucoup. Le temps passé à abandonner un livre est du
     tags: ["lecture", "liste", "annuel"],
   },
   "early-employee-handbook": {
-    title: "manuel early employee (brouillon)",
+    title: "Manuel early employee (brouillon)",
     type: "manuel",
     summary:
       "Court guide pour les dix premières personnes d'une entreprise, écrit pour elles, pas pour le fondateur.",
@@ -162,7 +162,7 @@ Environ 9 000 mots pour l'instant. J'y ajoute quelque chose tous les quelques mo
 
 const FR_NOTE_COPY: Record<string, NoteCopy> = {
   "on-archives-not-portfolios": {
-    title: "sur les archives, pas les portfolios",
+    title: "Sur les archives, pas les portfolios",
     summary: "Pourquoi j'ai arrêté de maintenir un portfolio et commencé à garder une trace.",
     tags: ["méta", "écriture", "archive"],
     coverAlt: "Deux boîtes d'archive claires sur une étagère doucement éclairée.",
@@ -175,7 +175,7 @@ J'ai fait ce changement il y a environ un an. Le premier mois, l'absence de poli
 Le coût est réel. Une archive ne convertit pas. Elle ne génère pas de leads, ne construit pas une personal brand, ne performe pas sur les plateformes faites pour la performance. Elle s'accumule lentement, et reste lisible surtout pour les personnes qui ont déjà une raison de regarder. C'est tout le point.`,
   },
   "the-cost-of-context": {
-    title: "le coût du contexte",
+    title: "Le coût du contexte",
     summary:
       "Notes sur pourquoi garder plusieurs domaines en tête coûte cher, et pourquoi cela vaut quand même la peine.",
     tags: ["pratique", "ingénierie", "investissement"],
@@ -189,7 +189,7 @@ Ce qui rend la chose supportable, c'est que les domaines ne sont pas séparés. 
 Je ne le recommande pas. Je l'écris pour que, les années où les taxes semblent les plus lourdes, je garde la trace d'avoir choisi cela.`,
   },
   "what-investing-taught-me-about-product": {
-    title: "ce que l'investissement m'a appris sur le produit",
+    title: "Ce que l'investissement m'a appris sur le produit",
     summary:
       "Trois habitudes prises en analysant les entreprises des autres, qui ont changé ma manière de construire les miennes.",
     tags: ["investissement", "produit", "leçons"],
@@ -201,7 +201,7 @@ Deux. Time-boxer la diligence. Ce qu'une quatrième réunion révèle n'est pres
 Trois. Underwriter une histoire que l'on défendrait dans cinq ans, pas cinq mois. Les investissements dont je suis le plus fier étaient démodés à l'entrée. Les fonctionnalités dont je suis le plus fier aussi.`,
   },
   "drawing-as-rest": {
-    title: "dessiner comme repos",
+    title: "Dessiner comme repos",
     summary: "Une pratique du soir qui n'est ni productive, ni thérapeutique, ni pour quelqu'un.",
     tags: ["pratique", "dessin", "repos"],
     coverAlt: "Un crayon posé sur du papier crème sous une lampe douce du soir.",

@@ -38,11 +38,19 @@ const fullSentenceProps = [
   /description: "([a-zàâçéèêëîïôûùüÿñæœ][^"]*[.!?])"/g,
 ];
 
+const frenchTitlePattern = /title:\s*"([a-zàâçéèêëîïôûùüÿñæœ][^"]*)"/g;
+
 for (const file of frenchFiles) {
   const source = readFileSync(file, "utf8");
   for (const regex of fullSentenceProps) {
     for (const match of source.matchAll(regex)) {
       errors.push(`${file} starts a sentence-like copy string lowercase: "${match[1]}"`);
+    }
+  }
+
+  if (file === "src/content/localized.ts") {
+    for (const match of source.matchAll(frenchTitlePattern)) {
+      errors.push(`${file} starts a translated title lowercase: "${match[1]}"`);
     }
   }
 }
