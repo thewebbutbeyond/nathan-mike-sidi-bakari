@@ -16,11 +16,11 @@ The site should feel like an organized view into a real person's output, not a p
 
 | Attribute | Description | Expression |
 |-----------|-------------|------------|
-| **Interdisciplinary** | Work spans engineering, entrepreneurship, investing, art, and reflective writing. | Collections and tags allow artifacts to appear across multiple identities. |
+| **Interdisciplinary** | Work spans engineering, entrepreneurship, investing, art, and reflective writing. | Collections and tags allow entries to appear across multiple identities. |
 | **Introspective** | The archive values process and development over surface achievement. | Project entries can include context, decisions, constraints, and evolution. |
-| **Authentic** | The site avoids performative signaling. | Credibility emerges from artifacts, not inflated claims. |
+| **Authentic** | The site avoids performative signaling. | Credibility emerges from entries, not inflated claims. |
 | **Exploratory** | Visitors are invited to browse rather than follow a prescribed funnel. | Navigation supports timeline, selected entries, notes, and tag-based discovery. |
-| **Minimal** | The interface should not compete with the artifacts. | Restrained copy, clear hierarchy, and low visual noise. |
+| **Minimal** | The interface should not compete with the entries. | Restrained copy, clear hierarchy, and low visual noise. |
 
 ---
 
@@ -38,14 +38,14 @@ The writing should sound like a thoughtful person describing what exists, why it
 |-----------|--------------|---------|
 | Formal <-> Casual | Slightly casual, still exact | "A small archive of work, notes, and traces." |
 | Serious <-> Playful | Mostly serious, not heavy | "Some things are projects. Some are notes. Some are somewhere between." |
-| Technical <-> Simple | Context-dependent | Technical depth appears inside relevant artifacts, not everywhere. |
+| Technical <-> Simple | Context-dependent | Technical depth appears inside relevant entries, not everywhere. |
 | Reserved <-> Enthusiastic | Reserved | "Selected entry points" instead of "Featured achievements." |
 
 ### We Say / We Don't Say
 
 **We say:**
 
-- "Artifacts"
+- "Entries"
 - "Notes"
 - "Timeline"
 - "Selected"
@@ -105,7 +105,7 @@ Buttons, labels, error messages, system feedback.
 | Timeline link | View timeline | Explore my journey |
 | Notes follow | RSS | Never miss an insight |
 | Contact | Contact | Let's build the future |
-| Empty collection | No artifacts yet. | Great things are coming soon! |
+| Empty collection | No entries yet. | Great things are coming soon! |
 
 ### Editorial Content
 
@@ -119,15 +119,15 @@ Notes / Thoughts should be curated, long-form reflections inspired by an editori
 - Keep essays durable rather than reactive.
 - Let uncertainty remain visible when useful.
 
-### Artifact Content
+### Entry Content
 
 Project and work entries should show process and trajectory.
 
 **Guidelines:**
 
 - Include context, role, constraints, process, outcome, and current status when relevant.
-- Allow artifacts to be incomplete, in-progress, or historical.
-- Cross-link related artifacts.
+- Allow entries to be incomplete, in-progress, or historical.
+- Cross-link related entries.
 - Support multiple collection memberships.
 
 ---
@@ -162,7 +162,7 @@ SEO should support discoverability without taking over the language. This is not
 /selected                 -> Curated entry points
 /notes                    -> Editorial notes index
 /notes/[slug]             -> Individual note
-/artifacts/[slug]         -> Individual artifact
+/entries/[slug]         -> Individual entry
 /about                    -> Minimal identity statement
 /contact                  -> Low-emphasis contact
 ```
@@ -191,12 +191,12 @@ Not a local business. Skip local SEO.
 | Home / About | `Person` | name, url, sameAs when available |
 | Notes | `Blog` or `CollectionPage` | name, url, itemListElement |
 | Individual Note | `Article` | headline, datePublished, author |
-| Artifact | `CreativeWork` | name, dateCreated, creator, keywords |
+| Entry | `CreativeWork` | name, dateCreated, creator, keywords |
 | Selected / Timeline | `CollectionPage` | name, itemListElement |
 
 ### Keyword Usage Guidelines
 
-Use keywords only where they describe the content naturally. Do not rewrite page titles or artifact descriptions to chase search traffic.
+Use keywords only where they describe the content naturally. Do not rewrite page titles or entry descriptions to chase search traffic.
 
 ---
 
@@ -208,7 +208,7 @@ Archive-first, non-linear, dual-indexed structure.
 
 ### User's Vision
 
-A minimally curated, multi-domain, temporally indexed archive of personal output, where identity is expressed through tagged artifacts rather than narrative positioning.
+A minimally curated, multi-domain, temporally indexed archive of personal output, where identity is expressed through tagged entries rather than narrative positioning.
 
 ### Content Priorities
 
@@ -225,13 +225,13 @@ A minimally curated, multi-domain, temporally indexed archive of personal output
 - About
 - Contact
 - RSS
-- Technical details inside relevant artifacts
+- Technical details inside relevant entries
 
 ### Navigation Principles
 
-- Every artifact should be reachable through time and identity.
+- Every entry should be reachable through time and identity.
 - Collections should support multi-membership.
-- Timeline should aggregate across all artifact types.
+- Timeline should aggregate across all entry types.
 - Selected should reduce entry friction without becoming a trophy case.
 - Notes should be clearly editorial and followable by RSS.
 - Contact should be available but visually quiet.
@@ -241,12 +241,12 @@ A minimally curated, multi-domain, temporally indexed archive of personal output
 - Aggressive calls to action.
 - Resume-style homepage language.
 - Inflated personal branding.
-- Social proof blocks unless they become meaningfully tied to artifacts.
+- Social proof blocks unless they become meaningfully tied to entries.
 - High-frequency raw logging as the primary Notes model.
 
 ### Clarity Level
 
-General to semi-technical. The site should be understandable without domain expertise while allowing deeper technical detail where the artifact warrants it.
+General to semi-technical. The site should be understandable without domain expertise while allowing deeper technical detail where the entry warrants it.
 
 ---
 
@@ -254,8 +254,8 @@ General to semi-technical. The site should be understandable without domain expe
 
 | Content Type | Owner | Update Frequency |
 |--------------|-------|------------------|
-| Artifacts | Nathan | As work is ready to archive |
-| Timeline metadata | Nathan | Whenever artifacts are added |
+| Entries | Nathan | As work is ready to archive |
+| Timeline metadata | Nathan | Whenever entries are added |
 | Selected entries | Nathan | Periodically, when entry points should change |
 | Notes / Thoughts | Nathan | Low frequency, high clarity |
 | About | Nathan | Rarely |
@@ -267,12 +267,12 @@ General to semi-technical. The site should be understandable without domain expe
 
 Before publishing any content, verify:
 
-- [ ] The artifact has a date or date range.
-- [ ] The artifact has collection/tag metadata.
+- [ ] The entry has a date or date range.
+- [ ] The entry has collection/tag metadata.
 - [ ] The description shows process or context, not only outcome.
 - [ ] The language avoids inflated claims.
 - [ ] The content can stand as part of a long-term archive.
-- [ ] Related artifacts are linked where useful.
+- [ ] Related entries are linked where useful.
 - [ ] Notes are clear enough to be reread later.
 - [ ] Contact or follow prompts remain optional.
 

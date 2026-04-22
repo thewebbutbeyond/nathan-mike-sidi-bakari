@@ -25,7 +25,7 @@
 
 ## Vision
 
-The site is a self-addressed archive with public access: a durable, multi-domain, temporally indexed record of personal output where identity is expressed through tagged artifacts rather than narrative positioning.
+The site is a self-addressed archive with public access: a durable, multi-domain, temporally indexed record of personal output where identity is expressed through tagged entries rather than narrative positioning.
 
 ---
 
@@ -34,13 +34,13 @@ The site is a self-addressed archive with public access: a durable, multi-domain
 ### Objective 1: Preserve continuity
 
 - **Statement:** Make Nathan's output retrievable and understandable over time.
-- **Measure:** Artifacts have consistent metadata, dates, tags, and context.
-- **Design implication:** Timeline and artifact pages are core infrastructure, not secondary views.
+- **Measure:** Entries have consistent metadata, dates, tags, and context.
+- **Design implication:** Timeline and entry pages are core infrastructure, not secondary views.
 
 ### Objective 2: Enable non-linear exploration
 
-- **Statement:** Let visitors move through artifacts by identity, time, and selection.
-- **Measure:** Every artifact is reachable through collections/tags and timeline.
+- **Statement:** Let visitors move through entries by identity, time, and selection.
+- **Measure:** Every entry is reachable through collections/tags and timeline.
 - **Design implication:** Collections and timeline must be generated from the same content model.
 
 ### Objective 3: Keep opportunities emergent
@@ -63,7 +63,7 @@ Future Nathan returns to recover continuity: what was made, when it happened, wh
 
 - Wants durable recall across years.
 - Wants trajectory to be visible.
-- Wants artifacts to preserve context and process.
+- Wants entries to preserve context and process.
 
 **Negative drivers:**
 
@@ -111,7 +111,7 @@ The Potential Collaborator is looking for genuine overlap: technical, creative, 
 
 **Priority:** Secondary
 
-The Professional Observer infers competence from concrete artifacts, breadth, and consistency.
+The Professional Observer infers competence from concrete entries, breadth, and consistency.
 
 **Positive drivers:**
 
@@ -180,7 +180,7 @@ The portfolio should transform scattered personal output into a durable archive 
 
 **Must address:**
 
-- Recall: each artifact needs metadata and context.
+- Recall: each entry needs metadata and context.
 - Continuity: timeline must make trajectory visible.
 - Multiplicity: collections/tags must support multi-domain identity.
 - Maintenance: content structures must be simple enough to use for years.
@@ -199,7 +199,7 @@ The portfolio should transform scattered personal output into a durable archive 
 ### Shared Drivers
 
 - Orientation without over-explanation.
-- Evidence through artifacts.
+- Evidence through entries.
 - Navigation by both time and identity.
 - Low-pressure discovery.
 - Clear metadata.

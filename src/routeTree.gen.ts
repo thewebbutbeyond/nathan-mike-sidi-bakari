@@ -9,38 +9,299 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TimelineRouteImport } from './routes/timeline'
+import { Route as TermsRouteImport } from './routes/terms'
+import { Route as RssDotxmlRouteImport } from './routes/rss[.]xml'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as NotesRouteImport } from './routes/notes'
+import { Route as LensesRouteImport } from './routes/lenses'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as ColophonRouteImport } from './routes/colophon'
+import { Route as ChefsDoeuvreRouteImport } from './routes/chefs-doeuvre'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as NotesIndexRouteImport } from './routes/notes.index'
+import { Route as LensesIndexRouteImport } from './routes/lenses.index'
+import { Route as NotesSlugRouteImport } from './routes/notes.$slug'
+import { Route as LensesSlugRouteImport } from './routes/lenses.$slug'
+import { Route as EntriesSlugRouteImport } from './routes/entries.$slug'
 
+const TimelineRoute = TimelineRouteImport.update({
+  id: '/timeline',
+  path: '/timeline',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RssDotxmlRoute = RssDotxmlRouteImport.update({
+  id: '/rss.xml',
+  path: '/rss.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NotesRoute = NotesRouteImport.update({
+  id: '/notes',
+  path: '/notes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LensesRoute = LensesRouteImport.update({
+  id: '/lenses',
+  path: '/lenses',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ColophonRoute = ColophonRouteImport.update({
+  id: '/colophon',
+  path: '/colophon',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChefsDoeuvreRoute = ChefsDoeuvreRouteImport.update({
+  id: '/chefs-doeuvre',
+  path: '/chefs-doeuvre',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const NotesIndexRoute = NotesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => NotesRoute,
+} as any)
+const LensesIndexRoute = LensesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => LensesRoute,
+} as any)
+const NotesSlugRoute = NotesSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => NotesRoute,
+} as any)
+const LensesSlugRoute = LensesSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => LensesRoute,
+} as any)
+const EntriesSlugRoute = EntriesSlugRouteImport.update({
+  id: '/entries/$slug',
+  path: '/entries/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/chefs-doeuvre': typeof ChefsDoeuvreRoute
+  '/colophon': typeof ColophonRoute
+  '/contact': typeof ContactRoute
+  '/lenses': typeof LensesRouteWithChildren
+  '/notes': typeof NotesRouteWithChildren
+  '/privacy': typeof PrivacyRoute
+  '/rss.xml': typeof RssDotxmlRoute
+  '/terms': typeof TermsRoute
+  '/timeline': typeof TimelineRoute
+  '/entries/$slug': typeof EntriesSlugRoute
+  '/lenses/$slug': typeof LensesSlugRoute
+  '/notes/$slug': typeof NotesSlugRoute
+  '/lenses/': typeof LensesIndexRoute
+  '/notes/': typeof NotesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/chefs-doeuvre': typeof ChefsDoeuvreRoute
+  '/colophon': typeof ColophonRoute
+  '/contact': typeof ContactRoute
+  '/privacy': typeof PrivacyRoute
+  '/rss.xml': typeof RssDotxmlRoute
+  '/terms': typeof TermsRoute
+  '/timeline': typeof TimelineRoute
+  '/entries/$slug': typeof EntriesSlugRoute
+  '/lenses/$slug': typeof LensesSlugRoute
+  '/notes/$slug': typeof NotesSlugRoute
+  '/lenses': typeof LensesIndexRoute
+  '/notes': typeof NotesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/chefs-doeuvre': typeof ChefsDoeuvreRoute
+  '/colophon': typeof ColophonRoute
+  '/contact': typeof ContactRoute
+  '/lenses': typeof LensesRouteWithChildren
+  '/notes': typeof NotesRouteWithChildren
+  '/privacy': typeof PrivacyRoute
+  '/rss.xml': typeof RssDotxmlRoute
+  '/terms': typeof TermsRoute
+  '/timeline': typeof TimelineRoute
+  '/entries/$slug': typeof EntriesSlugRoute
+  '/lenses/$slug': typeof LensesSlugRoute
+  '/notes/$slug': typeof NotesSlugRoute
+  '/lenses/': typeof LensesIndexRoute
+  '/notes/': typeof NotesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/chefs-doeuvre'
+    | '/colophon'
+    | '/contact'
+    | '/lenses'
+    | '/notes'
+    | '/privacy'
+    | '/rss.xml'
+    | '/terms'
+    | '/timeline'
+    | '/entries/$slug'
+    | '/lenses/$slug'
+    | '/notes/$slug'
+    | '/lenses/'
+    | '/notes/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/chefs-doeuvre'
+    | '/colophon'
+    | '/contact'
+    | '/privacy'
+    | '/rss.xml'
+    | '/terms'
+    | '/timeline'
+    | '/entries/$slug'
+    | '/lenses/$slug'
+    | '/notes/$slug'
+    | '/lenses'
+    | '/notes'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/chefs-doeuvre'
+    | '/colophon'
+    | '/contact'
+    | '/lenses'
+    | '/notes'
+    | '/privacy'
+    | '/rss.xml'
+    | '/terms'
+    | '/timeline'
+    | '/entries/$slug'
+    | '/lenses/$slug'
+    | '/notes/$slug'
+    | '/lenses/'
+    | '/notes/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  ChefsDoeuvreRoute: typeof ChefsDoeuvreRoute
+  ColophonRoute: typeof ColophonRoute
+  ContactRoute: typeof ContactRoute
+  LensesRoute: typeof LensesRouteWithChildren
+  NotesRoute: typeof NotesRouteWithChildren
+  PrivacyRoute: typeof PrivacyRoute
+  RssDotxmlRoute: typeof RssDotxmlRoute
+  TermsRoute: typeof TermsRoute
+  TimelineRoute: typeof TimelineRoute
+  EntriesSlugRoute: typeof EntriesSlugRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/timeline': {
+      id: '/timeline'
+      path: '/timeline'
+      fullPath: '/timeline'
+      preLoaderRoute: typeof TimelineRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/rss.xml': {
+      id: '/rss.xml'
+      path: '/rss.xml'
+      fullPath: '/rss.xml'
+      preLoaderRoute: typeof RssDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/notes': {
+      id: '/notes'
+      path: '/notes'
+      fullPath: '/notes'
+      preLoaderRoute: typeof NotesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lenses': {
+      id: '/lenses'
+      path: '/lenses'
+      fullPath: '/lenses'
+      preLoaderRoute: typeof LensesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/colophon': {
+      id: '/colophon'
+      path: '/colophon'
+      fullPath: '/colophon'
+      preLoaderRoute: typeof ColophonRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/chefs-doeuvre': {
+      id: '/chefs-doeuvre'
+      path: '/chefs-doeuvre'
+      fullPath: '/chefs-doeuvre'
+      preLoaderRoute: typeof ChefsDoeuvreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,11 +309,82 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/notes/': {
+      id: '/notes/'
+      path: '/'
+      fullPath: '/notes/'
+      preLoaderRoute: typeof NotesIndexRouteImport
+      parentRoute: typeof NotesRoute
+    }
+    '/lenses/': {
+      id: '/lenses/'
+      path: '/'
+      fullPath: '/lenses/'
+      preLoaderRoute: typeof LensesIndexRouteImport
+      parentRoute: typeof LensesRoute
+    }
+    '/notes/$slug': {
+      id: '/notes/$slug'
+      path: '/$slug'
+      fullPath: '/notes/$slug'
+      preLoaderRoute: typeof NotesSlugRouteImport
+      parentRoute: typeof NotesRoute
+    }
+    '/lenses/$slug': {
+      id: '/lenses/$slug'
+      path: '/$slug'
+      fullPath: '/lenses/$slug'
+      preLoaderRoute: typeof LensesSlugRouteImport
+      parentRoute: typeof LensesRoute
+    }
+    '/entries/$slug': {
+      id: '/entries/$slug'
+      path: '/entries/$slug'
+      fullPath: '/entries/$slug'
+      preLoaderRoute: typeof EntriesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
+interface LensesRouteChildren {
+  LensesSlugRoute: typeof LensesSlugRoute
+  LensesIndexRoute: typeof LensesIndexRoute
+}
+
+const LensesRouteChildren: LensesRouteChildren = {
+  LensesSlugRoute: LensesSlugRoute,
+  LensesIndexRoute: LensesIndexRoute,
+}
+
+const LensesRouteWithChildren =
+  LensesRoute._addFileChildren(LensesRouteChildren)
+
+interface NotesRouteChildren {
+  NotesSlugRoute: typeof NotesSlugRoute
+  NotesIndexRoute: typeof NotesIndexRoute
+}
+
+const NotesRouteChildren: NotesRouteChildren = {
+  NotesSlugRoute: NotesSlugRoute,
+  NotesIndexRoute: NotesIndexRoute,
+}
+
+const NotesRouteWithChildren = NotesRoute._addFileChildren(NotesRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  ChefsDoeuvreRoute: ChefsDoeuvreRoute,
+  ColophonRoute: ColophonRoute,
+  ContactRoute: ContactRoute,
+  LensesRoute: LensesRouteWithChildren,
+  NotesRoute: NotesRouteWithChildren,
+  PrivacyRoute: PrivacyRoute,
+  RssDotxmlRoute: RssDotxmlRoute,
+  TermsRoute: TermsRoute,
+  TimelineRoute: TimelineRoute,
+  EntriesSlugRoute: EntriesSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

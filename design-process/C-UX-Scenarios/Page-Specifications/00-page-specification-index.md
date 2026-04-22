@@ -9,14 +9,14 @@
 
 ## Specification Set
 
-These shared page specifications cover the structural pages used across the six Phase 3 scenarios. Shared specs prevent duplicate definitions of common pages such as Home / Portal, Artifact Detail, Timeline, and Contact.
+These shared page specifications cover the structural pages used across the six Phase 3 scenarios. Shared specs prevent duplicate definitions of common pages such as Home / Portal, Entry Detail, Timeline, and Contact.
 
 These are **shared page specifications**, not per-scenario step specifications. The scenario files define the linear journeys; this folder defines the reusable public pages those journeys pass through.
 
 | # | Page | Spec | Primary Scenarios |
 |---|------|------|-------------------|
 | 01 | Home / Portal | [01-home-portal.md](./01-home-portal.md) | 01, 03 |
-| 02 | Artifact Detail | [02-artifact-detail.md](./02-artifact-detail.md) | 01, 02, 03, 04, 06 |
+| 02 | Entry Detail | [02-entry-detail.md](./02-entry-detail.md) | 01, 02, 03, 04, 06 |
 | 03 | Collections | [03-collections.md](./03-collections.md) | 02 |
 | 04 | Collection Detail | [04-collection-detail.md](./04-collection-detail.md) | 02 |
 | 05 | Timeline | [05-timeline.md](./05-timeline.md) | 03 |
@@ -32,7 +32,7 @@ These are **shared page specifications**, not per-scenario step specifications. 
 
 - Archive-first, not conversion-first.
 - Structural copy over self-promotional copy.
-- Every artifact must be reachable through time and identity.
+- Every entry must be reachable through time and identity.
 - Tags and collections support multi-membership.
 - Selected is an entry layer, not a trophy case.
 - Contact exists for genuine intersections, not funnel completion.
@@ -41,11 +41,11 @@ These are **shared page specifications**, not per-scenario step specifications. 
 
 ## Shared Content Model
 
-All artifact-like entries should support:
+All entry-like entries should support:
 
 | Field | Purpose |
 |-------|---------|
-| `title` | Human-readable artifact title |
+| `title` | Human-readable entry title |
 | `slug` | Stable URL path |
 | `date` | Timeline ordering |
 | `type` | Project, note, artwork, investment note, experiment, etc. |
@@ -55,7 +55,7 @@ All artifact-like entries should support:
 | `status` | Draft, active, archived, historical, in-progress |
 | `milestone` | Optional timeline emphasis |
 | `links` | External repo, demo, image, document, reference |
-| `related` | Related artifact slugs |
+| `related` | Related entry slugs |
 
 ---
 
@@ -63,7 +63,7 @@ All artifact-like entries should support:
 
 Before development handoff:
 
-- Confirm real initial artifacts and notes.
+- Confirm real initial entries and notes.
 - Confirm final contact method.
 - Add sketches or wireframes if visual handoff requires them.
 - Run `wds-4-ux-design validate` against this folder.

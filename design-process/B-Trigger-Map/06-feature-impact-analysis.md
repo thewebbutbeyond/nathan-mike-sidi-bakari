@@ -26,17 +26,17 @@ High = 3 pts | Medium = 1 pt | Low = 0 pts
 
 | Rank | Feature / Structure | Future Nathan | Curious Observer | Potential Collaborator | Professional Observer | Score | Decision |
 |------|---------------------|---------------|------------------|------------------------|-----------------------|-------|----------|
-| 1 | Structured artifact content model | High | High | High | High | 14 | Must have |
+| 1 | Structured entry content model | High | High | High | High | 14 | Must have |
 | 2 | Timeline | High | Medium | Medium | High | 10 | Must have |
 | 3 | Collections and tags | High | High | High | High | 14 | Must have |
-| 4 | Artifact detail pages | High | High | High | High | 14 | Must have |
+| 4 | Entry detail pages | High | High | High | High | 14 | Must have |
 | 5 | Home / Portal | Medium | High | Medium | High | 10 | Must have |
 | 6 | Selected | Medium | High | High | High | 12 | Must have |
 | 7 | Notes / Thoughts | High | Medium | High | Medium | 10 | Must have |
 | 8 | RSS for Notes | Medium | Medium | Low | Low | 5 | Consider for MVP |
 | 9 | About | Low | Medium | Medium | High | 6 | Consider for MVP |
 | 10 | Contact | Low | Low | High | Medium | 5 | Consider for MVP |
-| 11 | Related artifact links | High | High | High | Medium | 12 | Must have |
+| 11 | Related entry links | High | High | High | Medium | 12 | Must have |
 | 12 | Search | Medium | Medium | Medium | Medium | 6 | Defer until content volume grows |
 | 13 | CMS/admin workflow | Medium | Low | Low | Low | 3 | Defer |
 | 14 | Analytics | Low | Low | Low | Low | 1 | Defer |
@@ -45,14 +45,14 @@ High = 3 pts | Medium = 1 pt | Low = 0 pts
 
 ## Must Have MVP
 
-- Structured artifact content model.
+- Structured entry content model.
 - Timeline.
 - Collections and tags.
-- Artifact detail pages.
+- Entry detail pages.
 - Home / Portal.
 - Selected.
 - Notes / Thoughts.
-- Related artifact links.
+- Related entry links.
 
 ---
 
@@ -76,7 +76,7 @@ These are strategically useful but should remain restrained. RSS supports the ed
 
 ## Strategic Rationale
 
-The highest-scoring features all serve the same core requirement: artifacts must be durable, contextual, and accessible through both time and identity.
+The highest-scoring features all serve the same core requirement: entries must be durable, contextual, and accessible through both time and identity.
 
 The MVP should not begin with a sophisticated visual brand or conversion surface. It should begin with a content model and navigation structures that make the archive coherent.
 

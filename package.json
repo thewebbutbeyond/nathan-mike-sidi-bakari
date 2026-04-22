@@ -6,9 +6,20 @@
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
+    "build:github-pages": "node scripts/build-github-pages.mjs",
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "eslint .",
+    "validate:a11y": "node scripts/validate-a11y-responsive.mjs",
+    "validate:copy": "node scripts/validate-copy-tone.mjs",
+    "validate:deploy": "node scripts/validate-github-pages-deployment.mjs",
+    "validate:entry-detail": "node scripts/validate-entry-detail.mjs",
+    "validate:lenses": "node scripts/validate-lenses.mjs",
+    "validate:notes": "node scripts/validate-notes.mjs",
+    "validate:search": "node scripts/validate-search-palette.mjs",
+    "validate:seo": "node scripts/validate-seo.mjs",
+    "validate:shell": "node scripts/validate-shell-routes.mjs",
+    "validate:timeline": "node scripts/validate-timeline.mjs",
     "format": "prettier --write ."
   },
   "dependencies": {
@@ -45,6 +56,7 @@
     "@tanstack/react-router": "^1.168.0",
     "@tanstack/react-start": "^1.167.14",
     "@tanstack/router-plugin": "^1.167.10",
+    "@tanstack/zod-adapter": "^1.166.9",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",

@@ -22,7 +22,7 @@ The Potential Collaborator needs:
 
 - Process evidence.
 - Domain overlap.
-- Clear artifact context.
+- Clear entry context.
 - A contact route that feels available but not needy.
 - Signals of taste and judgment.
 
@@ -53,14 +53,14 @@ The Potential Collaborator needs:
 **1. Evidence of process**
 
 - Wants to see how things were made, not only what was produced.
-- Success means artifact pages include context, decisions, and constraints.
+- Success means entry pages include context, decisions, and constraints.
 - **Archive promise:** Project entries can show process and evolution.
 
 **2. Cross-domain compatibility**
 
 - Wants to know whether interests overlap across more than one dimension.
 - Success means collections and tags reveal intersections.
-- **Archive promise:** Multi-membership allows one artifact to show technical and creative relevance.
+- **Archive promise:** Multi-membership allows one entry to show technical and creative relevance.
 
 **3. Low-pressure contact**
 
@@ -74,13 +74,13 @@ The Potential Collaborator needs:
 
 - Fears impressive presentation without substance.
 - Failure looks like a glossy portfolio with little process.
-- **Archive answer:** Emphasize artifacts, notes, and decision context.
+- **Archive answer:** Emphasize entries, notes, and decision context.
 
 **2. Unclear interests**
 
 - Fears not knowing what kind of collaboration would make sense.
 - Failure looks like broad categories without concrete examples.
-- **Archive answer:** Tags, related artifacts, and Notes reveal patterns.
+- **Archive answer:** Tags, related entries, and Notes reveal patterns.
 
 **3. Forced outreach**
 
@@ -94,7 +94,7 @@ The Potential Collaborator needs:
 
 ### Before the Archive
 
-- The collaborator may know one artifact but not the broader context.
+- The collaborator may know one entry but not the broader context.
 - Overlap is possible but hard to assess.
 - Contact may feel premature.
 
@@ -108,7 +108,7 @@ The Potential Collaborator needs:
 
 ## Design Requirements
 
-- Artifact pages should include role, process, and related work.
+- Entry pages should include role, process, and related work.
 - Tags should reveal intersections, not just categories.
 - Notes should be readable as worldview evidence.
 - Contact should be reachable from relevant contexts but visually restrained.

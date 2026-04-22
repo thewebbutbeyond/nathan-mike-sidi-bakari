@@ -9,7 +9,7 @@
 ## Transaction
 
 **What this scenario covers:**
-A first-time visitor lands on the site, understands it as an archive, and chooses a selected artifact as an entry point.
+A first-time visitor lands on the site, understands it as an archive, and chooses a selected entry as an entry point.
 
 ---
 
@@ -47,7 +47,7 @@ A first-time visitor lands on the site, understands it as an archive, and choose
 ## Best Outcome
 
 **User Success:**
-The visitor understands the archive routes and opens one selected artifact that gives them real signal.
+The visitor understands the archive routes and opens one selected entry that gives them real signal.
 
 **Archive Success:**
 The site demonstrates its structure without relying on a conversion CTA or resume-style narrative.
@@ -57,8 +57,8 @@ The site demonstrates its structure without relying on a conversion CTA or resum
 ## Shortest Path
 
 1. **Home / Portal** - Visitor sees the archive premise and routes into Selected, Timeline, Collections, and Notes.
-2. **Selected** - Visitor scans a small curated subset of representative artifacts.
-3. **Artifact Detail** - Visitor opens one artifact and sees context, metadata, and related paths. ✓
+2. **Selected** - Visitor scans a small curated subset of representative entries.
+3. **Entry Detail** - Visitor opens one entry and sees context, metadata, and related paths. ✓
 
 ---
 
@@ -82,8 +82,8 @@ The site demonstrates its structure without relying on a conversion CTA or resum
 | Step | Folder | Purpose | Exit Action |
 |------|--------|---------|-------------|
 | 01.1 | `01.1-home-portal/` | Understand the archive model and available routes. | Open Selected. |
-| 01.2 | `01.2-selected/` | Choose a curated artifact without treating it as a trophy case. | Open an artifact. |
-| 01.3 | `01.3-artifact-detail/` | Understand one artifact and its related context. | Scenario success. |
+| 01.2 | `01.2-selected/` | Choose a curated entry without treating it as a trophy case. | Open an entry. |
+| 01.3 | `01.3-entry-detail/` | Understand one entry and its related context. | Scenario success. |
 
 ---
 

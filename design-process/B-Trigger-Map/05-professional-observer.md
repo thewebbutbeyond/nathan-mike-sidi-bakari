@@ -1,6 +1,6 @@
 # Professional Observer - Secondary Visitor Mode
 
-> Secondary mode: competence inferred through artifacts and structure.
+> Secondary mode: competence inferred through entries and structure.
 
 **Priority:** Secondary
 **Role in Strategy:** Ensures professional readers can evaluate work without forcing professional signaling into the site.
@@ -10,7 +10,7 @@
 
 ## Profile Summary
 
-The Professional Observer may be evaluating credibility, capability, or fit. They are not the primary audience, but the site should still let them infer competence from concrete artifacts, breadth, and structure.
+The Professional Observer may be evaluating credibility, capability, or fit. They are not the primary audience, but the site should still let them infer competence from concrete entries, breadth, and structure.
 
 ---
 
@@ -54,7 +54,7 @@ The Professional Observer needs:
 
 - Wants examples that demonstrate capability.
 - Success means projects include enough context to inspect.
-- **Archive promise:** Artifact pages show work, role, process, and links.
+- **Archive promise:** Entry pages show work, role, process, and links.
 
 **2. Fast relevance filtering**
 
@@ -74,7 +74,7 @@ The Professional Observer needs:
 
 - Fears claims unsupported by work.
 - Failure looks like grand language without evidence.
-- **Archive answer:** Use restrained copy and artifact-first presentation.
+- **Archive answer:** Use restrained copy and entry-first presentation.
 
 **2. Weak signal hidden in clutter**
 
@@ -100,7 +100,7 @@ The Professional Observer needs:
 
 ### After the Archive
 
-- The observer can inspect relevant artifacts.
+- The observer can inspect relevant entries.
 - Breadth reads as intentional multi-domain output.
 - Competence emerges from evidence and trajectory.
 
@@ -110,7 +110,7 @@ The Professional Observer needs:
 
 - Selected should include representative breadth, not only conventional achievements.
 - Collection pages must support quick scanning.
-- Artifact pages must clarify role and context.
+- Entry pages must clarify role and context.
 - Timeline should highlight milestones without overclaiming.
 - About should be minimal but sufficient.
 

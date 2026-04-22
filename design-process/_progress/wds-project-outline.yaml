@@ -3,7 +3,7 @@ project:
   type: greenfield
   product_complexity: standard
   product_kind: website
-  description: "A minimally curated, multi-domain, temporally indexed archive of personal output, where identity is expressed through tagged artifacts rather than narrative positioning."
+  description: "A minimally curated, multi-domain, temporally indexed archive of personal output, where identity is expressed through tagged entries rather than narrative positioning."
 
 setup:
   method: "Whiteport Design Studio"
@@ -47,10 +47,10 @@ existing_materials:
         - introspective
         - authentic
       objective: "A structured but unfiltered glimpse into one mind operating across multiple domains"
-      credibility_model: "Credibility emerges from artifacts, not performative signaling"
+      credibility_model: "Credibility emerges from entries, not performative signaling"
     content_model:
       emphasis: "Representative breadth, process, and evolution over conventional best-work selection"
-      structural_principle: "Every artifact is accessible by identity through collections/tags and by time through timeline"
+      structural_principle: "Every entry is accessible by identity through collections/tags and by time through timeline"
       collections:
         - Engineer
         - Entrepreneur

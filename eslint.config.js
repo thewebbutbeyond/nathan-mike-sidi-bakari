@@ -21,7 +21,7 @@ export default tseslint.config(
       "_bmad",
       "_bmad-output",
       "design-process",
-      "design-artifacts",
+      "design-entries",
       "docs",
       "node_modules",
     ],
