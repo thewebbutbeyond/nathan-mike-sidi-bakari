@@ -1,6 +1,6 @@
 # Nathan Mike Sidi Bakari
 
-A quiet personal archive of work, notes, and traces across engineering, entrepreneurship, investing, art, and reflection.
+A personal archive of work, notes, and traces across engineering, entrepreneurship, investing, art, and reflection.
 
 The site is intentionally closer to a notebook/logbook than a conventional portfolio. It is meant to preserve continuity over time, make work browsable through multiple lenses, and stay public without turning into a conversion surface.
 
@@ -96,9 +96,3 @@ Deployment is handled by `.github/workflows/deploy-to-github-pages.yml`.
 GitHub Pages must be enabled in repository settings with **Source: GitHub Actions**. The deployment build publishes `dist/client` and uses a static SPA fallback (`404.html`) for direct route visits.
 
 More detail: [docs/deployment.md](docs/deployment.md).
-
-## Repository Description
-
-Suggested GitHub description:
-
-> A quiet personal archive of work, notes, and traces across engineering, entrepreneurship, investing, art, and reflection.
