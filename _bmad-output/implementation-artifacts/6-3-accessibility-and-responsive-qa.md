@@ -1,6 +1,6 @@
 # Story 6.3: Accessibility and Responsive QA
 
-Status: ready-for-dev
+Status: review
 
 ## Story
 
@@ -18,29 +18,29 @@ so that the archive is usable without special conditions.
 
 ## Tasks / Subtasks
 
-- [ ] Inspect accessibility and responsive structure. (AC: 1-5)
-  - [ ] Review global shell landmarks and nav labels.
-  - [ ] Review focus-visible behavior.
-  - [ ] Review image alt handling.
-  - [ ] Review responsive class usage on shell and main content layouts.
-- [ ] Add targeted accessibility safeguards. (AC: 1-5)
-  - [ ] Add visible focus style if missing.
-  - [ ] Add missing nav labels if needed.
-  - [ ] Preserve existing visual direction.
-- [ ] Add or run accessibility/responsive validation. (AC: 1-5)
-  - [ ] Validate shell landmarks.
-  - [ ] Validate focus-visible styling.
-  - [ ] Validate search/social/media labels.
-  - [ ] Validate responsive class usage on major layout primitives.
-- [ ] Run baseline checks. (AC: 1-5)
-  - [ ] Run accessibility validator if added.
-  - [ ] Run existing validators.
-  - [ ] Run `npm run lint`.
-  - [ ] Run `npm run build`.
-- [ ] Update story and sprint tracking. (AC: 1-5)
-  - [ ] Mark this story `review` after checks pass.
-  - [ ] Update sprint status to `review`.
-  - [ ] Record command results and warnings in Dev Agent Record.
+- [x] Inspect accessibility and responsive structure. (AC: 1-5)
+  - [x] Review global shell landmarks and nav labels.
+  - [x] Review focus-visible behavior.
+  - [x] Review image alt handling.
+  - [x] Review responsive class usage on shell and main content layouts.
+- [x] Add targeted accessibility safeguards. (AC: 1-5)
+  - [x] Add visible focus style if missing.
+  - [x] Add missing nav labels if needed.
+  - [x] Preserve existing visual direction.
+- [x] Add or run accessibility/responsive validation. (AC: 1-5)
+  - [x] Validate shell landmarks.
+  - [x] Validate focus-visible styling.
+  - [x] Validate search/social/media labels.
+  - [x] Validate responsive class usage on major layout primitives.
+- [x] Run baseline checks. (AC: 1-5)
+  - [x] Run accessibility validator if added.
+  - [x] Run existing validators.
+  - [x] Run `npm run lint`.
+  - [x] Run `npm run build`.
+- [x] Update story and sprint tracking. (AC: 1-5)
+  - [x] Mark this story `review` after checks pass.
+  - [x] Update sprint status to `review`.
+  - [x] Record command results and warnings in Dev Agent Record.
 
 ## Dev Notes
 
@@ -75,26 +75,32 @@ Known non-blocking warnings:
 
 ### Agent Model Used
 
-TBD by implementing agent.
+GPT-5.4
 
 ### Debug Log References
 
-TBD.
+- Added `scripts/validate-a11y-responsive.mjs` and `npm run validate:a11y`.
+- `npm run validate:a11y` passed: validated 9 structural accessibility safeguards.
+- Existing validators passed.
+- `npm run lint` passed with 7 non-blocking `react-refresh/only-export-components` warnings.
+- `npm run build` passed with the existing Vite large chunk warning.
 
 ### Completion Notes List
 
-TBD.
+- Added a global `:focus-visible` style for keyboard focus visibility.
+- Added `aria-label="Primary"` to the header navigation.
+- Added deterministic validation for main landmark, nav labels, icon link labels, focus-visible styles, search labels, note cover alt text, decorative mosaic alt handling, and responsive class presence.
+- Preserved existing visual direction and layout.
 
 ### File List
-
-Expected files touched:
 
 - `src/styles.css`
 - `src/components/site-shell.tsx`
 - `_bmad-output/implementation-artifacts/6-3-accessibility-and-responsive-qa.md`
 - `_bmad-output/implementation-artifacts/sprint-status.yaml`
-
-Likely files if validation is added:
-
 - `scripts/validate-a11y-responsive.mjs`
 - `package.json`
+
+### Change Log
+
+- 2026-04-22: Added focus-visible style, primary nav label, accessibility/responsive validation, verified full validation/lint/build, and moved story to review.
