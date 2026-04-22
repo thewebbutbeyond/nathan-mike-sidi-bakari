@@ -1,6 +1,6 @@
 import { Link, useLocation } from "@tanstack/react-router";
 import type { ReactNode } from "react";
-import { Github, Globe2, Linkedin, Rss } from "lucide-react";
+import { Check, Github, Globe2, Linkedin, Rss } from "lucide-react";
 
 import { SearchTrigger } from "@/components/search-palette";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
@@ -188,7 +188,7 @@ function LanguageSelector({ locale }: { locale: Locale }) {
           type="button"
           aria-label={locale === "fr" ? "langue" : "language"}
           title={locale === "fr" ? "langue" : "language"}
-          className="text-ink-soft hover:text-ink inline-flex items-center"
+          className="text-ink-soft hover:text-ink inline-flex cursor-pointer items-center"
         >
           <Globe2 size={14} strokeWidth={1.5} />
         </button>
@@ -215,9 +215,12 @@ function LanguageSelector({ locale }: { locale: Locale }) {
                 <span>{language.label}</span>
               </span>
               {language.locale === locale && (
-                <span className="text-[10px] text-ink-faint">
-                  {locale === "fr" ? "actuel" : "current"}
-                </span>
+                <Check
+                  aria-label="selected"
+                  size={12}
+                  strokeWidth={1.5}
+                  className="text-ink-faint"
+                />
               )}
             </a>
           ))}
