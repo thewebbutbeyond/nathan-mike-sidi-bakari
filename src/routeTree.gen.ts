@@ -15,6 +15,7 @@ import { Route as RssDotxmlRouteImport } from './routes/rss[.]xml'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as NotesRouteImport } from './routes/notes'
 import { Route as LensesRouteImport } from './routes/lenses'
+import { Route as FrRouteImport } from './routes/fr'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ColophonRouteImport } from './routes/colophon'
 import { Route as ChefsDoeuvreRouteImport } from './routes/chefs-doeuvre'
@@ -22,9 +23,25 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as NotesIndexRouteImport } from './routes/notes.index'
 import { Route as LensesIndexRouteImport } from './routes/lenses.index'
+import { Route as FrIndexRouteImport } from './routes/fr.index'
 import { Route as NotesSlugRouteImport } from './routes/notes.$slug'
 import { Route as LensesSlugRouteImport } from './routes/lenses.$slug'
+import { Route as FrTimelineRouteImport } from './routes/fr.timeline'
+import { Route as FrTermsRouteImport } from './routes/fr.terms'
+import { Route as FrRssDotxmlRouteImport } from './routes/fr.rss[.]xml'
+import { Route as FrPrivacyRouteImport } from './routes/fr.privacy'
+import { Route as FrNotesRouteImport } from './routes/fr.notes'
+import { Route as FrLensesRouteImport } from './routes/fr.lenses'
+import { Route as FrContactRouteImport } from './routes/fr.contact'
+import { Route as FrColophonRouteImport } from './routes/fr.colophon'
+import { Route as FrChefsDoeuvreRouteImport } from './routes/fr.chefs-doeuvre'
+import { Route as FrAboutRouteImport } from './routes/fr.about'
 import { Route as EntriesSlugRouteImport } from './routes/entries.$slug'
+import { Route as FrNotesIndexRouteImport } from './routes/fr.notes.index'
+import { Route as FrLensesIndexRouteImport } from './routes/fr.lenses.index'
+import { Route as FrNotesSlugRouteImport } from './routes/fr.notes.$slug'
+import { Route as FrLensesSlugRouteImport } from './routes/fr.lenses.$slug'
+import { Route as FrEntriesSlugRouteImport } from './routes/fr.entries.$slug'
 
 const TimelineRoute = TimelineRouteImport.update({
   id: '/timeline',
@@ -54,6 +71,11 @@ const NotesRoute = NotesRouteImport.update({
 const LensesRoute = LensesRouteImport.update({
   id: '/lenses',
   path: '/lenses',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FrRoute = FrRouteImport.update({
+  id: '/fr',
+  path: '/fr',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -91,6 +113,11 @@ const LensesIndexRoute = LensesIndexRouteImport.update({
   path: '/',
   getParentRoute: () => LensesRoute,
 } as any)
+const FrIndexRoute = FrIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => FrRoute,
+} as any)
 const NotesSlugRoute = NotesSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -101,10 +128,85 @@ const LensesSlugRoute = LensesSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => LensesRoute,
 } as any)
+const FrTimelineRoute = FrTimelineRouteImport.update({
+  id: '/timeline',
+  path: '/timeline',
+  getParentRoute: () => FrRoute,
+} as any)
+const FrTermsRoute = FrTermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => FrRoute,
+} as any)
+const FrRssDotxmlRoute = FrRssDotxmlRouteImport.update({
+  id: '/rss.xml',
+  path: '/rss.xml',
+  getParentRoute: () => FrRoute,
+} as any)
+const FrPrivacyRoute = FrPrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => FrRoute,
+} as any)
+const FrNotesRoute = FrNotesRouteImport.update({
+  id: '/notes',
+  path: '/notes',
+  getParentRoute: () => FrRoute,
+} as any)
+const FrLensesRoute = FrLensesRouteImport.update({
+  id: '/lenses',
+  path: '/lenses',
+  getParentRoute: () => FrRoute,
+} as any)
+const FrContactRoute = FrContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => FrRoute,
+} as any)
+const FrColophonRoute = FrColophonRouteImport.update({
+  id: '/colophon',
+  path: '/colophon',
+  getParentRoute: () => FrRoute,
+} as any)
+const FrChefsDoeuvreRoute = FrChefsDoeuvreRouteImport.update({
+  id: '/chefs-doeuvre',
+  path: '/chefs-doeuvre',
+  getParentRoute: () => FrRoute,
+} as any)
+const FrAboutRoute = FrAboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => FrRoute,
+} as any)
 const EntriesSlugRoute = EntriesSlugRouteImport.update({
   id: '/entries/$slug',
   path: '/entries/$slug',
   getParentRoute: () => rootRouteImport,
+} as any)
+const FrNotesIndexRoute = FrNotesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => FrNotesRoute,
+} as any)
+const FrLensesIndexRoute = FrLensesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => FrLensesRoute,
+} as any)
+const FrNotesSlugRoute = FrNotesSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => FrNotesRoute,
+} as any)
+const FrLensesSlugRoute = FrLensesSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => FrLensesRoute,
+} as any)
+const FrEntriesSlugRoute = FrEntriesSlugRouteImport.update({
+  id: '/entries/$slug',
+  path: '/entries/$slug',
+  getParentRoute: () => FrRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -113,6 +215,7 @@ export interface FileRoutesByFullPath {
   '/chefs-doeuvre': typeof ChefsDoeuvreRoute
   '/colophon': typeof ColophonRoute
   '/contact': typeof ContactRoute
+  '/fr': typeof FrRouteWithChildren
   '/lenses': typeof LensesRouteWithChildren
   '/notes': typeof NotesRouteWithChildren
   '/privacy': typeof PrivacyRoute
@@ -120,10 +223,26 @@ export interface FileRoutesByFullPath {
   '/terms': typeof TermsRoute
   '/timeline': typeof TimelineRoute
   '/entries/$slug': typeof EntriesSlugRoute
+  '/fr/about': typeof FrAboutRoute
+  '/fr/chefs-doeuvre': typeof FrChefsDoeuvreRoute
+  '/fr/colophon': typeof FrColophonRoute
+  '/fr/contact': typeof FrContactRoute
+  '/fr/lenses': typeof FrLensesRouteWithChildren
+  '/fr/notes': typeof FrNotesRouteWithChildren
+  '/fr/privacy': typeof FrPrivacyRoute
+  '/fr/rss.xml': typeof FrRssDotxmlRoute
+  '/fr/terms': typeof FrTermsRoute
+  '/fr/timeline': typeof FrTimelineRoute
   '/lenses/$slug': typeof LensesSlugRoute
   '/notes/$slug': typeof NotesSlugRoute
+  '/fr/': typeof FrIndexRoute
   '/lenses/': typeof LensesIndexRoute
   '/notes/': typeof NotesIndexRoute
+  '/fr/entries/$slug': typeof FrEntriesSlugRoute
+  '/fr/lenses/$slug': typeof FrLensesSlugRoute
+  '/fr/notes/$slug': typeof FrNotesSlugRoute
+  '/fr/lenses/': typeof FrLensesIndexRoute
+  '/fr/notes/': typeof FrNotesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -136,10 +255,24 @@ export interface FileRoutesByTo {
   '/terms': typeof TermsRoute
   '/timeline': typeof TimelineRoute
   '/entries/$slug': typeof EntriesSlugRoute
+  '/fr/about': typeof FrAboutRoute
+  '/fr/chefs-doeuvre': typeof FrChefsDoeuvreRoute
+  '/fr/colophon': typeof FrColophonRoute
+  '/fr/contact': typeof FrContactRoute
+  '/fr/privacy': typeof FrPrivacyRoute
+  '/fr/rss.xml': typeof FrRssDotxmlRoute
+  '/fr/terms': typeof FrTermsRoute
+  '/fr/timeline': typeof FrTimelineRoute
   '/lenses/$slug': typeof LensesSlugRoute
   '/notes/$slug': typeof NotesSlugRoute
+  '/fr': typeof FrIndexRoute
   '/lenses': typeof LensesIndexRoute
   '/notes': typeof NotesIndexRoute
+  '/fr/entries/$slug': typeof FrEntriesSlugRoute
+  '/fr/lenses/$slug': typeof FrLensesSlugRoute
+  '/fr/notes/$slug': typeof FrNotesSlugRoute
+  '/fr/lenses': typeof FrLensesIndexRoute
+  '/fr/notes': typeof FrNotesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -148,6 +281,7 @@ export interface FileRoutesById {
   '/chefs-doeuvre': typeof ChefsDoeuvreRoute
   '/colophon': typeof ColophonRoute
   '/contact': typeof ContactRoute
+  '/fr': typeof FrRouteWithChildren
   '/lenses': typeof LensesRouteWithChildren
   '/notes': typeof NotesRouteWithChildren
   '/privacy': typeof PrivacyRoute
@@ -155,10 +289,26 @@ export interface FileRoutesById {
   '/terms': typeof TermsRoute
   '/timeline': typeof TimelineRoute
   '/entries/$slug': typeof EntriesSlugRoute
+  '/fr/about': typeof FrAboutRoute
+  '/fr/chefs-doeuvre': typeof FrChefsDoeuvreRoute
+  '/fr/colophon': typeof FrColophonRoute
+  '/fr/contact': typeof FrContactRoute
+  '/fr/lenses': typeof FrLensesRouteWithChildren
+  '/fr/notes': typeof FrNotesRouteWithChildren
+  '/fr/privacy': typeof FrPrivacyRoute
+  '/fr/rss.xml': typeof FrRssDotxmlRoute
+  '/fr/terms': typeof FrTermsRoute
+  '/fr/timeline': typeof FrTimelineRoute
   '/lenses/$slug': typeof LensesSlugRoute
   '/notes/$slug': typeof NotesSlugRoute
+  '/fr/': typeof FrIndexRoute
   '/lenses/': typeof LensesIndexRoute
   '/notes/': typeof NotesIndexRoute
+  '/fr/entries/$slug': typeof FrEntriesSlugRoute
+  '/fr/lenses/$slug': typeof FrLensesSlugRoute
+  '/fr/notes/$slug': typeof FrNotesSlugRoute
+  '/fr/lenses/': typeof FrLensesIndexRoute
+  '/fr/notes/': typeof FrNotesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -168,6 +318,7 @@ export interface FileRouteTypes {
     | '/chefs-doeuvre'
     | '/colophon'
     | '/contact'
+    | '/fr'
     | '/lenses'
     | '/notes'
     | '/privacy'
@@ -175,10 +326,26 @@ export interface FileRouteTypes {
     | '/terms'
     | '/timeline'
     | '/entries/$slug'
+    | '/fr/about'
+    | '/fr/chefs-doeuvre'
+    | '/fr/colophon'
+    | '/fr/contact'
+    | '/fr/lenses'
+    | '/fr/notes'
+    | '/fr/privacy'
+    | '/fr/rss.xml'
+    | '/fr/terms'
+    | '/fr/timeline'
     | '/lenses/$slug'
     | '/notes/$slug'
+    | '/fr/'
     | '/lenses/'
     | '/notes/'
+    | '/fr/entries/$slug'
+    | '/fr/lenses/$slug'
+    | '/fr/notes/$slug'
+    | '/fr/lenses/'
+    | '/fr/notes/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -191,10 +358,24 @@ export interface FileRouteTypes {
     | '/terms'
     | '/timeline'
     | '/entries/$slug'
+    | '/fr/about'
+    | '/fr/chefs-doeuvre'
+    | '/fr/colophon'
+    | '/fr/contact'
+    | '/fr/privacy'
+    | '/fr/rss.xml'
+    | '/fr/terms'
+    | '/fr/timeline'
     | '/lenses/$slug'
     | '/notes/$slug'
+    | '/fr'
     | '/lenses'
     | '/notes'
+    | '/fr/entries/$slug'
+    | '/fr/lenses/$slug'
+    | '/fr/notes/$slug'
+    | '/fr/lenses'
+    | '/fr/notes'
   id:
     | '__root__'
     | '/'
@@ -202,6 +383,7 @@ export interface FileRouteTypes {
     | '/chefs-doeuvre'
     | '/colophon'
     | '/contact'
+    | '/fr'
     | '/lenses'
     | '/notes'
     | '/privacy'
@@ -209,10 +391,26 @@ export interface FileRouteTypes {
     | '/terms'
     | '/timeline'
     | '/entries/$slug'
+    | '/fr/about'
+    | '/fr/chefs-doeuvre'
+    | '/fr/colophon'
+    | '/fr/contact'
+    | '/fr/lenses'
+    | '/fr/notes'
+    | '/fr/privacy'
+    | '/fr/rss.xml'
+    | '/fr/terms'
+    | '/fr/timeline'
     | '/lenses/$slug'
     | '/notes/$slug'
+    | '/fr/'
     | '/lenses/'
     | '/notes/'
+    | '/fr/entries/$slug'
+    | '/fr/lenses/$slug'
+    | '/fr/notes/$slug'
+    | '/fr/lenses/'
+    | '/fr/notes/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -221,6 +419,7 @@ export interface RootRouteChildren {
   ChefsDoeuvreRoute: typeof ChefsDoeuvreRoute
   ColophonRoute: typeof ColophonRoute
   ContactRoute: typeof ContactRoute
+  FrRoute: typeof FrRouteWithChildren
   LensesRoute: typeof LensesRouteWithChildren
   NotesRoute: typeof NotesRouteWithChildren
   PrivacyRoute: typeof PrivacyRoute
@@ -274,6 +473,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LensesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/fr': {
+      id: '/fr'
+      path: '/fr'
+      fullPath: '/fr'
+      preLoaderRoute: typeof FrRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
@@ -323,6 +529,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LensesIndexRouteImport
       parentRoute: typeof LensesRoute
     }
+    '/fr/': {
+      id: '/fr/'
+      path: '/'
+      fullPath: '/fr/'
+      preLoaderRoute: typeof FrIndexRouteImport
+      parentRoute: typeof FrRoute
+    }
     '/notes/$slug': {
       id: '/notes/$slug'
       path: '/$slug'
@@ -337,6 +550,76 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LensesSlugRouteImport
       parentRoute: typeof LensesRoute
     }
+    '/fr/timeline': {
+      id: '/fr/timeline'
+      path: '/timeline'
+      fullPath: '/fr/timeline'
+      preLoaderRoute: typeof FrTimelineRouteImport
+      parentRoute: typeof FrRoute
+    }
+    '/fr/terms': {
+      id: '/fr/terms'
+      path: '/terms'
+      fullPath: '/fr/terms'
+      preLoaderRoute: typeof FrTermsRouteImport
+      parentRoute: typeof FrRoute
+    }
+    '/fr/rss.xml': {
+      id: '/fr/rss.xml'
+      path: '/rss.xml'
+      fullPath: '/fr/rss.xml'
+      preLoaderRoute: typeof FrRssDotxmlRouteImport
+      parentRoute: typeof FrRoute
+    }
+    '/fr/privacy': {
+      id: '/fr/privacy'
+      path: '/privacy'
+      fullPath: '/fr/privacy'
+      preLoaderRoute: typeof FrPrivacyRouteImport
+      parentRoute: typeof FrRoute
+    }
+    '/fr/notes': {
+      id: '/fr/notes'
+      path: '/notes'
+      fullPath: '/fr/notes'
+      preLoaderRoute: typeof FrNotesRouteImport
+      parentRoute: typeof FrRoute
+    }
+    '/fr/lenses': {
+      id: '/fr/lenses'
+      path: '/lenses'
+      fullPath: '/fr/lenses'
+      preLoaderRoute: typeof FrLensesRouteImport
+      parentRoute: typeof FrRoute
+    }
+    '/fr/contact': {
+      id: '/fr/contact'
+      path: '/contact'
+      fullPath: '/fr/contact'
+      preLoaderRoute: typeof FrContactRouteImport
+      parentRoute: typeof FrRoute
+    }
+    '/fr/colophon': {
+      id: '/fr/colophon'
+      path: '/colophon'
+      fullPath: '/fr/colophon'
+      preLoaderRoute: typeof FrColophonRouteImport
+      parentRoute: typeof FrRoute
+    }
+    '/fr/chefs-doeuvre': {
+      id: '/fr/chefs-doeuvre'
+      path: '/chefs-doeuvre'
+      fullPath: '/fr/chefs-doeuvre'
+      preLoaderRoute: typeof FrChefsDoeuvreRouteImport
+      parentRoute: typeof FrRoute
+    }
+    '/fr/about': {
+      id: '/fr/about'
+      path: '/about'
+      fullPath: '/fr/about'
+      preLoaderRoute: typeof FrAboutRouteImport
+      parentRoute: typeof FrRoute
+    }
     '/entries/$slug': {
       id: '/entries/$slug'
       path: '/entries/$slug'
@@ -344,8 +627,102 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EntriesSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/fr/notes/': {
+      id: '/fr/notes/'
+      path: '/'
+      fullPath: '/fr/notes/'
+      preLoaderRoute: typeof FrNotesIndexRouteImport
+      parentRoute: typeof FrNotesRoute
+    }
+    '/fr/lenses/': {
+      id: '/fr/lenses/'
+      path: '/'
+      fullPath: '/fr/lenses/'
+      preLoaderRoute: typeof FrLensesIndexRouteImport
+      parentRoute: typeof FrLensesRoute
+    }
+    '/fr/notes/$slug': {
+      id: '/fr/notes/$slug'
+      path: '/$slug'
+      fullPath: '/fr/notes/$slug'
+      preLoaderRoute: typeof FrNotesSlugRouteImport
+      parentRoute: typeof FrNotesRoute
+    }
+    '/fr/lenses/$slug': {
+      id: '/fr/lenses/$slug'
+      path: '/$slug'
+      fullPath: '/fr/lenses/$slug'
+      preLoaderRoute: typeof FrLensesSlugRouteImport
+      parentRoute: typeof FrLensesRoute
+    }
+    '/fr/entries/$slug': {
+      id: '/fr/entries/$slug'
+      path: '/entries/$slug'
+      fullPath: '/fr/entries/$slug'
+      preLoaderRoute: typeof FrEntriesSlugRouteImport
+      parentRoute: typeof FrRoute
+    }
   }
 }
+
+interface FrLensesRouteChildren {
+  FrLensesSlugRoute: typeof FrLensesSlugRoute
+  FrLensesIndexRoute: typeof FrLensesIndexRoute
+}
+
+const FrLensesRouteChildren: FrLensesRouteChildren = {
+  FrLensesSlugRoute: FrLensesSlugRoute,
+  FrLensesIndexRoute: FrLensesIndexRoute,
+}
+
+const FrLensesRouteWithChildren = FrLensesRoute._addFileChildren(
+  FrLensesRouteChildren,
+)
+
+interface FrNotesRouteChildren {
+  FrNotesSlugRoute: typeof FrNotesSlugRoute
+  FrNotesIndexRoute: typeof FrNotesIndexRoute
+}
+
+const FrNotesRouteChildren: FrNotesRouteChildren = {
+  FrNotesSlugRoute: FrNotesSlugRoute,
+  FrNotesIndexRoute: FrNotesIndexRoute,
+}
+
+const FrNotesRouteWithChildren =
+  FrNotesRoute._addFileChildren(FrNotesRouteChildren)
+
+interface FrRouteChildren {
+  FrAboutRoute: typeof FrAboutRoute
+  FrChefsDoeuvreRoute: typeof FrChefsDoeuvreRoute
+  FrColophonRoute: typeof FrColophonRoute
+  FrContactRoute: typeof FrContactRoute
+  FrLensesRoute: typeof FrLensesRouteWithChildren
+  FrNotesRoute: typeof FrNotesRouteWithChildren
+  FrPrivacyRoute: typeof FrPrivacyRoute
+  FrRssDotxmlRoute: typeof FrRssDotxmlRoute
+  FrTermsRoute: typeof FrTermsRoute
+  FrTimelineRoute: typeof FrTimelineRoute
+  FrIndexRoute: typeof FrIndexRoute
+  FrEntriesSlugRoute: typeof FrEntriesSlugRoute
+}
+
+const FrRouteChildren: FrRouteChildren = {
+  FrAboutRoute: FrAboutRoute,
+  FrChefsDoeuvreRoute: FrChefsDoeuvreRoute,
+  FrColophonRoute: FrColophonRoute,
+  FrContactRoute: FrContactRoute,
+  FrLensesRoute: FrLensesRouteWithChildren,
+  FrNotesRoute: FrNotesRouteWithChildren,
+  FrPrivacyRoute: FrPrivacyRoute,
+  FrRssDotxmlRoute: FrRssDotxmlRoute,
+  FrTermsRoute: FrTermsRoute,
+  FrTimelineRoute: FrTimelineRoute,
+  FrIndexRoute: FrIndexRoute,
+  FrEntriesSlugRoute: FrEntriesSlugRoute,
+}
+
+const FrRouteWithChildren = FrRoute._addFileChildren(FrRouteChildren)
 
 interface LensesRouteChildren {
   LensesSlugRoute: typeof LensesSlugRoute
@@ -378,6 +755,7 @@ const rootRouteChildren: RootRouteChildren = {
   ChefsDoeuvreRoute: ChefsDoeuvreRoute,
   ColophonRoute: ColophonRoute,
   ContactRoute: ContactRoute,
+  FrRoute: FrRouteWithChildren,
   LensesRoute: LensesRouteWithChildren,
   NotesRoute: NotesRouteWithChildren,
   PrivacyRoute: PrivacyRoute,

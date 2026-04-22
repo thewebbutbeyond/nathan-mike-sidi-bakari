@@ -1,15 +1,18 @@
 import { Link } from "@tanstack/react-router";
 import { Tag } from "@/components/site-shell";
 import { type Entry, formatDate, lensLabels } from "@/content/data";
+import { type Locale, localizedLensLabels, localizedStatusLabel } from "@/content/localized";
 
 export function EntryList({
   entries,
   from = "",
   emptyMessage = "No entries yet.",
+  locale = "en",
 }: {
   entries: Entry[];
   from?: string;
   emptyMessage?: string;
+  locale?: Locale;
 }) {
   if (entries.length === 0) {
     return (
@@ -24,7 +27,7 @@ export function EntryList({
       {entries.map((a) => (
         <li key={a.slug} className="border-b border-rule">
           <Link
-            to="/entries/$slug"
+            to={locale === "fr" ? "/fr/entries/$slug" : "/entries/$slug"}
             params={{ slug: a.slug }}
             search={{ from }}
             className="block px-1 py-4 hover:bg-secondary/40 transition-colors"
@@ -43,9 +46,16 @@ export function EntryList({
                 <div className="mt-1 text-[11px] text-ink-faint flex items-center gap-2 flex-wrap">
                   <span>{a.type}</span>
                   <span>·</span>
-                  <span>{a.status}</span>
+                  <span>{localizedStatusLabel(a.status, locale)}</span>
                   <span>·</span>
-                  <span>{lensLabels(a.lenses).join(" / ").toLowerCase()}</span>
+                  <span>
+                    {(locale === "fr"
+                      ? localizedLensLabels(a.lenses, locale)
+                      : lensLabels(a.lenses)
+                    )
+                      .join(" / ")
+                      .toLowerCase()}
+                  </span>
                 </div>
                 <p className="mt-1.5 text-xs text-ink-soft leading-relaxed max-w-2xl">
                   {a.summary}

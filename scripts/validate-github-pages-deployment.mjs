@@ -113,6 +113,7 @@ const outputChecks = [
   "dist/client/404.html",
   "dist/client/.nojekyll",
   "dist/client/rss.xml",
+  "dist/client/fr/rss.xml",
   "dist/client/brand/favicon.svg",
   "dist/client/brand/share-card.png",
 ];
@@ -129,9 +130,10 @@ if (shouldValidateOutput) {
       pass: existsSync(file),
     });
   }
-  const rssSource = existsSync("dist/client/rss.xml")
-    ? readFileSync("dist/client/rss.xml", "utf8")
-    : "";
+  const rssSource = [
+    existsSync("dist/client/rss.xml") ? readFileSync("dist/client/rss.xml", "utf8") : "",
+    existsSync("dist/client/fr/rss.xml") ? readFileSync("dist/client/fr/rss.xml", "utf8") : "",
+  ].join("\n");
   checks.push({
     name: "static rss output does not use local prerender origin",
     pass: !rssSource.includes("localhost") && !rssSource.includes("127.0.0.1"),

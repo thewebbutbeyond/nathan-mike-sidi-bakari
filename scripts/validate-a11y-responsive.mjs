@@ -34,7 +34,7 @@ const checks = [
   {
     name: "search trigger and filter controls are labelled",
     pass:
-      searchSource.includes("aria-label={open ?") &&
+      searchSource.includes('aria-label={open ? "close search" : "search"}') &&
       searchSource.includes('aria-label="Toggle filters"'),
   },
   {

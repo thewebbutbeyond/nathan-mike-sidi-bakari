@@ -17,6 +17,23 @@ const routeFiles = {
   "/terms": "src/routes/terms.tsx",
   "/colophon": "src/routes/colophon.tsx",
   "/rss.xml": "src/routes/rss[.]xml.ts",
+  "/fr": "src/routes/fr.tsx",
+  "/fr/": "src/routes/fr.index.tsx",
+  "/fr/chefs-doeuvre": "src/routes/fr.chefs-doeuvre.tsx",
+  "/fr/timeline": "src/routes/fr.timeline.tsx",
+  "/fr/lenses": "src/routes/fr.lenses.tsx",
+  "/fr/lenses/": "src/routes/fr.lenses.index.tsx",
+  "/fr/lenses/$slug": "src/routes/fr.lenses.$slug.tsx",
+  "/fr/notes": "src/routes/fr.notes.tsx",
+  "/fr/notes/": "src/routes/fr.notes.index.tsx",
+  "/fr/notes/$slug": "src/routes/fr.notes.$slug.tsx",
+  "/fr/entries/$slug": "src/routes/fr.entries.$slug.tsx",
+  "/fr/about": "src/routes/fr.about.tsx",
+  "/fr/contact": "src/routes/fr.contact.tsx",
+  "/fr/privacy": "src/routes/fr.privacy.tsx",
+  "/fr/terms": "src/routes/fr.terms.tsx",
+  "/fr/colophon": "src/routes/fr.colophon.tsx",
+  "/fr/rss.xml": "src/routes/fr.rss[.]xml.ts",
 };
 
 const requiredRoutes = [
@@ -36,6 +53,23 @@ const requiredRoutes = [
   "/terms",
   "/colophon",
   "/rss.xml",
+  "/fr",
+  "/fr/",
+  "/fr/chefs-doeuvre",
+  "/fr/timeline",
+  "/fr/lenses",
+  "/fr/lenses/",
+  "/fr/lenses/$slug",
+  "/fr/notes",
+  "/fr/notes/",
+  "/fr/notes/$slug",
+  "/fr/entries/$slug",
+  "/fr/about",
+  "/fr/contact",
+  "/fr/privacy",
+  "/fr/terms",
+  "/fr/colophon",
+  "/fr/rss.xml",
 ];
 
 const filesToScan = [
@@ -50,6 +84,13 @@ const filesToScan = [
   "src/routes/notes.$slug.tsx",
   "src/routes/notes.index.tsx",
   "src/routes/timeline.tsx",
+  "src/routes/fr.index.tsx",
+  "src/routes/fr.entries.$slug.tsx",
+  "src/routes/fr.lenses.$slug.tsx",
+  "src/routes/fr.lenses.index.tsx",
+  "src/routes/fr.notes.$slug.tsx",
+  "src/routes/fr.notes.index.tsx",
+  "src/routes/fr.timeline.tsx",
 ];
 
 const knownRoutes = new Set(Object.keys(routeFiles));
@@ -115,11 +156,11 @@ if (!shellSource.includes("activeProps")) {
   errors.push("SiteShell does not define active navigation styling.");
 }
 
-if (!shellSource.includes("<SearchTrigger />")) {
+if (!shellSource.includes("<SearchTrigger locale={locale} />")) {
   errors.push("SiteShell does not render SearchTrigger.");
 }
 
-if (!searchSource.includes('aria-label={open ? "Close search" : "Search"}')) {
+if (!searchSource.includes('aria-label={open ? "close search" : "search"}')) {
   errors.push("SearchTrigger is missing the expected accessible label.");
 }
 

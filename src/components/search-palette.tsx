@@ -3,9 +3,16 @@ import { useNavigate } from "@tanstack/react-router";
 import { Search, SlidersHorizontal, X } from "lucide-react";
 
 import { Popover, PopoverAnchor, PopoverContent } from "@/components/ui/popover";
-import { ENTRIES, NOTES, ALL_TAGS, formatDate, lensLabels } from "@/content/data";
+import { formatDate } from "@/content/data";
+import {
+  type Locale,
+  localizedLensLabels,
+  localizedTags,
+  sortedLocalizedEntries,
+  sortedLocalizedNotes,
+} from "@/content/localized";
 
-export function SearchTrigger() {
+export function SearchTrigger({ locale = "en" }: { locale?: Locale }) {
   const [open, setOpen] = useState(false);
   const triggerRef = useRef<HTMLButtonElement>(null);
 
@@ -35,8 +42,8 @@ export function SearchTrigger() {
       ref={triggerRef}
       type="button"
       onClick={() => setOpen((v) => !v)}
-      aria-label={open ? "Close search" : "Search"}
-      title="Search (⌘K)"
+      aria-label={open ? "close search" : "search"}
+      title="search (⌘K)"
       className="text-ink-soft hover:text-ink inline-flex items-center"
     >
       {open ? (
@@ -67,20 +74,17 @@ export function SearchTrigger() {
           }
         }}
       >
-        <SearchPanel onClose={() => setOpen(false)} />
+        <SearchPanel locale={locale} onClose={() => setOpen(false)} />
       </PopoverContent>
     </Popover>
   );
 }
 
-const ALL_TYPES = Array.from(new Set(ENTRIES.map((e) => e.type))).sort();
-const ALL_STATUSES = Array.from(new Set(ENTRIES.map((e) => e.status))).sort();
-
 function matchesQuery(values: string[], query: string) {
   return values.some((value) => value.toLowerCase().includes(query));
 }
 
-function SearchPanel({ onClose }: { onClose: () => void }) {
+function SearchPanel({ locale, onClose }: { locale: Locale; onClose: () => void }) {
   const navigate = useNavigate();
   const [query, setQuery] = useState("");
   const [type, setType] = useState<string | null>(null);
@@ -91,12 +95,33 @@ function SearchPanel({ onClose }: { onClose: () => void }) {
 
   const q = query.trim().toLowerCase();
   const hasFilter = !!(type || status || tag);
+  const allEntries = useMemo(() => sortedLocalizedEntries(locale), [locale]);
+  const allNotes = useMemo(() => sortedLocalizedNotes(locale), [locale]);
+  const allTypes = useMemo(
+    () => Array.from(new Set(allEntries.map((entry) => entry.type))).sort(),
+    [allEntries],
+  );
+  const allStatuses = useMemo(
+    () => Array.from(new Set(allEntries.map((entry) => entry.status))).sort(),
+    [allEntries],
+  );
+  const allTags = useMemo(() => localizedTags(locale), [locale]);
 
   const entries = useMemo(() => {
-    return ENTRIES.filter((e) => {
+    return allEntries.filter((e) => {
       if (
         q &&
-        !matchesQuery([e.title, e.summary, e.type, e.status, ...e.tags, ...lensLabels(e.lenses)], q)
+        !matchesQuery(
+          [
+            e.title,
+            e.summary,
+            e.type,
+            e.status,
+            ...e.tags,
+            ...localizedLensLabels(e.lenses, locale),
+          ],
+          q,
+        )
       ) {
         return false;
       }
@@ -105,16 +130,16 @@ function SearchPanel({ onClose }: { onClose: () => void }) {
       if (tag && !e.tags.includes(tag)) return false;
       return true;
     });
-  }, [q, type, status, tag]);
+  }, [allEntries, locale, q, type, status, tag]);
 
   const notes = useMemo(() => {
     if (type || status) return [];
-    return NOTES.filter((n) => {
+    return allNotes.filter((n) => {
       if (q && !matchesQuery([n.title, n.summary, ...n.tags], q)) return false;
       if (tag && !n.tags.includes(tag)) return false;
       return true;
     });
-  }, [q, type, status, tag]);
+  }, [allNotes, q, type, status, tag]);
 
   const resultCount = entries.length + notes.length;
 
@@ -134,7 +159,7 @@ function SearchPanel({ onClose }: { onClose: () => void }) {
       const entry = entries[index];
       go(() =>
         navigate({
-          to: "/entries/$slug",
+          to: locale === "fr" ? "/fr/entries/$slug" : "/entries/$slug",
           params: { slug: entry.slug },
           search: { from: "" },
         }),
@@ -145,7 +170,7 @@ function SearchPanel({ onClose }: { onClose: () => void }) {
     const note = notes[index - entries.length];
     go(() =>
       navigate({
-        to: "/notes/$slug",
+        to: locale === "fr" ? "/fr/notes/$slug" : "/notes/$slug",
         params: { slug: note.slug },
       }),
     );
@@ -210,7 +235,7 @@ function SearchPanel({ onClose }: { onClose: () => void }) {
           autoFocus
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="search…"
+          placeholder={locale === "fr" ? "chercher…" : "search…"}
           className="flex h-11 w-full bg-transparent py-3 text-sm outline-none placeholder:text-ink-faint"
         />
       </div>
@@ -218,11 +243,11 @@ function SearchPanel({ onClose }: { onClose: () => void }) {
       {/* filters (collapsed by default) */}
       {filtersOpen && (
         <div className="border-b border-rule px-3 py-3 space-y-2 max-h-[40vh] overflow-y-auto">
-          <FilterRow label="type" options={ALL_TYPES} value={type} onChange={setType} />
-          <FilterRow label="status" options={ALL_STATUSES} value={status} onChange={setStatus} />
+          <FilterRow label="type" options={allTypes} value={type} onChange={setType} />
+          <FilterRow label="status" options={allStatuses} value={status} onChange={setStatus} />
           <FilterRow
             label="tag"
-            options={ALL_TAGS}
+            options={allTags}
             value={tag}
             onChange={setTag}
             renderLabel={(t) => `#${t}`}

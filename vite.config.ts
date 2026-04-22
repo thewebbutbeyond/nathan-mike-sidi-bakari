@@ -28,6 +28,13 @@ export default defineConfig({
           crawlLinks: false,
         },
       },
+      {
+        path: "/fr/rss.xml",
+        prerender: {
+          outputPath: "/fr/rss.xml",
+          crawlLinks: false,
+        },
+      },
     ],
     prerender: {
       enabled: true,

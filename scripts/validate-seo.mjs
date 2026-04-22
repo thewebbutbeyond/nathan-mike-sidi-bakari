@@ -11,6 +11,16 @@ const staticRoutes = [
   "src/routes/colophon.tsx",
   "src/routes/privacy.tsx",
   "src/routes/terms.tsx",
+  "src/routes/fr.index.tsx",
+  "src/routes/fr.chefs-doeuvre.tsx",
+  "src/routes/fr.timeline.tsx",
+  "src/routes/fr.lenses.index.tsx",
+  "src/routes/fr.notes.index.tsx",
+  "src/routes/fr.about.tsx",
+  "src/routes/fr.contact.tsx",
+  "src/routes/fr.colophon.tsx",
+  "src/routes/fr.privacy.tsx",
+  "src/routes/fr.terms.tsx",
 ];
 
 const dynamicRoutes = [
@@ -24,6 +34,18 @@ const dynamicRoutes = [
   },
   {
     file: "src/routes/lenses.$slug.tsx",
+    required: ["loaderData.meta.label", "content: loaderData.meta.description"],
+  },
+  {
+    file: "src/routes/fr.entries.$slug.tsx",
+    required: ["`${entry.title} · Nathan Mike Sidi Bakari`", "content: entry.summary"],
+  },
+  {
+    file: "src/routes/fr.notes.$slug.tsx",
+    required: ["`${note.title} · Notes · Nathan Mike Sidi Bakari`", "content: note.summary"],
+  },
+  {
+    file: "src/routes/fr.lenses.$slug.tsx",
     required: ["loaderData.meta.label", "content: loaderData.meta.description"],
   },
 ];

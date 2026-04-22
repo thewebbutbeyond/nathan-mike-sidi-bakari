@@ -24,7 +24,7 @@ const checks = [
       source.includes("e.title") &&
       source.includes("e.summary") &&
       source.includes("...e.tags") &&
-      source.includes("...lensLabels(e.lenses)"),
+      source.includes("...localizedLensLabels(e.lenses, locale)"),
   },
   {
     name: "notes match title summary and tags",
@@ -34,11 +34,14 @@ const checks = [
   {
     name: "entry results navigate to entry detail",
     pass:
-      source.includes('to: "/entries/$slug"') && source.includes("params: { slug: entry.slug }"),
+      source.includes('locale === "fr" ? "/fr/entries/$slug" : "/entries/$slug"') &&
+      source.includes("params: { slug: entry.slug }"),
   },
   {
     name: "note results navigate to note detail",
-    pass: source.includes('to: "/notes/$slug"') && source.includes("params: { slug: note.slug }"),
+    pass:
+      source.includes('locale === "fr" ? "/fr/notes/$slug" : "/notes/$slug"') &&
+      source.includes("params: { slug: note.slug }"),
   },
   {
     name: "keyboard can move through results",
