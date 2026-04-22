@@ -1,5 +1,5 @@
 # generated: 2026-04-21T21:48:59Z
-# last_updated: 2026-04-22T07:06:00Z
+# last_updated: 2026-04-22T07:16:00Z
 # project: nathansidib
 # project_key: NOKEY
 # tracking_system: file-system
@@ -24,7 +24,7 @@
 #   - done: Retrospective has been completed
 
 generated: 2026-04-21T21:48:59Z
-last_updated: 2026-04-22T07:06:00Z
+last_updated: 2026-04-22T07:16:00Z
 project: nathansidib
 project_key: NOKEY
 tracking_system: file-system
@@ -82,9 +82,9 @@ development_status:
   # Epic 5 Retrospective
   epic-5-retrospective: done
   # Production Readiness, Copy Tone, SEO, and Deployment
-  epic-6: backlog
+  epic-6: in-progress
   # Copy Tone Review
-  6-1-copy-tone-review: backlog
+  6-1-copy-tone-review: ready-for-dev
   # SEO and Social Metadata Pass
   6-2-seo-and-social-metadata-pass: backlog
   # Accessibility and Responsive QA
