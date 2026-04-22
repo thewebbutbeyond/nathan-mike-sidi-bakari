@@ -27,6 +27,23 @@ const FR_LENSES: Record<Lens, { label: string; description: string }> = {
 };
 
 const FR_ENTRY_COPY: Record<string, EntryCopy> = {
+  "argus-real-time-safety-supervisor": {
+    title: "A.R.G.U.S.",
+    type: "systèmes embarqués",
+    summary:
+      "Superviseur de sécurité temps réel, validé sur banc, pour un bras robotique : caméra, machine d'état guardian, interlock et contrôle servo sur Raspberry Pi 5.",
+    body: `A.R.G.U.S. a commencé comme un brief de systèmes embarqués temps réel et est devenu une chaîne matérielle/logicielle complète de sécurité pour un petit bras robotique. Le système observe un flux caméra en direct, détecte l'exposition d'une couche couleur dangereuse, et fait passer chaque commande de mouvement par une logique guardian et interlock avant qu'elle atteigne le bras.
+
+Le choix de conception important était de rendre l'arrêt explicite. Les images dangereuses passent par GuardianStateMachine et RobotInterlock avant que MotionController pilote le MeArm via une carte servo PCA9685. Sur le banc, le flux validé était : détecter le danger, arrêter la routine, se rétracter vers une pose plus sûre, figer, puis attendre un acquittement opérateur avant de reprendre.
+
+Ma contribution portait sur le mouvement et l'orchestration : AppController, MotionController, le chemin de sortie PCA9685, les modes d'exécution, les contrôles CLI et le câblage matériel. Le travail a forcé la frontière logicielle à suivre le système physique : timing caméra, latence servo, entrée opérateur et contrat de machine d'état devaient rester cohérents en conditions live.
+
+Le banc final tournait sur Raspberry Pi 5 avec caméra Pi, PCA9685, MeArm à quatre servos et bouton GPIO physique d'acquittement. Les métriques rapportées par le projet incluaient un traitement image sous la milliseconde, une détection dangereuse en 4 ms, une émission de freeze en 458 ms et un arrêt contrôlé dans la cible du projet.`,
+    tags: ["c++", "raspberry-pi", "opencv", "embarqué", "robotique", "sécurité", "temps-réel"],
+    role: "Responsable d'AppController et MotionController : sortie servo PCA9685, modes d'exécution, contrôles CLI, câblage matériel et intégration des commandes de mouvement avec le flux guardian/interlock.",
+    outcome:
+      "Validation d'une démo live sur Raspberry Pi 5 où une entrée caméra dangereuse déclenche l'arrêt de routine, la rétraction de sécurité, le maintien en freeze et une reprise contrôlée par acquittement opérateur.",
+  },
   "ledger-engine-v2": {
     title: "Ledger Engine v2",
     type: "système",

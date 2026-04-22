@@ -161,6 +161,7 @@
     max-width: 68ch;
     line-height: 1.7;
     font-size: 0.95rem;
+    overflow-wrap: break-word;
   }
   .prose-archive--lg {
     font-size: 1.0625rem;

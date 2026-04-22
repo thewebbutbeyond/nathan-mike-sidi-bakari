@@ -59,7 +59,7 @@ export function SiteShell({ children, locale = "en" }: { children: ReactNode; lo
 function SiteHeader({ locale }: { locale: Locale }) {
   return (
     <header className="border-b border-rule">
-      <div className="relative mx-auto max-w-5xl px-5 sm:px-8 py-5 flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-3">
+      <div className="relative mx-auto max-w-5xl min-w-0 px-5 sm:px-8 py-5 flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-3">
         <Link
           to={locale === "fr" ? "/fr" : "/"}
           className="group inline-flex items-baseline pr-8 sm:pr-0"
@@ -70,7 +70,7 @@ function SiteHeader({ locale }: { locale: Locale }) {
         </Link>
         <nav
           aria-label="Primary"
-          className="flex items-center gap-x-5 gap-y-1 flex-wrap text-xs pr-8 sm:pr-8"
+          className="flex min-w-0 items-center gap-x-4 gap-y-1 flex-wrap text-xs pr-8 sm:gap-x-5 sm:pr-8"
         >
           {NAV[locale].map((item) => (
             <Link
@@ -259,7 +259,7 @@ export function MetaRow({ label, children }: { label: string; children: ReactNod
   return (
     <div className="grid grid-cols-[5.5rem_1fr] sm:grid-cols-[7rem_1fr] gap-x-4 text-xs leading-relaxed">
       <dt className="text-ink-faint">{label}</dt>
-      <dd className="text-ink">{children}</dd>
+      <dd className="min-w-0 text-ink [overflow-wrap:anywhere]">{children}</dd>
     </div>
   );
 }
@@ -290,7 +290,11 @@ export function NarrowContainer({
   className?: string;
 }) {
   return (
-    <div className={`mx-auto max-w-3xl px-5 sm:px-8 py-10 sm:py-14 ${className}`}>{children}</div>
+    <div
+      className={`mx-auto max-w-3xl px-5 sm:px-8 py-10 sm:py-14 [overflow-wrap:anywhere] ${className}`}
+    >
+      {children}
+    </div>
   );
 }
 

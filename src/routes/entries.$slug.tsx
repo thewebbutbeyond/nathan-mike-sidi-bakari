@@ -19,6 +19,7 @@ import {
   lensLabel,
   sortedEntries,
 } from "@/content/data";
+import { EntryMedia } from "@/components/entry-media";
 import { EntryMosaic } from "@/components/entry-mosaic";
 
 const entrySearchSchema = z.object({
@@ -43,15 +44,21 @@ export const Route = createFileRoute("/entries/$slug")({
     if (!loaderData) return { meta: [{ title: "Entry · Nathan Mike Sidi Bakari" }] };
     const a = loaderData.entry;
     const title = `${a.title} · Nathan Mike Sidi Bakari`;
+    const mediaImage = entrySocialImage(a);
+    const meta = [
+      { title },
+      { name: "description", content: a.summary },
+      { property: "og:title", content: title },
+      { property: "og:description", content: a.summary },
+      { property: "og:type", content: "article" },
+      { property: "article:published_time", content: a.date },
+    ];
+    if (mediaImage) {
+      meta.push({ property: "og:image", content: mediaImage });
+      meta.push({ name: "twitter:image", content: mediaImage });
+    }
     return {
-      meta: [
-        { title },
-        { name: "description", content: a.summary },
-        { property: "og:title", content: title },
-        { property: "og:description", content: a.summary },
-        { property: "og:type", content: "article" },
-        { property: "article:published_time", content: a.date },
-      ],
+      meta,
     };
   },
   notFoundComponent: () => (
@@ -83,6 +90,14 @@ function resolveBack(from: string): BackLink {
     if (meta) return { kind: "lens", slug, label: meta.label };
   }
   return { kind: "timeline" };
+}
+
+function entrySocialImage(entry: Entry) {
+  const image = entry.media?.find((item) => item.kind === "image");
+  if (image?.kind === "image") return image.src;
+  const video = entry.media?.find((item) => item.kind === "video");
+  if (video?.kind === "video") return video.poster;
+  return undefined;
 }
 
 function BackLinkRender({ from }: { from: string }) {
@@ -188,7 +203,7 @@ function EntryDetail() {
 
         <Prose text={a.body} />
 
-        <EntryMosaic seed={a.slug} />
+        {a.media ? <EntryMedia items={a.media} /> : <EntryMosaic seed={a.slug} />}
 
         {related.length > 0 && (
           <section className="mt-12 pt-6 border-t border-rule">

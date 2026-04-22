@@ -19,6 +19,7 @@ import {
   sortedLocalizedEntries,
 } from "@/content/localized";
 import { type Entry, type Lens } from "@/content/data";
+import { EntryMedia } from "@/components/entry-media";
 import { EntryMosaic } from "@/components/entry-mosaic";
 
 const entrySearchSchema = z.object({
@@ -43,15 +44,21 @@ export const Route = createFileRoute("/fr/entries/$slug")({
     if (!loaderData) return { meta: [{ title: "Entrée · Nathan Mike Sidi Bakari" }] };
     const entry = loaderData.entry;
     const title = `${entry.title} · Nathan Mike Sidi Bakari`;
+    const mediaImage = entrySocialImage(entry);
+    const meta = [
+      { title },
+      { name: "description", content: entry.summary },
+      { property: "og:title", content: title },
+      { property: "og:description", content: entry.summary },
+      { property: "og:type", content: "article" },
+      { property: "article:published_time", content: entry.date },
+    ];
+    if (mediaImage) {
+      meta.push({ property: "og:image", content: mediaImage });
+      meta.push({ name: "twitter:image", content: mediaImage });
+    }
     return {
-      meta: [
-        { title },
-        { name: "description", content: entry.summary },
-        { property: "og:title", content: title },
-        { property: "og:description", content: entry.summary },
-        { property: "og:type", content: "article" },
-        { property: "article:published_time", content: entry.date },
-      ],
+      meta,
     };
   },
   notFoundComponent: () => (
@@ -83,6 +90,14 @@ function resolveBack(from: string): BackLink {
     if (meta) return { kind: "lens", slug, label: meta.label };
   }
   return { kind: "timeline" };
+}
+
+function entrySocialImage(entry: Entry) {
+  const image = entry.media?.find((item) => item.kind === "image");
+  if (image?.kind === "image") return image.src;
+  const video = entry.media?.find((item) => item.kind === "video");
+  if (video?.kind === "video") return video.poster;
+  return undefined;
 }
 
 function BackLinkRender({ from }: { from: string }) {
@@ -167,11 +182,28 @@ function EntryDetail() {
               ))}
             </span>
           </MetaRow>
+          {entry.links && entry.links.length > 0 && (
+            <MetaRow label="liens">
+              <span className="flex flex-wrap gap-x-3">
+                {entry.links.map((link: { label: string; href: string }) => (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    target={/^https?:/.test(link.href) ? "_blank" : undefined}
+                    rel={/^https?:/.test(link.href) ? "noopener noreferrer" : undefined}
+                    className="underline underline-offset-4 hover:text-ink"
+                  >
+                    {link.label} ↗
+                  </a>
+                ))}
+              </span>
+            </MetaRow>
+          )}
         </dl>
 
         <Prose text={entry.body} />
 
-        <EntryMosaic seed={entry.slug} />
+        {entry.media ? <EntryMedia items={entry.media} /> : <EntryMosaic seed={entry.slug} />}
 
         {related.length > 0 && (
           <section className="mt-12 pt-6 border-t border-rule">

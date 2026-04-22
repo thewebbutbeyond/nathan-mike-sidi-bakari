@@ -1,4 +1,24 @@
+import argusBenchSetup from "@/assets/entries/argus/bench-setup.jpg";
+import argusDemoPoster from "@/assets/entries/argus/demo-poster.jpg";
+import argusLiveDashboard from "@/assets/entries/argus/live-dashboard.jpg";
+import argusLiveDemo from "@/assets/entries/argus/live-demo.mp4";
+
 export type Lens = "engineer" | "entrepreneur" | "investor" | "artist";
+
+export type EntryMedia =
+  | {
+      kind: "image";
+      src: string;
+      alt: string;
+      caption?: string;
+    }
+  | {
+      kind: "video";
+      src: string;
+      title: string;
+      poster?: string;
+      caption?: string;
+    };
 
 export interface Entry {
   slug: string;
@@ -14,6 +34,7 @@ export interface Entry {
   outcome?: string;
   chefDoeuvre?: boolean;
   links?: { label: string; href: string }[];
+  media?: EntryMedia[];
   related?: string[];
 }
 
@@ -53,6 +74,56 @@ export const LENSES: { slug: Lens; label: string; description: string }[] = [
 ];
 
 export const ENTRIES: Entry[] = [
+  {
+    slug: "argus-real-time-safety-supervisor",
+    title: "A.R.G.U.S.",
+    date: "2026-04-22",
+    type: "embedded systems",
+    status: "active",
+    summary:
+      "A bench-validated real-time safety supervisor for a robotic arm: camera input, guardian state-machine logic, interlock gating, and servo control on Raspberry Pi 5.",
+    body: `A.R.G.U.S. started as a real-time embedded systems brief and became a complete hardware/software safety path for a small robotic arm. The system watches a live camera feed, classifies unsafe colour-layer exposure, and routes every motion command through guardian and interlock logic before it reaches the arm.
+
+The important design choice was to make stopping explicit. Unsafe frames move through a GuardianStateMachine and RobotInterlock before MotionController drives the MeArm through a PCA9685 servo board. On the bench, the validated flow was: detect unsafe, stop the routine, retract to a safer pose, freeze, then require an operator acknowledgement before resuming.
+
+My ownership sat on the motion and orchestration side: AppController, MotionController, the PCA9685 output path, run modes, CLI controls, and hardware wiring. The work forced the software boundary to match the physical system: camera timing, servo latency, operator input, and a state-machine contract all had to agree under live conditions.
+
+The final bench setup ran on Raspberry Pi 5 with a Pi camera, PCA9685, four-servo MeArm, and a physical GPIO acknowledge button. Project-reported runtime metrics included sub-millisecond frame processing, 4 ms unsafe detection, 458 ms freeze issue time, and a controlled stop path within the project target.`,
+    lenses: ["engineer"],
+    tags: ["c++", "raspberry-pi", "opencv", "embedded", "robotics", "safety", "real-time"],
+    role: "Owned AppController and MotionController work: PCA9685 servo output path, run modes, CLI controls, hardware wiring, and integration of motion commands with the guardian/interlock flow.",
+    outcome:
+      "Validated a live Raspberry Pi 5 bench demo where unsafe camera input triggers routine stop, retract-safe behavior, freeze hold, and operator-gated resume.",
+    chefDoeuvre: true,
+    links: [
+      { label: "repository", href: "https://github.com/ENG5220-RTEP-Team-ARGUS/ARGUS" },
+      { label: "project site", href: "https://thewebbutbeyond.github.io/argus/" },
+      { label: "doxygen", href: "https://eng5220-rtep-team-argus.github.io/ARGUS/doxygen/html/" },
+      { label: "wiki", href: "https://github.com/ENG5220-RTEP-Team-ARGUS/ARGUS/wiki" },
+    ],
+    media: [
+      {
+        kind: "video",
+        src: argusLiveDemo,
+        poster: argusDemoPoster,
+        title: "ARGUS live safety demonstration",
+        caption: "Live safety demo showing the ARGUS bench setup and control flow.",
+      },
+      {
+        kind: "image",
+        src: argusBenchSetup,
+        alt: "ARGUS MeArm bench setup beside the labelled safety enclosure and test surface.",
+        caption: "Bench setup with MeArm, safety enclosure, and test surface.",
+      },
+      {
+        kind: "image",
+        src: argusLiveDashboard,
+        alt: "ARGUS live dashboard with camera feed, guardian status, and timing metrics visible on a monitor.",
+        caption: "Live dashboard showing camera input, guardian state, and timing metrics.",
+      },
+    ],
+    related: ["tiny-pcb-clock", "close-the-books"],
+  },
   {
     slug: "ledger-engine-v2",
     title: "Ledger Engine v2",
@@ -328,8 +399,54 @@ function validateEntryContent(entries: Entry[], lenses: typeof LENSES) {
           if (!isNonEmptyString(link.label) || !isNonEmptyString(link.href)) {
             errors.push(`${label}: links must include non-empty label and href`);
           }
+          if (isNonEmptyString(link.label) && link.label !== link.label.toLowerCase()) {
+            errors.push(`${label}: link label "${link.label}" must be lowercase`);
+          }
           if (link.href.trim() === "#") {
             errors.push(`${label}: links must not use placeholder "#" hrefs`);
+          }
+        }
+      }
+    }
+
+    if (entry.media !== undefined) {
+      if (!Array.isArray(entry.media) || entry.media.length === 0) {
+        errors.push(`${label}: media must be a non-empty array when provided`);
+      } else {
+        for (const media of entry.media) {
+          const item = media as {
+            kind?: string;
+            src?: unknown;
+            alt?: unknown;
+            title?: unknown;
+            poster?: unknown;
+            caption?: unknown;
+          };
+
+          if (item.kind !== "image" && item.kind !== "video") {
+            errors.push(`${label}: media kind "${item.kind}" is not supported`);
+            continue;
+          }
+
+          if (!isNonEmptyString(item.src)) {
+            errors.push(`${label}: media items must include a non-empty src`);
+          }
+
+          if (item.kind === "image" && !isNonEmptyString(item.alt)) {
+            errors.push(`${label}: image media must include non-empty alt text`);
+          }
+
+          if (item.kind === "video") {
+            if (!isNonEmptyString(item.title)) {
+              errors.push(`${label}: video media must include a non-empty title`);
+            }
+            if (item.poster !== undefined && !isNonEmptyString(item.poster)) {
+              errors.push(`${label}: video poster must be a non-empty string when provided`);
+            }
+          }
+
+          if (item.caption !== undefined && !isNonEmptyString(item.caption)) {
+            errors.push(`${label}: media captions must be non-empty when provided`);
           }
         }
       }

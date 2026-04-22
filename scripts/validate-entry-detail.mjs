@@ -1,6 +1,8 @@
 import { readFileSync } from "node:fs";
 
 const source = readFileSync("src/routes/entries.$slug.tsx", "utf8");
+const frSource = readFileSync("src/routes/fr.entries.$slug.tsx", "utf8");
+const contentSource = readFileSync("src/content/data.ts", "utf8");
 
 const checks = [
   {
@@ -27,6 +29,24 @@ const checks = [
   {
     name: "body renders independently of media",
     pass: source.includes("<Prose text={a.body} />"),
+  },
+  {
+    name: "entry-specific media falls back to generated mosaic",
+    pass:
+      source.includes("<EntryMedia items={a.media} />") &&
+      source.includes("<EntryMosaic seed={a.slug} />"),
+  },
+  {
+    name: "french entry-specific media falls back to generated mosaic",
+    pass:
+      frSource.includes("<EntryMedia items={entry.media} />") &&
+      frSource.includes("<EntryMosaic seed={entry.slug} />"),
+  },
+  {
+    name: "media model requires image alt text",
+    pass:
+      contentSource.includes("media?: EntryMedia[]") &&
+      contentSource.includes("image media must include non-empty alt text"),
   },
   {
     name: "role is optional",
