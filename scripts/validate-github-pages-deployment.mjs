@@ -24,7 +24,8 @@ const checks = [
   {
     name: "workflow installs dependencies with compatible Node",
     pass:
-      workflowSource.includes("actions/setup-node@v4") &&
+      workflowSource.includes("actions/checkout@v6") &&
+      workflowSource.includes("actions/setup-node@v6") &&
       workflowSource.includes('node-version: "22.12.0"') &&
       workflowSource.includes("npm ci"),
   },
@@ -33,7 +34,7 @@ const checks = [
     pass:
       workflowSource.includes("npm run build:github-pages") &&
       workflowSource.includes("SITE_ORIGIN: https://thewebbutbeyond.github.io") &&
-      workflowSource.includes("actions/upload-pages-artifact@v3") &&
+      workflowSource.includes("actions/upload-pages-artifact@v5") &&
       workflowSource.includes("path: dist/client"),
   },
   {
@@ -42,7 +43,7 @@ const checks = [
   },
   {
     name: "workflow deploys uploaded artifact",
-    pass: workflowSource.includes("actions/deploy-pages@v4"),
+    pass: workflowSource.includes("actions/deploy-pages@v5"),
   },
   {
     name: "package exposes GitHub Pages build and validation scripts",
