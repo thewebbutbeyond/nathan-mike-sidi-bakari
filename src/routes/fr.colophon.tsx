@@ -7,12 +7,12 @@ export const Route = createFileRoute("/fr/colophon")({
       { title: "Colophon · Nathan Mike Sidi Bakari" },
       {
         name: "description",
-        content: "comment cette archive est construite : stack, typographie et crédits.",
+        content: "Comment cette archive est construite : stack, typographie et crédits.",
       },
       { property: "og:title", content: "Colophon · Nathan Mike Sidi Bakari" },
       {
         property: "og:description",
-        content: "comment cette archive est construite.",
+        content: "Comment cette archive est construite.",
       },
     ],
   }),

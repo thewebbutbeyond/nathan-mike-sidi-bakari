@@ -41,8 +41,8 @@ function NotesIndex() {
         <div className="flex items-start justify-between gap-6 mb-10 flex-wrap">
           <PageHeader
             eyebrow="notes"
-            title="notes depuis le carnet."
-            description="réflexions plus lentes, structure légère."
+            title="Notes depuis le carnet."
+            description="Réflexions plus lentes, structure légère."
           />
           <a
             href={withBasePath("/fr/rss.xml")}

@@ -7,12 +7,12 @@ export const Route = createFileRoute("/fr/contact")({
       { title: "Contact · Nathan Mike Sidi Bakari" },
       {
         name: "description",
-        content: "une manière simple de joindre Nathan Mike Sidi Bakari.",
+        content: "Une manière simple de joindre Nathan Mike Sidi Bakari.",
       },
       { property: "og:title", content: "Contact · Nathan Mike Sidi Bakari" },
       {
         property: "og:description",
-        content: "une manière simple de joindre Nathan Mike Sidi Bakari.",
+        content: "Une manière simple de joindre Nathan Mike Sidi Bakari.",
       },
     ],
   }),

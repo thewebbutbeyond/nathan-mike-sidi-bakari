@@ -60,7 +60,10 @@ function SiteHeader({ locale }: { locale: Locale }) {
   return (
     <header className="border-b border-rule">
       <div className="relative mx-auto max-w-5xl px-5 sm:px-8 py-5 flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-3">
-        <Link to="/" className="group inline-flex items-baseline pr-8 sm:pr-0">
+        <Link
+          to={locale === "fr" ? "/fr" : "/"}
+          className="group inline-flex items-baseline pr-8 sm:pr-0"
+        >
           <span className="text-sm font-medium tracking-tight group-hover:underline underline-offset-4">
             nathan mike sidi bakari
           </span>

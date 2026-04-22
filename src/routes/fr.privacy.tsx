@@ -13,7 +13,7 @@ export const Route = createFileRoute("/fr/privacy")({
       { property: "og:title", content: "Confidentialité · Nathan Mike Sidi Bakari" },
       {
         property: "og:description",
-        content: "comment cette archive traite les données personnelles.",
+        content: "Comment cette archive traite les données personnelles.",
       },
     ],
   }),

@@ -13,7 +13,7 @@ export const Route = createFileRoute("/fr/about")({
       { property: "og:title", content: "À propos · Nathan Mike Sidi Bakari" },
       {
         property: "og:description",
-        content: "à propos de l'archive et de la personne qui la tient.",
+        content: "À propos de l'archive et de la personne qui la tient.",
       },
     ],
   }),

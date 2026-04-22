@@ -34,22 +34,22 @@ const ROUTES = [
   {
     to: "/fr/chefs-doeuvre" as const,
     label: "chefs-d’œuvre",
-    description: "entrées marquées que je donnerais comme première porte d'entrée.",
+    description: "Entrées marquées que je donnerais comme première porte d'entrée.",
   },
   {
     to: "/fr/timeline" as const,
     label: "chronologie",
-    description: "tout dans l'ordre, pour garder le fil visible.",
+    description: "Tout dans l'ordre, pour garder le fil visible.",
   },
   {
     to: "/fr/lenses" as const,
     label: "regards",
-    description: "différentes manières de traverser la même archive.",
+    description: "Différentes manières de traverser la même archive.",
   },
   {
     to: "/fr/notes" as const,
     label: "notes",
-    description: "pièces plus lentes, réflexions libres, choses auxquelles revenir.",
+    description: "Pièces plus lentes, réflexions libres, choses auxquelles revenir.",
   },
 ];
 
@@ -121,9 +121,6 @@ function HomePage() {
                 >
                   <div className="flex items-baseline justify-between gap-4">
                     <span className="text-sm font-medium text-ink">→ {r.label}</span>
-                    <span className="text-[11px] text-ink-faint group-hover:text-ink-soft">
-                      {r.to}
-                    </span>
                   </div>
                   <p className="mt-1.5 text-xs text-ink-soft leading-relaxed">{r.description}</p>
                 </Link>

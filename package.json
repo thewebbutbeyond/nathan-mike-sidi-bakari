@@ -14,6 +14,7 @@
     "validate:copy": "node scripts/validate-copy-tone.mjs",
     "validate:deploy": "node scripts/validate-github-pages-deployment.mjs",
     "validate:entry-detail": "node scripts/validate-entry-detail.mjs",
+    "validate:french": "node scripts/validate-french-localization.mjs",
     "validate:lenses": "node scripts/validate-lenses.mjs",
     "validate:notes": "node scripts/validate-notes.mjs",
     "validate:search": "node scripts/validate-search-palette.mjs",

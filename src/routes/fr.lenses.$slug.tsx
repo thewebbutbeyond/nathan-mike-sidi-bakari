@@ -26,7 +26,7 @@ export const Route = createFileRoute("/fr/lenses/$slug")({
   notFoundComponent: () => (
     <SiteShell locale="fr">
       <Container>
-        <PageHeader title="regard introuvable." />
+        <PageHeader title="Regard introuvable." />
         <Link to="/fr/lenses" className="text-sm underline underline-offset-4">
           ← tous les regards
         </Link>
@@ -58,7 +58,7 @@ function LensDetail() {
           locale="fr"
           entries={items}
           from={`lenses/${meta.slug}`}
-          emptyMessage="aucune entrée à travers ce regard pour l'instant."
+          emptyMessage="Aucune entrée à travers ce regard pour l'instant."
         />
       </Container>
     </SiteShell>

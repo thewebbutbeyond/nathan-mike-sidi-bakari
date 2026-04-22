@@ -14,7 +14,7 @@ export const Route = createFileRoute("/fr/lenses/")({
       { property: "og:title", content: "Regards · Nathan Mike Sidi Bakari" },
       {
         property: "og:description",
-        content: "la même archive, vue à travers différents regards.",
+        content: "La même archive, vue à travers différents regards.",
       },
     ],
   }),
@@ -27,8 +27,8 @@ function LensesPage() {
       <Container>
         <PageHeader
           eyebrow="regards"
-          title="la même archive, vue autrement."
-          description="quatre manières de traverser la même archive."
+          title="La même archive, vue autrement."
+          description="Quatre manières de traverser la même archive."
         />
 
         <ul className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-rule border border-rule">

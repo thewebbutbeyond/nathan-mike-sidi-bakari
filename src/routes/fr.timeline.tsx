@@ -11,9 +11,9 @@ export const Route = createFileRoute("/fr/timeline")({
   head: () => ({
     meta: [
       { title: "Chronologie · Nathan Mike Sidi Bakari" },
-      { name: "description", content: "toutes les entrées en ordre chronologique." },
+      { name: "description", content: "Toutes les entrées en ordre chronologique." },
       { property: "og:title", content: "Chronologie · Nathan Mike Sidi Bakari" },
-      { property: "og:description", content: "toutes les entrées en ordre chronologique." },
+      { property: "og:description", content: "Toutes les entrées en ordre chronologique." },
     ],
   }),
   component: TimelinePage,
@@ -33,8 +33,8 @@ function TimelinePage() {
       <Container>
         <PageHeader
           eyebrow="chronologie"
-          title="tout, par date."
-          description="le plus récent en premier."
+          title="Tout, par date."
+          description="Le plus récent en premier."
         />
 
         {all.length === 0 ? (

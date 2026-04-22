@@ -9,12 +9,12 @@ export const Route = createFileRoute("/fr/chefs-doeuvre")({
       { title: "Chefs-d’œuvre · Nathan Mike Sidi Bakari" },
       {
         name: "description",
-        content: "entrées marquées depuis la chronologie. une première porte d'entrée compacte.",
+        content: "Entrées marquées depuis la chronologie. Une première porte d'entrée compacte.",
       },
       { property: "og:title", content: "Chefs-d’œuvre · Nathan Mike Sidi Bakari" },
       {
         property: "og:description",
-        content: "entrées marquées depuis la chronologie. une première porte d'entrée compacte.",
+        content: "Entrées marquées depuis la chronologie. Une première porte d'entrée compacte.",
       },
     ],
   }),
@@ -31,14 +31,14 @@ function ChefsDoeuvrePage() {
       <Container>
         <PageHeader
           eyebrow="chefs-d’œuvre"
-          title="entrées marquées depuis la chronologie."
-          description="une première manière d'entrer dans l'archive : des pièces qui montrent une coupe utile des travaux, notes et traces gardés ici."
+          title="Entrées marquées depuis la chronologie."
+          description="Une première manière d'entrer dans l'archive : des pièces qui montrent une coupe utile des travaux, notes et traces gardés ici."
         />
         <EntryList
           locale="fr"
           entries={items}
           from="chefs-doeuvre"
-          emptyMessage="aucune entrée marquée pour l'instant. la chronologie complète reste ouverte."
+          emptyMessage="Aucune entrée marquée pour l'instant. La chronologie complète reste ouverte."
         />
       </Container>
     </SiteShell>
