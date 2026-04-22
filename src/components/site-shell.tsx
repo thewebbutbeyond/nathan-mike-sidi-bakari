@@ -131,7 +131,15 @@ function SiteFooter() {
 
           {/* Bottom-right: copyright */}
           <div className="sm:text-right">
-            <span className="text-ink-faint">©</span> {year} · nathan mike sidi bakari
+            <span className="text-ink-faint">©</span> {year} · nathan mike sidi bakari ·{" "}
+            <a
+              href="https://www.thewebbutbeyond.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-ink"
+            >
+              powered by web+
+            </a>
           </div>
         </div>
       </div>

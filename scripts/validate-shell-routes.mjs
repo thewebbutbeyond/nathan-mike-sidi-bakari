@@ -56,6 +56,7 @@ const knownRoutes = new Set(Object.keys(routeFiles));
 const intentionalExternal = [
   "https://www.linkedin.com/in/nathan-sidi-bakari-686007199",
   "https://github.com/Nabakator",
+  "https://www.thewebbutbeyond.com/",
   "https://fonts.googleapis.com",
   "https://fonts.gstatic.com",
   "mailto:nathan.sidibakari@icloud.com",
