@@ -1,6 +1,6 @@
 # Story 6.2: SEO and Social Metadata Pass
 
-Status: review
+Status: done
 
 ## Story
 
@@ -105,3 +105,4 @@ GPT-5.4
 ### Change Log
 
 - 2026-04-22: Added root Open Graph metadata and SEO validation, verified full validation/lint/build, and moved story to review.
+- 2026-04-22: Code review completed with no blocking findings; story moved to done.
