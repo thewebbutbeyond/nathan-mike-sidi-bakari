@@ -1,6 +1,6 @@
 # Story 6.1: Copy Tone Review
 
-Status: review
+Status: done
 
 ## Story
 
@@ -112,3 +112,4 @@ GPT-5.4
 ### Change Log
 
 - 2026-04-22: Refined public route copy tone, added copy-tone validation, verified all validators/lint/build, and moved story to review.
+- 2026-04-22: Code review completed with no blocking findings; story moved to done.
