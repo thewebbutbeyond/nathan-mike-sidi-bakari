@@ -9,6 +9,7 @@
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "eslint .",
+    "validate:copy": "node scripts/validate-copy-tone.mjs",
     "validate:entry-detail": "node scripts/validate-entry-detail.mjs",
     "validate:lenses": "node scripts/validate-lenses.mjs",
     "validate:notes": "node scripts/validate-notes.mjs",

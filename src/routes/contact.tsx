@@ -7,13 +7,12 @@ export const Route = createFileRoute("/contact")({
       { title: "Contact · Nathan Mike Sidi Bakari" },
       {
         name: "description",
-        content:
-          "Quiet contact information. For genuine intersections of interest, not introductions.",
+        content: "A quiet way to reach Nathan Mike Sidi Bakari.",
       },
       { property: "og:title", content: "Contact · Nathan Mike Sidi Bakari" },
       {
         property: "og:description",
-        content: "Quiet contact information. For genuine intersections of interest.",
+        content: "A quiet way to reach Nathan Mike Sidi Bakari.",
       },
     ],
   }),
@@ -29,7 +28,8 @@ function ContactPage() {
           If you want to reach out.
         </h1>
         <p className="text-sm text-ink-soft leading-relaxed max-w-prose mb-10">
-          Messages are more than welcome!
+          Messages are welcome, especially when something here overlaps with something you care
+          about.
         </p>
 
         <dl className="space-y-2 border-t border-rule pt-5">

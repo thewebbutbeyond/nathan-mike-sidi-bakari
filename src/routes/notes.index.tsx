@@ -33,8 +33,8 @@ function NotesIndex() {
         <div className="flex items-start justify-between gap-6 mb-10 flex-wrap">
           <PageHeader
             eyebrow="notes"
-            title="(Not so) random thoughts."
-            description="Irregular reflections, loosely structured."
+            title="Notes from the logbook."
+            description="Slower reflections, loosely structured."
           />
           <a
             href="/rss.xml"

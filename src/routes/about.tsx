@@ -26,7 +26,7 @@ I started keeping an archive because I wanted a place where the work could simpl
 
 Here, you will find a bit of everything: larger pieces, smaller ones, completed work, abandoned attempts. This is less a portfolio than a record of what I explored, built, or cared about at different points in time.
 
-Thank you for reading!`;
+Thank you for reading.`;
 
 function AboutPage() {
   return (
