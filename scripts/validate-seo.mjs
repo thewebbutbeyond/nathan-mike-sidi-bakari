@@ -92,6 +92,27 @@ for (const [name, source] of [
   }
 }
 
+if (
+  !rootSource.includes('rel: "icon"') ||
+  !rootSource.includes('href: withBasePath("/brand/favicon.svg")')
+) {
+  errors.push("root is missing the base-aware favicon link");
+}
+
+for (const snippet of [
+  'const shareImage = withPublicUrl("/brand/share-card.png");',
+  'property: "og:image"',
+  'property: "og:image:width", content: "1200"',
+  'property: "og:image:height", content: "1200"',
+  'property: "og:image:alt", content: "nathan mike sidi bakari"',
+  'name: "twitter:card", content: "summary_large_image"',
+  'name: "twitter:image", content: shareImage',
+]) {
+  if (!rootSource.includes(snippet)) {
+    errors.push(`root is missing share image metadata snippet: ${snippet}`);
+  }
+}
+
 if (errors.length > 0) {
   console.error("SEO metadata validation failed:");
   for (const error of errors) {

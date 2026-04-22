@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" role="img" aria-label="nathan mike sidi bakari">
+  <rect width="1200" height="1200" fill="#faf7ed" />
+  <g
+    fill="#322f28"
+    font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, monospace"
+    font-size="94"
+    font-weight="500"
+    letter-spacing="0"
+  >
+    <text x="140" y="415">nathan</text>
+    <text x="140" y="535">mike</text>
+    <text x="140" y="655">sidi</text>
+    <text x="140" y="775">bakari</text>
+  </g>
+  <line x1="140" y1="850" x2="360" y2="850" stroke="#ddd6c6" stroke-width="2" />
+</svg>

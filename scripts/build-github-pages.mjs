@@ -1,9 +1,12 @@
 import { spawnSync } from "node:child_process";
 
+const siteOrigin = process.env.SITE_ORIGIN ?? "https://thewebbutbeyond.github.io";
+
 const env = {
   ...process.env,
   GITHUB_PAGES_BASE_PATH: process.env.GITHUB_PAGES_BASE_PATH ?? "/nathan-mike-sidi-bakari/",
-  SITE_ORIGIN: process.env.SITE_ORIGIN ?? "https://thewebbutbeyond.github.io",
+  SITE_ORIGIN: siteOrigin,
+  VITE_SITE_ORIGIN: process.env.VITE_SITE_ORIGIN ?? siteOrigin,
 };
 
 const viteBin =

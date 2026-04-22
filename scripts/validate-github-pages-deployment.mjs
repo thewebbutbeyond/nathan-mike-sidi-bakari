@@ -57,9 +57,17 @@ const checks = [
       buildScriptSource.includes(
         'GITHUB_PAGES_BASE_PATH: process.env.GITHUB_PAGES_BASE_PATH ?? "/nathan-mike-sidi-bakari/"',
       ) &&
-      buildScriptSource.includes(
+      (buildScriptSource.includes(
         'SITE_ORIGIN: process.env.SITE_ORIGIN ?? "https://thewebbutbeyond.github.io"',
-      ) &&
+      ) ||
+        buildScriptSource.includes(
+          'const siteOrigin = process.env.SITE_ORIGIN ?? "https://thewebbutbeyond.github.io";',
+        )),
+  },
+  {
+    name: "pages build wrapper mirrors public metadata origin",
+    pass:
+      buildScriptSource.includes("VITE_SITE_ORIGIN: process.env.VITE_SITE_ORIGIN ?? siteOrigin") &&
       buildScriptSource.includes('run(viteBin, ["build"])') &&
       buildScriptSource.includes('run(process.execPath, ["scripts/prepare-github-pages.mjs"])'),
   },
@@ -85,6 +93,12 @@ const checks = [
       rootSource.includes('type: "application/rss+xml"'),
   },
   {
+    name: "brand metadata uses base-aware favicon and public share image",
+    pass:
+      rootSource.includes('href: withBasePath("/brand/favicon.svg")') &&
+      rootSource.includes('withPublicUrl("/brand/share-card.png")'),
+  },
+  {
     name: "deployment docs cover source, base path, and static limits",
     pass:
       docsSource.includes("GitHub Actions") &&
@@ -99,6 +113,8 @@ const outputChecks = [
   "dist/client/404.html",
   "dist/client/.nojekyll",
   "dist/client/rss.xml",
+  "dist/client/brand/favicon.svg",
+  "dist/client/brand/share-card.png",
 ];
 
 const shouldValidateOutput =

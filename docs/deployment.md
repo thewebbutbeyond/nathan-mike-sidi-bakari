@@ -18,7 +18,7 @@ npm run build:github-pages
 
 That script runs the TanStack Start build and prepares `dist/client` for GitHub Pages.
 The build disables recursive prerender crawling and emits the SPA shell plus a static `rss.xml`.
-The workflow also sets `SITE_ORIGIN=https://thewebbutbeyond.github.io` so RSS links do not capture the local prerender server origin.
+The workflow also sets `SITE_ORIGIN=https://thewebbutbeyond.github.io`; the build wrapper mirrors it into `VITE_SITE_ORIGIN` so RSS and social preview image URLs use the same public origin.
 
 ## Base Path
 
