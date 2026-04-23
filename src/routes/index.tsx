@@ -12,22 +12,22 @@ const ROUTES = [
   {
     to: "/chefs-doeuvre" as const,
     label: "chefs-d’œuvre",
-    description: "Marked entries I would hand someone as a first way in.",
+    description: "Marked entries from the timeline.",
   },
   {
     to: "/timeline" as const,
     label: "timeline",
-    description: "Everything in order, so the thread stays visible.",
+    description: "Most recent at the top.",
   },
   {
     to: "/lenses" as const,
     label: "lenses",
-    description: "Different ways of looking through the same archive.",
+    description: "Four ways of looking through the same archive.",
   },
   {
     to: "/notes" as const,
     label: "notes",
-    description: "Slower pieces, loose reflections, and things worth returning to.",
+    description: "Irregular reflections, loosely structured.",
   },
 ];
 

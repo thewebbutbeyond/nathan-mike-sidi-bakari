@@ -34,22 +34,22 @@ const ROUTES = [
   {
     to: "/fr/chefs-doeuvre" as const,
     label: "chefs-d’œuvre",
-    description: "Entrées marquées que je donnerais comme première porte d'entrée.",
+    description: "Entrées marquées depuis la chronologie.",
   },
   {
     to: "/fr/timeline" as const,
     label: "chronologie",
-    description: "Tout dans l'ordre, pour garder le fil visible.",
+    description: "Le plus récent en premier.",
   },
   {
     to: "/fr/lenses" as const,
     label: "regards",
-    description: "Différentes manières de traverser la même archive.",
+    description: "Quatre manières de traverser la même archive.",
   },
   {
     to: "/fr/notes" as const,
     label: "notes",
-    description: "Pièces plus lentes, réflexions libres, choses auxquelles revenir.",
+    description: "Réflexions irrégulières, structure légère.",
   },
 ];
 

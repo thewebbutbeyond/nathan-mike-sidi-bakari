@@ -42,7 +42,7 @@ function NotesIndex() {
           <PageHeader
             eyebrow="notes"
             title="Notes from the logbook."
-            description="Slower reflections, loosely structured."
+            description="Irregular reflections, loosely structured."
           />
           <a
             href={withBasePath("/rss.xml")}
@@ -57,7 +57,7 @@ function NotesIndex() {
         {notes.length === 0 ? (
           <div className="border-t border-rule">
             <p className="px-1 py-8 text-sm text-ink-soft">
-              No notes yet. The slower pieces will live here when they are ready.
+              No notes yet. The irregular pieces will live here when they are ready.
             </p>
           </div>
         ) : (

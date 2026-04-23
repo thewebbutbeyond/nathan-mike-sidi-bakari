@@ -42,7 +42,7 @@ function NotesIndex() {
           <PageHeader
             eyebrow="notes"
             title="Notes depuis le carnet."
-            description="Réflexions plus lentes, structure légère."
+            description="Réflexions irrégulières, structure légère."
           />
           <a
             href={withBasePath("/fr/rss.xml")}
@@ -57,7 +57,7 @@ function NotesIndex() {
         {allNotes.length === 0 ? (
           <div className="border-t border-rule">
             <p className="px-1 py-8 text-sm text-ink-soft">
-              aucune note pour l'instant. les pièces plus lentes vivront ici quand elles seront
+              aucune note pour l'instant. les pièces irrégulières vivront ici quand elles seront
               prêtes.
             </p>
           </div>
