@@ -101,8 +101,8 @@ The final bench setup ran on Raspberry Pi 5 with a Pi camera, PCA9685, four-serv
       "Validated a live Raspberry Pi 5 bench demo where unsafe camera input triggers routine stop, retract-safe behavior, freeze hold, and operator-gated resume.",
     chefDoeuvre: true,
     links: [
-      { label: "repository", href: "https://github.com/ENG5220-RTEP-Team-ARGUS/ARGUS" },
-      { label: "project site", href: "https://thewebbutbeyond.github.io/argus/" },
+      { label: "repo", href: "https://github.com/ENG5220-RTEP-Team-ARGUS/ARGUS" },
+      { label: "website", href: "https://thewebbutbeyond.github.io/argus/" },
       { label: "doxygen", href: "https://eng5220-rtep-team-argus.github.io/ARGUS/doxygen/html/" },
       { label: "wiki", href: "https://github.com/ENG5220-RTEP-Team-ARGUS/ARGUS/wiki" },
     ],
