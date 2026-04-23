@@ -44,6 +44,31 @@ Le banc final tournait sur Raspberry Pi 5 avec caméra Pi, PCA9685, MeArm à qua
     outcome:
       "Validation d'une démo live sur Raspberry Pi 5 où une entrée caméra dangereuse déclenche l'arrêt de routine, la rétraction de sécurité, le maintien en freeze et une reprise contrôlée par acquittement opérateur.",
   },
+  "mobile-robot-hybrid-controller": {
+    title: "Contrôleur hybride de robot mobile",
+    type: "rapport de contrôle",
+    summary:
+      "Contrôleur MATLAB de navigation pour robot mobile combinant suivi de points, évitement d'obstacles par ANN et récupération wall-follow, archivé avec son état qualitatif actuel et une analyse quantitative en travaux futurs.",
+    body: `Ce travail de contrôleur de robot mobile vient du devoir ENG5009 Advanced Control. Le simulateur MATLAB fourni contenait le modèle du robot, la génération des murs, le modèle de capteurs et la boucle de tracé. Mon travail consistait à construire et régler la logique de contrôle capable d'abord d'atteindre un point cible, puis de parcourir une série de checkpoints en évitant les obstacles.
+
+Le contrôleur final est volontairement petit. Un suivi de point rotate-then-drive donne la direction du but, une couche ANN à seuil réagit aux lectures d'obstacles asymétriques, et un mode de récupération wall-follow de style Bug prend le relais quand l'ANN cale près des murs frontaux ou dans une symétrie locale. L'arbitrage est explicite : arrêt, puis wall-follow, puis évitement ANN, puis suivi de point.
+
+Le rapport est l'artefact que je veux garder, pas un cas de vente poli. Il est proche d'un niveau publiable par sa structure, son positionnement dans la littérature, ses figures et sa justification de conception, mais il reste honnête sur son caractère surtout qualitatif. Les paramètres ont été choisis par observation en simulation plutôt que par optimisation formelle, et le chemin final est faisable plutôt qu'optimal.
+
+Les travaux futurs sont donc clairs : ajouter des dérivations formelles plus fortes pour le contrôleur et transformer la comparaison qualitative en analyse quantitative. Des métriques utiles seraient le temps de complétion des checkpoints, la longueur de chemin, la marge de collision, le nombre de récupérations, l'erreur de cap et la sensibilité aux variantes de carte ou de seuil.`,
+    tags: [
+      "matlab",
+      "contrôle",
+      "robotique",
+      "robots-mobiles",
+      "évitement-obstacles",
+      "simulation",
+      "rapport",
+    ],
+    role: "Conception, implémentation et réglage du contrôleur MATLAB ; comparaison des variantes suivi de point, évitement ANN, récupération fixe et wall-follow ; rédaction du rapport.",
+    outcome:
+      "Production d'un rapport presque publiable et de preuves de simulation montrant que le contrôleur hybride préserve la progression dans le champ d'obstacles fourni. Les travaux futurs portent sur des dérivations formelles plus fortes et une analyse quantitative.",
+  },
   "ledger-engine-v2": {
     title: "Ledger Engine v2",
     type: "système",

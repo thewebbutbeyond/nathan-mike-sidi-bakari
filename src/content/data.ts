@@ -2,6 +2,11 @@ import argusBenchSetup from "@/assets/entries/argus/bench-setup.jpg";
 import argusDemoPoster from "@/assets/entries/argus/demo-poster.jpg";
 import argusLiveDashboard from "@/assets/entries/argus/live-dashboard.jpg";
 import argusLiveDemo from "@/assets/entries/argus/live-demo.mp4";
+import mobileRobotReportPdf from "@/assets/entries/mobile-robot-controller/eng5009-mobile-robot-controller-report.pdf?url";
+import mobileRobotEnvironment from "@/assets/entries/mobile-robot-controller/environment.png";
+import mobileRobotFinalStates from "@/assets/entries/mobile-robot-controller/final-states.png";
+import mobileRobotFinalTrajectory from "@/assets/entries/mobile-robot-controller/final-trajectory.png";
+import mobileRobotWallFollow from "@/assets/entries/mobile-robot-controller/wall-follow-segments.png";
 
 export type Lens = "engineer" | "entrepreneur" | "investor" | "artist";
 
@@ -123,6 +128,67 @@ The final bench setup ran on Raspberry Pi 5 with a Pi camera, PCA9685, four-serv
       },
     ],
     related: ["tiny-pcb-clock", "close-the-books"],
+  },
+  {
+    slug: "mobile-robot-hybrid-controller",
+    title: "Mobile robot hybrid controller",
+    date: "2026-04-23",
+    type: "control systems report",
+    status: "archived",
+    summary:
+      "A MATLAB mobile-robot navigation controller combining waypoint tracking, ANN obstacle avoidance, and wall-follow recovery, archived with its current qualitative report and clear quantitative analysis future work.",
+    body: `This mobile robot controller work came out of the ENG5009 Advanced Control assignment. The supplied MATLAB simulator provided the robot model, wall generation, sensor model, and plotting loop. My work was to build and tune the control logic that could first drive to a target point, then move through a sequence of checkpoints while avoiding obstacles.
+
+The final controller is deliberately small. A rotate-then-drive waypoint tracker gives the goal direction, a threshold ANN layer reacts to asymmetric obstacle readings, and a Bug-style wall-follow recovery mode takes over when the ANN stalls near frontal walls or local symmetry. Arbitration is explicit: stop first, then wall-follow, then ANN avoidance, then waypoint tracking.
+
+The report is the artifact I want to keep, not a polished sales case. It is close to publication-grade in structure, literature positioning, figures, and design rationale, but it is honest about being mostly qualitative. Parameters were chosen by simulation observation rather than formal optimisation, and the final path is feasible rather than optimal.
+
+That makes the future work clear: add stronger formal derivations for the controller and turn the qualitative comparison into quantitative analysis. Useful metrics would include waypoint completion time, path length, collision margin, recovery count, heading error, and sensitivity across map or threshold variants.`,
+    lenses: ["engineer"],
+    tags: [
+      "matlab",
+      "control",
+      "robotics",
+      "mobile-robots",
+      "obstacle-avoidance",
+      "simulation",
+      "report",
+    ],
+    role: "Designed, implemented, and tuned the MATLAB controller; compared waypoint, ANN avoidance, fixed recovery, and wall-follow variants; wrote the report.",
+    outcome:
+      "Produced a near-publication report and simulator evidence showing that the hybrid controller preserved progress through the supplied obstacle field. Future work is stronger formal derivation and quantitative analysis.",
+    chefDoeuvre: true,
+    links: [{ label: "report", href: mobileRobotReportPdf }],
+    media: [
+      {
+        kind: "image",
+        src: mobileRobotEnvironment,
+        alt: "Mobile robot simulator environment with start point, numbered checkpoints, and internal wall obstacles.",
+        caption: "The 10 m by 10 m simulator environment used for controller testing.",
+      },
+      {
+        kind: "image",
+        src: mobileRobotFinalTrajectory,
+        alt: "Final simulated mobile robot trajectory through numbered checkpoints and obstacle walls.",
+        caption:
+          "Final trajectory through the supplied obstacle field. Deviations from straight segments correspond to avoidance and recovery actions.",
+      },
+      {
+        kind: "image",
+        src: mobileRobotWallFollow,
+        alt: "Highlighted wall-follow segments showing the robot tracking obstacle boundaries before returning to waypoint progress.",
+        caption:
+          "Representative wall-follow recovery segments, used when the ANN layer stalled near frontal walls.",
+      },
+      {
+        kind: "image",
+        src: mobileRobotFinalStates,
+        alt: "Final controller forward speed and heading plots over the 120 second simulation.",
+        caption:
+          "Forward speed and heading response across waypoint tracking, avoidance, and recovery phases.",
+      },
+    ],
+    related: ["argus-real-time-safety-supervisor", "tiny-pcb-clock", "close-the-books"],
   },
   {
     slug: "ledger-engine-v2",
