@@ -53,7 +53,7 @@ Le banc final tournait sur Raspberry Pi 5 avec caméra Pi, PCA9685, MeArm à qua
 
 Le contrôleur final est volontairement petit. Un suivi de point rotate-then-drive donne la direction du but, une couche ANN à seuil réagit aux lectures d'obstacles asymétriques, et un mode de récupération wall-follow de style Bug prend le relais quand l'ANN cale près des murs frontaux ou dans une symétrie locale. L'arbitrage est explicite : arrêt, puis wall-follow, puis évitement ANN, puis suivi de point.
 
-Le rapport est l'artefact que je veux garder, pas un cas de vente poli. Il est proche d'un niveau publiable par sa structure, son positionnement dans la littérature, ses figures et sa justification de conception, mais il reste honnête sur son caractère surtout qualitatif. Les paramètres ont été choisis par observation en simulation plutôt que par optimisation formelle, et le chemin final est faisable plutôt qu'optimal.
+Le rapport est l'artefact que je veux garder. Il est proche d'un niveau publiable par sa structure, son positionnement dans la littérature, ses figures et sa justification de conception, mais il reste honnête sur son caractère surtout qualitatif. Les paramètres ont été choisis par observation en simulation plutôt que par optimisation formelle, et le chemin final est faisable plutôt qu'optimal.
 
 Les travaux futurs sont donc clairs : ajouter des dérivations formelles plus fortes pour le contrôleur et transformer la comparaison qualitative en analyse quantitative. Des métriques utiles seraient le temps de complétion des checkpoints, la longueur de chemin, la marge de collision, le nombre de récupérations, l'erreur de cap et la sensibilité aux variantes de carte ou de seuil.`,
     tags: [

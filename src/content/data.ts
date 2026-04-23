@@ -141,7 +141,7 @@ The final bench setup ran on Raspberry Pi 5 with a Pi camera, PCA9685, four-serv
 
 The final controller is deliberately small. A rotate-then-drive waypoint tracker gives the goal direction, a threshold ANN layer reacts to asymmetric obstacle readings, and a Bug-style wall-follow recovery mode takes over when the ANN stalls near frontal walls or local symmetry. Arbitration is explicit: stop first, then wall-follow, then ANN avoidance, then waypoint tracking.
 
-The report is the artifact I want to keep, not a polished sales case. It is close to publication-grade in structure, literature positioning, figures, and design rationale, but it is honest about being mostly qualitative. Parameters were chosen by simulation observation rather than formal optimisation, and the final path is feasible rather than optimal.
+The report is the artifact I want to keep. It is close to publication-grade in structure, literature positioning, figures, and design rationale, but it is honest about being mostly qualitative. Parameters were chosen by simulation observation rather than formal optimisation, and the final path is feasible rather than optimal.
 
 That makes the future work clear: add stronger formal derivations for the controller and turn the qualitative comparison into quantitative analysis. Useful metrics would include waypoint completion time, path length, collision margin, recovery count, heading error, and sensitivity across map or threshold variants.`,
     lenses: ["engineer"],
