@@ -12,7 +12,7 @@ const ROUTES = [
   {
     to: "/chefs-doeuvre" as const,
     label: "chefs-d’œuvre",
-    description: "Marked entries from the timeline.",
+    description: "A first way into the archive.",
   },
   {
     to: "/timeline" as const,

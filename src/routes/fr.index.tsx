@@ -34,7 +34,7 @@ const ROUTES = [
   {
     to: "/fr/chefs-doeuvre" as const,
     label: "chefs-d’œuvre",
-    description: "Entrées marquées depuis la chronologie.",
+    description: "Une première traversée de l'archive.",
   },
   {
     to: "/fr/timeline" as const,

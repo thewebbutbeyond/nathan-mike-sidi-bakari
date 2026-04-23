@@ -9,12 +9,12 @@ export const Route = createFileRoute("/fr/chefs-doeuvre")({
       { title: "Chefs-d’œuvre · Nathan Mike Sidi Bakari" },
       {
         name: "description",
-        content: "Entrées marquées depuis la chronologie. Une première porte d'entrée compacte.",
+        content: "Une première traversée de l'archive.",
       },
       { property: "og:title", content: "Chefs-d’œuvre · Nathan Mike Sidi Bakari" },
       {
         property: "og:description",
-        content: "Entrées marquées depuis la chronologie. Une première porte d'entrée compacte.",
+        content: "Une première traversée de l'archive.",
       },
     ],
   }),
@@ -32,7 +32,7 @@ function ChefsDoeuvrePage() {
         <PageHeader
           eyebrow="chefs-d’œuvre"
           title="Entrées marquées depuis la chronologie."
-          description="Une première manière d'entrer dans l'archive : des pièces qui montrent une coupe utile des travaux, notes et traces gardés ici."
+          description="Une première traversée de l'archive."
         />
         <EntryList
           locale="fr"

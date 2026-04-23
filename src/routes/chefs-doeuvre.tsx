@@ -9,12 +9,12 @@ export const Route = createFileRoute("/chefs-doeuvre")({
       { title: "Chefs-d’œuvre · Nathan Mike Sidi Bakari" },
       {
         name: "description",
-        content: "Marked entries from the timeline. A compact first way into the archive.",
+        content: "A first way into the archive.",
       },
       { property: "og:title", content: "Chefs-d’œuvre · Nathan Mike Sidi Bakari" },
       {
         property: "og:description",
-        content: "Marked entries from the timeline. A compact first way into the archive.",
+        content: "A first way into the archive.",
       },
     ],
   }),
@@ -30,7 +30,7 @@ function ChefsDoeuvrePage() {
         <PageHeader
           eyebrow="chefs-d’œuvre"
           title="Marked entries from the timeline."
-          description="A compact first way into the archive: pieces that show a useful cross-section of the work, notes, and traces kept here."
+          description="A first way into the archive."
         />
         <EntryList
           entries={items}
