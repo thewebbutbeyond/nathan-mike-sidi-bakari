@@ -7,6 +7,10 @@ import mobileRobotEnvironment from "@/assets/entries/mobile-robot-controller/env
 import mobileRobotFinalStates from "@/assets/entries/mobile-robot-controller/final-states.png";
 import mobileRobotFinalTrajectory from "@/assets/entries/mobile-robot-controller/final-trajectory.png";
 import mobileRobotWallFollow from "@/assets/entries/mobile-robot-controller/wall-follow-segments.png";
+import robocupProjectPlan from "@/assets/entries/robocup-soccer-teams/project-plan.png";
+import robocupRoleFramework from "@/assets/entries/robocup-soccer-teams/role-framework.png";
+import robocupStrategyGoalDifference from "@/assets/entries/robocup-soccer-teams/strategy-goal-difference.png";
+import robocupWorkflowOverview from "@/assets/entries/robocup-soccer-teams/workflow-overview.png";
 
 export type Lens = "engineer" | "entrepreneur" | "investor" | "artist";
 
@@ -79,6 +83,77 @@ export const LENSES: { slug: Lens; label: string; description: string }[] = [
 ];
 
 export const ENTRIES: Entry[] = [
+  {
+    slug: "cyberphysical-robocup-soccer-teams",
+    title: "Cyberphysical RoboCup soccer teams",
+    date: "2026-04-24",
+    type: "robotics simulation",
+    status: "archived",
+    summary:
+      "A simulation-based RoboCup benchmarking pipeline spanning 2D and 3D soccer environments, role-aware controllers, automated parameter sweeps, Doxygen documentation, and project-management evidence.",
+    body: `This project treated RoboCup soccer as an engineering benchmark rather than a visual demo. The team built around existing 2D and 3D RoboCup stacks, then used repeated matches to compare bundled strategies and isolate the parameters behind the behaviour changes.
+
+The technical centre of the work was the benchmarking pipeline. Strategy-level runs compared BASIC, NOISE, DEFLOCK, HIPRESS, DIRECT, and AGGRO behaviours. Parameter-level sweeps then varied shoot range, press threshold, and formation around the baseline so that striker, defender, and goalkeeper outcomes could be interpreted by mechanism rather than by strategy label alone.
+
+The useful result was not just that AGGRO performed best among the tested bundles. The stronger result was explanatory: higher shoot range improved striker output, stronger pressure increased recoveries and interceptions while reducing defensive stability, and formation changed the shot exposure faced by the goalkeeper. The 2D simulator separated strategies more clearly; the 3D simulator compressed outcomes because embodied dynamics made scoring rarer and noisier.
+
+My role sat on team leadership, coordination, repository presentation, and the evidence narrative. I integrated the technical work into a coherent report, tightened the reproducibility path, helped frame the Stage 1 boundary honestly, and cleaned the public software surface with README documentation, benchmark notes, Doxygen API documentation, and a GitHub Actions deployment path.`,
+    lenses: ["engineer"],
+    tags: [
+      "robotics",
+      "robocup",
+      "simulation",
+      "benchmarking",
+      "multi-agent-systems",
+      "doxygen",
+      "project-management",
+    ],
+    role: "Team lead and communication/management officer: coordinated the 2D and 3D workstreams, integrated the report narrative, strengthened reproducibility documentation, and prepared the public repository/Doxygen surface.",
+    outcome:
+      "Delivered a Stage 1 simulation and analysis package: working 2D/3D RoboCup workflows, strategy and OFAT parameter benchmarking, role-level interpretation, project-management evidence, and published API documentation.",
+    chefDoeuvre: true,
+    links: [
+      {
+        label: "repo",
+        href: "https://github.com/ENG5325-Robotics-TDP-M-Team-14/Cyberphysical-RoboCup-Soccer-Teams",
+      },
+      {
+        label: "doxygen",
+        href: "https://eng5325-robotics-tdp-m-team-14.github.io/Cyberphysical-RoboCup-Soccer-Teams/",
+      },
+    ],
+    media: [
+      {
+        kind: "image",
+        src: robocupWorkflowOverview,
+        alt: "Workflow diagram from simulator setup through strategy benchmarking, parameter isolation, and role-level interpretation.",
+        caption:
+          "Simulation workflow from platform setup to strategy screening, OFAT parameter analysis, and role-level interpretation.",
+      },
+      {
+        kind: "image",
+        src: robocupRoleFramework,
+        alt: "Role framework diagram connecting striker, defender, and goalkeeper behaviours to the shared agent decision loop.",
+        caption:
+          "Role-aware controller interpretation used to connect parameter changes to striker, defender, and goalkeeper outcomes.",
+      },
+      {
+        kind: "image",
+        src: robocupStrategyGoalDifference,
+        alt: "Bar chart comparing 2D and 3D goal difference for RoboCup strategy variants.",
+        caption:
+          "Strategy-level goal-difference comparison: 2D separated behaviours more clearly than 3D, with AGGRO strongest in both.",
+      },
+      {
+        kind: "image",
+        src: robocupProjectPlan,
+        alt: "Planned high-level work breakdown Gantt chart for the RoboCup simulation project.",
+        caption:
+          "Project-management view of the work packages, from requirements and simulator setup through benchmarking and reporting.",
+      },
+    ],
+    related: ["argus-real-time-safety-supervisor", "mobile-robot-hybrid-controller"],
+  },
   {
     slug: "argus-real-time-safety-supervisor",
     title: "A.R.G.U.S.",
