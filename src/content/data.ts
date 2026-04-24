@@ -93,14 +93,16 @@ export const ENTRIES: Entry[] = [
     type: "robotics simulation",
     status: "archived",
     summary:
-      "A simulation-based RoboCup benchmarking pipeline spanning 2D and 3D soccer environments, role-aware controllers, automated parameter sweeps, Doxygen documentation, and project-management evidence.",
+      "A simulation-based RoboCup benchmarking system I built across 2D and 3D soccer environments, with strategy comparisons, OFAT parameter sweeps, role-aware analysis, Doxygen documentation, and project-management evidence.",
     body: `This project treated RoboCup soccer as an engineering benchmark rather than a visual demo. The team built around existing 2D and 3D RoboCup stacks, then used repeated matches to compare bundled strategies and isolate the parameters behind the behaviour changes.
 
 The technical centre of the work was the benchmarking pipeline. Strategy-level runs compared BASIC, NOISE, DEFLOCK, HIPRESS, DIRECT, and AGGRO behaviours. Parameter-level sweeps then varied shoot range, press threshold, and formation around the baseline so that striker, defender, and goalkeeper outcomes could be interpreted by mechanism rather than by strategy label alone.
 
 The useful result was not just that AGGRO performed best among the tested bundles. The stronger result was explanatory: higher shoot range improved striker output, stronger pressure increased recoveries and interceptions while reducing defensive stability, and formation changed the shot exposure faced by the goalkeeper. The 2D simulator separated strategies more clearly; the 3D simulator compressed outcomes because embodied dynamics made scoring rarer and noisier.
 
-My role sat on team leadership, coordination, repository presentation, and the evidence narrative. I integrated the technical work into a coherent report, tightened the reproducibility path, helped frame the Stage 1 boundary honestly, and cleaned the public software surface with README documentation, benchmark notes, Doxygen API documentation, and a GitHub Actions deployment path.`,
+My role was both technical and organisational. I built the 2D benchmarking pipeline, then built an independent 3D benchmarking path when the project needed faster progress, and extended both environments with the parametric experiment layer. I also proposed the initial strategy-comparison approach and translated the design-review feedback into the OFAT parameter-isolation method that became the stronger technical argument.
+
+On top of that implementation work, I led coordination, integrated the final evidence narrative, framed the Stage 1 boundary honestly, and prepared the public software surface with README documentation, benchmark notes, Doxygen API documentation, and a GitHub Actions deployment path.`,
     lenses: ["engineer"],
     tags: [
       "robotics",
@@ -111,7 +113,7 @@ My role sat on team leadership, coordination, repository presentation, and the e
       "doxygen",
       "project-management",
     ],
-    role: "Team lead and communication/management officer: coordinated the 2D and 3D workstreams, integrated the report narrative, strengthened reproducibility documentation, and prepared the public repository/Doxygen surface.",
+    role: "Technical lead and team lead: built the 2D benchmarking pipeline, built the independent 3D benchmark path, added the OFAT parameter layer across both environments, shaped the strategy-to-parameter methodology, coordinated the team, integrated the report narrative, and prepared the public repository/Doxygen surface.",
     outcome:
       "Delivered a Stage 1 simulation and analysis package: working 2D/3D RoboCup workflows, strategy and OFAT parameter benchmarking, role-level interpretation, project-management evidence, and published API documentation.",
     chefDoeuvre: true,

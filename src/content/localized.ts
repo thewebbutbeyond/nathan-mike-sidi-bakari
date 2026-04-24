@@ -31,14 +31,16 @@ const FR_ENTRY_COPY: Record<string, EntryCopy> = {
     title: "Equipes RoboCup cyberphysiques",
     type: "simulation robotique",
     summary:
-      "Pipeline de benchmarking RoboCup en simulation 2D et 3D, avec contrôleurs par rôle, sweeps de paramètres, documentation Doxygen et preuves de gestion de projet.",
+      "Système de benchmarking RoboCup que j'ai construit en simulation 2D et 3D, avec comparaison de stratégies, sweeps OFAT de paramètres, analyse par rôle, documentation Doxygen et preuves de gestion de projet.",
     body: `Ce projet a traité le football RoboCup comme un benchmark d'ingénierie, pas comme une simple démonstration visuelle. L'équipe s'est appuyée sur des stacks RoboCup 2D et 3D existants, puis a utilisé des matchs répétés pour comparer des stratégies complètes et isoler les paramètres responsables des changements de comportement.
 
 Le coeur technique était le pipeline de benchmarking. Les runs par stratégie comparaient BASIC, NOISE, DEFLOCK, HIPRESS, DIRECT et AGGRO. Les sweeps de paramètres variaient ensuite la portée de tir, le seuil de pressing et la formation autour de la baseline, afin d'interpréter les résultats des attaquants, défenseurs et gardiens par mécanisme plutôt que par simple nom de stratégie.
 
 Le résultat utile n'était pas seulement qu'AGGRO était le meilleur bundle testé. Le résultat le plus fort était explicatif : augmenter la portée de tir améliorait la production offensive, un pressing plus fort augmentait récupérations et interceptions tout en réduisant la stabilité défensive, et la formation changeait l'exposition aux tirs subie par le gardien. Le simulateur 2D séparait mieux les stratégies ; le simulateur 3D comprimait les résultats parce que la dynamique incarnée rendait les buts plus rares et plus bruités.
 
-Mon rôle portait sur le leadership d'équipe, la coordination, la présentation du dépôt et la narration des preuves. J'ai intégré le travail technique dans un rapport cohérent, renforcé le chemin de reproductibilité, aidé à cadrer honnêtement la frontière Stage 1, et nettoyé la surface logicielle publique avec README, notes de benchmark, documentation API Doxygen et déploiement GitHub Actions.`,
+Mon rôle était à la fois technique et organisationnel. J'ai construit le pipeline de benchmarking 2D, puis un chemin de benchmarking 3D indépendant quand le projet avait besoin d'avancer plus vite, et j'ai étendu les deux environnements avec la couche d'expériences paramétriques. J'ai aussi proposé l'approche initiale par comparaison de stratégies et traduit le feedback de la design review en méthode OFAT d'isolation des paramètres, qui est devenue l'argument technique le plus solide.
+
+En plus de ce travail d'implémentation, j'ai assuré la coordination, intégré la narration finale des preuves, cadré honnêtement la frontière Stage 1, et préparé la surface logicielle publique avec README, notes de benchmark, documentation API Doxygen et déploiement GitHub Actions.`,
     tags: [
       "robotique",
       "robocup",
@@ -48,7 +50,7 @@ Mon rôle portait sur le leadership d'équipe, la coordination, la présentation
       "doxygen",
       "gestion-projet",
     ],
-    role: "Team lead et responsable communication/gestion : coordination des workstreams 2D et 3D, intégration de la narration du rapport, amélioration de la documentation de reproductibilité et préparation du dépôt public/Doxygen.",
+    role: "Lead technique et team lead : construction du pipeline de benchmarking 2D, construction d'un chemin de benchmark 3D indépendant, ajout de la couche OFAT sur les deux environnements, cadrage de la méthodologie stratégie-vers-paramètres, coordination de l'équipe, intégration du rapport et préparation du dépôt public/Doxygen.",
     outcome:
       "Livraison d'un package Stage 1 de simulation et d'analyse : workflows RoboCup 2D/3D, benchmarking par stratégie et OFAT, interprétation par rôle, preuves de gestion de projet et documentation API publiée.",
   },
