@@ -7,6 +7,10 @@ import mobileRobotEnvironment from "@/assets/entries/mobile-robot-controller/env
 import mobileRobotFinalStates from "@/assets/entries/mobile-robot-controller/final-states.png";
 import mobileRobotFinalTrajectory from "@/assets/entries/mobile-robot-controller/final-trajectory.png";
 import mobileRobotWallFollow from "@/assets/entries/mobile-robot-controller/wall-follow-segments.png";
+import robocup2dDemoPoster from "@/assets/entries/robocup-soccer-teams/robocup-2d-demo-preview.gif";
+import robocup2dDemo from "@/assets/entries/robocup-soccer-teams/robocup-2d-demo.mp4";
+import robocup3dDemoPoster from "@/assets/entries/robocup-soccer-teams/robocup-3d-demo-preview.gif";
+import robocup3dDemo from "@/assets/entries/robocup-soccer-teams/robocup-3d-demo.mp4";
 import robocupProjectPlan from "@/assets/entries/robocup-soccer-teams/project-plan.png";
 import robocupRoleFramework from "@/assets/entries/robocup-soccer-teams/role-framework.png";
 import robocupStrategyGoalDifference from "@/assets/entries/robocup-soccer-teams/strategy-goal-difference.png";
@@ -123,6 +127,22 @@ My role sat on team leadership, coordination, repository presentation, and the e
       },
     ],
     media: [
+      {
+        kind: "video",
+        src: robocup2dDemo,
+        poster: robocup2dDemoPoster,
+        title: "RoboCup 2D simulation demo",
+        caption:
+          "Sped-up 2D soccer simulation showing the faster benchmark environment used for repeated strategy and parameter runs.",
+      },
+      {
+        kind: "video",
+        src: robocup3dDemo,
+        poster: robocup3dDemoPoster,
+        title: "RoboCup 3D humanoid simulation demo",
+        caption:
+          "Sped-up 3D RoboViz/SimSpark demo showing the embodied humanoid workflow used for richer validation.",
+      },
       {
         kind: "image",
         src: robocupWorkflowOverview,
