@@ -12,9 +12,7 @@ import robocup2dDemo from "@/assets/entries/robocup-soccer-teams/robocup-2d-demo
 import robocup3dDemoPoster from "@/assets/entries/robocup-soccer-teams/robocup-3d-demo-preview.gif";
 import robocup3dDemo from "@/assets/entries/robocup-soccer-teams/robocup-3d-demo.mp4";
 import robocupProjectPlan from "@/assets/entries/robocup-soccer-teams/project-plan.png";
-import robocupRoleFramework from "@/assets/entries/robocup-soccer-teams/role-framework.png";
 import robocupStrategyGoalDifference from "@/assets/entries/robocup-soccer-teams/strategy-goal-difference.png";
-import robocupWorkflowOverview from "@/assets/entries/robocup-soccer-teams/workflow-overview.png";
 
 export type Lens = "engineer" | "entrepreneur" | "investor" | "artist";
 
@@ -142,20 +140,6 @@ My role sat on team leadership, coordination, repository presentation, and the e
         title: "RoboCup 3D humanoid simulation demo",
         caption:
           "Sped-up 3D RoboViz/SimSpark demo showing the embodied humanoid workflow used for richer validation.",
-      },
-      {
-        kind: "image",
-        src: robocupWorkflowOverview,
-        alt: "Workflow diagram from simulator setup through strategy benchmarking, parameter isolation, and role-level interpretation.",
-        caption:
-          "Simulation workflow from platform setup to strategy screening, OFAT parameter analysis, and role-level interpretation.",
-      },
-      {
-        kind: "image",
-        src: robocupRoleFramework,
-        alt: "Role framework diagram connecting striker, defender, and goalkeeper behaviours to the shared agent decision loop.",
-        caption:
-          "Role-aware controller interpretation used to connect parameter changes to striker, defender, and goalkeeper outcomes.",
       },
       {
         kind: "image",
