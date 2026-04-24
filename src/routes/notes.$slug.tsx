@@ -78,6 +78,9 @@ function NoteDetail() {
                   className="h-full w-full object-cover"
                 />
               </div>
+              {n.coverCredit && (
+                <figcaption className="mt-2 text-[11px] text-ink-faint">{n.coverCredit}</figcaption>
+              )}
             </div>
           </figure>
         )}

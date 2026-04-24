@@ -60,6 +60,7 @@ export interface Note {
   readingMinutes: number;
   cover?: string;
   coverAlt?: string;
+  coverCredit?: string;
 }
 
 export const LENSES: { slug: Lens; label: string; description: string }[] = [
@@ -631,8 +632,317 @@ import noteCoverArchives from "@/assets/notes/on-archives-not-portfolios.jpg";
 import noteCoverContext from "@/assets/notes/the-cost-of-context.jpg";
 import noteCoverInvesting from "@/assets/notes/what-investing-taught-me-about-product.jpg";
 import noteCoverDrawing from "@/assets/notes/drawing-as-rest.jpg";
+import noteCoverSupportGroup from "@/assets/notes/support-group-luca-ponsato.jpg";
 
 export const NOTES: Note[] = [
+  {
+    slug: "communication-is-an-engineering-problem",
+    title: "Communication is an engineering problem",
+    date: "2026-04-24",
+    summary:
+      "A personal note on why human communication, delegation, trust, and ownership behave like engineering variables in group work.",
+    readingMinutes: 17,
+    tags: [
+      "engineering",
+      "teamwork",
+      "leadership",
+      "delegation",
+      "communication",
+      "trust",
+      "entrepreneurship",
+      "systems",
+      "self-reflection",
+    ],
+    cover: noteCoverSupportGroup,
+    coverAlt: "support group. by Luca Ponsato.",
+    coverCredit: "Cover image: support group. by Luca Ponsato (@LucaPonsatoArt on X/Twitter).",
+    body: `There is a pattern I have noticed this year.
+
+I have worked on several group projects, and more than once I ended up doing far more of the work than I should have. Sometimes almost all of it. Not because I wanted to be heroic. Not because I think working alone is noble. Not because I believe other people are useless. The more honest version is that something in the system failed, and I responded by absorbing the work.
+
+That response helped the projects survive, but I am not sure it helped me become better at collaboration.
+
+At first, the pattern is easy to describe in the most convenient way. People did not communicate enough. Some people did not take initiative. Some people waited to be told exactly what to do. Some people cared more about the mark than the artefact. Some people were simply not aligned with the level of quality I wanted the project to reach.
+
+Some of that may be true.
+
+But if the same failure mode appears several times, it probably contains information about me too.
+
+The more useful question is not only: why did I have to do so much?
+
+The more uncomfortable question is: why did responsibility keep flowing back to me?
+
+Somewhere between team formation, trust, communication, delegation, verification, and deadline pressure, the group stopped behaving like a group. Or maybe it never became one properly. It became a loose collection of people orbiting a project, with one person becoming the gravitational centre by default.
+
+That can work for a university deadline. It can produce a passable report, a functioning prototype, a decent presentation, or enough evidence to submit something respectable. But I do not think it is a healthy operating model. It does not scale. It creates stress. It creates resentment. It creates a strange kind of loneliness inside what is supposed to be collective work.
+
+It may also be a form of bad engineering.
+
+A technical project is rarely only technical. Even when the final artefact is a robot, a simulation, a website, a report, a control system, or a business process, the artefact is produced by a human system. That system has inputs, constraints, feedback loops, failure modes, bottlenecks, and hidden assumptions. If the human system is badly designed, the technical system suffers before the technical work has properly begun.
+
+This is one of the uncomfortable lessons group work keeps teaching me.
+
+Engineering is not just the application of mathematics and physics to objects. It is also the coordination of human beings under uncertainty.
+
+I say that carefully, because I am still only twenty-four. I do not want to write as if I have already understood engineering, leadership, or people. I have not. Most of the time, I am still trying to understand why something worked, why something failed, and which part of the failure belongs to me.
+
+But that is precisely why I want to write this note.
+
+Not because I have arrived at an answer.
+
+Because I keep encountering the question.
+
+University often trains engineering through exams. In an exam, the problem is already defined. The assumptions are usually given. The expected answer exists. The time limit is fixed. The boundary conditions are artificial but clear. The student's job is to recall the right method, apply it correctly, avoid mistakes, and deliver an answer in the expected format.
+
+That is useful training. I do not dismiss it. Exams force fluency. They expose weak foundations. They build speed. They punish vagueness. They make it harder to hide behind charisma or vague intelligence. A person who cannot manipulate the basic tools of their discipline is not yet competent.
+
+But I do not think exams are the full shape of engineering.
+
+They are a compressed and artificial proxy for a small part of engineering competence.
+
+Real engineering often begins with ambiguity. The requirement is incomplete. The client is imprecise. The data is noisy. The team disagrees. The model is wrong. The prototype behaves differently from the simulation. The report structure is unclear. The deadline moves. The person responsible for one subsystem disappears for three days. The toolchain breaks on someone else's machine. The person who sounded confident in the meeting has not actually understood the problem.
+
+That is where the real work seems to begin.
+
+The engineer is not simply the person who knows the formula. At least, I do not think that is enough. The engineer has to face an undefined situation, decompose it into smaller problems, formulate assumptions, test them, communicate uncertainty, and move the system forward without pretending that everything is already clear.
+
+This is why group projects are so revealing.
+
+They expose whether people can operate when the path is not already paved.
+
+Some students are very good at examinations but become passive in projects. They wait. They ask what needs to be done, but they do not always interrogate the system. They complete tasks, but they do not always own outcomes. They avoid making decisions because a decision can be wrong, and being wrong is more visible than remaining passive.
+
+I understand that instinct because I have had it too.
+
+The education system rewards correctness more visibly than initiative. It is often safer to be the person who did not act than the person who acted and made a mistake. But engineering cannot be built only on that psychology. At some point, someone has to define the next step despite incomplete information.
+
+That is where I often become impatient.
+
+Not because I think I am above the group. I usually assume the opposite. My default assumption is that I am missing something, that I am wrong somewhere, that someone else may see a cleaner path. But when nobody moves, the project still has to move. When the problem is not decomposed, someone has to decompose it. When the standard is undefined, someone has to define it. When the work is incoherent, someone has to integrate it.
+
+So I take over.
+
+And often, that is where my own failure begins.
+
+Because taking over can look like leadership from the outside, but sometimes it is just a failure to build the conditions under which other people can contribute properly.
+
+It is faster in the short term to do the work myself. It is cleaner. It gives me control over the standard. It reduces the probability of receiving unusable output too close to the deadline. It avoids the emotional labour of asking, correcting, negotiating, explaining, and rechecking.
+
+But if I do everything myself, I have not solved the collaboration problem. I have bypassed it.
+
+The project may survive, but the system has not improved.
+
+Maybe this is the part I need to sit with the most.
+
+When communication becomes difficult, my instinct is often to reduce the communication requirement by doing the work myself. In the short term, that feels rational. If the deadline is close, if the task is unclear, if the person in front of me does not seem to understand the standard, spending hours trying to align everyone can feel more expensive than simply producing the output.
+
+In university, this instinct is even stronger because the time horizon is compressed. The project is due next week. The report has to be submitted. The presentation has to work. There is rarely enough time to slowly build a team culture, teach the standard, debug misunderstandings, and let people fail safely before the deadline. So I default to execution.
+
+But that only works up to a certain scale.
+
+If I want to become a better leader, I cannot keep using my own execution as the solution to every communication failure. At some point, the work becomes larger than one person. A serious company, a serious engineering project, or a serious institution cannot run on one person doing everything. The leader is not the person who personally touches every component. The leader is the person who creates enough clarity for other competent people to contribute without destroying coherence.
+
+That is probably one of the skills I need to train most deliberately: taking more time to communicate, even when communication is frustrating, slow, and inefficient in the moment.
+
+Not because communication guarantees agreement. It does not.
+
+Not because I am always right and simply need to explain myself better. I am often wrong, incomplete, or badly calibrated.
+
+But because a disagreement should not automatically become a blockage. In a good team, disagreement should become a mechanism for refining the shared model.
+
+There is a difference between arguing to win and arguing to improve the system.
+
+There is a difference between "I am right and you are wrong" and "your model captures something mine does not, my model captures something yours does not, and if we compare them carefully, we may reach a better model than either of us had at the start."
+
+I am not always good at creating that kind of conversation. Sometimes I move too quickly. Sometimes I get impatient. Sometimes I assume that because something is obvious to me, it has been communicated. That is a mistake. What is obvious inside my head is not automatically part of the shared system.
+
+A recent disagreement about referencing made this clearer to me.
+
+One teammate argued that sources should only be cited if they were explicitly used during the writing process. I understood the concern. Retrospective referencing can become dishonest if it is used to decorate a report with sources that did not actually shape the work. It can create the illusion of rigour after the fact.
+
+But I also saw the problem differently. There is a difference between explicitly using a source and implicitly inheriting an idea from a field, a convention, or a body of knowledge. Many things that feel like "common knowledge" are not actually common in a universal sense. They are common only because a discipline, culture, or technical community has already normalised them.
+
+So when I develop an idea that feels obvious, I do not think the process should stop there. I think it is worth asking: where does this obviousness come from? Has this already been formalised? Am I rediscovering a weaker version of an existing concept? Has the literature already named the thing I am trying to describe? Can checking the literature retrospectively refine the idea, clarify its limits, or prevent me from presenting inherited knowledge as if it emerged from nowhere?
+
+That does not mean every retrospective citation is legitimate. It means the distinction is subtle. A source can be part of the intellectual environment of an idea even if it was not open on the desk at the exact moment the sentence was written.
+
+The real issue was not only referencing.
+
+The real issue was how two people should reason together when their models differ.
+
+In that moment, I could feel the difficulty of communication. It is slow. It requires patience. It requires translating not only the conclusion, but the path that produced the conclusion. It requires asking whether the disagreement is about ethics, method, definitions, standards, or merely wording.
+
+That is hard.
+
+But if I avoid that difficulty every time, I will remain limited by what I can personally execute.
+
+I am starting to think that the central issue is trust.
+
+People often speak about trust as if it were mainly a moral virtue. In projects, trust also behaves like an operational variable. Trust determines how much verification is required before work can be integrated into the system.
+
+If I trust someone's judgement, I can give them a problem and expect them to return not only output, but considered output: assumptions stated, edge cases noticed, decisions justified, uncertainty communicated. I still verify the work, but verification is lighter. I am not rebuilding the whole mental process from zero.
+
+If I do not trust someone's work, delegation becomes expensive. I have to check the method, the assumptions, the implementation, the data, the interpretation, the formatting, and sometimes the basic understanding of the task. At that point, delegation may cost more than execution.
+
+That is one of the ideas I keep coming back to:
+
+Delegation starts to break down when the cost of verification becomes higher than the cost of execution.
+
+I do not know whether that is always true. It is probably incomplete. But it feels close to what I experienced.
+
+It does not mean I should never delegate to someone less experienced. That would be a terrible lesson to take from this. It would make me worse, not better. It means delegation has to be designed. The task has to be scoped properly. The expected output has to be clear. The review point has to happen early enough to correct course. The interface between someone's work and the rest of the project has to be defined.
+
+In other words, delegation is not just giving work away.
+
+Delegation is trying to create a reliable transfer of ownership.
+
+That transfer can fail for many reasons. The person may not have the skill. They may not have the context. They may not understand the standard. They may not care enough. They may be afraid to ask questions. They may be waiting for permission. They may be optimising for the minimum viable mark while I am optimising for the artefact itself.
+
+And often, the failure is mine.
+
+I may not have explained the task properly. I may not have created intermediate checkpoints. I may not have separated the work into components that can be safely owned. I may not have communicated the standard explicitly because I assumed it was obvious. I may have waited too long before intervening. I may have chosen speed over teaching. I may have mistaken control for responsibility.
+
+That distinction matters to me.
+
+Control is not the same as responsibility.
+
+Responsibility means trying to make sure the project succeeds. Control means keeping decisions close to oneself. Sometimes control is necessary, especially near a deadline or in a high-risk subsystem. But if control becomes the default mode, the system becomes dependent on one person. That may be useful in a crisis, but I do not think it is leadership in the deeper sense. It is a bottleneck with good intentions.
+
+A reliable system cannot depend on one person's stress tolerance.
+
+I have also realised that team formation is not a detail. It may be one of the first engineering decisions of a project, even if it does not look technical.
+
+In student work, teams are often formed through friendship, convenience, proximity, or social comfort. I have done this too. I chose people because we got along, or because they were connected to someone I trusted, or because the group had to be formed quickly. Those are not meaningless criteria. Social compatibility matters. But it is not enough.
+
+A team is not just a group of people who like each other.
+
+Or at least, that is not enough for the kind of work I want to build.
+
+A team needs some alignment between competencies, incentives, communication habits, standards, and willingness to take ownership under constraints.
+
+That sounds colder than I want it to sound. I do not mean that people should be reduced to productivity units. I mean almost the opposite. Taking people seriously also means taking seriously whether the system they are entering allows them to contribute well.
+
+Goodwill cannot replace competence.
+
+Friendship cannot replace clarity.
+
+Optimism cannot replace accountability.
+
+This is where group projects connect directly to entrepreneurship.
+
+In a company, this problem becomes recruitment.
+
+If I build a team badly, I should not be surprised when delegation fails. If I select people on weak criteria, I will pay for it later in verification cost, communication cost, rework, delay, and emotional friction. The price of poor selection is not always paid at the moment of selection. It is often paid later, when the system is under load.
+
+University group projects simulate this badly, but usefully. They often force collaboration without proper recruitment, without aligned incentives, without clear authority, and without strong consequences for underperformance. That makes them frustrating. But it also makes them revealing. They show what happens when a human system is assembled casually and then expected to perform seriously.
+
+One person I worked with this year helped me understand this more clearly.
+
+Communication between us was not perfect. There were language barriers. We did not always understand each other easily. But he was strong. More importantly, he moved. He engaged with the problem. He tried to understand the system. He cared about making progress. Because of that, I could trust him.
+
+That taught me something important.
+
+Communication is not merely the exchange of words.
+
+Communication is the synchronisation of mental models.
+
+Do we understand the same objective? Are we making the same assumptions? Do we agree on what "done" means? Do we know what is blocked? Do we know who owns what? Do we know what has changed? Do we know what the next decision is?
+
+Two people can speak the same language and still fail to communicate. Two people can struggle linguistically and still collaborate well if their intent, standards, and direction are aligned.
+
+The deeper problem is rarely grammar.
+
+It is ownership.
+
+When someone owns a problem, they do not merely wait for instructions. They create motion. They ask questions. They expose uncertainty. They return with proposals, not just fragments. They care about whether their part integrates with the whole.
+
+That is what I hope to find in collaborators.
+
+Not perfection. Not genius. Not someone who already knows everything. I do not need someone to be impressive in the abstract. I need someone who can enter uncertainty without becoming inert.
+
+This is also what I need to become better at identifying early.
+
+I should not wait until the deadline reveals the truth. By then, the cost of correction is already high. A better approach may be to test the system early. Give small tasks. Observe response time. Observe question quality. Observe whether the person thinks beyond the literal instruction. Observe whether they communicate blockers. Observe whether they improve the project or merely complete isolated fragments.
+
+Trust should probably be built through evidence.
+
+Not just vibes. Not just friendship. Not just optimism. Evidence.
+
+That sounds harsh, but maybe it is actually kinder. When trust is evidence-based, expectations become clearer. People know what ownership means. Standards are explicit. Feedback arrives earlier. Failure becomes correctable before it becomes catastrophic.
+
+The alternative is worse: vague trust, late disappointment, silent resentment, and emergency takeover.
+
+I have lived that pattern enough times to want to study it seriously.
+
+I do not want to become someone who uses competence as an excuse to avoid collaboration. That would be a small and brittle way to live. The fact that I can sometimes do the work myself does not mean I should. A serious builder eventually has to learn to build with others. Otherwise every project is limited by one nervous system, one calendar, one attention span, one set of blind spots.
+
+At the same time, I do not want to romanticise teamwork. Teamwork is not automatically good. Collaboration is not automatically virtuous. A badly designed team can be worse than no team. It can slow decisions, diffuse responsibility, reduce standards, and create the illusion of shared work while hiding the fact that one or two people are carrying the structure.
+
+So I am not sure the lesson is "work alone".
+
+I am also not sure the lesson is simply "trust people more".
+
+Maybe the lesson is closer to this:
+
+Learn to engineer the collaboration.
+
+Define ownership.
+Select carefully.
+Communicate standards.
+Create early checkpoints.
+Make uncertainty visible.
+Verify without micromanaging.
+Let trust be accountable to evidence.
+Do not confuse being liked with being aligned.
+Do not confuse activity with contribution.
+Do not confuse control with leadership.
+
+I am still bad at many parts of this.
+
+I know how to take responsibility. I know how to push a project forward. I know how to absorb pressure and produce output. Those are useful traits. But they are also dangerous if they become my default solution to every group failure.
+
+The harder skill may not be doing more.
+
+The harder skill may be making the system better.
+
+That means learning how to delegate before the deadline is burning. It means accepting imperfect intermediate work so that people can improve. It means making standards explicit instead of silently judging people for not meeting standards I never articulated. It means distinguishing between someone who lacks skill but has ownership, and someone who has skill but avoids responsibility. It means knowing when to teach, when to verify, when to intervene, and when to remove a task from someone because the risk has become unacceptable.
+
+I fail at this often.
+
+But I think that is acceptable, as long as I keep extracting signal from the failure.
+
+Failure is not automatically noble. Sometimes it is just waste. Sometimes it hurts people. Sometimes it creates unnecessary stress. But failure becomes useful when it is examined honestly, without self-pity and without self-exoneration.
+
+That is what I am trying to do here.
+
+Not to prove that I was right.
+
+Not to prove that others were wrong.
+
+Just to understand the structure of what kept happening.
+
+Because this is not only a university lesson. It is an engineering lesson. It is a founder lesson. It is a human lesson.
+
+Many technical failures seem to begin before the technical work begins. They begin in unclear ownership, weak communication, poor selection, misaligned incentives, undefined standards, and uncalibrated trust.
+
+I used to think the hard part of engineering was understanding the technical system. I still think that matters. It matters enormously. But this year forced me to confront something less comfortable: the technical system is often downstream of the human system.
+
+If the human system is incoherent, the artefact will probably carry that incoherence.
+
+So this is the note I want to keep for myself:
+
+Group projects did not teach me that I work better alone.
+
+They taught me that collaboration is itself something I need to learn how to design, and that communication is not a soft skill sitting outside the work. It is part of the work.
+
+And perhaps that is part of becoming an engineer too.
+
+Not only solving the problem.
+
+Not only doing the work when the system fails.
+
+Building, slowly and imperfectly, the conditions under which the problem can be understood, shared, and solved by more than one person.`,
+  },
   {
     slug: "on-archives-not-portfolios",
     title: "On archives, not portfolios",
