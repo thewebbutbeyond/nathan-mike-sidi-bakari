@@ -11,6 +11,7 @@ import robocup2dDemoPoster from "@/assets/entries/robocup-soccer-teams/robocup-2
 import robocup2dDemo from "@/assets/entries/robocup-soccer-teams/robocup-2d-demo.mp4";
 import robocup3dDemoPoster from "@/assets/entries/robocup-soccer-teams/robocup-3d-demo-preview.gif";
 import robocup3dDemo from "@/assets/entries/robocup-soccer-teams/robocup-3d-demo.mp4";
+import robocupFinalReportPdf from "@/assets/entries/robocup-soccer-teams/eng5325-robocup-final-report-team-14.pdf?url";
 import robocupProjectPlan from "@/assets/entries/robocup-soccer-teams/project-plan.png";
 import robocupStrategyGoalDifference from "@/assets/entries/robocup-soccer-teams/strategy-goal-difference.png";
 
@@ -123,6 +124,7 @@ My role sat on team leadership, coordination, repository presentation, and the e
         label: "doxygen",
         href: "https://eng5325-robotics-tdp-m-team-14.github.io/Cyberphysical-RoboCup-Soccer-Teams/",
       },
+      { label: "report", href: robocupFinalReportPdf },
     ],
     media: [
       {
