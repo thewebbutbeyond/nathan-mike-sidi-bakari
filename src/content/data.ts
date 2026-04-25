@@ -2,6 +2,10 @@ import argusBenchSetup from "@/assets/entries/argus/bench-setup.jpg";
 import argusDemoPoster from "@/assets/entries/argus/demo-poster.jpg";
 import argusLiveDashboard from "@/assets/entries/argus/live-dashboard.jpg";
 import argusLiveDemo from "@/assets/entries/argus/live-demo.mp4";
+import ebbinghausCourseDashboard from "@/assets/entries/ebbinghaus/course-dashboard.png";
+import ebbinghausFormulaSheetPreview from "@/assets/entries/ebbinghaus/formula-sheet-preview.png";
+import ebbinghausGeneratedDeck from "@/assets/entries/ebbinghaus/generated-deck.png";
+import ebbinghausReviewAnswer from "@/assets/entries/ebbinghaus/review-answer.png";
 import mobileRobotReportPdf from "@/assets/entries/mobile-robot-controller/eng5009-mobile-robot-controller-report.pdf?url";
 import mobileRobotEnvironment from "@/assets/entries/mobile-robot-controller/environment.png";
 import mobileRobotFinalStates from "@/assets/entries/mobile-robot-controller/final-states.png";
@@ -118,6 +122,36 @@ I am adding it here now because the point of this archive is not to wait until e
     outcome:
       "Built a working private alpha that ingests course sources, generates flashcards and LaTeX study materials, and runs real review sessions. The next milestone is VPS deployment and stronger isolation around storage and TeX compilation.",
     links: [{ label: "repo", href: "https://github.com/thewebbutbeyond/ebbinghaus-app" }],
+    media: [
+      {
+        kind: "image",
+        src: ebbinghausCourseDashboard,
+        alt: "Mobile Ebbinghaus course dashboard showing generated study material status and review counters.",
+        caption:
+          "Course dashboard after generation: uploaded material becomes a study-ready deck with due, hard, good, and easy review counts.",
+      },
+      {
+        kind: "image",
+        src: ebbinghausGeneratedDeck,
+        alt: "Mobile Ebbinghaus generated deck page with start review, new card, add source, and regenerate controls.",
+        caption:
+          "Generated deck controls for starting review, adding sources, and regenerating cards when the source material changes.",
+      },
+      {
+        kind: "image",
+        src: ebbinghausFormulaSheetPreview,
+        alt: "Mobile Ebbinghaus formula sheet page showing a compiled PDF preview generated from LaTeX.",
+        caption:
+          "LaTeX study material compiles back into a PDF preview, keeping engineering-heavy coursework readable and editable.",
+      },
+      {
+        kind: "image",
+        src: ebbinghausReviewAnswer,
+        alt: "Mobile Ebbinghaus review answer screen with source link and Again, Hard, Good, Easy rating buttons.",
+        caption:
+          "Review answer state with source attribution and spaced-repetition grading actions.",
+      },
+    ],
     related: ["thesis-vertical-llms", "close-the-books"],
   },
   {
