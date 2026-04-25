@@ -27,7 +27,7 @@ La typographie utilise une base monospace discrète pour la navigation, les mét
 
 L'archive est publiée comme site statique. Le code de l'outillage est ouvert et crédité dans le footer. Les erreurs, liens cassés et opinions discutables sont à moi.
 
-Si tu remarques quelque chose de cassé, ou veux proposer une amélioration, la page contact est le bon endroit.`;
+Si vous remarquez quelque chose de cassé, ou veux proposer une amélioration, la page contact est le bon endroit.`;
 
 function ColophonPage() {
   return (

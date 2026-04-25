@@ -88,6 +88,39 @@ export const LENSES: { slug: Lens; label: string; description: string }[] = [
 
 export const ENTRIES: Entry[] = [
   {
+    slug: "ebbinghaus",
+    title: "Ebbinghaus",
+    date: "2026-04-25",
+    type: "edtech product",
+    status: "active",
+    summary:
+      "A private-alpha study system that turns course material into source-grounded flashcards, LaTeX study sheets, and spaced-repetition review sessions.",
+    body: `Ebbinghaus started from a simple frustration: students already have the material, but turning that material into something you can actually revise from is slow, repetitive, and usually abandoned halfway through. The obvious product temptation would have been to build "an AI flashcard app." The more useful version was to build a complete study loop around real course files.
+
+The current MVP lets a student create a course, upload lectures, notes, code, past papers, and marking schemes, extract readable text, generate source-grounded flashcards, generate LaTeX study materials, and run a review session with Again, Hard, Good, and Easy scheduling. Formula sheets and exam walkthroughs are treated as editable LaTeX sources that compile into PDFs rather than as fake rich-text documents. That decision keeps the mathematical formatting honest and makes the workflow more useful for engineering-heavy material.
+
+Technically, the interesting part is that the generation path is not just a single prompt glued to a button. The app has a small agentic runtime shape: resumable uploads, source extraction, chunking, OpenAI JSON-schema generation, verification/correction paths, local app-state sync per alpha user, and LaTeX compilation on the host machine. It is still one repo and one runtime, but it behaves more like a real product system than a demo wrapper.
+
+It is not production-ready yet, and that matters. The current alpha is still laptop-hosted: file storage is local, OpenAI calls happen from the host machine, and TeX compilation runs on the same box. That is acceptable for a trusted private alpha and not acceptable for a public deployment. The next step is a VPS-backed deployment with stronger storage and sandbox boundaries.
+
+I am adding it here now because the point of this archive is not to wait until everything looks finished. The working MVP already says something useful about how I think: start from the real user loop, keep the differentiator grounded in product friction, and make the system inspectable enough that trust can survive the first bad generation.`,
+    lenses: ["engineer", "entrepreneur"],
+    tags: [
+      "edtech",
+      "llm",
+      "spaced-repetition",
+      "latex",
+      "tanstack-start",
+      "product",
+      "private-alpha",
+    ],
+    role: "Product design, runtime architecture, implementation, and alpha operations.",
+    outcome:
+      "Built a working private alpha that ingests course sources, generates flashcards and LaTeX study materials, and runs real review sessions. The next milestone is VPS deployment and stronger isolation around storage and TeX compilation.",
+    links: [{ label: "repo", href: "https://github.com/thewebbutbeyond/ebbinghaus-app" }],
+    related: ["thesis-vertical-llms", "close-the-books"],
+  },
+  {
     slug: "cyberphysical-robocup-soccer-teams",
     title: "Cyberphysical RoboCup soccer teams",
     date: "2026-04-24",

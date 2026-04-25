@@ -1,4 +1,4 @@
-import { type KeyboardEvent, useEffect, useMemo, useRef, useState } from "react";
+import { type KeyboardEvent as ReactKeyboardEvent, useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "@tanstack/react-router";
 import { Search, SlidersHorizontal, X } from "lucide-react";
 
@@ -176,7 +176,7 @@ function SearchPanel({ locale, onClose }: { locale: Locale; onClose: () => void 
     );
   }
 
-  function onPanelKeyDown(event: KeyboardEvent<HTMLDivElement>) {
+  function onPanelKeyDown(event: ReactKeyboardEvent<HTMLDivElement>) {
     if (event.key === "Escape") {
       event.preventDefault();
       onClose();

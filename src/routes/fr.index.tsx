@@ -86,8 +86,9 @@ function HomePage() {
             Une archive personnelle de travaux, notes et traces.
           </h1>
           <p className="mt-4 text-sm text-ink-soft leading-relaxed">
-            Je garde cet espace pour me souvenir de ce que j'ai fait, de ce que je pensais, et de la
-            manière dont les fils se croisent. Il est ouvert à toute personne qui veut s'y promener.
+            Je garde cet espace pour me souvenir de ce que j&apos;ai fait, de ce que je pensais, et
+            de la manière dont les fils se croisent. C&apos;est un jardin ouvert à toute personne
+            qui souhaite s&apos;y promener.
           </p>
         </section>
 

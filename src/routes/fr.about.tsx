@@ -26,7 +26,7 @@ J'ai commencé à garder une archive parce que je voulais un endroit où le trav
 
 Ici, il y a un peu de tout : grandes pièces, petites pièces, travaux terminés, tentatives abandonnées. C'est moins un portfolio qu'une trace de ce que j'ai exploré, construit ou aimé à différents moments.
 
-Merci de lire.`;
+Merci d'avoir pris le temps de me lire.`;
 
 function AboutPage() {
   return (
@@ -34,7 +34,7 @@ function AboutPage() {
       <NarrowContainer>
         <div className="text-xs text-ink-faint mb-3 tracking-wide">à propos</div>
         <h1 className="text-2xl sm:text-[1.7rem] font-medium tracking-tight text-ink leading-tight mb-8">
-          sur cette archive et la personne qui la tient.
+          Sur cette archive et la personne qui la tient.
         </h1>
 
         <Prose text={ABOUT_TEXT} />

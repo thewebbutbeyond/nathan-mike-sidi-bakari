@@ -123,7 +123,7 @@ function SiteFooter({ locale }: { locale: Locale }) {
           {/* Top-right: icons */}
           <div className="flex items-center gap-4 sm:justify-end">
             <a
-              href="https://www.linkedin.com/in/nathan-sidi-bakari-686007199"
+              href="https://uk.linkedin.com/in/nathan-sidi-bakari-686007199"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"

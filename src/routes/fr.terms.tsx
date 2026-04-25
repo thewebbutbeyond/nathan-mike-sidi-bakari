@@ -22,7 +22,7 @@ export const Route = createFileRoute("/fr/terms")({
 
 const TEXT = `Ceci est un site personnel. Le contenu est partagé de bonne foi comme trace de travaux, idées et notes. Le lire ne crée aucun contrat, aucun conseil et aucune garantie.
 
-Les textes, dessins, photographies et médias originaux de ce site sont © Nathan Mike Sidi Bakari sauf mention contraire. Tu peux citer de courts extraits pour un usage non commercial avec un lien clair vers la page originale. Pour un usage plus substantiel, demande d'abord via la page contact.
+Les textes, dessins, photographies et médias originaux de ce site sont © Nathan Mike Sidi Bakari sauf mention contraire. Vous pouvez citer de courts extraits pour un usage non commercial avec un lien clair vers la page originale. Pour un usage plus substantiel, demande d'abord via la page contact.
 
 Les extraits de code partagés sur le site, ou dans des dépôts liés, gardent leurs licences open-source respectives. Quand aucune licence n'est indiquée, considère le code comme "tous droits réservés" et demande avant réutilisation.
 
@@ -30,7 +30,7 @@ Certaines entrées décrivent des projets, entreprises ou investissements passé
 
 Les liens externes sont fournis pour le contexte. Je ne contrôle pas, n'endosse pas et ne suis pas responsable du contenu des sites tiers.
 
-En utilisant ce site, tu acceptes de l'utiliser légalement et de ne pas tenter de le perturber, le scraper massivement ou le republier comme s'il était tien.`;
+En utilisant ce site, vous acceptez de l'utiliser légalement et de ne pas tenter de le perturber, le scraper massivement ou le republier comme s'il était vôtre.`;
 
 function TermsPage() {
   return (

@@ -27,8 +27,35 @@ const FR_LENSES: Record<Lens, { label: string; description: string }> = {
 };
 
 const FR_ENTRY_COPY: Record<string, EntryCopy> = {
+  ebbinghaus: {
+    title: "Ebbinghaus",
+    type: "produit edtech",
+    summary:
+      "Système d'étude en alpha privée qui transforme des cours réels en flashcards sourcées, fiches LaTeX et sessions de révision espacée.",
+    body: `Ebbinghaus est parti d'une frustration simple : les étudiants ont déjà le contenu, mais transformer ce contenu en quelque chose d'utilisable pour réviser est lent, répétitif, et souvent abandonné au milieu. La tentation produit la plus évidente aurait été de construire "une app de flashcards avec IA". La version plus utile était de construire une boucle complète d'étude autour de vrais fichiers de cours.
+
+Le MVP actuel permet de créer un cours, uploader des lectures, notes, fichiers de code, past papers et marking schemes, extraire du texte lisible, générer des flashcards sourcées, générer des supports d'étude en LaTeX, puis lancer une session de révision avec la logique Again, Hard, Good, Easy. Les formula sheets et exam walkthroughs sont traités comme des sources LaTeX éditables qui compilent en PDF, et non comme de faux documents rich text. Pour du contenu STEM, c'est beaucoup plus honnête.
+
+Techniquement, la partie intéressante est que la génération n'est pas juste un gros prompt collé derrière un bouton. L'application a déjà une petite forme de runtime agentique : uploads repris par chunks, extraction, chunking, génération OpenAI sous JSON schema, chemins de vérification/correction, synchronisation d'état locale par utilisateur alpha, et compilation LaTeX sur la machine hôte. Ce n'est pas encore une architecture distribuée, mais ce n'est plus un simple wrapper non plus.
+
+Le système n'est pas encore prêt pour la production, et c'est important de le dire. L'alpha actuelle reste hébergée sur un laptop : le stockage est local, les appels OpenAI partent depuis la machine hôte, et la compilation TeX tourne sur cette même machine. C'est acceptable pour une alpha privée avec des testeurs de confiance, pas pour une mise en ligne publique. L'étape suivante est un déploiement VPS avec de meilleures frontières de stockage et de sandbox.
+
+Je l'ajoute ici maintenant parce que le but de cette archive n'est pas d'attendre qu'une chose ressemble à un produit fini pour en parler. Le MVP en l'état dit déjà quelque chose d'utile sur ma manière de construire : partir de la vraie boucle utilisateur, garder la différenciation ancrée dans une friction réelle, et rendre le système assez inspectable pour que la confiance survive au premier mauvais artefact généré.`,
+    tags: [
+      "edtech",
+      "llm",
+      "répétition-espacée",
+      "latex",
+      "tanstack-start",
+      "produit",
+      "alpha-privée",
+    ],
+    role: "Conception produit, architecture du runtime, implémentation et opérations d'alpha.",
+    outcome:
+      "Construction d'une alpha privée fonctionnelle qui ingère des sources de cours, génère des flashcards et des supports LaTeX, puis fait tourner de vraies sessions de révision. L'étape suivante est le déploiement VPS et un meilleur isolement du stockage et de la compilation TeX.",
+  },
   "cyberphysical-robocup-soccer-teams": {
-    title: "Equipes RoboCup cyberphysiques",
+    title: "Équipes cyberphysiques RoboCup",
     type: "simulation robotique",
     summary:
       "Système de benchmarking RoboCup que j'ai construit en simulation 2D et 3D, avec comparaison de stratégies, sweeps OFAT de paramètres, analyse par rôle, documentation Doxygen et preuves de gestion de projet.",
