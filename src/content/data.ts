@@ -121,7 +121,13 @@ I am adding it here now because the point of this archive is not to wait until e
     role: "Product design, runtime architecture, implementation, and alpha operations.",
     outcome:
       "Built a working private alpha that ingests course sources, generates flashcards and LaTeX study materials, and runs real review sessions. The next milestone is VPS deployment and stronger isolation around storage and TeX compilation.",
-    links: [{ label: "repo", href: "https://github.com/thewebbutbeyond/ebbinghaus-app" }],
+    links: [
+      {
+        label: "website",
+        href: "https://seed-editors-democracy-pursue.trycloudflare.com/alpha-access",
+      },
+      { label: "repo", href: "https://github.com/thewebbutbeyond/ebbinghaus-app" },
+    ],
     media: [
       {
         kind: "image",
