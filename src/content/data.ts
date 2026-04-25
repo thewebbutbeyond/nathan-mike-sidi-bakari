@@ -105,7 +105,7 @@ The current MVP lets a student create a course, upload lectures, notes, code, pa
 
 Technically, the interesting part is that the generation path is not just a single prompt glued to a button. The app has a small agentic runtime shape: resumable uploads, source extraction, chunking, OpenAI JSON-schema generation, verification/correction paths, synced app state per alpha user, and LaTeX compilation. It is still one repo and one runtime, but it behaves more like a real product system than a demo wrapper.
 
-The alpha now runs on a Hetzner VPS behind Caddy, with Docker Compose wrapping the app runtime and a real domain at app.ebbinghaus.be. That changed the project from "I can share a temporary tunnel if my laptop stays awake" into a stable private alpha that friends can actually reach. It also taught a useful infrastructure lesson: DNS only points the name at a server; Caddy routes the hostname to the right local app port; Docker makes the runtime repeatable and keeps the app away from the host except for explicit mounted data.
+The alpha now runs on a Hetzner VPS behind Caddy, with Docker Compose wrapping the app runtime and a real domain. That changed the project from "I can share a temporary tunnel if my laptop stays awake" into a stable private alpha that friends can actually reach. It also taught a useful infrastructure lesson: DNS only points the name at a server; Caddy routes the hostname to the right local app port; Docker makes the runtime repeatable and keeps the app away from the host except for explicit mounted data.
 
 It is still not production-ready, and that matters. File storage is filesystem-backed, auth is alpha-code based, and uploaded files plus generated TeX must be treated as untrusted input even inside a container. The next technical step is not "make it public"; it is cleaner auth, stronger isolation around parsing/LaTeX compilation, and a more durable storage model.
 
@@ -124,7 +124,7 @@ I am adding it here now because the point of this archive is not to wait until e
     outcome:
       "Built and deployed a working private alpha that ingests course sources, generates flashcards and LaTeX study materials, and runs real review sessions. The VPS deployment now uses Docker and Caddy behind app.ebbinghaus.be; the next milestone is cleaner auth, durable storage, and stronger isolation around TeX/file processing.",
     links: [
-      { label: "website", href: "https://app.ebbinghaus.be/alpha-access" },
+      { label: "website", href: "https://app.ebbinghaus.be/" },
       { label: "repo", href: "https://github.com/thewebbutbeyond/ebbinghaus-app" },
     ],
     media: [
