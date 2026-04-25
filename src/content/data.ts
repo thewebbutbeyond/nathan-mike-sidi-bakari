@@ -103,9 +103,11 @@ export const ENTRIES: Entry[] = [
 
 The current MVP lets a student create a course, upload lectures, notes, code, past papers, and marking schemes, extract readable text, generate source-grounded flashcards, generate LaTeX study materials, and run a review session with Again, Hard, Good, and Easy scheduling. Formula sheets and exam walkthroughs are treated as editable LaTeX sources that compile into PDFs rather than as fake rich-text documents. That decision keeps the mathematical formatting honest and makes the workflow more useful for engineering-heavy material.
 
-Technically, the interesting part is that the generation path is not just a single prompt glued to a button. The app has a small agentic runtime shape: resumable uploads, source extraction, chunking, OpenAI JSON-schema generation, verification/correction paths, local app-state sync per alpha user, and LaTeX compilation on the host machine. It is still one repo and one runtime, but it behaves more like a real product system than a demo wrapper.
+Technically, the interesting part is that the generation path is not just a single prompt glued to a button. The app has a small agentic runtime shape: resumable uploads, source extraction, chunking, OpenAI JSON-schema generation, verification/correction paths, synced app state per alpha user, and LaTeX compilation. It is still one repo and one runtime, but it behaves more like a real product system than a demo wrapper.
 
-It is not production-ready yet, and that matters. The current alpha is still laptop-hosted: file storage is local, OpenAI calls happen from the host machine, and TeX compilation runs on the same box. That is acceptable for a trusted private alpha and not acceptable for a public deployment. The next step is a VPS-backed deployment with stronger storage and sandbox boundaries.
+The alpha now runs on a Hetzner VPS behind Caddy, with Docker Compose wrapping the app runtime and a real domain at app.ebbinghaus.be. That changed the project from "I can share a temporary tunnel if my laptop stays awake" into a stable private alpha that friends can actually reach. It also taught a useful infrastructure lesson: DNS only points the name at a server; Caddy routes the hostname to the right local app port; Docker makes the runtime repeatable and keeps the app away from the host except for explicit mounted data.
+
+It is still not production-ready, and that matters. File storage is filesystem-backed, auth is alpha-code based, and uploaded files plus generated TeX must be treated as untrusted input even inside a container. The next technical step is not "make it public"; it is cleaner auth, stronger isolation around parsing/LaTeX compilation, and a more durable storage model.
 
 I am adding it here now because the point of this archive is not to wait until everything looks finished. The working MVP already says something useful about how I think: start from the real user loop, keep the differentiator grounded in product friction, and make the system inspectable enough that trust can survive the first bad generation.`,
     lenses: ["engineer", "entrepreneur"],
@@ -120,8 +122,11 @@ I am adding it here now because the point of this archive is not to wait until e
     ],
     role: "Product design, runtime architecture, implementation, and alpha operations.",
     outcome:
-      "Built a working private alpha that ingests course sources, generates flashcards and LaTeX study materials, and runs real review sessions. The next milestone is VPS deployment and stronger isolation around storage and TeX compilation.",
-    links: [{ label: "repo", href: "https://github.com/thewebbutbeyond/ebbinghaus-app" }],
+      "Built and deployed a working private alpha that ingests course sources, generates flashcards and LaTeX study materials, and runs real review sessions. The VPS deployment now uses Docker and Caddy behind app.ebbinghaus.be; the next milestone is cleaner auth, durable storage, and stronger isolation around TeX/file processing.",
+    links: [
+      { label: "website", href: "https://app.ebbinghaus.be/alpha-access" },
+      { label: "repo", href: "https://github.com/thewebbutbeyond/ebbinghaus-app" },
+    ],
     media: [
       {
         kind: "image",

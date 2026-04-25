@@ -36,9 +36,11 @@ const FR_ENTRY_COPY: Record<string, EntryCopy> = {
 
 Le MVP actuel permet de créer un cours, uploader des lectures, notes, fichiers de code, past papers et marking schemes, extraire du texte lisible, générer des flashcards sourcées, générer des supports d'étude en LaTeX, puis lancer une session de révision avec la logique Again, Hard, Good, Easy. Les formula sheets et exam walkthroughs sont traités comme des sources LaTeX éditables qui compilent en PDF, et non comme de faux documents rich text. Pour du contenu STEM, c'est beaucoup plus honnête.
 
-Techniquement, la partie intéressante est que la génération n'est pas juste un gros prompt collé derrière un bouton. L'application a déjà une petite forme de runtime agentique : uploads repris par chunks, extraction, chunking, génération OpenAI sous JSON schema, chemins de vérification/correction, synchronisation d'état locale par utilisateur alpha, et compilation LaTeX sur la machine hôte. Ce n'est pas encore une architecture distribuée, mais ce n'est plus un simple wrapper non plus.
+Techniquement, la partie intéressante est que la génération n'est pas juste un gros prompt collé derrière un bouton. L'application a déjà une petite forme de runtime agentique : uploads repris par chunks, extraction, chunking, génération OpenAI sous JSON schema, chemins de vérification/correction, synchronisation d'état par utilisateur alpha, et compilation LaTeX. Ce n'est pas encore une architecture distribuée, mais ce n'est plus un simple wrapper non plus.
 
-Le système n'est pas encore prêt pour la production, et c'est important de le dire. L'alpha actuelle reste hébergée sur un laptop : le stockage est local, les appels OpenAI partent depuis la machine hôte, et la compilation TeX tourne sur cette même machine. C'est acceptable pour une alpha privée avec des testeurs de confiance, pas pour une mise en ligne publique. L'étape suivante est un déploiement VPS avec de meilleures frontières de stockage et de sandbox.
+L'alpha tourne maintenant sur un VPS Hetzner derrière Caddy, avec Docker Compose autour du runtime et un vrai domaine sur app.ebbinghaus.be. Le projet est donc passé de "je peux partager un tunnel temporaire si mon laptop reste éveillé" à une alpha privée stable que des amis peuvent vraiment atteindre. Ça a aussi cristallisé une leçon d'infra simple : le DNS pointe seulement le nom vers un serveur ; Caddy route le hostname vers le bon port local ; Docker rend le runtime reproductible et limite ce que l'app touche sur l'hôte aux volumes explicitement montés.
+
+Le système n'est toujours pas prêt pour une mise en ligne publique, et c'est important de le dire. Le stockage reste basé sur le filesystem, l'auth repose sur des codes alpha, et les fichiers uploadés comme le TeX généré doivent être traités comme des entrées non fiables même dans un conteneur. La prochaine étape technique n'est donc pas "ouvrir au public", mais améliorer l'auth, isoler davantage le parsing/la compilation LaTeX, et rendre le stockage plus durable.
 
 Je l'ajoute ici maintenant parce que le but de cette archive n'est pas d'attendre qu'une chose ressemble à un produit fini pour en parler. Le MVP en l'état dit déjà quelque chose d'utile sur ma manière de construire : partir de la vraie boucle utilisateur, garder la différenciation ancrée dans une friction réelle, et rendre le système assez inspectable pour que la confiance survive au premier mauvais artefact généré.`,
     tags: [
@@ -52,7 +54,7 @@ Je l'ajoute ici maintenant parce que le but de cette archive n'est pas d'attendr
     ],
     role: "Conception produit, architecture du runtime, implémentation et opérations d'alpha.",
     outcome:
-      "Construction d'une alpha privée fonctionnelle qui ingère des sources de cours, génère des flashcards et des supports LaTeX, puis fait tourner de vraies sessions de révision. L'étape suivante est le déploiement VPS et un meilleur isolement du stockage et de la compilation TeX.",
+      "Construction et déploiement d'une alpha privée fonctionnelle qui ingère des sources de cours, génère des flashcards et des supports LaTeX, puis fait tourner de vraies sessions de révision. Le déploiement VPS utilise maintenant Docker et Caddy derrière app.ebbinghaus.be ; la prochaine étape est une auth plus propre, un stockage durable et un meilleur isolement du traitement fichiers/TeX.",
   },
   "cyberphysical-robocup-soccer-teams": {
     title: "Équipes cyberphysiques RoboCup",
