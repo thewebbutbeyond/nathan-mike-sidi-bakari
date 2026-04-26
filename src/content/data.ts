@@ -705,8 +705,266 @@ import noteCoverContext from "@/assets/notes/the-cost-of-context.jpg";
 import noteCoverInvesting from "@/assets/notes/what-investing-taught-me-about-product.jpg";
 import noteCoverDrawing from "@/assets/notes/drawing-as-rest.jpg";
 import noteCoverSupportGroup from "@/assets/notes/support-group-luca-ponsato.jpg";
+import noteCoverRobotsWorking from "@/assets/notes/robots-working-on-project.jpg";
 
 export const NOTES: Note[] = [
+  {
+    slug: "testing-with-a-fictional-engineering-team",
+    title: "Testing with a fictional engineering team",
+    date: "2026-04-26",
+    summary:
+      "A note on replaying A.R.G.U.S. through Vishva with agent engineers, and why synthetic teams may become a useful rehearsal layer before human testing.",
+    readingMinutes: 13,
+    tags: [
+      "ai",
+      "agents",
+      "product",
+      "testing",
+      "engineering",
+      "vishva",
+      "argus",
+      "systems",
+      "self-reflection",
+    ],
+    cover: noteCoverRobotsWorking,
+    coverAlt:
+      "Robots gathered around a work table, reading plans and working on an engineering project together.",
+    body: `Something happened this week that I do not want to lose.
+
+I have been building Vishva around a simple frustration: engineering projects change faster than the artefacts that are supposed to describe them. The plan becomes outdated. The risks live in someone's memory. The report is written at the end, when everyone is tired, and it quietly pretends the project was more linear than it really was. Decisions happen in meetings, but the project state does not always move with them.
+
+That is the product idea in one sentence:
+
+Vishva should help keep the project state aligned with reality.
+
+It sounds clean when written like that. Most product ideas do. The difficulty is that engineering reality is not clean. It arrives through half-decisions, failed tests, missing parts, vague meeting notes, small disagreements, revised deadlines, sudden insights, and the strange drift that happens when a team thinks it is aligned but each person is actually carrying a slightly different version of the project in their head.
+
+So the question became: how do I test a product like that?
+
+I could click through the interface. I could test forms, buttons, exports, routes, validation, and error messages. That matters. It catches obvious brokenness. But it does not answer the deeper question.
+
+Does Vishva make an engineering project easier to manage while it is actually being built?
+
+The honest way to answer that would be to put Vishva beside a real team for several months and watch what happens. Let the team start a project, create a brief, produce a plan, hold meetings, update risks, generate documents, and see whether Vishva reduces the administrative burden or merely adds another system to maintain.
+
+That is the right test.
+
+But I did not have several months. I did have something else: A.R.G.U.S.
+
+A.R.G.U.S. was a real embedded systems project. It had a real brief, real constraints, real reports, real diagrams, real code, real decisions, real project-management evidence, and a real ending. It started around January and was handed in around April. The project had already happened, which meant the full story existed somewhere in the archive.
+
+Usually, that would make it useless for testing a project-management tool. You cannot manage a project that is already finished.
+
+But then we tried something that now feels obvious and strange at the same time.
+
+We rewound the project.
+
+Instead of showing Vishva the finished A.R.G.U.S. project all at once, we pretended we were back in January. The team did not have the final report. It did not have the final system. It only had the initial idea, the marking criteria, and the early shape of the problem: a safety guardian for robotic systems.
+
+Then we let the project unfold again.
+
+Not with human students in a lab, but with a small team of agents pretending to be the engineering team. They were not asked to invent a random project. They were given the real A.R.G.U.S. archive as the future we already knew, and they used it to create plausible weekly meetings, decisions, risks, blockers, design changes, implementation updates, and submission work.
+
+The result was a what-if version of A.R.G.U.S.
+
+Not the real A.R.G.U.S., because the real project happened without Vishva.
+
+A what-if A.R.G.U.S.: the version where the same project was built with Vishva sitting beside the team from the beginning.
+
+That distinction matters to me.
+
+This was not a fake case study in the usual empty sense. The agents were synthetic, but the source material was real. The timeline was fictional, but it was constrained by a real project. The meetings were generated, but they had to make sense against actual evidence. The point was not to trick ourselves into believing that a simulation is reality. The point was to use a finished reality as a boundary condition for a simulation.
+
+That is what made the experiment interesting.
+
+It was not only "can agents write believable meeting notes?"
+
+They can. That is no longer the surprising part.
+
+The better question was:
+
+Can a synthetic team stress-test the product loop of a real system before real users spend their attention on it?
+
+And the answer, at least from this experiment, is yes. Not fully. Not perfectly. Not as a replacement for human testing. But enough to be useful.
+
+The experiment immediately exposed things that normal interface testing would not have exposed as clearly.
+
+For example, the project looked alive because meetings had been processed and documents had been generated. But the work breakdown structure still showed almost everything as not started. That was not a small visual bug. It was a product contradiction. If meetings are supposed to update the project state, and the WBS is part of that state, then the WBS cannot sit there pretending nothing happened.
+
+That one issue clarified something important: the WBS is not just a planning list. It is the ground truth for the plan. The Gantt chart and the network diagram are not separate artefacts with their own truth. They are views of the WBS. If the WBS changes, the other views should change. If a meeting creates or modifies work, that provenance should be visible. If a task exists because of meeting M4, the plan should remember that.
+
+That sounds technical, but it is really a trust issue.
+
+If the product says it is maintaining the project state, the user has to believe that the state is not theatre.
+
+The same thing happened with documents. At first, documents were just a list. That is acceptable when there are five artefacts. It becomes weak when the project actually has briefs, plans, meeting minutes, reports, diagrams, CSV exports, and generated evidence. The experiment forced the product to admit that documents are not one generic pile. They belong to modules. The brief module creates the brief. The planning module creates the WBS, network diagram, and Gantt chart. The meeting module creates meeting minutes and reports.
+
+Again, this is not just a layout detail.
+
+It is the product teaching the user how the system thinks.
+
+The synthetic team also made the AI mode feel less impressive than the name suggested. If an assistant mostly says "do this next" and blocks until a specific input arrives, it does not feel like J.A.R.V.I.S. It feels like a wizard with better copy. That is useful to discover now, before building more orchestration on top of it. The manual workspace has to be clear first. If the manual flow is confusing, a meta-agent will only hide the confusion behind a more conversational surface.
+
+That may be the biggest product lesson from the whole experiment.
+
+Before an agent can orchestrate a workspace, the workspace itself has to be coherent enough to orchestrate.
+
+If the brief is vague, the plan is too rigid, meeting updates do not mutate the right state, documents are hard to find, and provenance is invisible, then the AI layer is not intelligence. It is camouflage. It may make the product feel smoother for a few minutes, but the underlying project model will still be weak.
+
+That is why the A.R.G.U.S. replay mattered. It did not flatter the product. It argued with it.
+
+A good test should do that.
+
+Most product testing starts too late. By the time a real user is in the product, you are asking them to spend real attention. That attention is expensive. It contains patience, trust, curiosity, confusion, embarrassment, and sometimes goodwill that will not come back if you waste it too badly.
+
+I do not think agent teams replace that.
+
+They cannot tell you whether a human being feels trust. They cannot tell you whether someone would pay. They cannot tell you whether a tired engineer at 11 p.m. would still bother uploading the meeting transcript. They cannot feel the annoyance of a label that is one word too cute, or the small relief of a page that removes one task from their day. They do not have politics, pride, shame, deadlines, ego, or the social cost of admitting that they do not understand something.
+
+Those things matter. Human testing is not optional.
+
+But maybe there is a layer before human testing that we have not used enough.
+
+A rehearsal layer.
+
+Before asking real people to test the product, ask a synthetic team with enough context to try to live inside it. Give them a real project archive. Give them roles. Give them constraints. Give them a timeline. Make them hold meetings. Make them produce messy updates. Make them ask the product to keep up.
+
+Then watch where the product breaks.
+
+Not where the button breaks.
+
+Where the story breaks.
+
+That is the phrase I keep coming back to: the story of the product.
+
+A product like Vishva is not only a collection of screens. It is a promise about how work moves. Idea becomes brief. Brief becomes plan. Work happens outside the tool. Meeting captures reality. Vishva interprets reality. Suggestions become validated changes. Changes update the project state. Documents and history make the project reconstructible.
+
+If that story is false at any point, the product is false at that point.
+
+The synthetic A.R.G.U.S. team helped us test the story.
+
+It showed that the brief should be stable. It should not mutate every time someone has a new thought. It showed that planning cannot force every engineering project into the same four buckets, because different projects have different planning logics. A project may follow a WBS, a V-model, a waterfall-like sequence, or some hybrid structure. It showed that meeting reports need to be more than summaries. They need action items, decisions, risks, blockers, proposed updates, accepted updates, rejected updates, and cross-meeting intelligence. It showed that generated documents are not decoration. They are part of the value, because engineers do not want to spend their best hours manually redrawing diagrams and rewriting management evidence.
+
+That last point is important to me.
+
+Engineers usually do not start engineering projects because they love updating Gantt charts.
+
+They want to build. They want to design, test, wire, simulate, debug, solder, tune, argue with reality, and give shape to an idea that did not exist before. The project-management layer is necessary, but it can become a tax on the creative and technical part of engineering.
+
+If Vishva is useful, it should reduce that tax.
+
+Not by pretending that management disappears.
+
+By turning the management work into a byproduct of the team's actual rhythm.
+
+Meet. Discuss. Decide. Build. Test. Come back. Tell the system what happened. Let the system maintain the state, produce the minutes, surface the risks, update the plan, and keep the documents close enough to reality that the final report is not an archaeological exercise.
+
+That is the dream.
+
+The A.R.G.U.S. replay did not prove the dream.
+
+But it made it more testable.
+
+It gave us a way to ask sharper questions:
+
+Does the plan reflect progress?
+
+Can a meeting update the right work packages?
+
+Can a new contributor reconstruct what happened?
+
+Can the generated documents tell the project story without manual rescue?
+
+Does the product make engineering management lighter, or just move the work into a different UI?
+
+Does the assistant feel like an assistant, or like a polite gatekeeper?
+
+Those are better questions than "does the page load?"
+
+I also like the experiment because it connects to something I have been thinking about in group work. Communication is not just exchanging words. It is synchronising mental models. A team fails when people carry different versions of the project and no one notices until integration hurts.
+
+Vishva is, in a way, a tool for making that shared model explicit.
+
+So testing Vishva with a team of agents was not a gimmick. It was almost the natural test for the product. If the product is meant to help a team maintain a shared project reality, then a team, even a simulated one, is the minimum meaningful testing unit.
+
+One agent clicking through the app would not have found the same things.
+
+A team created pressure. One agent could play the project lead. Another could think like the software owner. Another could think like the hardware owner. Another could care about documentation and submission evidence. They did not need to be perfect humans. They only needed to create enough friction for the product to reveal whether it understood the shape of the work.
+
+That is what surprised me.
+
+The usefulness did not come from pretending the agents were human in every sense.
+
+It came from giving them enough structure that their limitations still produced signal.
+
+This is probably the responsible way to think about agent testing. Do not claim too much. Do not say "we tested with users" when you tested with agents. Do not use synthetic feedback as proof of market demand. Do not confuse a plausible conversation with adoption. Do not let the convenience of agent simulation make you avoid the discomfort of real human feedback.
+
+But also, do not ignore the tool because it is imperfect.
+
+A wind tunnel is not the sky. A simulator is not the road. A finite-element model is not the bridge. Engineers know this. We still use models, because a good model lets us fail earlier, cheaper, and with less harm.
+
+Maybe agent teams can become something like that for product workflows.
+
+Not the final truth.
+
+A wind tunnel for the story of the product.
+
+That is why I want to keep this note.
+
+The most exciting part was not that we used agents. Everyone is using agents now. The exciting part was that the agents were not just writing code or summarising text. They were placed inside a project narrative and asked to create pressure over time. They became a temporary engineering organisation. They held meetings. They generated project history. They made the product prove whether it could keep up.
+
+For a few hours, a finished engineering project became a test environment for the management tool that should have existed while building it.
+
+I think there is something powerful there.
+
+It means old projects are not only portfolio artefacts. They can become laboratories. A completed project contains a compressed history of decisions, mistakes, documents, constraints, and outcomes. If you replay it carefully, it can test new tools against a reality that has already happened.
+
+That feels valuable beyond Vishva.
+
+A design tool could be tested against the archived process of a real product redesign.
+
+A coding assistant could be tested against the staged history of an old feature.
+
+A teaching tool could be tested against the path a student actually took through a difficult module.
+
+A project-management system could be tested against the messy middle of a robotics project, not only against clean demo data.
+
+The archive becomes executable in a new way.
+
+That phrase may be too strong, but it feels close.
+
+An archive is usually passive. It records what happened. This experiment made the archive active. It let the past push against the present product. It let a finished project ask: would you have helped me while I was alive?
+
+That is a much better question than "can you display my final report?"
+
+Would Vishva have helped A.R.G.U.S. while A.R.G.U.S. was being built?
+
+Not perfectly yet.
+
+But more than before.
+
+And because we ran the replay, we now know more precisely what has to improve.
+
+That is what makes me proud of the experiment. It was not polish. It was not a demo arranged to make the product look good. It was a way of making the product answer to a project with weight.
+
+I want more testing to feel like that.
+
+Less performance.
+
+More rehearsal.
+
+Less "look at this feature."
+
+More "can this system survive a believable month of work?"
+
+Before I ask humans to spend their attention, I want to know whether a synthetic team with enough context can complete the story without the product contradicting itself. If they cannot, the product probably is not ready for humans yet.
+
+And if they can, that still does not mean the product is good.
+
+It only means it has earned the next, harder test.
+
+Real people.`,
+  },
   {
     slug: "communication-is-an-engineering-problem",
     title: "Communication is an engineering problem",
