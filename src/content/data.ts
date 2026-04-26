@@ -705,7 +705,7 @@ import noteCoverContext from "@/assets/notes/the-cost-of-context.jpg";
 import noteCoverInvesting from "@/assets/notes/what-investing-taught-me-about-product.jpg";
 import noteCoverDrawing from "@/assets/notes/drawing-as-rest.jpg";
 import noteCoverSupportGroup from "@/assets/notes/support-group-luca-ponsato.jpg";
-import noteCoverRobotsWorking from "@/assets/notes/robots-working-on-project.jpg";
+import noteCoverRobotsWorking from "@/assets/notes/robots-working-on-project-v2.png";
 
 export const NOTES: Note[] = [
   {
@@ -728,7 +728,7 @@ export const NOTES: Note[] = [
     ],
     cover: noteCoverRobotsWorking,
     coverAlt:
-      "Robots gathered around a work table, reading plans and working on an engineering project together.",
+      "Humanoid robots gathered around a glowing project table, reviewing engineering plans together.",
     body: `Something happened this week that I do not want to lose.
 
 I have been building Vishva around a simple frustration: engineering projects change faster than the artefacts that are supposed to describe them. The plan becomes outdated. The risks live in someone's memory. The report is written at the end, when everyone is tired, and it quietly pretends the project was more linear than it really was. Decisions happen in meetings, but the project state does not always move with them.
