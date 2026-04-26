@@ -705,7 +705,7 @@ import noteCoverContext from "@/assets/notes/the-cost-of-context.jpg";
 import noteCoverInvesting from "@/assets/notes/what-investing-taught-me-about-product.jpg";
 import noteCoverDrawing from "@/assets/notes/drawing-as-rest.jpg";
 import noteCoverSupportGroup from "@/assets/notes/support-group-luca-ponsato.jpg";
-import noteCoverRobotsWorking from "@/assets/notes/robots-working-on-project-v2.png";
+import noteCoverRobotsWorking from "@/assets/notes/robots-working-on-project-v2.jpg";
 
 export const NOTES: Note[] = [
   {
