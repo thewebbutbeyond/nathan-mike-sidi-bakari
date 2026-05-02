@@ -27,6 +27,41 @@ const FR_LENSES: Record<Lens, { label: string; description: string }> = {
 };
 
 const FR_ENTRY_COPY: Record<string, EntryCopy> = {
+  "ebbinghaus-part-two": {
+    title: "Ebbinghaus, partie deux",
+    type: "journal produit edtech",
+    summary:
+      "Le moment où Ebbinghaus est passé d'un outil d'étude en alpha privée à un workspace de cours proche d'un MVP, avec workflows agentiques, site marketing public et limites produit plus claires.",
+    body: `Cette deuxième partie est le moment où Ebbinghaus a cessé d'être seulement un outil d'étude prometteur pour commencer à ressembler à un petit produit. La première version prouvait que des fichiers de cours pouvaient devenir des fiches, des supports LaTeX et des sessions de révision. Cette passe posait une question plus dure : est-ce que tout le workspace peut aider un étudiant à préparer ses examens sans lui demander de recoller dix outils ensemble ?
+
+L'origine reste personnelle. J'étais étudiant en master d'ingénierie, avec des examens proches, des cours énormes, et trop de supports dispersés : lectures, livres, tutorials, rapports, exemples de code, past papers, marking schemes et feuilles de formules. Mon workflow par défaut était papier et stylo. Ça marche, mais ça tient mal quand un cours devient une petite archive. Je voulais un seul endroit où compiler la matière, la transformer en connaissance utilisable, puis réviser activement depuis cette connaissance.
+
+Cette contrainte a changé la promesse produit. Ebbinghaus n'est pas censé être "une app de flashcards avec IA". Le positionnement plus fort est un workspace d'étude ancré dans les sources de cours, où un tuteur personnel aide à transformer des fichiers désordonnés en workflow d'examen. Les flashcards comptent, la répétition espacée compte, les feuilles de formules comptent, et les corrections guidées de past papers comptent. La nouveauté, c'est qu'elles vivent ensemble, et que le tuteur peut agir dans le workspace au lieu de répondre à côté.
+
+La passe agent a été le plus gros changement. L'assistant peut maintenant inférer une demande utilisateur, la mapper vers des workflows définis, et modifier l'état de l'application via des outils : relancer un support d'étude, ajouter ou traiter des sources, inspecter l'état d'un cours, marquer des cartes ou sources comme relues, et expliquer ce qui s'est passé. Il a aussi gagné une posture d'échec plus honnête. La leçon est simple : un agent produit utile a besoin d'état, de journaux d'action, de frontières d'outils, de chemins de récupération et de résultats visibles. Il ne peut pas juste avoir l'air sûr de lui.
+
+Le reste du produit est devenu plus cohérent aussi. L'app a maintenant un Study kit status plus clair, un Study plan, des régions denses repliables, des cours archivés en lecture seule, un vocabulaire de review plus propre, une sélection de cartes avec review et suppression en masse, une surface Progress avec badges, des placeholders account/usage, des pages légales/footer, et un site marketing public qui ressemble à l'app au lieu de ressembler à une brochure séparée. Le projet a aussi gagné une documentation plus propre, des tags de release et une histoire de déploiement plus volontaire.
+
+Ça reste une frontière MVP, pas un produit à échelle publique. Les gros cours mettent l'architecture actuelle sous pression, surtout la génération de cartes et le rendu de très grands decks. Le LaTeX dans les flashcards produit encore des artefacts qui demandent nettoyage déterministe et review. L'agent est utile maintenant, mais ce n'est pas encore JARVIS. Un lancement public sérieux demande encore stockage durable, object storage, queue de jobs, meilleure observabilité, billing, et un modèle de données plus solide.
+
+La question business reste ouverte aussi. Je ne pense pas que le bon cadrage soit "battre Quizlet" ou "devenir Notion pour étudier". Ce serait délirant. La question plus réaliste est de savoir s'il existe une niche douloureuse où les outils existants sont assez maladroits pour qu'Ebbinghaus soit évidemment meilleur : cours d'ingénierie et de maths, supports européens fragmentés, révision centrée sur les past papers, et étudiants qui veulent de l'aide sourcée plutôt que des réponses IA génériques.
+
+La prochaine preuve n'est donc pas une campagne de lancement. C'est une alpha fermée avec quelques vrais étudiants, idéalement des camarades et amis avec de vrais examens, des PDFs désordonnés, et assez de confiance pour dire les choses franchement. Le premier témoignage sera aussi le mien : si ce système m'aide à traverser les examens qui m'ont poussé à le construire, alors le projet mérite son prochain cycle de travail.`,
+    tags: [
+      "edtech",
+      "llm",
+      "ia-agentique",
+      "répétition-espacée",
+      "latex",
+      "produit",
+      "mvp",
+      "alpha-privée",
+      "workflow-d'étude",
+    ],
+    role: "Stratégie produit, design de l'app, conception des workflows agentiques, implémentation full-stack, direction du site marketing, déploiement et documentation.",
+    outcome:
+      "Atteinte d'une frontière MVP en alpha privée : app et site marketing livrés, cartes sourcées et supports LaTeX fonctionnels, workflows agentiques utilisables, documentation de release écrite, et prochaine phase recadrée comme validation d'alpha fermée plutôt que passage à l'échelle publique.",
+  },
   ebbinghaus: {
     title: "Ebbinghaus",
     type: "produit edtech",

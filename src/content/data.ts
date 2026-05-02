@@ -6,6 +6,7 @@ import ebbinghausCourseDashboard from "@/assets/entries/ebbinghaus/course-dashbo
 import ebbinghausFormulaSheetPreview from "@/assets/entries/ebbinghaus/formula-sheet-preview.png";
 import ebbinghausGeneratedDeck from "@/assets/entries/ebbinghaus/generated-deck.png";
 import ebbinghausReviewAnswer from "@/assets/entries/ebbinghaus/review-answer.png";
+import ebbinghausStudySession from "@/assets/entries/ebbinghaus-part-two/study-session.png";
 import mobileRobotReportPdf from "@/assets/entries/mobile-robot-controller/eng5009-mobile-robot-controller-report.pdf?url";
 import mobileRobotEnvironment from "@/assets/entries/mobile-robot-controller/environment.png";
 import mobileRobotFinalStates from "@/assets/entries/mobile-robot-controller/final-states.png";
@@ -92,6 +93,75 @@ export const LENSES: { slug: Lens; label: string; description: string }[] = [
 
 export const ENTRIES: Entry[] = [
   {
+    slug: "ebbinghaus-part-two",
+    title: "Ebbinghaus, part two",
+    date: "2026-05-02",
+    type: "edtech product log",
+    status: "active",
+    summary:
+      "The point where Ebbinghaus moved from private-alpha study tool toward an MVP-shaped course workspace with agentic workflows, a public marketing site, and clearer product limits.",
+    body: `Part two is the point where Ebbinghaus stopped being only a promising study tool and started behaving like a small product. The first build proved that course material could become cards, LaTeX sheets, and review sessions. This pass asked a harder question: can the whole workspace help a student prepare for exams without forcing them to stitch ten tools together?
+
+The origin is still personal. I was an engineering master's student with exams close, huge courses, and too many disconnected materials: lectures, books, tutorials, reports, code examples, past papers, marking schemes, and formula sheets. My default workflow was pen and paper. That works, but it does not scale well when the course becomes a small archive. I wanted one place where I could compile the material, turn it into usable knowledge, and then actively revise from it.
+
+That changed the product promise. Ebbinghaus is not meant to be "AI flashcards." The stronger wedge is a course-grounded study workspace where a personal tutor helps transform messy course files into an exam workflow. Flashcards matter, spaced repetition matters, formula sheets matter, and guided past-paper walkthroughs matter. The novelty is that they live together, and the tutor can operate inside the workspace instead of only answering a detached question.
+
+The agent pass was the biggest shift. The assistant can now infer a user request, map it onto defined workflows, and mutate the app state through tools: retry study material, add or process sources, inspect course status, review cards or sources, and explain what happened. It also gained a more honest failure posture. The lesson from building it was blunt: a useful product agent needs state, action logs, tool boundaries, recovery paths, and visible outcomes. It cannot just sound confident.
+
+The surrounding product became more coherent too. The app now has a sharper Study kit status, Study plan, collapsible dense regions, archived read-only courses, cleaner source review language, card selection and bulk review/delete flows, progress/badge surfaces, account and usage placeholders, legal/footer pages, and a public marketing site that looks like the app instead of a separate brochure. The project also gained cleaner documentation, release tags, and a more deliberate deployment story.
+
+It is still an MVP boundary, not a public-scale product. Big courses strain the current architecture, especially card generation and large deck rendering. LaTeX inside flashcards still produces artifacts that need deterministic cleanup and review. The agent is useful now, but it is not a JARVIS yet. Real public launch still needs durable storage, object storage, a job queue, better observability, billing, and a more serious data model.
+
+The business question is also unresolved. I do not think the right frame is "beat Quizlet" or "be Notion for studying." That would be deluded. The more realistic question is whether there is a painful niche where existing tools are awkward enough that Ebbinghaus feels obviously better: engineering and math-heavy courses, fragmented European course packs, past-paper-heavy revision, and students who need source-grounded help rather than generic AI answers.
+
+The next proof is not a launch campaign. It is closed alpha validation with a handful of real students, ideally classmates and friends with real exams, messy PDFs, and enough trust to be blunt. The first testimony is also mine: if this system helps me get through the exams that forced me to build it, then the project has earned the next round of work.`,
+    lenses: ["engineer", "entrepreneur"],
+    tags: [
+      "edtech",
+      "llm",
+      "agentic-ai",
+      "spaced-repetition",
+      "latex",
+      "product",
+      "mvp",
+      "private-alpha",
+      "study-workflow",
+    ],
+    role: "Product strategy, app design, agent workflow design, full-stack implementation, marketing-site direction, deployment, and documentation.",
+    outcome:
+      "Reached an MVP-shaped private-alpha boundary: app and marketing site shipped, source-grounded cards and LaTeX study materials working, agentic workflows usable, release docs written, and the next phase reframed as closed-alpha validation rather than public scale.",
+    links: [
+      { label: "app", href: "https://app.ebbinghaus.be/" },
+      { label: "marketing site", href: "https://ebbinghaus.be/" },
+      { label: "app repo", href: "https://github.com/thewebbutbeyond/ebbinghaus-app" },
+      { label: "marketing repo", href: "https://github.com/thewebbutbeyond/ebbinghaus" },
+    ],
+    media: [
+      {
+        kind: "image",
+        src: ebbinghausStudySession,
+        alt: "Students studying together at a table with laptops, notebooks, and printed notes.",
+        caption:
+          "The public-site visual direction moved toward real study contexts rather than abstract SaaS illustration.",
+      },
+      {
+        kind: "image",
+        src: ebbinghausCourseDashboard,
+        alt: "Ebbinghaus course dashboard showing study kit status, review counters, and generated study material.",
+        caption:
+          "The app settled around a course workspace: status, plan, cards, sources, and generated material in one place.",
+      },
+      {
+        kind: "image",
+        src: ebbinghausFormulaSheetPreview,
+        alt: "Ebbinghaus generated formula sheet shown as a compiled PDF preview.",
+        caption:
+          "LaTeX-backed study material remains important for engineering-heavy courses, even while the editing experience needs more polish.",
+      },
+    ],
+    related: ["ebbinghaus", "thesis-vertical-llms", "close-the-books"],
+  },
+  {
     slug: "ebbinghaus",
     title: "Ebbinghaus",
     date: "2026-04-25",
@@ -157,7 +227,7 @@ I am adding it here now because the point of this archive is not to wait until e
           "Review answer state with source attribution and spaced-repetition grading actions.",
       },
     ],
-    related: ["thesis-vertical-llms", "close-the-books"],
+    related: ["ebbinghaus-part-two", "thesis-vertical-llms", "close-the-books"],
   },
   {
     slug: "cyberphysical-robocup-soccer-teams",
