@@ -779,6 +779,100 @@ import noteCoverRobotsWorking from "@/assets/notes/robots-working-on-project-v2.
 
 export const NOTES: Note[] = [
   {
+    slug: "what-argus-taught-me-about-realtime-systems",
+    title: "What A.R.G.U.S. taught me about realtime systems",
+    date: "2026-05-19",
+    summary:
+      "A post-mortem on why a working robotics demo still failed the core realtime architecture test, and how I would rebuild it from the event model outward.",
+    readingMinutes: 11,
+    tags: [
+      "engineering",
+      "embedded-systems",
+      "realtime",
+      "robotics",
+      "architecture",
+      "postmortem",
+      "argus",
+      "coursework",
+      "learning",
+    ],
+    cover: argusBenchSetup,
+    coverAlt: "A.R.G.U.S. robotic arm bench setup with camera, Raspberry Pi, and test surface.",
+    body: `A.R.G.U.S. is the project I most need to keep honestly in the archive, because it is the clearest recent example of a system that looked more successful from the outside than it was from the inside.
+
+The public version of the story is easy to tell. A small robotic arm watches a live camera feed. A vision pipeline detects unsafe colour-layer exposure. A guardian state machine decides when motion should stop. An interlock blocks the motion path. A Raspberry Pi drives a PCA9685 servo board. The bench demo runs. The README is strong. The documentation is extensive. The logs show latency measurements. The website, wiki, Doxygen pages, and social surfaces exist.
+
+All of that is true.
+
+It is also not the lesson.
+
+The deeper truth is that A.R.G.U.S. did not fail because the idea was weak or because the team did no work. It failed technically because the implementation drifted toward making the demo work instead of making the architecture match the realtime model the course was actually assessing.
+
+The assessors were not primarily asking whether the robot could move and stop. They were asking whether the code demonstrated a clean object-oriented realtime C++ system: sensors producing events, callbacks carrying information across boundaries, state machines reacting directly to those events, and actuator code isolated behind a reliable interface. They wanted the internal structure to prove the intended learning outcomes.
+
+Our system had the right nouns. CameraCapture, VisionProcessor, GuardianStateMachine, RobotInterlock, MotionController, PhysicalButtonModule, and MetricsLogger were sensible concepts. The failure was that too much of the real behaviour lived outside those concepts, inside one enormous AppController.
+
+That file became the project. It knew about camera flow, button flow, keyboard flow, UI rendering, state transitions, motion routines, timers, retries, watchdogs, metrics, pose slewing, and shutdown. Once one file owns that much, the existence of separate classes stops being convincing. The classes become parts controlled by a central procedural program rather than autonomous modules with clear responsibilities.
+
+This was the structural failure. The code had objects, but the system did not really have object-oriented ownership.
+
+The realtime failure was sharper. We used libcamera2opencv, which is a callback-based camera framework. That was the right direction. But then the camera callback was wrapped into an internal buffer, guarded with a mutex and condition variable, exposed through waitForNextFrame, consumed by a thread in AppController, pushed into a message queue, and finally drained by the main loop.
+
+In other words, we took a callback API and reintroduced a getter/waiting model around it.
+
+That is exactly the kind of thing a realtime programming course is designed to notice. It does not matter that callbacks appear somewhere in the code if the architectural effect is still a central loop waiting for things and asking components for state.
+
+The OpenCV UI made the argument worse. imshow and waitKey are acceptable for a quick lab demo. They are a poor centre of gravity for a realtime safety path. In A.R.G.U.S., the live loop mixed frame processing, UI rendering, keyboard input, dashboard drawing, state updates, and motion coordination. The safety path and the display path were too entangled, so a reviewer could reasonably ask whether the system was realtime or merely interactive.
+
+The latency work was the part that genuinely held up. The markers recognised that the project assessed latencies and sampling rate well. That means the measurement instincts were not wrong. But measuring latency does not rescue an architecture that routes realtime events through waits, queues, getters, and a giant control loop.
+
+That distinction matters.
+
+A system can have good measurements and still be badly structured. A system can use threads and still not be event-driven. A system can have classes and still lack encapsulation. A system can produce a working demo and still fail the architectural standard it was built to demonstrate.
+
+That is the core lesson I want to keep.
+
+If I built A.R.G.U.S. again, I would not start with the robot demo. I would start with the event chain, tested without hardware:
+
+Camera frame event enters the system. Vision turns it into a safety decision. Guardian turns that decision into a state transition. Interlock turns the transition into a motion permission or freeze command. MotionController executes the command behind a small hardware interface.
+
+That chain would be the first product.
+
+No OpenCV window. No dashboard. No servo routine. No polished README. Just fake camera input, fake motion hardware, and C++ tests proving that an unsafe frame eventually calls freezeMotion without a central loop polling for it.
+
+Only after that would I attach the real camera. CameraCapture would expose onFrame, start, and stop. The libcamera callback would be registered directly and would deliver FrameEvent objects to the next stage. It would not be converted back into waitForNextFrame.
+
+Then I would attach the button. PhysicalButtonModule would expose a simple edge callback, not a central polling contract. The button class would own the GPIO edge handling and emit operator events upward.
+
+Then I would attach motion. MotionController would stay small: initialise, set targets, freeze, enable, shutdown. It would not know about the UI, routines, camera, or guardian. RobotInterlock would be the only place deciding whether motion is allowed.
+
+Then I would write the runtime composition layer, and I would keep it boring. Its job would be to wire objects together and manage lifecycle. It should not process every frame itself. If the runtime class starts to know too much, that is not progress. That is the old AppController returning under another name.
+
+The UI would come last and it would be observational. It could subscribe to snapshots and send operator commands, but it would not own the safety path. If the UI freezes, the guardian should still work. If the dashboard is closed, the camera-to-interlock chain should still be alive. That separation is not polish. It is the realtime design.
+
+The tests would also start from the architecture. I would want tests for GuardianStateMachine transitions, RobotInterlock freeze and resume behaviour, VisionProcessor synthetic safe and unsafe frames, CameraCapture fake callback delivery, button fake edge delivery, and a runtime integration test proving that unsafe input reaches fake motion hardware. Shell scripts could still validate hardware, but they would not be the centre of the evidence.
+
+The documentation would be written differently too. It would not mainly say "here is what the product does." It would show the event-flow diagram, the thread diagram, the callback contracts, the class responsibility table, and the places where blocking is forbidden or isolated. For this course, the architecture was not an implementation detail. The architecture was the assessment.
+
+There is also a human lesson in this. Near deadlines, it is natural to centralise control. Put everything in one controller. Add flags. Add queues. Add waits. Add retries. Patch the demo until it survives. That instinct can save a presentation, but it can also destroy the very structure the work is supposed to prove.
+
+I need to recognise that earlier.
+
+When a project is being assessed on architecture, the demo is not the source of truth. The control flow is. The class boundaries are. The ownership model is. The test seams are. The question is not "can I make it work by Friday?" The question is "does the system still explain itself when someone reads the code under pressure?"
+
+A.R.G.U.S. did not explain itself well enough.
+
+That does not make the work worthless. It makes the lesson expensive. The project had a real hardware path, real measurements, real documentation, real effort, and a real result. But the most important thing it produced for me was not the robotic arm stopping on the bench.
+
+It was this rule:
+
+Do not build realtime systems from the demo inward. Build them from the event model outward.
+
+Sensors emit events. Processing stages transform events. Safety classes emit commands. Actuators execute commands. The UI observes. The main program wires. No central loop should own the realtime truth.
+
+If I had followed that rule from the first week, A.R.G.U.S. would have been a different project.`,
+  },
+  {
     slug: "testing-with-a-fictional-engineering-team",
     title: "Testing with a fictional engineering team",
     date: "2026-04-26",

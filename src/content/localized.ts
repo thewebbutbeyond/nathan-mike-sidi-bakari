@@ -294,6 +294,97 @@ Environ 9 000 mots pour l'instant. J'y ajoute quelque chose tous les quelques mo
 };
 
 const FR_NOTE_COPY: Record<string, NoteCopy> = {
+  "what-argus-taught-me-about-realtime-systems": {
+    title: "Ce qu'A.R.G.U.S. m'a appris sur les systèmes temps réel",
+    summary:
+      "Post-mortem sur pourquoi une démo robotique fonctionnelle a quand même échoué au test central d'architecture temps réel, et comment je la reconstruirais depuis le modèle événementiel.",
+    tags: [
+      "ingénierie",
+      "systèmes-embarqués",
+      "temps-réel",
+      "robotique",
+      "architecture",
+      "postmortem",
+      "argus",
+      "coursework",
+      "apprentissage",
+    ],
+    coverAlt:
+      "Banc d'essai A.R.G.U.S. avec bras robotique, caméra, Raspberry Pi et surface de test.",
+    body: `A.R.G.U.S. est le projet que j'ai le plus besoin de garder honnêtement dans l'archive, parce que c'est l'exemple récent le plus clair d'un système qui semblait plus réussi de l'extérieur qu'il ne l'était de l'intérieur.
+
+La version publique de l'histoire est facile à raconter. Un petit bras robotique observe un flux caméra en direct. Un pipeline vision détecte l'exposition d'une couche couleur dangereuse. Une machine d'état guardian décide quand le mouvement doit s'arrêter. Un interlock bloque le chemin de mouvement. Un Raspberry Pi pilote une carte servo PCA9685. La démo de banc tourne. Le README est solide. La documentation est étendue. Les logs montrent des mesures de latence. Le site, le wiki, les pages Doxygen et les surfaces sociales existent.
+
+Tout cela est vrai.
+
+Ce n'est pas la leçon.
+
+La vérité plus profonde est qu'A.R.G.U.S. n'a pas échoué parce que l'idée était faible ou parce que l'équipe n'a pas travaillé. Il a échoué techniquement parce que l'implémentation a dérivé vers "faire marcher la démo" au lieu de faire correspondre l'architecture au modèle temps réel que le cours évaluait vraiment.
+
+Les évaluateurs ne demandaient pas principalement si le robot pouvait bouger et s'arrêter. Ils demandaient si le code démontrait un système C++ temps réel propre et orienté objet : des capteurs qui produisent des événements, des callbacks qui transportent l'information entre frontières, des machines d'état qui réagissent directement à ces événements, et du code actionneur isolé derrière une interface fiable. Ils voulaient que la structure interne prouve les acquis d'apprentissage.
+
+Notre système avait les bons noms. CameraCapture, VisionProcessor, GuardianStateMachine, RobotInterlock, MotionController, PhysicalButtonModule et MetricsLogger étaient des concepts sensés. L'échec venait du fait qu'une trop grande partie du vrai comportement vivait hors de ces concepts, dans un AppController énorme.
+
+Ce fichier est devenu le projet. Il connaissait le flux caméra, le flux bouton, le clavier, le rendu UI, les transitions d'état, les routines de mouvement, les timers, les retries, les watchdogs, les métriques, le pose slewing et l'arrêt. Quand un seul fichier possède autant de choses, l'existence de classes séparées cesse d'être convaincante. Les classes deviennent des pièces contrôlées par un programme procédural central plutôt que des modules autonomes aux responsabilités claires.
+
+C'était l'échec structurel. Le code avait des objets, mais le système n'avait pas vraiment une propriété orientée objet.
+
+L'échec temps réel était plus net. Nous utilisions libcamera2opencv, qui est un framework caméra basé sur callbacks. C'était la bonne direction. Mais ensuite le callback caméra était enveloppé dans un buffer interne, protégé par mutex et condition variable, exposé via waitForNextFrame, consommé par un thread dans AppController, poussé dans une file de messages, puis finalement vidé par la boucle principale.
+
+Autrement dit, nous avons pris une API callback et réintroduit autour d'elle un modèle getter/waiting.
+
+C'est exactement le genre de chose qu'un cours de programmation temps réel est conçu pour remarquer. Le fait que des callbacks apparaissent quelque part dans le code ne suffit pas si l'effet architectural reste une boucle centrale qui attend des choses et demande l'état aux composants.
+
+L'UI OpenCV a aggravé l'argument. imshow et waitKey sont acceptables pour une démo rapide de labo. Ce sont de mauvais centres de gravité pour un chemin de sécurité temps réel. Dans A.R.G.U.S., la boucle live mélangeait traitement image, rendu UI, entrée clavier, dessin du dashboard, mises à jour d'état et coordination du mouvement. Le chemin de sécurité et le chemin d'affichage étaient trop emmêlés, donc un correcteur pouvait raisonnablement demander si le système était temps réel ou simplement interactif.
+
+Le travail sur la latence est la partie qui tenait vraiment. Les évaluateurs ont reconnu que le projet évaluait bien les latences et le taux d'échantillonnage. Cela veut dire que les instincts de mesure n'étaient pas faux. Mais mesurer la latence ne sauve pas une architecture qui route les événements temps réel à travers des waits, des queues, des getters et une énorme boucle de contrôle.
+
+Cette distinction compte.
+
+Un système peut avoir de bonnes mesures et être mal structuré. Un système peut utiliser des threads sans être event-driven. Un système peut avoir des classes sans avoir d'encapsulation réelle. Un système peut produire une démo fonctionnelle et quand même échouer au standard architectural qu'il devait démontrer.
+
+C'est la leçon principale que je veux garder.
+
+Si je reconstruisais A.R.G.U.S., je ne commencerais pas par la démo robot. Je commencerais par la chaîne événementielle, testée sans hardware :
+
+Un événement image entre dans le système. La vision le transforme en décision de sécurité. Le guardian transforme cette décision en transition d'état. L'interlock transforme la transition en permission de mouvement ou commande de freeze. MotionController exécute la commande derrière une petite interface matérielle.
+
+Cette chaîne serait le premier produit.
+
+Pas de fenêtre OpenCV. Pas de dashboard. Pas de routine servo. Pas de README poli. Seulement une fausse caméra, un faux hardware moteur, et des tests C++ prouvant qu'une image dangereuse finit par appeler freezeMotion sans boucle centrale qui la poll.
+
+Après cela seulement, j'attacherais la vraie caméra. CameraCapture exposerait onFrame, start et stop. Le callback libcamera serait enregistré directement et livrerait des FrameEvent à l'étape suivante. Il ne serait pas reconverti en waitForNextFrame.
+
+Puis j'attacherais le bouton. PhysicalButtonModule exposerait un callback d'edge simple, pas un contrat de polling central. La classe bouton posséderait la gestion des fronts GPIO et émettrait des événements opérateur vers le haut.
+
+Puis j'attacherais le mouvement. MotionController resterait petit : initialise, set targets, freeze, enable, shutdown. Il ne saurait rien de l'UI, des routines, de la caméra ou du guardian. RobotInterlock serait le seul endroit qui décide si le mouvement est autorisé.
+
+Ensuite j'écrirais la couche de composition runtime, et je la garderais ennuyeuse. Son travail serait de connecter les objets et de gérer le cycle de vie. Elle ne devrait pas traiter chaque frame elle-même. Si la classe runtime commence à trop savoir, ce n'est pas un progrès. C'est l'ancien AppController qui revient sous un autre nom.
+
+L'UI viendrait en dernier et serait observationnelle. Elle pourrait s'abonner à des snapshots et envoyer des commandes opérateur, mais elle ne posséderait pas le chemin de sécurité. Si l'UI se fige, le guardian doit continuer. Si le dashboard est fermé, la chaîne caméra-interlock doit rester vivante. Cette séparation n'est pas du polish. C'est le design temps réel.
+
+Les tests partiraient aussi de l'architecture. Je voudrais des tests pour les transitions GuardianStateMachine, le freeze et resume de RobotInterlock, des frames synthétiques safe/unsafe pour VisionProcessor, la livraison callback d'une fausse CameraCapture, la livraison d'un faux edge bouton, et un test d'intégration runtime prouvant qu'une entrée dangereuse atteint le faux hardware moteur. Les scripts shell pourraient toujours valider le hardware, mais ils ne seraient pas le centre de la preuve.
+
+La documentation serait écrite autrement aussi. Elle ne dirait pas principalement "voici ce que fait le produit." Elle montrerait le diagramme de flux événementiel, le diagramme de threads, les contrats de callbacks, la table des responsabilités de classes, et les endroits où le blocage est interdit ou isolé. Pour ce cours, l'architecture n'était pas un détail d'implémentation. L'architecture était l'évaluation.
+
+Il y a aussi une leçon humaine ici. Près d'une deadline, il est naturel de centraliser le contrôle. Tout mettre dans un controller. Ajouter des flags. Ajouter des queues. Ajouter des waits. Ajouter des retries. Patcher la démo jusqu'à ce qu'elle survive. Cet instinct peut sauver une présentation, mais il peut aussi détruire la structure même que le travail est censé prouver.
+
+Je dois reconnaître cela plus tôt.
+
+Quand un projet est évalué sur son architecture, la démo n'est pas la source de vérité. Le flux de contrôle l'est. Les frontières de classes le sont. Le modèle de propriété l'est. Les points de test le sont. La question n'est pas "est-ce que je peux le faire marcher pour vendredi ?" La question est "est-ce que le système s'explique encore quand quelqu'un lit le code sous pression ?"
+
+A.R.G.U.S. ne s'expliquait pas assez bien.
+
+Cela ne rend pas le travail inutile. Cela rend la leçon chère. Le projet avait un vrai chemin hardware, de vraies mesures, de la vraie documentation, un vrai effort et un vrai résultat. Mais la chose la plus importante qu'il a produite pour moi n'était pas le bras robotique qui s'arrêtait sur le banc.
+
+C'était cette règle :
+
+Ne pas construire les systèmes temps réel depuis la démo vers l'intérieur. Les construire depuis le modèle événementiel vers l'extérieur.
+
+Les capteurs émettent des événements. Les étapes de traitement transforment les événements. Les classes de sécurité émettent des commandes. Les actionneurs exécutent les commandes. L'UI observe. Le main câble. Aucune boucle centrale ne devrait posséder la vérité temps réel.
+
+Si j'avais suivi cette règle dès la première semaine, A.R.G.U.S. aurait été un autre projet.`,
+  },
   "on-archives-not-portfolios": {
     title: "Sur les archives, pas les portfolios",
     summary: "Pourquoi j'ai arrêté de maintenir un portfolio et commencé à garder une trace.",
