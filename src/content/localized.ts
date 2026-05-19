@@ -375,7 +375,21 @@ Quand un projet est évalué sur son architecture, la démo n'est pas la source 
 
 A.R.G.U.S. ne s'expliquait pas assez bien.
 
-Cela ne rend pas le travail inutile. Cela rend la leçon chère. Le projet avait un vrai chemin hardware, de vraies mesures, de la vraie documentation, un vrai effort et un vrai résultat. Mais la chose la plus importante qu'il a produite pour moi n'était pas le bras robotique qui s'arrêtait sur le banc.
+C'est la vérité académique du projet. La vérité personnelle est différente, et tout aussi importante. A.R.G.U.S. a été la première fois où j'ai construit un robot presque à partir de rien. J'arrivais avec un parcours d'aérospatial et de mécanique/manufacturing/matériaux, justement parce que ma compréhension du contrôle, de l'électronique, du logiciel embarqué et de l'informatique me semblait trop superficielle. Ce projet a forcé toutes ces zones faibles à se rencontrer dans un objet posé sur le banc.
+
+Je n'avais jamais vraiment codé sérieusement en C++. J'avais assez évité Linux pour avoir, sur un autre projet, rebâti le travail sur macOS parce que Linux me faisait peur. À la fin d'A.R.G.U.S., Linux était devenu l'endroit naturel où commencer un travail proche du hardware. J'étais passé par la configuration Raspberry Pi, le plumbing caméra, les build systems C++, le GPIO, le contrôle servo, les scripts shell, les logs, et la frustration particulière du hardware réel qui refuse de se comporter comme une abstraction propre.
+
+La même chose s'est produite physiquement. Je n'avais pas fait beaucoup de câblage ou de soudure pour un projet avant. Je n'avais pas vraiment touché à la CAO depuis un moment. Pour A.R.G.U.S., j'ai travaillé sur le châssis, repris la 3D, fabriqué des pièces, câblé l'électronique, géré batteries et connexions physiques, puis intégré le logiciel avec quelque chose qui pouvait réellement bouger. Ce n'était pas un projet de contrôle robotique avancé. Il n'y avait pas de matrices de Denavit-Hartenberg ni de cinématique sérieuse. Mais c'était quand même une chaîne robotique complète : concevoir, fabriquer, câbler, coder, observer, commander et arrêter.
+
+C'est pour cela que la note a moins fait mal une fois que je l'ai comprise. Un résultat autour de 60% n'est pas un échec. Il dit : l'artefact existait, le système était intégré, la démo avait de la substance, mais la théorie et l'architecture étaient trop superficielles pour les bandes supérieures. C'est un jugement juste. D'une certaine manière, il aurait été pire que le projet reçoive une très bonne note pour un système que j'avais surtout vibe-codé au-delà de ma propre compréhension. Une bonne université devrait voir à travers cela.
+
+L'erreur de calibration compte plus que le nombre. Je pensais que le projet était plus proche d'un bon B ou d'un A parce que la surface visible était forte. Les évaluateurs ont jugé la structure cachée. Cet écart m'a montré où je m'étais appuyé sur un assistant IA au-delà de ma capacité à le superviser.
+
+C'est probablement la leçon moderne de programmation ici. Le problème n'est pas d'utiliser l'IA. Le problème est de demander à un agent IA de combler des trous de compréhension que je ne peux pas encore inspecter. En Python, où j'ai plus d'heures, je peux résister à l'abstraction inutile. Je peux voir quand une fonction helper est seulement décorative, quand un script devrait rester simple, quand la structure est plus grande que le problème. En C++, je n'avais pas encore cette résistance. Une complexité plausible pouvait passer parce que je ne savais pas toujours distinguer l'ingénierie nécessaire du brouillard architectural.
+
+Coder avec l'IA demande quand même un chef de projet technique. Pas un manager qui distribue seulement des tâches, mais quelqu'un qui comprend assez le travail pour challenger les experts, inspecter les interfaces et savoir quand l'histoire ne tient pas. Sur A.R.G.U.S., je n'étais pas encore ce manager. Je donnais des instructions dans un domaine où je ne pouvais pas pleinement lire les conséquences.
+
+Cela ne rend pas le travail inutile. Cela rend la leçon chère. Le projet avait un vrai chemin hardware, de vraies mesures, de la vraie documentation, un vrai effort et un vrai résultat. Il m'a appris C++, Linux, le câblage, l'intégration embarquée, et la différence entre une démo fonctionnelle et une architecture temps réel défendable. Mais la chose la plus importante qu'il a produite pour moi n'était pas seulement le bras robotique qui s'arrêtait sur le banc.
 
 C'était cette règle :
 

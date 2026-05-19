@@ -862,7 +862,21 @@ When a project is being assessed on architecture, the demo is not the source of 
 
 A.R.G.U.S. did not explain itself well enough.
 
-That does not make the work worthless. It makes the lesson expensive. The project had a real hardware path, real measurements, real documentation, real effort, and a real result. But the most important thing it produced for me was not the robotic arm stopping on the bench.
+That is the academic truth of the project. The personal truth is different, and just as important. A.R.G.U.S. was the first time I built a robot from almost nothing. I came into the course from an aerospace and mechanical/manufacturing/materials background, specifically because my understanding of control, electronics, embedded software, and computer science felt too shallow. This project forced all of those weak areas into one object on the bench.
+
+I had never coded seriously in C++. I had avoided Linux enough that, on another project, I once rebased the work onto macOS because Linux felt too uncomfortable. By the end of A.R.G.U.S., Linux had become the natural place to start hardware-adjacent work. I had gone through Raspberry Pi setup, camera plumbing, C++ build systems, GPIO, servo control, shell scripts, logs, and the particular frustration of real hardware refusing to behave like a clean abstraction.
+
+The same thing happened physically. I had not done much wiring or soldering for a project before. I had not touched CAD properly in a while. For A.R.G.U.S., I worked on the chassis, returned to 3D design, manufactured parts, wired the electronics, handled batteries and physical connections, and integrated the software with something that could actually move. It was not an advanced robotics-control project. There were no Denavit-Hartenberg matrices or serious kinematics. But it was still a full robotics pipeline: design, manufacture, wire, code, observe, command, and stop.
+
+That is why the mark hurt less once I understood it. A result around 60% is not a failure. It says: the artefact existed, the system integrated, and the demo had substance, but the theory and architecture were too shallow for the higher bands. That is a fair judgement. It would have been worse, in a way, if the project had received a high mark for a system I had mostly vibe-coded past my own understanding. A good university should see through that.
+
+The calibration error matters more than the number. I thought the project was closer to a strong B or A because the visible surface was strong. The markers judged the hidden structure. That gap showed me where I had relied on an AI assistant beyond my ability to supervise it.
+
+That is probably the modern programming lesson here. The problem is not using AI. The problem is asking an AI agent to fill gaps in understanding that I cannot yet inspect. In Python, where I have more hours, I can resist unnecessary abstraction. I can tell when a helper function is just decoration, when a script should stay simple, when the structure is larger than the problem. In C++, I did not yet have that resistance. Plausible complexity could pass through because I could not always tell whether it was necessary engineering or architectural fog.
+
+AI coding still requires a technical project manager. Not a manager who merely assigns tasks, but one who understands enough of the work to challenge the experts, inspect the interfaces, and know when the story does not add up. On A.R.G.U.S., I was not yet that manager. I gave instructions in a domain where I could not fully read the consequences.
+
+That does not make the work worthless. It makes the lesson expensive. The project had a real hardware path, real measurements, real documentation, real effort, and a real result. It taught me C++, Linux, wiring, embedded integration, and the difference between a working demo and a defensible realtime architecture. But the most important thing it produced for me was not only the robotic arm stopping on the bench.
 
 It was this rule:
 
